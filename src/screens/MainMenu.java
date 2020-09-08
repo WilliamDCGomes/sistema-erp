@@ -1,7 +1,15 @@
 package screens;
 
 import functioncontroller.ScreenUserSize;
+import functioncontroller.SetLocationSubMenus;
 import submenus.BillMenu;
+import submenus.ClientMenu;
+import submenus.DeptMenu;
+import submenus.DiaryMenu;
+import submenus.OrderMenu;
+import submenus.ProductMenu;
+import submenus.SaleMenu;
+import submenus.StockMenu;
 
 public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
@@ -52,6 +60,16 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        menuBacklog = new javax.swing.JMenu();
+        optAllPartsInTestRoom = new javax.swing.JMenuItem();
+        optPartsOver7Days = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        menuManual = new javax.swing.JMenu();
+        optAddManual = new javax.swing.JMenuItem();
+        optFindManual = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         menuOrder = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -59,11 +77,6 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-        menuManual = new javax.swing.JMenu();
-        optAddManual = new javax.swing.JMenuItem();
-        optFindManual = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
         menuStock = new javax.swing.JMenu();
         optAddItemStock = new javax.swing.JMenuItem();
         optFindItemStock = new javax.swing.JMenuItem();
@@ -71,11 +84,6 @@ public class MainMenu extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         optMoreRequestesItemsStock = new javax.swing.JMenuItem();
         jMenuItem22 = new javax.swing.JMenuItem();
-        menuBacklog = new javax.swing.JMenu();
-        optAllPartsInTestRoom = new javax.swing.JMenuItem();
-        optPartsOver7Days = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         jMenuItem18 = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
@@ -104,7 +112,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stock.png"))); // NOI18N
+        buttonOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stocks.png"))); // NOI18N
         buttonOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOrderActionPerformed(evt);
@@ -202,7 +210,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("CLIENTE");
+        txtAddOS1.setText("CLIENTES");
         txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAddOS1MouseClicked(evt);
@@ -313,27 +321,33 @@ public class MainMenu extends javax.swing.JFrame {
 
         menuBar.add(menuFind);
 
-        menuOrder.setText("Pedidos");
+        menuBacklog.setText("Clientes");
 
-        jMenuItem6.setText("Novo Pedido");
-        menuOrder.add(jMenuItem6);
+        optAllPartsInTestRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
+        optAllPartsInTestRoom.setText("Adicionar Cliente");
+        optAllPartsInTestRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllPartsInTestRoomActionPerformed(evt);
+            }
+        });
+        menuBacklog.add(optAllPartsInTestRoom);
 
-        jMenuItem7.setText("Localizar Pedido");
-        menuOrder.add(jMenuItem7);
+        optPartsOver7Days.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
+        optPartsOver7Days.setText("Localizar Cliente");
+        optPartsOver7Days.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPartsOver7DaysActionPerformed(evt);
+            }
+        });
+        menuBacklog.add(optPartsOver7Days);
 
-        jMenuItem8.setText("Editar Pedido");
-        menuOrder.add(jMenuItem8);
+        jMenuItem16.setText("Editar Cliente");
+        menuBacklog.add(jMenuItem16);
 
-        jMenuItem9.setText("Excluir Pedido");
-        menuOrder.add(jMenuItem9);
+        jMenuItem17.setText("excluir Cliente");
+        menuBacklog.add(jMenuItem17);
 
-        jMenuItem11.setText("Pedido Pendente");
-        menuOrder.add(jMenuItem11);
-
-        jMenuItem12.setText("Pedidos Cancelados");
-        menuOrder.add(jMenuItem12);
-
-        menuBar.add(menuOrder);
+        menuBar.add(menuBacklog);
 
         menuManual.setText("Produtos");
 
@@ -368,6 +382,28 @@ public class MainMenu extends javax.swing.JFrame {
         menuManual.add(jMenuItem13);
 
         menuBar.add(menuManual);
+
+        menuOrder.setText("Pedidos");
+
+        jMenuItem6.setText("Novo Pedido");
+        menuOrder.add(jMenuItem6);
+
+        jMenuItem7.setText("Localizar Pedido");
+        menuOrder.add(jMenuItem7);
+
+        jMenuItem8.setText("Editar Pedido");
+        menuOrder.add(jMenuItem8);
+
+        jMenuItem9.setText("Excluir Pedido");
+        menuOrder.add(jMenuItem9);
+
+        jMenuItem11.setText("Pedido Pendente");
+        menuOrder.add(jMenuItem11);
+
+        jMenuItem12.setText("Pedidos Cancelados");
+        menuOrder.add(jMenuItem12);
+
+        menuBar.add(menuOrder);
 
         menuStock.setText("Estoque");
 
@@ -408,34 +444,6 @@ public class MainMenu extends javax.swing.JFrame {
         menuStock.add(jMenuItem22);
 
         menuBar.add(menuStock);
-
-        menuBacklog.setText("Clientes");
-
-        optAllPartsInTestRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
-        optAllPartsInTestRoom.setText("Adicionar Cliente");
-        optAllPartsInTestRoom.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optAllPartsInTestRoomActionPerformed(evt);
-            }
-        });
-        menuBacklog.add(optAllPartsInTestRoom);
-
-        optPartsOver7Days.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
-        optPartsOver7Days.setText("Localizar Cliente");
-        optPartsOver7Days.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optPartsOver7DaysActionPerformed(evt);
-            }
-        });
-        menuBacklog.add(optPartsOver7Days);
-
-        jMenuItem16.setText("Editar Cliente");
-        menuBacklog.add(jMenuItem16);
-
-        jMenuItem17.setText("excluir Cliente");
-        menuBacklog.add(jMenuItem17);
-
-        menuBar.add(menuBacklog);
 
         menuReport.setText("Relatórios");
 
@@ -629,7 +637,9 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddOSMouseClicked
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        
+        LoginScreen loginScreen = new LoginScreen();
+        this.dispose();
+        loginScreen.setVisible(true);
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void txtLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLogoutMouseClicked
@@ -637,7 +647,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLogoutMouseClicked
 
     private void buttonStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStockActionPerformed
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 310).split("/");
+        DeptMenu deptMenu = new DeptMenu();
+        deptMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        deptMenu.setVisible(true);
     }//GEN-LAST:event_buttonStockActionPerformed
 
     private void txtStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockMouseClicked
@@ -653,7 +667,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddOS2MouseClicked
 
     private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonAddOS2.getX(), 134).split("/");
+        SaleMenu saleMenu = new SaleMenu();
+        saleMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        saleMenu.setVisible(true);
     }//GEN-LAST:event_buttonAddOS2ActionPerformed
 
     private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
@@ -661,11 +679,19 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddOS1MouseClicked
 
     private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonAddOS1.getX(), 134).split("/");
+        ClientMenu clientMenu = new ClientMenu();
+        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        clientMenu.setVisible(true);
     }//GEN-LAST:event_buttonAddOS1ActionPerformed
 
     private void buttonEditOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOSActionPerformed
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonEditOS.getX(), 405).split("/");
+        OrderMenu orderMenu = new OrderMenu();
+        orderMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        orderMenu.setVisible(true);
     }//GEN-LAST:event_buttonEditOSActionPerformed
 
     private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
@@ -674,7 +700,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddOSActionPerformed
 
     private void buttonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderActionPerformed
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonOrder.getX(), 250).split("/");
+        StockMenu stockMenu = new StockMenu();
+        stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        stockMenu.setVisible(true);
     }//GEN-LAST:event_buttonOrderActionPerformed
 
     private void txtEditOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditOSMouseClicked
@@ -682,7 +712,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEditOSMouseClicked
 
     private void buttonFindOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFindOSActionPerformed
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonFindOS.getX(), 195).split("/");
+        ProductMenu productMenu = new ProductMenu();
+        productMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        productMenu.setVisible(true);
     }//GEN-LAST:event_buttonFindOSActionPerformed
 
     private void txtFindOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFindOSMouseClicked
@@ -694,7 +728,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtStock1MouseClicked
 
     private void buttonStock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStock1ActionPerformed
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 600).split("/");
+        DiaryMenu diaryMenu = new DiaryMenu();
+        diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        diaryMenu.setVisible(true);
     }//GEN-LAST:event_buttonStock1ActionPerformed
 
     /**

@@ -5,19 +5,16 @@
  */
 package submenus;
 
-import screens.CashOut;
-import screens.Income;
-
 /**
  *
  * @author Alunos
  */
-public class BillMenu extends javax.swing.JFrame {
+public class StockMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form BillMenu
+     * Creates new form StockMenu
      */
-    public BillMenu() {
+    public StockMenu() {
         initComponents();
     }
 
@@ -38,6 +35,8 @@ public class BillMenu extends javax.swing.JFrame {
         buttonAddOS2 = new javax.swing.JButton();
         txtAddOS3 = new javax.swing.JLabel();
         buttonAddOS3 = new javax.swing.JButton();
+        txtAddOS4 = new javax.swing.JLabel();
+        buttonAddOS4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -51,14 +50,14 @@ public class BillMenu extends javax.swing.JFrame {
 
         txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("ENTRADA");
+        txtAddOS.setText("NOVO");
         txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAddOSMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/enterMoney.png"))); // NOI18N
+        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newStock.png"))); // NOI18N
         buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddOSActionPerformed(evt);
@@ -67,14 +66,14 @@ public class BillMenu extends javax.swing.JFrame {
 
         txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("SAÍDA");
+        txtAddOS1.setText("LOCALIZAR");
         txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAddOS1MouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/outMoney.png"))); // NOI18N
+        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeStock.png"))); // NOI18N
         buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddOS1ActionPerformed(evt);
@@ -83,14 +82,14 @@ public class BillMenu extends javax.swing.JFrame {
 
         txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("ALTERAR");
+        txtAddOS2.setText("TODOS");
         txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAddOS2MouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editMoney.png"))); // NOI18N
+        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stock.png"))); // NOI18N
         buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddOS2ActionPerformed(evt);
@@ -99,17 +98,33 @@ public class BillMenu extends javax.swing.JFrame {
 
         txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("FLUXO");
+        txtAddOS3.setText("EM FALTA");
         txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtAddOS3MouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashFlow.png"))); // NOI18N
+        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
         buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddOS3ActionPerformed(evt);
+            }
+        });
+
+        txtAddOS4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddOS4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAddOS4.setText("BAIXAR");
+        txtAddOS4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtAddOS4MouseClicked(evt);
+            }
+        });
+
+        buttonAddOS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/downloadStock.png"))); // NOI18N
+        buttonAddOS4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddOS4ActionPerformed(evt);
             }
         });
 
@@ -118,19 +133,23 @@ public class BillMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,13 +161,17 @@ public class BillMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtAddOS4))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAddOS3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAddOS2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,7 +183,7 @@ public class BillMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 190, 489, 140);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
@@ -168,8 +191,7 @@ public class BillMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddOSMouseClicked
 
     private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
-        Income income = new Income();
-        income.setVisible(true);
+
     }//GEN-LAST:event_buttonAddOSActionPerformed
 
     private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
@@ -177,8 +199,7 @@ public class BillMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAddOS1MouseClicked
 
     private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
-        CashOut cashOut = new CashOut();
-        cashOut.setVisible(true);
+        // TODO add your handling code here:
     }//GEN-LAST:event_buttonAddOS1ActionPerformed
 
     private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
@@ -196,6 +217,14 @@ public class BillMenu extends javax.swing.JFrame {
     private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonAddOS3ActionPerformed
+
+    private void txtAddOS4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddOS4MouseClicked
+
+    private void buttonAddOS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAddOS4ActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -218,20 +247,20 @@ public class BillMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BillMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BillMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BillMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BillMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StockMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BillMenu().setVisible(true);
+                new StockMenu().setVisible(true);
             }
         });
     }
@@ -241,9 +270,11 @@ public class BillMenu extends javax.swing.JFrame {
     private javax.swing.JButton buttonAddOS1;
     private javax.swing.JButton buttonAddOS2;
     private javax.swing.JButton buttonAddOS3;
+    private javax.swing.JButton buttonAddOS4;
     private javax.swing.JLabel txtAddOS;
     private javax.swing.JLabel txtAddOS1;
     private javax.swing.JLabel txtAddOS2;
     private javax.swing.JLabel txtAddOS3;
+    private javax.swing.JLabel txtAddOS4;
     // End of variables declaration//GEN-END:variables
 }
