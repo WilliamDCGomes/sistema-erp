@@ -5,6 +5,8 @@
  */
 package screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -27,23 +29,289 @@ public class SaleScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtCodSale = new javax.swing.JLabel();
+        outputCodSale = new javax.swing.JTextField();
+        txtCodSaller = new javax.swing.JLabel();
+        outputCodSaller = new javax.swing.JTextField();
+        txtFormPayment = new javax.swing.JLabel();
+        outputFormPayment = new javax.swing.JTextField();
+        txtPaymentMethod = new javax.swing.JLabel();
+        outputPaymentMethod = new javax.swing.JComboBox<>();
+        txtClient = new javax.swing.JLabel();
+        outputClient = new javax.swing.JTextField();
+        txtDateOfSale = new javax.swing.JLabel();
+        outputDateOfSale = new javax.swing.JFormattedTextField();
+        txtTotal = new javax.swing.JLabel();
+        outputTotal = new javax.swing.JLabel();
+        tableSale = new javax.swing.JScrollPane();
+        tableSoldItems = new javax.swing.JTable();
+        txtItems = new javax.swing.JLabel();
+        buttonEdit = new javax.swing.JButton();
+        buttonDelete = new javax.swing.JButton();
+        buttonLocale = new javax.swing.JButton();
+        buttonAllSales = new javax.swing.JButton();
+        txtSale = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JLabel();
+        outputStatus = new javax.swing.JLabel();
+        buttonShowPaymentMethod = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
+
+        txtCodSale.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtCodSale.setText("Código da Venda");
+
+        txtCodSaller.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtCodSaller.setText("Código do Vendedor");
+
+        txtFormPayment.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtFormPayment.setText("Forma de Pagamento");
+
+        txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPaymentMethod.setText("Meio de Pagamento");
+
+        outputPaymentMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
+        outputPaymentMethod.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                outputPaymentMethodItemStateChanged(evt);
+            }
+        });
+        outputPaymentMethod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outputPaymentMethodActionPerformed(evt);
+            }
+        });
+
+        txtClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtClient.setText("Cliente");
+
+        txtDateOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtDateOfSale.setText("Data da Venda");
+
+        try {
+            outputDateOfSale.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        outputDateOfSale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        txtTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtTotal.setText("Total");
+
+        outputTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        outputTotal.setText("0,00");
+
+        tableSoldItems.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Descrição", "Quantidade", "Cliente", "Valor"
+            }
+        ));
+        tableSale.setViewportView(tableSoldItems);
+
+        txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtItems.setText("Itens");
+
+        buttonEdit.setText("EDITAR");
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditActionPerformed(evt);
+            }
+        });
+
+        buttonDelete.setText("EXCLUIR");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
+
+        buttonLocale.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        buttonLocale.setText("PESQUISAR");
+
+        buttonAllSales.setText("TODAS AS VENDAS");
+        buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllSalesActionPerformed(evt);
+            }
+        });
+
+        txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        txtSale.setText("Venda");
+
+        txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtStatus.setText("Status:");
+
+        outputStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        outputStatus.setText("Pendente");
+
+        buttonShowPaymentMethod.setText("PAGAMENTO");
+        buttonShowPaymentMethod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowPaymentMethodActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtSale)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tableSale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtItems)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtCodSale)
+                                            .addComponent(outputCodSale, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPaymentMethod)
+                                            .addComponent(outputPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(23, 23, 23)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtStatus)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(outputStatus))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(txtCodSaller)
+                                                    .addComponent(outputCodSaller, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtClient)
+                                                    .addComponent(outputClient, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(41, 41, 41)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(outputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtDateOfSale)
+                                                    .addComponent(txtFormPayment)
+                                                    .addComponent(outputFormPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(buttonLocale))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonShowPaymentMethod)
+                                .addGap(32, 32, 32)
+                                .addComponent(buttonEdit)
+                                .addGap(33, 33, 33)
+                                .addComponent(buttonDelete)
+                                .addGap(26, 26, 26)
+                                .addComponent(buttonAllSales)
+                                .addGap(111, 111, 111)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(outputTotal)
+                                    .addComponent(txtTotal))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 495, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtSale)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtFormPayment)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(outputFormPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtCodSaller)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(outputCodSaller, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtCodSale)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(outputCodSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(3, 3, 3)
+                .addComponent(buttonLocale)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(outputClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outputPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtItems, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tableSale, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(outputTotal)
+                            .addComponent(buttonEdit)
+                            .addComponent(buttonDelete)
+                            .addComponent(buttonAllSales)
+                            .addComponent(buttonShowPaymentMethod)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(outputStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(604, 534));
+        setSize(new java.awt.Dimension(640, 550));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void outputPaymentMethodItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_outputPaymentMethodItemStateChanged
+
+    }//GEN-LAST:event_outputPaymentMethodItemStateChanged
+
+    private void outputPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputPaymentMethodActionPerformed
+        
+    }//GEN-LAST:event_outputPaymentMethodActionPerformed
+
+    private void buttonShowPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowPaymentMethodActionPerformed
+        FormPayment formPayment = new FormPayment();
+        formPayment.buttonFinish.setVisible(false);
+        formPayment.setVisible(true);
+    }//GEN-LAST:event_buttonShowPaymentMethodActionPerformed
+
+    private void buttonAllSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllSalesActionPerformed
+        PendingSale pendingSale = new PendingSale();
+        pendingSale.txtPendingSale.setText("Todas as Vendas");
+        pendingSale.setTitle("Todas as Vendas");
+        this.dispose();
+        pendingSale.setVisible(true);
+    }//GEN-LAST:event_buttonAllSalesActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        JOptionPane.showMessageDialog(null, "VENDA EXCLUIDA COM SUCESSO");
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        NewSale newSale = new NewSale();
+        newSale.txtNewSale.setText("Editar Venda");
+        newSale.setTitle("Editar Venda");
+        newSale.buttonCancele.setText("EXCLUIR");
+        this.dispose();
+        newSale.setVisible(true);
+    }//GEN-LAST:event_buttonEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -81,5 +349,30 @@ public class SaleScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAllSales;
+    private javax.swing.JButton buttonDelete;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonShowPaymentMethod;
+    private javax.swing.JTextField outputClient;
+    private javax.swing.JTextField outputCodSale;
+    private javax.swing.JTextField outputCodSaller;
+    private javax.swing.JFormattedTextField outputDateOfSale;
+    private javax.swing.JTextField outputFormPayment;
+    private javax.swing.JComboBox<String> outputPaymentMethod;
+    private javax.swing.JLabel outputStatus;
+    private javax.swing.JLabel outputTotal;
+    private javax.swing.JScrollPane tableSale;
+    private javax.swing.JTable tableSoldItems;
+    private javax.swing.JLabel txtClient;
+    private javax.swing.JLabel txtCodSale;
+    private javax.swing.JLabel txtCodSaller;
+    private javax.swing.JLabel txtDateOfSale;
+    private javax.swing.JLabel txtFormPayment;
+    private javax.swing.JLabel txtItems;
+    private javax.swing.JLabel txtPaymentMethod;
+    private javax.swing.JLabel txtSale;
+    private javax.swing.JLabel txtStatus;
+    private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }

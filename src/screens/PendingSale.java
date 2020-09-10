@@ -55,6 +55,11 @@ public class PendingSale extends javax.swing.JFrame {
         tablePendingSale.setViewportView(tablePending);
 
         buttonShow.setText("MOSTRAR");
+        buttonShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowActionPerformed(evt);
+            }
+        });
 
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -115,6 +120,11 @@ public class PendingSale extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(653, 474));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
+        SaleScreen saleScreen = new SaleScreen();
+        saleScreen.setVisible(true);
+    }//GEN-LAST:event_buttonShowActionPerformed
 
     /**
      * @param args the command line arguments

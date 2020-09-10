@@ -227,7 +227,7 @@ public class FormPayment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonFinish;
+    public static javax.swing.JButton buttonFinish;
     private javax.swing.JTextField inputEnterValue;
     private javax.swing.JFormattedTextField inputExpirationDate;
     private javax.swing.JTextField inputPlots;

@@ -107,6 +107,7 @@ public class LocaleSale extends javax.swing.JFrame {
 
     private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
         SaleScreen saleScreen = new SaleScreen();
+        this.dispose();
         saleScreen.setVisible(true);
     }//GEN-LAST:event_buttonLocaleActionPerformed
 

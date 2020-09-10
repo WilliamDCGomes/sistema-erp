@@ -6,6 +6,7 @@
 package screens;
 
 import functioncontroller.GetDateSystem;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +31,7 @@ public class NewSale extends javax.swing.JFrame {
     private void initComponents() {
 
         groupFormPayment = new javax.swing.ButtonGroup();
+        groupStatus = new javax.swing.ButtonGroup();
         txtNewSale = new javax.swing.JLabel();
         txtCod = new javax.swing.JLabel();
         inputCod = new javax.swing.JTextField();
@@ -52,7 +54,6 @@ public class NewSale extends javax.swing.JFrame {
         tableNewSale = new javax.swing.JScrollPane();
         tableSoldItems = new javax.swing.JTable();
         buttonSave = new javax.swing.JButton();
-        nuttonPendingSale = new javax.swing.JButton();
         buttomRemoveItems = new javax.swing.JButton();
         txtItems = new javax.swing.JLabel();
         txtDateOfSale = new javax.swing.JLabel();
@@ -61,6 +62,10 @@ public class NewSale extends javax.swing.JFrame {
         inputInCash = new javax.swing.JRadioButton();
         inputTerm = new javax.swing.JRadioButton();
         txtDiscount1 = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JLabel();
+        inputFinishSale = new javax.swing.JRadioButton();
+        inputPendingSale = new javax.swing.JRadioButton();
+        buttonCancele = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nova Venda");
@@ -140,8 +145,11 @@ public class NewSale extends javax.swing.JFrame {
         tableNewSale.setViewportView(tableSoldItems);
 
         buttonSave.setText("SALVAR");
-
-        nuttonPendingSale.setText("PENDENTE");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
 
         buttomRemoveItems.setText("REMOVER");
 
@@ -170,6 +178,22 @@ public class NewSale extends javax.swing.JFrame {
         txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtDiscount1.setText("%");
 
+        txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtStatus.setText("Status:");
+
+        groupStatus.add(inputFinishSale);
+        inputFinishSale.setText("Finalizada");
+
+        groupStatus.add(inputPendingSale);
+        inputPendingSale.setText("Pendente");
+
+        buttonCancele.setText("CANCELAR");
+        buttonCancele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCanceleActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,10 +208,10 @@ public class NewSale extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonSave)
-                                .addGap(29, 29, 29)
-                                .addComponent(nuttonPendingSale)
-                                .addGap(37, 37, 37)
-                                .addComponent(buttomRemoveItems))
+                                .addGap(36, 36, 36)
+                                .addComponent(buttomRemoveItems)
+                                .addGap(36, 36, 36)
+                                .addComponent(buttonCancele))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,7 +264,13 @@ public class NewSale extends javax.swing.JFrame {
                                 .addGap(86, 86, 86)
                                 .addComponent(txtDateOfSale)
                                 .addGap(24, 24, 24)
-                                .addComponent(inputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(inputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(txtStatus)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputFinishSale)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(inputPendingSale)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -296,7 +326,11 @@ public class NewSale extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtItems, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(inputDateOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(inputFinishSale)
+                                .addComponent(inputPendingSale)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -312,11 +346,10 @@ public class NewSale extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(outputTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(buttonSave)
-                                .addComponent(nuttonPendingSale))
-                            .addComponent(buttomRemoveItems)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonSave)
+                            .addComponent(buttomRemoveItems)
+                            .addComponent(buttonCancele)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtPaymentMethod, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -347,6 +380,17 @@ public class NewSale extends javax.swing.JFrame {
             inputDateOfSale.setText(getDateSystem.dateOfSystem());
         }
     }//GEN-LAST:event_formWindowActivated
+
+    private void buttonCanceleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCanceleActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonCanceleActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        JOptionPane.showMessageDialog(null, "VENDA FINALIZADA COM SUCESSO");
+        SaleScreen saleScreen = new SaleScreen();
+        this.dispose();
+        saleScreen.setVisible(true);
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,20 +429,23 @@ public class NewSale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttomRemoveItems;
+    public static javax.swing.JButton buttonCancele;
     private javax.swing.JButton buttonLocaleClient;
     private javax.swing.JButton buttonNewClient;
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup groupFormPayment;
+    private javax.swing.ButtonGroup groupStatus;
     private javax.swing.JTextField inputAmount;
     private javax.swing.JTextField inputClient;
     private javax.swing.JTextField inputCod;
     private javax.swing.JTextField inputCodOfSaller;
     private javax.swing.JFormattedTextField inputDateOfSale;
     private javax.swing.JTextField inputDiscount;
+    private javax.swing.JRadioButton inputFinishSale;
     private javax.swing.JComboBox<String> inputFormPayment;
     private javax.swing.JRadioButton inputInCash;
+    private javax.swing.JRadioButton inputPendingSale;
     private javax.swing.JRadioButton inputTerm;
-    private javax.swing.JButton nuttonPendingSale;
     private javax.swing.JLabel outputSubTotal;
     private javax.swing.JLabel outputTotal;
     private javax.swing.JScrollPane tableNewSale;
@@ -412,8 +459,9 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JLabel txtDiscount1;
     private javax.swing.JLabel txtFormPayment;
     private javax.swing.JLabel txtItems;
-    private javax.swing.JLabel txtNewSale;
+    public static javax.swing.JLabel txtNewSale;
     private javax.swing.JLabel txtPaymentMethod;
+    private javax.swing.JLabel txtStatus;
     private javax.swing.JLabel txtSubTotal;
     private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
