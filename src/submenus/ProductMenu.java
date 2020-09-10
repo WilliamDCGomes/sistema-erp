@@ -27,14 +27,14 @@ public class ProductMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
+        txtNewProduct = new javax.swing.JLabel();
+        buttonNewProduct = new javax.swing.JButton();
+        txtLocaleProduct = new javax.swing.JLabel();
+        buttonLocaleProduct = new javax.swing.JButton();
+        txtAllProducts = new javax.swing.JLabel();
+        buttonAllProducts = new javax.swing.JButton();
+        txtBestSellers = new javax.swing.JLabel();
+        buttonBestSellers = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -46,67 +46,67 @@ public class ProductMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("NOVO");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewProduct.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewProduct.setText("NOVO");
+        txtNewProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtNewProductMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newProduct.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newProduct.png"))); // NOI18N
+        buttonNewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonNewProductActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("LOCALIZAR");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleProduct.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleProduct.setText("LOCALIZAR");
+        txtLocaleProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtLocaleProductMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeProduct.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeProduct.png"))); // NOI18N
+        buttonLocaleProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonLocaleProductActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("TODOS");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAllProducts.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAllProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllProducts.setText("TODOS");
+        txtAllProducts.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtAllProductsMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allProducts.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allProducts.png"))); // NOI18N
+        buttonAllProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonAllProductsActionPerformed(evt);
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("MAIS VENDIDOS");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtBestSellers.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtBestSellers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtBestSellers.setText("MAIS VENDIDOS");
+        txtBestSellers.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtBestSellersMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/moreSale.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonBestSellers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/moreSale.png"))); // NOI18N
+        buttonBestSellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonBestSellersActionPerformed(evt);
             }
         });
 
@@ -117,22 +117,22 @@ public class ProductMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAllProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAllProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3)
+                    .addComponent(txtBestSellers)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonBestSellers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -141,58 +141,58 @@ public class ProductMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAllProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtAllProducts))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonBestSellers, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS3))
+                        .addComponent(txtBestSellers))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonLocaleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtLocaleProduct))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonNewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS)))
+                        .addComponent(txtNewProduct)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBounds(0, 0, 527, 140);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtNewProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewProductMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtNewProductMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonNewProductActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtLocaleProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleProductMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtLocaleProductMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonLocaleProductActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtAllProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllProductsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtAllProductsMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonAllProductsActionPerformed
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtBestSellersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBestSellersMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtBestSellersMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonBestSellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBestSellersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonBestSellersActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -234,13 +234,13 @@ public class ProductMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtAddOS3;
+    private javax.swing.JButton buttonAllProducts;
+    private javax.swing.JButton buttonBestSellers;
+    private javax.swing.JButton buttonLocaleProduct;
+    private javax.swing.JButton buttonNewProduct;
+    private javax.swing.JLabel txtAllProducts;
+    private javax.swing.JLabel txtBestSellers;
+    private javax.swing.JLabel txtLocaleProduct;
+    private javax.swing.JLabel txtNewProduct;
     // End of variables declaration//GEN-END:variables
 }

@@ -27,12 +27,12 @@ public class ClientMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
+        txtNewClient = new javax.swing.JLabel();
+        buttonNewClient = new javax.swing.JButton();
+        txtLocaleClient = new javax.swing.JLabel();
+        buttonLocaleClient = new javax.swing.JButton();
+        txtAllClients = new javax.swing.JLabel();
+        buttonAllClients = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -44,51 +44,51 @@ public class ClientMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("NOVO");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewClient.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewClient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewClient.setText("NOVO");
+        txtNewClient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtNewClientMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newClient.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newClient.png"))); // NOI18N
+        buttonNewClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonNewClientActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("LOCALIZAR");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleClient.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleClient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleClient.setText("LOCALIZAR");
+        txtLocaleClient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtLocaleClientMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeClient.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeClient.png"))); // NOI18N
+        buttonLocaleClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonLocaleClientActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("TODOS");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAllClients.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAllClients.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllClients.setText("TODOS");
+        txtAllClients.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtAllClientsMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allClients.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllClients.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allClients.png"))); // NOI18N
+        buttonAllClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonAllClientsActionPerformed(evt);
             }
         });
 
@@ -99,16 +99,16 @@ public class ClientMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -117,46 +117,46 @@ public class ClientMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAllClients, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtAllClients))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonLocaleClient, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtLocaleClient))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonNewClient, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS)))
+                        .addComponent(txtNewClient)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtNewClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewClientMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtNewClientMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClientActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonNewClientActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtLocaleClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleClientMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtLocaleClientMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleClientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonLocaleClientActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtAllClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllClientsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtAllClientsMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllClientsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonAllClientsActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -198,11 +198,11 @@ public class ClientMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
+    private javax.swing.JButton buttonAllClients;
+    private javax.swing.JButton buttonLocaleClient;
+    private javax.swing.JButton buttonNewClient;
+    private javax.swing.JLabel txtAllClients;
+    private javax.swing.JLabel txtLocaleClient;
+    private javax.swing.JLabel txtNewClient;
     // End of variables declaration//GEN-END:variables
 }

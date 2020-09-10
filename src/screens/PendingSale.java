@@ -27,18 +27,18 @@ public class PendingSale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        txtPendingSale = new javax.swing.JLabel();
+        tablePendingSale = new javax.swing.JScrollPane();
+        tablePending = new javax.swing.JTable();
+        buttonShow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendas Pendete");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("Vendas Pendentes");
+        txtPendingSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtPendingSale.setText("Vendas Pendentes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablePending.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,9 +49,9 @@ public class PendingSale extends javax.swing.JFrame {
                 "Código da Venda", "Valor", "Data", "Forma de Pagamento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tablePendingSale.setViewportView(tablePending);
 
-        jButton1.setText("MOSTRAR");
+        buttonShow.setText("MOSTRAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,24 +61,24 @@ public class PendingSale extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonShow)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
+                    .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(txtPendingSale)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addComponent(txtPendingSale)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(buttonShow)
                 .addGap(14, 14, 14))
         );
 
@@ -122,9 +122,9 @@ public class PendingSale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton buttonShow;
+    private javax.swing.JTable tablePending;
+    private javax.swing.JScrollPane tablePendingSale;
+    private javax.swing.JLabel txtPendingSale;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,14 +30,14 @@ public class BillMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
+        txtMoneyEnter = new javax.swing.JLabel();
+        buttonMoneyEnter = new javax.swing.JButton();
+        txtCashOut = new javax.swing.JLabel();
+        buttonCashOut = new javax.swing.JButton();
+        txtSwitch = new javax.swing.JLabel();
+        buttonSwitch = new javax.swing.JButton();
+        txtFlow = new javax.swing.JLabel();
+        buttonFlow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -49,67 +49,67 @@ public class BillMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("ENTRADA");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtMoneyEnter.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMoneyEnter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMoneyEnter.setText("ENTRADA");
+        txtMoneyEnter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtMoneyEnterMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/enterMoney.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonMoneyEnter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/enterMoney.png"))); // NOI18N
+        buttonMoneyEnter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonMoneyEnterActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("SAÍDA");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCashOut.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCashOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCashOut.setText("SAÍDA");
+        txtCashOut.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtCashOutMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/outMoney.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonCashOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/outMoney.png"))); // NOI18N
+        buttonCashOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonCashOutActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("ALTERAR");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtSwitch.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSwitch.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSwitch.setText("ALTERAR");
+        txtSwitch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtSwitchMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editMoney.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonSwitch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/editMoney.png"))); // NOI18N
+        buttonSwitch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonSwitchActionPerformed(evt);
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("FLUXO");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtFlow.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtFlow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFlow.setText("FLUXO");
+        txtFlow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtFlowMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashFlow.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonFlow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashFlow.png"))); // NOI18N
+        buttonFlow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonFlowActionPerformed(evt);
             }
         });
 
@@ -120,20 +120,20 @@ public class BillMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMoneyEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonMoneyEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,60 +142,60 @@ public class BillMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtSwitch))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS3))
+                        .addComponent(txtFlow))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtCashOut))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonMoneyEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS)))
+                        .addComponent(txtMoneyEnter)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBounds(0, 190, 489, 140);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtMoneyEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMoneyEnterMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtMoneyEnterMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonMoneyEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMoneyEnterActionPerformed
         Income income = new Income();
         income.setVisible(true);
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonMoneyEnterActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtCashOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCashOutMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtCashOutMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonCashOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCashOutActionPerformed
         CashOut cashOut = new CashOut();
         cashOut.setVisible(true);
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonCashOutActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtSwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSwitchMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtSwitchMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonSwitchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSwitchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonSwitchActionPerformed
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtFlowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFlowMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtFlowMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonFlowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFlowActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonFlowActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -237,13 +237,13 @@ public class BillMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtAddOS3;
+    private javax.swing.JButton buttonCashOut;
+    private javax.swing.JButton buttonFlow;
+    private javax.swing.JButton buttonMoneyEnter;
+    private javax.swing.JButton buttonSwitch;
+    private javax.swing.JLabel txtCashOut;
+    private javax.swing.JLabel txtFlow;
+    private javax.swing.JLabel txtMoneyEnter;
+    private javax.swing.JLabel txtSwitch;
     // End of variables declaration//GEN-END:variables
 }

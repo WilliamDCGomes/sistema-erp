@@ -29,21 +29,21 @@ public class FormPayment extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtExpirationDate = new javax.swing.JLabel();
+        inputExpirationDate = new javax.swing.JFormattedTextField();
+        txtPlots = new javax.swing.JLabel();
+        inputPlots = new javax.swing.JTextField();
+        txtSaleValue = new javax.swing.JLabel();
+        tableFormPayment = new javax.swing.JScrollPane();
+        tableOfPayments = new javax.swing.JTable();
+        txtPayment = new javax.swing.JLabel();
+        txtEnterValue = new javax.swing.JLabel();
+        txtPlotsPeriod = new javax.swing.JLabel();
+        inputPlotsPeriod = new javax.swing.JComboBox<>();
+        txtFormPayment = new javax.swing.JLabel();
+        buttonFinish = new javax.swing.JButton();
+        inputSaleValue = new javax.swing.JTextField();
+        inputEnterValue = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Forma de Pagamento");
@@ -53,25 +53,25 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel1.setText("Data de Vencimento");
+        txtExpirationDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtExpirationDate.setText("Data de Vencimento");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            inputExpirationDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputExpirationDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel2.setText("Parcelas");
+        txtPlots.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPlots.setText("Parcelas");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputPlots.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel3.setText("Valor da Venda");
+        txtSaleValue.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtSaleValue.setText("Valor da Venda");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableOfPayments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -89,28 +89,28 @@ public class FormPayment extends javax.swing.JFrame {
                 "Parcela", "Valor", "Vencimento"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tableFormPayment.setViewportView(tableOfPayments);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel4.setText("Pagamento");
+        txtPayment.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPayment.setText("Pagamento");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel5.setText("Valor de Entrada");
+        txtEnterValue.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtEnterValue.setText("Valor de Entrada");
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel6.setText("Período das Parcelas");
+        txtPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPlotsPeriod.setText("Período das Parcelas");
 
-        jComboBox1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "10 dias", "15 dias", "20 dias", "30 dias", "45 dias", "60 dias" }));
+        inputPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        inputPlotsPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "10 dias", "15 dias", "20 dias", "30 dias", "45 dias", "60 dias" }));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel7.setText("Forma de Pagamento");
+        txtFormPayment.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtFormPayment.setText("Forma de Pagamento");
 
-        jButton1.setText("Finalizar");
+        buttonFinish.setText("Finalizar");
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputEnterValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,68 +118,68 @@ public class FormPayment extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
+                .addComponent(txtFormPayment)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonFinish)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jLabel4)
+                            .addComponent(tableFormPayment)
+                            .addComponent(txtPayment)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField1))
+                                    .addComponent(txtExpirationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inputExpirationDate))
                                 .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtSaleValue)
+                                    .addComponent(inputSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(43, 43, 43)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
+                                    .addComponent(inputEnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEnterValue))
                                 .addGap(41, 41, 41)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtPlots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(inputPlots, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtPlotsPeriod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(inputPlotsPeriod, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel7)
+                .addComponent(txtFormPayment)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
+                    .addComponent(txtExpirationDate)
+                    .addComponent(txtPlots)
+                    .addComponent(txtSaleValue)
+                    .addComponent(txtEnterValue))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(inputPlots, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(inputEnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(txtPlotsPeriod)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputPlotsPeriod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(txtPayment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                .addComponent(tableFormPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(buttonFinish)
                 .addGap(17, 17, 17))
         );
 
@@ -227,20 +227,20 @@ public class FormPayment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton buttonFinish;
+    private javax.swing.JTextField inputEnterValue;
+    private javax.swing.JFormattedTextField inputExpirationDate;
+    private javax.swing.JTextField inputPlots;
+    private javax.swing.JComboBox<String> inputPlotsPeriod;
+    private javax.swing.JTextField inputSaleValue;
+    private javax.swing.JScrollPane tableFormPayment;
+    private javax.swing.JTable tableOfPayments;
+    private javax.swing.JLabel txtEnterValue;
+    private javax.swing.JLabel txtExpirationDate;
+    private javax.swing.JLabel txtFormPayment;
+    private javax.swing.JLabel txtPayment;
+    private javax.swing.JLabel txtPlots;
+    private javax.swing.JLabel txtPlotsPeriod;
+    private javax.swing.JLabel txtSaleValue;
     // End of variables declaration//GEN-END:variables
 }

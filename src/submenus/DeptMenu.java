@@ -27,18 +27,18 @@ public class DeptMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
-        txtAddOS4 = new javax.swing.JLabel();
-        buttonAddOS4 = new javax.swing.JButton();
-        txtAddOS5 = new javax.swing.JLabel();
-        buttonAddOS5 = new javax.swing.JButton();
+        txtDeptToPay = new javax.swing.JLabel();
+        buttonDeptToPay = new javax.swing.JButton();
+        txtDelayDept = new javax.swing.JLabel();
+        buttonDelayDept = new javax.swing.JButton();
+        txtDepit = new javax.swing.JLabel();
+        buttonDebit = new javax.swing.JButton();
+        txtNewDept = new javax.swing.JLabel();
+        buttonNewDept = new javax.swing.JButton();
+        txtDeptToRecev = new javax.swing.JLabel();
+        buttonDeptToRecev = new javax.swing.JButton();
+        txtLocaleDept = new javax.swing.JLabel();
+        buttonLocaleDept = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -50,99 +50,99 @@ public class DeptMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("A PAGAR");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDeptToPay.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDeptToPay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDeptToPay.setText("A PAGAR");
+        txtDeptToPay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtDeptToPayMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/payCount.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeptToPay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/payCount.png"))); // NOI18N
+        buttonDeptToPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonDeptToPayActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("ATRASOS");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDelayDept.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDelayDept.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDelayDept.setText("ATRASOS");
+        txtDelayDept.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtDelayDeptMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delayPayment.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonDelayDept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delayPayment.png"))); // NOI18N
+        buttonDelayDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonDelayDeptActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("DEBITAR");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDepit.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDepit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDepit.setText("DEBITAR");
+        txtDepit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtDepitMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/endOfDebt.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonDebit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/endOfDebt.png"))); // NOI18N
+        buttonDebit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonDebitActionPerformed(evt);
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("NOVA");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewDept.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewDept.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewDept.setText("NOVA");
+        txtNewDept.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtNewDeptMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newDebts.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewDept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newDebts.png"))); // NOI18N
+        buttonNewDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonNewDeptActionPerformed(evt);
             }
         });
 
-        txtAddOS4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS4.setText("A RECEBER");
-        txtAddOS4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDeptToRecev.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDeptToRecev.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDeptToRecev.setText("A RECEBER");
+        txtDeptToRecev.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS4MouseClicked(evt);
+                txtDeptToRecevMouseClicked(evt);
             }
         });
 
-        buttonAddOS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recevPayment.png"))); // NOI18N
-        buttonAddOS4.addActionListener(new java.awt.event.ActionListener() {
+        buttonDeptToRecev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/recevPayment.png"))); // NOI18N
+        buttonDeptToRecev.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS4ActionPerformed(evt);
+                buttonDeptToRecevActionPerformed(evt);
             }
         });
 
-        txtAddOS5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS5.setText("LOCALIZAR");
-        txtAddOS5.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleDept.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleDept.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleDept.setText("LOCALIZAR");
+        txtLocaleDept.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS5MouseClicked(evt);
+                txtLocaleDeptMouseClicked(evt);
             }
         });
 
-        buttonAddOS5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeDebts.png"))); // NOI18N
-        buttonAddOS5.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleDept.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeDebts.png"))); // NOI18N
+        buttonLocaleDept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS5ActionPerformed(evt);
+                buttonLocaleDeptActionPerformed(evt);
             }
         });
 
@@ -153,28 +153,28 @@ public class DeptMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDeptToPay, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDeptToPay, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddOS4))
+                    .addComponent(buttonDeptToRecev, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDeptToRecev))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDelayDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDelayDept, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDepit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDebit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,84 +183,84 @@ public class DeptMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonDebit, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtDepit))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonDelayDept, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtDelayDept))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonDeptToRecev, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtAddOS4))
+                            .addComponent(txtDeptToRecev))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonLocaleDept, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAddOS5))
+                                .addComponent(txtLocaleDept))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonNewDept, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAddOS3))
+                                .addComponent(txtNewDept))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonDeptToPay, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAddOS)))))
+                                .addComponent(txtDeptToPay)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtDeptToPayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDeptToPayMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtDeptToPayMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonDeptToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeptToPayActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonDeptToPayActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtDelayDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDelayDeptMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtDelayDeptMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonDelayDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDelayDeptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonDelayDeptActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtDepitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepitMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtDepitMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonDebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDebitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonDebitActionPerformed
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtNewDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewDeptMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtNewDeptMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonNewDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewDeptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonNewDeptActionPerformed
 
-    private void txtAddOS4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS4MouseClicked
+    private void txtDeptToRecevMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDeptToRecevMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS4MouseClicked
+    }//GEN-LAST:event_txtDeptToRecevMouseClicked
 
-    private void buttonAddOS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS4ActionPerformed
+    private void buttonDeptToRecevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeptToRecevActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS4ActionPerformed
+    }//GEN-LAST:event_buttonDeptToRecevActionPerformed
 
-    private void txtAddOS5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS5MouseClicked
+    private void txtLocaleDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleDeptMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS5MouseClicked
+    }//GEN-LAST:event_txtLocaleDeptMouseClicked
 
-    private void buttonAddOS5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS5ActionPerformed
+    private void buttonLocaleDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleDeptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS5ActionPerformed
+    }//GEN-LAST:event_buttonLocaleDeptActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -302,17 +302,17 @@ public class DeptMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JButton buttonAddOS4;
-    private javax.swing.JButton buttonAddOS5;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtAddOS3;
-    private javax.swing.JLabel txtAddOS4;
-    private javax.swing.JLabel txtAddOS5;
+    private javax.swing.JButton buttonDebit;
+    private javax.swing.JButton buttonDelayDept;
+    private javax.swing.JButton buttonDeptToPay;
+    private javax.swing.JButton buttonDeptToRecev;
+    private javax.swing.JButton buttonLocaleDept;
+    private javax.swing.JButton buttonNewDept;
+    private javax.swing.JLabel txtDelayDept;
+    private javax.swing.JLabel txtDepit;
+    private javax.swing.JLabel txtDeptToPay;
+    private javax.swing.JLabel txtDeptToRecev;
+    private javax.swing.JLabel txtLocaleDept;
+    private javax.swing.JLabel txtNewDept;
     // End of variables declaration//GEN-END:variables
 }

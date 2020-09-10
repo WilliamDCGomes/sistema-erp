@@ -27,26 +27,26 @@ public class LocaleSale extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        txtCodOfSale = new javax.swing.JLabel();
+        inputCodOfSale = new javax.swing.JTextField();
+        buttonLocale = new javax.swing.JButton();
+        buttonAllSales = new javax.swing.JButton();
+        txtLocaleSale = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Localizar Venda");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel1.setText("Código da Venda");
+        txtCodOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCodOfSale.setText("Código da Venda");
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCodOfSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
 
-        jButton1.setText("LOCALIZAR");
+        buttonLocale.setText("LOCALIZAR");
 
-        jButton2.setText("TODAS AS VENDAS");
+        buttonAllSales.setText("TODAS AS VENDAS");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("Localizar Venda");
+        txtLocaleSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtLocaleSale.setText("Localizar Venda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,30 +56,30 @@ public class LocaleSale extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(buttonLocale)
                         .addGap(40, 40, 40)
-                        .addComponent(jButton2))
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1))
+                        .addComponent(buttonAllSales))
+                    .addComponent(txtCodOfSale)
+                    .addComponent(inputCodOfSale))
                 .addGap(82, 82, 82))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(txtLocaleSale)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(txtLocaleSale)
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(txtCodOfSale)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputCodOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(buttonLocale)
+                    .addComponent(buttonAllSales))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -123,10 +123,10 @@ public class LocaleSale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buttonAllSales;
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JTextField inputCodOfSale;
+    private javax.swing.JLabel txtCodOfSale;
+    private javax.swing.JLabel txtLocaleSale;
     // End of variables declaration//GEN-END:variables
 }

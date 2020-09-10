@@ -27,14 +27,14 @@ public class DiaryMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
-        txtAddOS4 = new javax.swing.JLabel();
-        buttonAddOS4 = new javax.swing.JButton();
-        txtAddOS5 = new javax.swing.JLabel();
-        buttonAddOS5 = new javax.swing.JButton();
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
+        txtNewRecord = new javax.swing.JLabel();
+        buttonNewRecord = new javax.swing.JButton();
+        txtNotes = new javax.swing.JLabel();
+        buttonNotes = new javax.swing.JButton();
+        txtCommitments = new javax.swing.JLabel();
+        buttonCommitments = new javax.swing.JButton();
+        txtTasks = new javax.swing.JLabel();
+        buttonTasks = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -46,67 +46,67 @@ public class DiaryMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("NOVO");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewRecord.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewRecord.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewRecord.setText("NOVO");
+        txtNewRecord.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtNewRecordMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tasks.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewRecord.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tasks.png"))); // NOI18N
+        buttonNewRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonNewRecordActionPerformed(evt);
             }
         });
 
-        txtAddOS4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS4.setText("LEMBRETES");
-        txtAddOS4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNotes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNotes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNotes.setText("LEMBRETES");
+        txtNotes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS4MouseClicked(evt);
+                txtNotesMouseClicked(evt);
             }
         });
 
-        buttonAddOS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stickNotes.png"))); // NOI18N
-        buttonAddOS4.addActionListener(new java.awt.event.ActionListener() {
+        buttonNotes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stickNotes.png"))); // NOI18N
+        buttonNotes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS4ActionPerformed(evt);
+                buttonNotesActionPerformed(evt);
             }
         });
 
-        txtAddOS5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS5.setText("COMPROMISSOS");
-        txtAddOS5.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCommitments.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCommitments.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCommitments.setText("COMPROMISSOS");
+        txtCommitments.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS5MouseClicked(evt);
+                txtCommitmentsMouseClicked(evt);
             }
         });
 
-        buttonAddOS5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/toDo.png"))); // NOI18N
-        buttonAddOS5.addActionListener(new java.awt.event.ActionListener() {
+        buttonCommitments.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/toDo.png"))); // NOI18N
+        buttonCommitments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS5ActionPerformed(evt);
+                buttonCommitmentsActionPerformed(evt);
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("TAREFAS");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtTasks.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTasks.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTasks.setText("TAREFAS");
+        txtTasks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtTasksMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newTask.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonTasks.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newTask.png"))); // NOI18N
+        buttonTasks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonTasksActionPerformed(evt);
             }
         });
 
@@ -117,26 +117,26 @@ public class DiaryMenu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(txtAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCommitments, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addComponent(buttonAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonCommitments, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(txtAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,60 +146,60 @@ public class DiaryMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addComponent(txtAddOS4))
+                        .addComponent(txtNotes))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(30, 30, 30))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonTasks, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtAddOS)))
+                            .addComponent(txtTasks)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAddOS5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buttonNewRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonCommitments, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAddOS3)
-                            .addComponent(txtAddOS5))))
+                            .addComponent(txtNewRecord)
+                            .addComponent(txtCommitments))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtNewRecordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewRecordMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtNewRecordMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonNewRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewRecordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonNewRecordActionPerformed
 
-    private void txtAddOS4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS4MouseClicked
+    private void txtNotesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNotesMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS4MouseClicked
+    }//GEN-LAST:event_txtNotesMouseClicked
 
-    private void buttonAddOS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS4ActionPerformed
+    private void buttonNotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNotesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS4ActionPerformed
+    }//GEN-LAST:event_buttonNotesActionPerformed
 
-    private void txtAddOS5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS5MouseClicked
+    private void txtCommitmentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCommitmentsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS5MouseClicked
+    }//GEN-LAST:event_txtCommitmentsMouseClicked
 
-    private void buttonAddOS5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS5ActionPerformed
+    private void buttonCommitmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCommitmentsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS5ActionPerformed
+    }//GEN-LAST:event_buttonCommitmentsActionPerformed
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTasksMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtTasksMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTasksActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonTasksActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -241,13 +241,13 @@ public class DiaryMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JButton buttonAddOS4;
-    private javax.swing.JButton buttonAddOS5;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS3;
-    private javax.swing.JLabel txtAddOS4;
-    private javax.swing.JLabel txtAddOS5;
+    private javax.swing.JButton buttonCommitments;
+    private javax.swing.JButton buttonNewRecord;
+    private javax.swing.JButton buttonNotes;
+    private javax.swing.JButton buttonTasks;
+    private javax.swing.JLabel txtCommitments;
+    private javax.swing.JLabel txtNewRecord;
+    private javax.swing.JLabel txtNotes;
+    private javax.swing.JLabel txtTasks;
     // End of variables declaration//GEN-END:variables
 }

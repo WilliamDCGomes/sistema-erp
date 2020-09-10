@@ -27,16 +27,16 @@ public class StockMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAddOS = new javax.swing.JLabel();
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
-        txtAddOS4 = new javax.swing.JLabel();
-        buttonAddOS4 = new javax.swing.JButton();
+        txtNewItem = new javax.swing.JLabel();
+        buttonNewItem = new javax.swing.JButton();
+        txtLocaleItem = new javax.swing.JLabel();
+        buttonLocaleItem = new javax.swing.JButton();
+        txtAllItems = new javax.swing.JLabel();
+        buttonAllItems = new javax.swing.JButton();
+        txtMissingItems = new javax.swing.JLabel();
+        buttonMissingItems = new javax.swing.JButton();
+        txtDownloadItem = new javax.swing.JLabel();
+        buttonDownloadItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -48,83 +48,83 @@ public class StockMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("NOVO");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewItem.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewItem.setText("NOVO");
+        txtNewItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtNewItemMouseClicked(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newStock.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newStock.png"))); // NOI18N
+        buttonNewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonNewItemActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("LOCALIZAR");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleItem.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleItem.setText("LOCALIZAR");
+        txtLocaleItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtLocaleItemMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeStock.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeStock.png"))); // NOI18N
+        buttonLocaleItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonLocaleItemActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("TODOS");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAllItems.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAllItems.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllItems.setText("TODOS");
+        txtAllItems.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtAllItemsMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stock.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllItems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stock.png"))); // NOI18N
+        buttonAllItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonAllItemsActionPerformed(evt);
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("EM FALTA");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtMissingItems.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMissingItems.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMissingItems.setText("EM FALTA");
+        txtMissingItems.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtMissingItemsMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonMissingItems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
+        buttonMissingItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonMissingItemsActionPerformed(evt);
             }
         });
 
-        txtAddOS4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS4.setText("BAIXAR");
-        txtAddOS4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDownloadItem.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDownloadItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDownloadItem.setText("BAIXAR");
+        txtDownloadItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS4MouseClicked(evt);
+                txtDownloadItemMouseClicked(evt);
             }
         });
 
-        buttonAddOS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/downloadStock.png"))); // NOI18N
-        buttonAddOS4.addActionListener(new java.awt.event.ActionListener() {
+        buttonDownloadItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/downloadStock.png"))); // NOI18N
+        buttonDownloadItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS4ActionPerformed(evt);
+                buttonDownloadItemActionPerformed(evt);
             }
         });
 
@@ -135,24 +135,24 @@ public class StockMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDownloadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonDownloadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAllItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAllItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -161,70 +161,70 @@ public class StockMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonDownloadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS4))
+                        .addComponent(txtDownloadItem))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS3))
+                        .addComponent(txtMissingItems))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAllItems, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtAllItems))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonLocaleItem, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtLocaleItem))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS)))
+                        .addComponent(txtNewItem)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtNewItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewItemMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtNewItemMouseClicked
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewItemActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonNewItemActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtLocaleItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleItemMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtLocaleItemMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonLocaleItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonLocaleItemActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtAllItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllItemsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtAllItemsMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonAllItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllItemsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonAllItemsActionPerformed
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtMissingItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMissingItemsMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtMissingItemsMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonMissingItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMissingItemsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonMissingItemsActionPerformed
 
-    private void txtAddOS4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS4MouseClicked
+    private void txtDownloadItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDownloadItemMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS4MouseClicked
+    }//GEN-LAST:event_txtDownloadItemMouseClicked
 
-    private void buttonAddOS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS4ActionPerformed
+    private void buttonDownloadItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDownloadItemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS4ActionPerformed
+    }//GEN-LAST:event_buttonDownloadItemActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -266,15 +266,15 @@ public class StockMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JButton buttonAddOS4;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtAddOS3;
-    private javax.swing.JLabel txtAddOS4;
+    private javax.swing.JButton buttonAllItems;
+    private javax.swing.JButton buttonDownloadItem;
+    private javax.swing.JButton buttonLocaleItem;
+    private javax.swing.JButton buttonMissingItems;
+    private javax.swing.JButton buttonNewItem;
+    private javax.swing.JLabel txtAllItems;
+    private javax.swing.JLabel txtDownloadItem;
+    private javax.swing.JLabel txtLocaleItem;
+    private javax.swing.JLabel txtMissingItems;
+    private javax.swing.JLabel txtNewItem;
     // End of variables declaration//GEN-END:variables
 }

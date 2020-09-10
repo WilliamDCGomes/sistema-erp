@@ -30,28 +30,28 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtNewItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonNewItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS4" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS4" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtDownloadItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonDownloadItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtLocaleItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonLocaleItem" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtAllItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonAllItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS3" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS3" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtMissingItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonMissingItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
@@ -63,29 +63,29 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="buttonAddOS4" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonDownloadItem" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS4" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDownloadItem" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="buttonAddOS3" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonMissingItems" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMissingItems" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS2" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonAllItems" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAllItems" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS1" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonLocaleItem" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLocaleItem" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonNewItem" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNewItem" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -94,7 +94,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtAddOS">
+    <Component class="javax.swing.JLabel" name="txtNewItem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -103,20 +103,20 @@
         <Property name="text" type="java.lang.String" value="NOVO"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOSMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNewItemMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS">
+    <Component class="javax.swing.JButton" name="buttonNewItem">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/newStock.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOSActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewItemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS1">
+    <Component class="javax.swing.JLabel" name="txtLocaleItem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -125,20 +125,20 @@
         <Property name="text" type="java.lang.String" value="LOCALIZAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLocaleItemMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS1">
+    <Component class="javax.swing.JButton" name="buttonLocaleItem">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/localeStock.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLocaleItemActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS2">
+    <Component class="javax.swing.JLabel" name="txtAllItems">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -147,20 +147,20 @@
         <Property name="text" type="java.lang.String" value="TODOS"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAllItemsMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS2">
+    <Component class="javax.swing.JButton" name="buttonAllItems">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/stock.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAllItemsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS3">
+    <Component class="javax.swing.JLabel" name="txtMissingItems">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -169,20 +169,20 @@
         <Property name="text" type="java.lang.String" value="EM FALTA"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS3MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMissingItemsMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS3">
+    <Component class="javax.swing.JButton" name="buttonMissingItems">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/faltStock.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMissingItemsActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS4">
+    <Component class="javax.swing.JLabel" name="txtDownloadItem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -191,17 +191,17 @@
         <Property name="text" type="java.lang.String" value="BAIXAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDownloadItemMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS4">
+    <Component class="javax.swing.JButton" name="buttonDownloadItem">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/downloadStock.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDownloadItemActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

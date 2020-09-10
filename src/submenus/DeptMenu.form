@@ -30,33 +30,33 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS3" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS3" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtNewDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonNewDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS5" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS5" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtLocaleDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonLocaleDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtDeptToPay" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonDeptToPay" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="buttonAddOS4" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="txtAddOS4" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonDeptToRecev" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtDeptToRecev" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtDelayDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonDelayDept" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtDepit" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonDebit" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
@@ -68,36 +68,36 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="buttonAddOS2" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonDebit" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDepit" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="buttonAddOS1" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonDelayDept" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtDelayDept" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="buttonAddOS4" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="buttonDeptToRecev" min="-2" pref="98" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtAddOS4" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDeptToRecev" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="buttonAddOS5" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="buttonLocaleDept" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtAddOS5" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLocaleDept" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="buttonAddOS3" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="buttonNewDept" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtAddOS3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNewDept" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="buttonAddOS" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="buttonDeptToPay" min="-2" pref="98" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtAddOS" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtDeptToPay" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -108,7 +108,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtAddOS">
+    <Component class="javax.swing.JLabel" name="txtDeptToPay">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -117,20 +117,20 @@
         <Property name="text" type="java.lang.String" value="A PAGAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOSMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDeptToPayMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS">
+    <Component class="javax.swing.JButton" name="buttonDeptToPay">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/payCount.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOSActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeptToPayActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS1">
+    <Component class="javax.swing.JLabel" name="txtDelayDept">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -139,20 +139,20 @@
         <Property name="text" type="java.lang.String" value="ATRASOS"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDelayDeptMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS1">
+    <Component class="javax.swing.JButton" name="buttonDelayDept">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/delayPayment.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDelayDeptActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS2">
+    <Component class="javax.swing.JLabel" name="txtDepit">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -161,20 +161,20 @@
         <Property name="text" type="java.lang.String" value="DEBITAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDepitMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS2">
+    <Component class="javax.swing.JButton" name="buttonDebit">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/endOfDebt.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDebitActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS3">
+    <Component class="javax.swing.JLabel" name="txtNewDept">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -183,20 +183,20 @@
         <Property name="text" type="java.lang.String" value="NOVA"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS3MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNewDeptMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS3">
+    <Component class="javax.swing.JButton" name="buttonNewDept">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/newDebts.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewDeptActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS4">
+    <Component class="javax.swing.JLabel" name="txtDeptToRecev">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -205,20 +205,20 @@
         <Property name="text" type="java.lang.String" value="A RECEBER"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtDeptToRecevMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS4">
+    <Component class="javax.swing.JButton" name="buttonDeptToRecev">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/recevPayment.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDeptToRecevActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS5">
+    <Component class="javax.swing.JLabel" name="txtLocaleDept">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -227,17 +227,17 @@
         <Property name="text" type="java.lang.String" value="LOCALIZAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS5MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLocaleDeptMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS5">
+    <Component class="javax.swing.JButton" name="buttonLocaleDept">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/localeDebts.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLocaleDeptActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -29,34 +29,34 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtNewOrder" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonNewOrder" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtLocaleOrder" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonLocaleOrder" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtAllOrders" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonAllOrders" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPendingOrder" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="buttonAddOS3" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="buttonPendingOrder" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="buttonAddOS4" min="-2" pref="101" max="-2" attributes="0"/>
+                      <Component id="buttonCanceledOrders" min="-2" pref="101" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtAddOS4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCanceledOrders" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
           </Group>
@@ -68,29 +68,29 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS2" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonAllOrders" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtAllOrders" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS3" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonPendingOrder" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPendingOrder" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS1" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonLocaleOrder" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLocaleOrder" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonNewOrder" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNewOrder" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="buttonAddOS4" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonCanceledOrders" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS4" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCanceledOrders" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -99,17 +99,17 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="buttonAddOS">
+    <Component class="javax.swing.JButton" name="buttonNewOrder">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/newOrder.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOSActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewOrderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS1">
+    <Component class="javax.swing.JLabel" name="txtLocaleOrder">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -118,20 +118,20 @@
         <Property name="text" type="java.lang.String" value="LOCALIZAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLocaleOrderMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS1">
+    <Component class="javax.swing.JButton" name="buttonLocaleOrder">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/localeOrder.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLocaleOrderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS2">
+    <Component class="javax.swing.JLabel" name="txtAllOrders">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -140,20 +140,20 @@
         <Property name="text" type="java.lang.String" value="TODOS"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAllOrdersMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS2">
+    <Component class="javax.swing.JButton" name="buttonAllOrders">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/allOrder.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAllOrdersActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS3">
+    <Component class="javax.swing.JLabel" name="txtPendingOrder">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -162,20 +162,20 @@
         <Property name="text" type="java.lang.String" value="PEDIDOS PENDENTE"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS3MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPendingOrderMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS3">
+    <Component class="javax.swing.JButton" name="buttonPendingOrder">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/waitOrder.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPendingOrderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS">
+    <Component class="javax.swing.JLabel" name="txtNewOrder">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -184,10 +184,10 @@
         <Property name="text" type="java.lang.String" value="NOVO"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOSMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNewOrderMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS4">
+    <Component class="javax.swing.JLabel" name="txtCanceledOrders">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -196,17 +196,17 @@
         <Property name="text" type="java.lang.String" value="PEDIDOS CANCELADOS"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS4MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtCanceledOrdersMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS4">
+    <Component class="javax.swing.JButton" name="buttonCanceledOrders">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/canceledOrder.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCanceledOrdersActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

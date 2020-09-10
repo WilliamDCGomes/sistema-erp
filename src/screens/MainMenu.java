@@ -26,74 +26,72 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonFindOS = new javax.swing.JButton();
-        buttonOrder = new javax.swing.JButton();
-        buttonAddOS = new javax.swing.JButton();
-        buttonEditOS = new javax.swing.JButton();
+        buttonProduct = new javax.swing.JButton();
         buttonStock = new javax.swing.JButton();
+        buttonBox = new javax.swing.JButton();
+        buttonOrder = new javax.swing.JButton();
+        buttonBill = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
-        txtAddOS = new javax.swing.JLabel();
-        txtFindOS = new javax.swing.JLabel();
-        txtEditOS = new javax.swing.JLabel();
+        txtBox = new javax.swing.JLabel();
+        txtProduct = new javax.swing.JLabel();
         txtOrder = new javax.swing.JLabel();
         txtStock = new javax.swing.JLabel();
+        txtBill = new javax.swing.JLabel();
         txtLogout = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        txtStock1 = new javax.swing.JLabel();
-        buttonStock1 = new javax.swing.JButton();
+        buttonClient = new javax.swing.JButton();
+        txtClient = new javax.swing.JLabel();
+        buttonSale = new javax.swing.JButton();
+        txtSale = new javax.swing.JLabel();
+        txtDiary = new javax.swing.JLabel();
+        buttonDiary = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
-        separator8 = new javax.swing.JPopupMenu.Separator();
         opcBackup = new javax.swing.JMenuItem();
         optRestore = new javax.swing.JMenuItem();
-        separator2 = new javax.swing.JPopupMenu.Separator();
+        divider1 = new javax.swing.JPopupMenu.Separator();
         optUser = new javax.swing.JMenuItem();
-        separator3 = new javax.swing.JPopupMenu.Separator();
+        divider2 = new javax.swing.JPopupMenu.Separator();
         opcLogout = new javax.swing.JMenuItem();
         opcClose = new javax.swing.JMenuItem();
-        menuFind = new javax.swing.JMenu();
-        optLocalizeOS = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        menuBacklog = new javax.swing.JMenu();
-        optAllPartsInTestRoom = new javax.swing.JMenuItem();
-        optPartsOver7Days = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        menuManual = new javax.swing.JMenu();
-        optAddManual = new javax.swing.JMenuItem();
-        optFindManual = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        menuSale = new javax.swing.JMenu();
+        optNewSale = new javax.swing.JMenuItem();
+        optLocaleSale = new javax.swing.JMenuItem();
+        optEditSale = new javax.swing.JMenuItem();
+        optDeleteSale = new javax.swing.JMenuItem();
+        optPendantSale = new javax.swing.JMenuItem();
+        menuClient = new javax.swing.JMenu();
+        optNewClient = new javax.swing.JMenuItem();
+        optLocaleClient = new javax.swing.JMenuItem();
+        optEditClient = new javax.swing.JMenuItem();
+        optDeleteClient = new javax.swing.JMenuItem();
+        menuProduct = new javax.swing.JMenu();
+        optNewProduct = new javax.swing.JMenuItem();
+        optLocaleProduct = new javax.swing.JMenuItem();
+        optEditProduct = new javax.swing.JMenuItem();
+        optDeleteProdutc = new javax.swing.JMenuItem();
         menuOrder = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        optNewOrder = new javax.swing.JMenuItem();
+        optLocaleOrder = new javax.swing.JMenuItem();
+        optEditOrder = new javax.swing.JMenuItem();
+        optDeleteOrder = new javax.swing.JMenuItem();
+        optPendantOrder = new javax.swing.JMenuItem();
+        optCanceledOrders = new javax.swing.JMenuItem();
         menuStock = new javax.swing.JMenu();
-        optAddItemStock = new javax.swing.JMenuItem();
-        optFindItemStock = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        optMoreRequestesItemsStock = new javax.swing.JMenuItem();
-        jMenuItem22 = new javax.swing.JMenuItem();
+        optNewItem = new javax.swing.JMenuItem();
+        optLocaleItem = new javax.swing.JMenuItem();
+        optEditItem = new javax.swing.JMenuItem();
+        optDeleteItem = new javax.swing.JMenuItem();
+        optMoreRequestesItems = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
-        jMenuItem18 = new javax.swing.JMenuItem();
-        jMenuItem19 = new javax.swing.JMenuItem();
-        jMenuItem20 = new javax.swing.JMenuItem();
-        jMenuItem21 = new javax.swing.JMenuItem();
-        jMenuItem23 = new javax.swing.JMenuItem();
-        jMenuItem24 = new javax.swing.JMenuItem();
-        menuAbout = new javax.swing.JMenu();
+        optSalesOfMonth = new javax.swing.JMenuItem();
+        optCashHandling = new javax.swing.JMenuItem();
+        optMostRequestItems = new javax.swing.JMenuItem();
+        optLeastRequestedItems = new javax.swing.JMenuItem();
+        optSalesOfEmployees = new javax.swing.JMenuItem();
+        optSpendOfMonth = new javax.swing.JMenuItem();
+        menuHelp = new javax.swing.JMenu();
         optSuport = new javax.swing.JMenuItem();
-        separator7 = new javax.swing.JPopupMenu.Separator();
+        divider3 = new javax.swing.JPopupMenu.Separator();
         optAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,38 +103,38 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonFindOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
-        buttonFindOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
+        buttonProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonFindOSActionPerformed(evt);
+                buttonProductActionPerformed(evt);
             }
         });
 
-        buttonOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stocks.png"))); // NOI18N
+        buttonStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stocks.png"))); // NOI18N
+        buttonStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonStockActionPerformed(evt);
+            }
+        });
+
+        buttonBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashier.png"))); // NOI18N
+        buttonBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBoxActionPerformed(evt);
+            }
+        });
+
+        buttonOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/orderClient.png"))); // NOI18N
         buttonOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonOrderActionPerformed(evt);
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashier.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bill.png"))); // NOI18N
+        buttonBill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
-            }
-        });
-
-        buttonEditOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/orderClient.png"))); // NOI18N
-        buttonEditOS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonEditOSActionPerformed(evt);
-            }
-        });
-
-        buttonStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bill.png"))); // NOI18N
-        buttonStock.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonStockActionPerformed(evt);
+                buttonBillActionPerformed(evt);
             }
         });
 
@@ -147,36 +145,27 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("CAIXA");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtBox.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtBox.setText("CAIXA");
+        txtBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtBoxMouseClicked(evt);
             }
         });
 
-        txtFindOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtFindOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFindOS.setText("PRODUTO");
-        txtFindOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtProduct.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtProduct.setText("PRODUTO");
+        txtProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtFindOSMouseClicked(evt);
-            }
-        });
-
-        txtEditOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtEditOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtEditOS.setText("PEDIDOS");
-        txtEditOS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtEditOSMouseClicked(evt);
+                txtProductMouseClicked(evt);
             }
         });
 
         txtOrder.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtOrder.setText("ESTOQUE");
+        txtOrder.setText("PEDIDOS");
         txtOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtOrderMouseClicked(evt);
@@ -185,10 +174,19 @@ public class MainMenu extends javax.swing.JFrame {
 
         txtStock.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtStock.setText("CONTAS");
+        txtStock.setText("ESTOQUE");
         txtStock.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtStockMouseClicked(evt);
+            }
+        });
+
+        txtBill.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtBill.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtBill.setText("CONTAS");
+        txtBill.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtBillMouseClicked(evt);
             }
         });
 
@@ -201,51 +199,51 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/client.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonClient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/client.png"))); // NOI18N
+        buttonClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonClientActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("CLIENTES");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtClient.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtClient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtClient.setText("CLIENTES");
+        txtClient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtClientMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sale.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sale.png"))); // NOI18N
+        buttonSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonSaleActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("VENDA");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtSale.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSale.setText("VENDA");
+        txtSale.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtSaleMouseClicked(evt);
             }
         });
 
-        txtStock1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtStock1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtStock1.setText("AGENDA");
-        txtStock1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtDiary.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDiary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtDiary.setText("AGENDA");
+        txtDiary.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtStock1MouseClicked(evt);
+                txtDiaryMouseClicked(evt);
             }
         });
 
-        buttonStock1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diary.png"))); // NOI18N
-        buttonStock1.addActionListener(new java.awt.event.ActionListener() {
+        buttonDiary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/diary.png"))); // NOI18N
+        buttonDiary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonStock1ActionPerformed(evt);
+                buttonDiaryActionPerformed(evt);
             }
         });
 
@@ -255,7 +253,6 @@ public class MainMenu extends javax.swing.JFrame {
                 menuFileActionPerformed(evt);
             }
         });
-        menuFile.add(separator8);
 
         opcBackup.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         opcBackup.setText("Backup");
@@ -264,7 +261,7 @@ public class MainMenu extends javax.swing.JFrame {
         optRestore.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         optRestore.setText("Restaurar");
         menuFile.add(optRestore);
-        menuFile.add(separator2);
+        menuFile.add(divider1);
 
         optUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         optUser.setText("Usuário");
@@ -274,7 +271,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         menuFile.add(optUser);
-        menuFile.add(separator3);
+        menuFile.add(divider2);
 
         opcLogout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
         opcLogout.setText("Logout");
@@ -296,189 +293,186 @@ public class MainMenu extends javax.swing.JFrame {
 
         menuBar.add(menuFile);
 
-        menuFind.setText("Venda");
+        menuSale.setText("Venda");
 
-        optLocalizeOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        optLocalizeOS.setText("Nova Venda");
-        optLocalizeOS.addActionListener(new java.awt.event.ActionListener() {
+        optNewSale.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        optNewSale.setText("Nova Venda");
+        optNewSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optLocalizeOSActionPerformed(evt);
+                optNewSaleActionPerformed(evt);
             }
         });
-        menuFind.add(optLocalizeOS);
+        menuSale.add(optNewSale);
 
-        jMenuItem3.setText("Localizar Venda");
-        menuFind.add(jMenuItem3);
+        optLocaleSale.setText("Localizar Venda");
+        menuSale.add(optLocaleSale);
 
-        jMenuItem4.setText("Editar Venda");
-        menuFind.add(jMenuItem4);
+        optEditSale.setText("Editar Venda");
+        menuSale.add(optEditSale);
 
-        jMenuItem5.setText("Excluir Venda");
-        menuFind.add(jMenuItem5);
+        optDeleteSale.setText("Excluir Venda");
+        menuSale.add(optDeleteSale);
 
-        jMenuItem10.setText("Venda Pendente?");
-        menuFind.add(jMenuItem10);
+        optPendantSale.setText("Venda Pendente?");
+        menuSale.add(optPendantSale);
 
-        menuBar.add(menuFind);
+        menuBar.add(menuSale);
 
-        menuBacklog.setText("Clientes");
+        menuClient.setText("Clientes");
 
-        optAllPartsInTestRoom.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
-        optAllPartsInTestRoom.setText("Adicionar Cliente");
-        optAllPartsInTestRoom.addActionListener(new java.awt.event.ActionListener() {
+        optNewClient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
+        optNewClient.setText("Adicionar Cliente");
+        optNewClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optAllPartsInTestRoomActionPerformed(evt);
+                optNewClientActionPerformed(evt);
             }
         });
-        menuBacklog.add(optAllPartsInTestRoom);
+        menuClient.add(optNewClient);
 
-        optPartsOver7Days.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
-        optPartsOver7Days.setText("Localizar Cliente");
-        optPartsOver7Days.addActionListener(new java.awt.event.ActionListener() {
+        optLocaleClient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_MASK));
+        optLocaleClient.setText("Localizar Cliente");
+        optLocaleClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optPartsOver7DaysActionPerformed(evt);
+                optLocaleClientActionPerformed(evt);
             }
         });
-        menuBacklog.add(optPartsOver7Days);
+        menuClient.add(optLocaleClient);
 
-        jMenuItem16.setText("Editar Cliente");
-        menuBacklog.add(jMenuItem16);
+        optEditClient.setText("Editar Cliente");
+        menuClient.add(optEditClient);
 
-        jMenuItem17.setText("excluir Cliente");
-        menuBacklog.add(jMenuItem17);
+        optDeleteClient.setText("Excluir Cliente");
+        menuClient.add(optDeleteClient);
 
-        menuBar.add(menuBacklog);
+        menuBar.add(menuClient);
 
-        menuManual.setText("Produtos");
+        menuProduct.setText("Produtos");
 
-        optAddManual.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_MASK));
-        optAddManual.setText("Adicionar Produto");
-        optAddManual.addActionListener(new java.awt.event.ActionListener() {
+        optNewProduct.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.SHIFT_MASK));
+        optNewProduct.setText("Adicionar Produto");
+        optNewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optAddManualActionPerformed(evt);
+                optNewProductActionPerformed(evt);
             }
         });
-        menuManual.add(optAddManual);
+        menuProduct.add(optNewProduct);
 
-        optFindManual.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK));
-        optFindManual.setText("Localizar Produto");
-        optFindManual.addActionListener(new java.awt.event.ActionListener() {
+        optLocaleProduct.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.SHIFT_MASK));
+        optLocaleProduct.setText("Localizar Produto");
+        optLocaleProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optFindManualActionPerformed(evt);
+                optLocaleProductActionPerformed(evt);
             }
         });
-        menuManual.add(optFindManual);
+        menuProduct.add(optLocaleProduct);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
-        jMenuItem1.setText("Editar Produto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        optEditProduct.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        optEditProduct.setText("Editar Produto");
+        optEditProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                optEditProductActionPerformed(evt);
             }
         });
-        menuManual.add(jMenuItem1);
+        menuProduct.add(optEditProduct);
 
-        jMenuItem13.setText("Excluir Produto");
-        menuManual.add(jMenuItem13);
+        optDeleteProdutc.setText("Excluir Produto");
+        menuProduct.add(optDeleteProdutc);
 
-        menuBar.add(menuManual);
+        menuBar.add(menuProduct);
 
         menuOrder.setText("Pedidos");
 
-        jMenuItem6.setText("Novo Pedido");
-        menuOrder.add(jMenuItem6);
+        optNewOrder.setText("Novo Pedido");
+        menuOrder.add(optNewOrder);
 
-        jMenuItem7.setText("Localizar Pedido");
-        menuOrder.add(jMenuItem7);
+        optLocaleOrder.setText("Localizar Pedido");
+        menuOrder.add(optLocaleOrder);
 
-        jMenuItem8.setText("Editar Pedido");
-        menuOrder.add(jMenuItem8);
+        optEditOrder.setText("Editar Pedido");
+        menuOrder.add(optEditOrder);
 
-        jMenuItem9.setText("Excluir Pedido");
-        menuOrder.add(jMenuItem9);
+        optDeleteOrder.setText("Excluir Pedido");
+        menuOrder.add(optDeleteOrder);
 
-        jMenuItem11.setText("Pedido Pendente");
-        menuOrder.add(jMenuItem11);
+        optPendantOrder.setText("Pedido Pendente");
+        menuOrder.add(optPendantOrder);
 
-        jMenuItem12.setText("Pedidos Cancelados");
-        menuOrder.add(jMenuItem12);
+        optCanceledOrders.setText("Pedidos Cancelados");
+        menuOrder.add(optCanceledOrders);
 
         menuBar.add(menuOrder);
 
         menuStock.setText("Estoque");
 
-        optAddItemStock.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
-        optAddItemStock.setText("Adicionar itens ao estoque");
-        optAddItemStock.addActionListener(new java.awt.event.ActionListener() {
+        optNewItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
+        optNewItem.setText("Adicionar itens ao estoque");
+        optNewItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optAddItemStockActionPerformed(evt);
+                optNewItemActionPerformed(evt);
             }
         });
-        menuStock.add(optAddItemStock);
+        menuStock.add(optNewItem);
 
-        optFindItemStock.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
-        optFindItemStock.setText("Localizar itens do estoque");
-        optFindItemStock.addActionListener(new java.awt.event.ActionListener() {
+        optLocaleItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
+        optLocaleItem.setText("Localizar itens do estoque");
+        optLocaleItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optFindItemStockActionPerformed(evt);
+                optLocaleItemActionPerformed(evt);
             }
         });
-        menuStock.add(optFindItemStock);
+        menuStock.add(optLocaleItem);
 
-        jMenuItem14.setText("Editar itens do estoque");
-        menuStock.add(jMenuItem14);
+        optEditItem.setText("Editar itens do estoque");
+        menuStock.add(optEditItem);
 
-        jMenuItem15.setText("Excluir itens do estoque");
-        menuStock.add(jMenuItem15);
+        optDeleteItem.setText("Excluir itens do estoque");
+        menuStock.add(optDeleteItem);
 
-        optMoreRequestesItemsStock.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
-        optMoreRequestesItemsStock.setText("Itens mais requisitados no estoque");
-        optMoreRequestesItemsStock.addActionListener(new java.awt.event.ActionListener() {
+        optMoreRequestesItems.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
+        optMoreRequestesItems.setText("Itens mais requisitados no estoque");
+        optMoreRequestesItems.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optMoreRequestesItemsStockActionPerformed(evt);
+                optMoreRequestesItemsActionPerformed(evt);
             }
         });
-        menuStock.add(optMoreRequestesItemsStock);
-
-        jMenuItem22.setText("Inventário");
-        menuStock.add(jMenuItem22);
+        menuStock.add(optMoreRequestesItems);
 
         menuBar.add(menuStock);
 
         menuReport.setText("Relatórios");
 
-        jMenuItem18.setText("Vendas do Mês");
-        menuReport.add(jMenuItem18);
+        optSalesOfMonth.setText("Vendas do Mês");
+        menuReport.add(optSalesOfMonth);
 
-        jMenuItem19.setText("Movimentação no Caixa");
-        menuReport.add(jMenuItem19);
+        optCashHandling.setText("Movimentação no Caixa");
+        menuReport.add(optCashHandling);
 
-        jMenuItem20.setText("Itens mais vendidos");
-        menuReport.add(jMenuItem20);
+        optMostRequestItems.setText("Itens mais vendidos");
+        menuReport.add(optMostRequestItems);
 
-        jMenuItem21.setText("Itens menos vendidos");
-        menuReport.add(jMenuItem21);
+        optLeastRequestedItems.setText("Itens menos vendidos");
+        menuReport.add(optLeastRequestedItems);
 
-        jMenuItem23.setText("Venda dos funcionários");
-        menuReport.add(jMenuItem23);
+        optSalesOfEmployees.setText("Venda dos funcionários");
+        menuReport.add(optSalesOfEmployees);
 
-        jMenuItem24.setText("Gastos do mês");
-        menuReport.add(jMenuItem24);
+        optSpendOfMonth.setText("Gastos do mês");
+        menuReport.add(optSpendOfMonth);
 
         menuBar.add(menuReport);
 
-        menuAbout.setText("Ajuda");
+        menuHelp.setText("Ajuda");
 
         optSuport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         optSuport.setText("Suporte");
-        menuAbout.add(optSuport);
-        menuAbout.add(separator7);
+        menuHelp.add(optSuport);
+        menuHelp.add(divider3);
 
         optAbout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         optAbout.setText("Sobre");
-        menuAbout.add(optAbout);
+        menuHelp.add(optAbout);
 
-        menuBar.add(menuAbout);
+        menuBar.add(menuHelp);
 
         setJMenuBar(menuBar);
 
@@ -489,36 +483,36 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonFindOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFindOS, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonEditOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEditOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonStock, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonStock1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStock1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonBill, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonDiary, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiary, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -531,41 +525,41 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonStock1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonDiary, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStock1))
+                        .addComponent(txtDiary))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonSale, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtAddOS2))
+                            .addComponent(txtSale))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtAddOS))
+                            .addComponent(txtBox))
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonClient, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtAddOS1))
+                            .addComponent(txtClient))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(buttonFindOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtFindOS))
+                            .addComponent(txtProduct))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buttonEditOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(buttonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtEditOS))
+                                .addComponent(txtOrder))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(buttonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtOrder))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(buttonStock, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtStock)))
+                                        .addComponent(txtStock))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(buttonBill, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtBill)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -580,41 +574,41 @@ public class MainMenu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
-    private void optPartsOver7DaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPartsOver7DaysActionPerformed
+    private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
         
-    }//GEN-LAST:event_optPartsOver7DaysActionPerformed
+    }//GEN-LAST:event_optLocaleClientActionPerformed
 
-    private void optAllPartsInTestRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllPartsInTestRoomActionPerformed
+    private void optNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewClientActionPerformed
         
-    }//GEN-LAST:event_optAllPartsInTestRoomActionPerformed
+    }//GEN-LAST:event_optNewClientActionPerformed
 
-    private void optMoreRequestesItemsStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMoreRequestesItemsStockActionPerformed
+    private void optMoreRequestesItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMoreRequestesItemsActionPerformed
         
-    }//GEN-LAST:event_optMoreRequestesItemsStockActionPerformed
+    }//GEN-LAST:event_optMoreRequestesItemsActionPerformed
 
-    private void optFindItemStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optFindItemStockActionPerformed
+    private void optLocaleItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleItemActionPerformed
         
-    }//GEN-LAST:event_optFindItemStockActionPerformed
+    }//GEN-LAST:event_optLocaleItemActionPerformed
 
-    private void optAddItemStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAddItemStockActionPerformed
+    private void optNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewItemActionPerformed
         
-    }//GEN-LAST:event_optAddItemStockActionPerformed
+    }//GEN-LAST:event_optNewItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void optEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEditProductActionPerformed
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_optEditProductActionPerformed
 
-    private void optFindManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optFindManualActionPerformed
+    private void optLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleProductActionPerformed
         
-    }//GEN-LAST:event_optFindManualActionPerformed
+    }//GEN-LAST:event_optLocaleProductActionPerformed
 
-    private void optAddManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAddManualActionPerformed
+    private void optNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewProductActionPerformed
         
-    }//GEN-LAST:event_optAddManualActionPerformed
+    }//GEN-LAST:event_optNewProductActionPerformed
 
-    private void optLocalizeOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocalizeOSActionPerformed
+    private void optNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewSaleActionPerformed
         
-    }//GEN-LAST:event_optLocalizeOSActionPerformed
+    }//GEN-LAST:event_optNewSaleActionPerformed
 
     private void menuFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileActionPerformed
 
@@ -632,9 +626,9 @@ public class MainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_optUserActionPerformed
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBoxMouseClicked
         
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtBoxMouseClicked
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         LoginScreen loginScreen = new LoginScreen();
@@ -646,94 +640,94 @@ public class MainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtLogoutMouseClicked
 
-    private void buttonStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStockActionPerformed
+    private void buttonBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBillActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 310).split("/");
+        String[] vet = setLocationSubMenus.processLocation(buttonBill.getX(), 310).split("/");
         DeptMenu deptMenu = new DeptMenu();
         deptMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         deptMenu.setVisible(true);
-    }//GEN-LAST:event_buttonStockActionPerformed
+    }//GEN-LAST:event_buttonBillActionPerformed
+
+    private void txtBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBillMouseClicked
+        
+    }//GEN-LAST:event_txtBillMouseClicked
 
     private void txtStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockMouseClicked
         
     }//GEN-LAST:event_txtStockMouseClicked
 
+    private void txtSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSaleMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSaleMouseClicked
+
+    private void buttonSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaleActionPerformed
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonSale.getX(), 134).split("/");
+        SaleMenu saleMenu = new SaleMenu();
+        saleMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        saleMenu.setVisible(true);
+    }//GEN-LAST:event_buttonSaleActionPerformed
+
+    private void txtClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClientMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClientMouseClicked
+
+    private void buttonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientActionPerformed
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonClient.getX(), 134).split("/");
+        ClientMenu clientMenu = new ClientMenu();
+        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        clientMenu.setVisible(true);
+    }//GEN-LAST:event_buttonClientActionPerformed
+
+    private void buttonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderActionPerformed
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonOrder.getX(), 405).split("/");
+        OrderMenu orderMenu = new OrderMenu();
+        orderMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        orderMenu.setVisible(true);
+    }//GEN-LAST:event_buttonOrderActionPerformed
+
+    private void buttonBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBoxActionPerformed
+        BillMenu billMenu = new BillMenu();
+        billMenu.setVisible(true);
+    }//GEN-LAST:event_buttonBoxActionPerformed
+
+    private void buttonStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStockActionPerformed
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 250).split("/");
+        StockMenu stockMenu = new StockMenu();
+        stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        stockMenu.setVisible(true);
+    }//GEN-LAST:event_buttonStockActionPerformed
+
     private void txtOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOrderMouseClicked
         
     }//GEN-LAST:event_txtOrderMouseClicked
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
-
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProductActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonAddOS2.getX(), 134).split("/");
-        SaleMenu saleMenu = new SaleMenu();
-        saleMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        saleMenu.setVisible(true);
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
-
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
-
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
-        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonAddOS1.getX(), 134).split("/");
-        ClientMenu clientMenu = new ClientMenu();
-        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        clientMenu.setVisible(true);
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
-
-    private void buttonEditOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditOSActionPerformed
-        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonEditOS.getX(), 405).split("/");
-        OrderMenu orderMenu = new OrderMenu();
-        orderMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        orderMenu.setVisible(true);
-    }//GEN-LAST:event_buttonEditOSActionPerformed
-
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
-        BillMenu billMenu = new BillMenu();
-        billMenu.setVisible(true);
-    }//GEN-LAST:event_buttonAddOSActionPerformed
-
-    private void buttonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderActionPerformed
-        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonOrder.getX(), 250).split("/");
-        StockMenu stockMenu = new StockMenu();
-        stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        stockMenu.setVisible(true);
-    }//GEN-LAST:event_buttonOrderActionPerformed
-
-    private void txtEditOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtEditOSMouseClicked
-        
-    }//GEN-LAST:event_txtEditOSMouseClicked
-
-    private void buttonFindOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFindOSActionPerformed
-        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonFindOS.getX(), 195).split("/");
+        String[] vet = setLocationSubMenus.processLocation(buttonProduct.getX(), 195).split("/");
         ProductMenu productMenu = new ProductMenu();
         productMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         productMenu.setVisible(true);
-    }//GEN-LAST:event_buttonFindOSActionPerformed
+    }//GEN-LAST:event_buttonProductActionPerformed
 
-    private void txtFindOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFindOSMouseClicked
+    private void txtProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductMouseClicked
         
-    }//GEN-LAST:event_txtFindOSMouseClicked
+    }//GEN-LAST:event_txtProductMouseClicked
 
-    private void txtStock1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStock1MouseClicked
+    private void txtDiaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDiaryMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtStock1MouseClicked
+    }//GEN-LAST:event_txtDiaryMouseClicked
 
-    private void buttonStock1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStock1ActionPerformed
+    private void buttonDiaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiaryActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
         String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 600).split("/");
         DiaryMenu diaryMenu = new DiaryMenu();
         diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         diaryMenu.setVisible(true);
-    }//GEN-LAST:event_buttonStock1ActionPerformed
+    }//GEN-LAST:event_buttonDiaryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -771,74 +765,72 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonEditOS;
-    private javax.swing.JButton buttonFindOS;
+    private javax.swing.JButton buttonBill;
+    private javax.swing.JButton buttonBox;
+    private javax.swing.JButton buttonClient;
+    private javax.swing.JButton buttonDiary;
     private javax.swing.JButton buttonLogout;
-    public static javax.swing.JButton buttonOrder;
-    private javax.swing.JButton buttonStock;
-    private javax.swing.JButton buttonStock1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
-    private javax.swing.JMenuItem jMenuItem18;
-    private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem22;
-    private javax.swing.JMenuItem jMenuItem23;
-    private javax.swing.JMenuItem jMenuItem24;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenu menuAbout;
-    private javax.swing.JMenu menuBacklog;
+    private javax.swing.JButton buttonOrder;
+    private javax.swing.JButton buttonProduct;
+    private javax.swing.JButton buttonSale;
+    public static javax.swing.JButton buttonStock;
+    private javax.swing.JPopupMenu.Separator divider1;
+    private javax.swing.JPopupMenu.Separator divider2;
+    private javax.swing.JPopupMenu.Separator divider3;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuClient;
     private javax.swing.JMenu menuFile;
-    private javax.swing.JMenu menuFind;
-    private javax.swing.JMenu menuManual;
+    private javax.swing.JMenu menuHelp;
     private javax.swing.JMenu menuOrder;
+    private javax.swing.JMenu menuProduct;
     private javax.swing.JMenu menuReport;
+    private javax.swing.JMenu menuSale;
     private javax.swing.JMenu menuStock;
     private javax.swing.JMenuItem opcBackup;
     private javax.swing.JMenuItem opcClose;
     private javax.swing.JMenuItem opcLogout;
     private javax.swing.JMenuItem optAbout;
-    private javax.swing.JMenuItem optAddItemStock;
-    private javax.swing.JMenuItem optAddManual;
-    private javax.swing.JMenuItem optAllPartsInTestRoom;
-    private javax.swing.JMenuItem optFindItemStock;
-    private javax.swing.JMenuItem optFindManual;
-    private javax.swing.JMenuItem optLocalizeOS;
-    private javax.swing.JMenuItem optMoreRequestesItemsStock;
-    private javax.swing.JMenuItem optPartsOver7Days;
+    private javax.swing.JMenuItem optCanceledOrders;
+    private javax.swing.JMenuItem optCashHandling;
+    private javax.swing.JMenuItem optDeleteClient;
+    private javax.swing.JMenuItem optDeleteItem;
+    private javax.swing.JMenuItem optDeleteOrder;
+    private javax.swing.JMenuItem optDeleteProdutc;
+    private javax.swing.JMenuItem optDeleteSale;
+    private javax.swing.JMenuItem optEditClient;
+    private javax.swing.JMenuItem optEditItem;
+    private javax.swing.JMenuItem optEditOrder;
+    private javax.swing.JMenuItem optEditProduct;
+    private javax.swing.JMenuItem optEditSale;
+    private javax.swing.JMenuItem optLeastRequestedItems;
+    private javax.swing.JMenuItem optLocaleClient;
+    private javax.swing.JMenuItem optLocaleItem;
+    private javax.swing.JMenuItem optLocaleOrder;
+    private javax.swing.JMenuItem optLocaleProduct;
+    private javax.swing.JMenuItem optLocaleSale;
+    private javax.swing.JMenuItem optMoreRequestesItems;
+    private javax.swing.JMenuItem optMostRequestItems;
+    private javax.swing.JMenuItem optNewClient;
+    private javax.swing.JMenuItem optNewItem;
+    private javax.swing.JMenuItem optNewOrder;
+    private javax.swing.JMenuItem optNewProduct;
+    private javax.swing.JMenuItem optNewSale;
+    private javax.swing.JMenuItem optPendantOrder;
+    private javax.swing.JMenuItem optPendantSale;
     private javax.swing.JMenuItem optRestore;
+    private javax.swing.JMenuItem optSalesOfEmployees;
+    private javax.swing.JMenuItem optSalesOfMonth;
+    private javax.swing.JMenuItem optSpendOfMonth;
     private javax.swing.JMenuItem optSuport;
     private javax.swing.JMenuItem optUser;
-    private javax.swing.JPopupMenu.Separator separator2;
-    private javax.swing.JPopupMenu.Separator separator3;
-    private javax.swing.JPopupMenu.Separator separator7;
-    private javax.swing.JPopupMenu.Separator separator8;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtEditOS;
-    private javax.swing.JLabel txtFindOS;
+    private javax.swing.JLabel txtBill;
+    private javax.swing.JLabel txtBox;
+    private javax.swing.JLabel txtClient;
+    private javax.swing.JLabel txtDiary;
     private javax.swing.JLabel txtLogout;
     private javax.swing.JLabel txtOrder;
+    private javax.swing.JLabel txtProduct;
+    private javax.swing.JLabel txtSale;
     private javax.swing.JLabel txtStock;
-    private javax.swing.JLabel txtStock1;
     // End of variables declaration//GEN-END:variables
 }

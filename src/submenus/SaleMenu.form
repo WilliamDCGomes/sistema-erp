@@ -34,18 +34,18 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="buttonAddOS" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="txtAddOS" max="32767" attributes="0"/>
+                  <Component id="buttonNewSale" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtNewSale" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtLocaleSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonLocaleSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonAddOS2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtPendingSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonPendingSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="16" max="32767" attributes="0"/>
           </Group>
@@ -57,19 +57,19 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS2" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonPendingSale" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPendingSale" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS1" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonLocaleSale" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLocaleSale" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonAddOS" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Component id="buttonNewSale" min="-2" pref="98" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtAddOS" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNewSale" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -78,7 +78,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtAddOS">
+    <Component class="javax.swing.JLabel" name="txtNewSale">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -87,20 +87,20 @@
         <Property name="text" type="java.lang.String" value="NOVA "/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOSMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNewSaleMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS">
+    <Component class="javax.swing.JButton" name="buttonNewSale">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/newSale.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOSActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewSaleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS1">
+    <Component class="javax.swing.JLabel" name="txtLocaleSale">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -109,20 +109,20 @@
         <Property name="text" type="java.lang.String" value="LOCALIZAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLocaleSaleMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS1">
+    <Component class="javax.swing.JButton" name="buttonLocaleSale">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/findSale.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLocaleSaleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtAddOS2">
+    <Component class="javax.swing.JLabel" name="txtPendingSale">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -131,17 +131,17 @@
         <Property name="text" type="java.lang.String" value="PENDENTE"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAddOS2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtPendingSaleMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonAddOS2">
+    <Component class="javax.swing.JButton" name="buttonPendingSale">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/waitSale.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddOS2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPendingSaleActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

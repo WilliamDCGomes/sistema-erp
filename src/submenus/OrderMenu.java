@@ -27,16 +27,16 @@ public class OrderMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonAddOS = new javax.swing.JButton();
-        txtAddOS1 = new javax.swing.JLabel();
-        buttonAddOS1 = new javax.swing.JButton();
-        txtAddOS2 = new javax.swing.JLabel();
-        buttonAddOS2 = new javax.swing.JButton();
-        txtAddOS3 = new javax.swing.JLabel();
-        buttonAddOS3 = new javax.swing.JButton();
-        txtAddOS = new javax.swing.JLabel();
-        txtAddOS4 = new javax.swing.JLabel();
-        buttonAddOS4 = new javax.swing.JButton();
+        buttonNewOrder = new javax.swing.JButton();
+        txtLocaleOrder = new javax.swing.JLabel();
+        buttonLocaleOrder = new javax.swing.JButton();
+        txtAllOrders = new javax.swing.JLabel();
+        buttonAllOrders = new javax.swing.JButton();
+        txtPendingOrder = new javax.swing.JLabel();
+        buttonPendingOrder = new javax.swing.JButton();
+        txtNewOrder = new javax.swing.JLabel();
+        txtCanceledOrders = new javax.swing.JLabel();
+        buttonCanceledOrders = new javax.swing.JButton();
 
         setUndecorated(true);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
@@ -47,83 +47,83 @@ public class OrderMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonAddOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newOrder.png"))); // NOI18N
-        buttonAddOS.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newOrder.png"))); // NOI18N
+        buttonNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOSActionPerformed(evt);
+                buttonNewOrderActionPerformed(evt);
             }
         });
 
-        txtAddOS1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS1.setText("LOCALIZAR");
-        txtAddOS1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleOrder.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleOrder.setText("LOCALIZAR");
+        txtLocaleOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS1MouseClicked(evt);
+                txtLocaleOrderMouseClicked(evt);
             }
         });
 
-        buttonAddOS1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeOrder.png"))); // NOI18N
-        buttonAddOS1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeOrder.png"))); // NOI18N
+        buttonLocaleOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS1ActionPerformed(evt);
+                buttonLocaleOrderActionPerformed(evt);
             }
         });
 
-        txtAddOS2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS2.setText("TODOS");
-        txtAddOS2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAllOrders.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAllOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllOrders.setText("TODOS");
+        txtAllOrders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS2MouseClicked(evt);
+                txtAllOrdersMouseClicked(evt);
             }
         });
 
-        buttonAddOS2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allOrder.png"))); // NOI18N
-        buttonAddOS2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllOrders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allOrder.png"))); // NOI18N
+        buttonAllOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS2ActionPerformed(evt);
+                buttonAllOrdersActionPerformed(evt);
             }
         });
 
-        txtAddOS3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS3.setText("PEDIDOS PENDENTE");
-        txtAddOS3.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtPendingOrder.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtPendingOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPendingOrder.setText("PEDIDOS PENDENTE");
+        txtPendingOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS3MouseClicked(evt);
+                txtPendingOrderMouseClicked(evt);
             }
         });
 
-        buttonAddOS3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/waitOrder.png"))); // NOI18N
-        buttonAddOS3.addActionListener(new java.awt.event.ActionListener() {
+        buttonPendingOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/waitOrder.png"))); // NOI18N
+        buttonPendingOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS3ActionPerformed(evt);
+                buttonPendingOrderActionPerformed(evt);
             }
         });
 
-        txtAddOS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS.setText("NOVO");
-        txtAddOS.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewOrder.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewOrder.setText("NOVO");
+        txtNewOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOSMouseClicked(evt);
+                txtNewOrderMouseClicked(evt);
             }
         });
 
-        txtAddOS4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtAddOS4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAddOS4.setText("PEDIDOS CANCELADOS");
-        txtAddOS4.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCanceledOrders.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCanceledOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtCanceledOrders.setText("PEDIDOS CANCELADOS");
+        txtCanceledOrders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtAddOS4MouseClicked(evt);
+                txtCanceledOrdersMouseClicked(evt);
             }
         });
 
-        buttonAddOS4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/canceledOrder.png"))); // NOI18N
-        buttonAddOS4.addActionListener(new java.awt.event.ActionListener() {
+        buttonCanceledOrders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/canceledOrder.png"))); // NOI18N
+        buttonCanceledOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonAddOS4ActionPerformed(evt);
+                buttonCanceledOrdersActionPerformed(evt);
             }
         });
 
@@ -134,28 +134,28 @@ public class OrderMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAddOS3)
+                    .addComponent(txtPendingOrder)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonPendingOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtAddOS4))
+                        .addComponent(buttonCanceledOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCanceledOrders))
                 .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
@@ -164,70 +164,70 @@ public class OrderMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAllOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS2))
+                        .addComponent(txtAllOrders))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonPendingOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS3))
+                        .addComponent(txtPendingOrder))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonLocaleOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS1))
+                        .addComponent(txtLocaleOrder))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonNewOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS))
+                        .addComponent(txtNewOrder))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonAddOS4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonCanceledOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAddOS4)))
+                        .addComponent(txtCanceledOrders)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonAddOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOSActionPerformed
+    private void buttonNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewOrderActionPerformed
 
-    }//GEN-LAST:event_buttonAddOSActionPerformed
+    }//GEN-LAST:event_buttonNewOrderActionPerformed
 
-    private void txtAddOS1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS1MouseClicked
+    private void txtLocaleOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleOrderMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS1MouseClicked
+    }//GEN-LAST:event_txtLocaleOrderMouseClicked
 
-    private void buttonAddOS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS1ActionPerformed
+    private void buttonLocaleOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS1ActionPerformed
+    }//GEN-LAST:event_buttonLocaleOrderActionPerformed
 
-    private void txtAddOS2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS2MouseClicked
+    private void txtAllOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllOrdersMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS2MouseClicked
+    }//GEN-LAST:event_txtAllOrdersMouseClicked
 
-    private void buttonAddOS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS2ActionPerformed
+    private void buttonAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllOrdersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS2ActionPerformed
+    }//GEN-LAST:event_buttonAllOrdersActionPerformed
 
-    private void txtAddOS3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS3MouseClicked
+    private void txtPendingOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPendingOrderMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS3MouseClicked
+    }//GEN-LAST:event_txtPendingOrderMouseClicked
 
-    private void buttonAddOS3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS3ActionPerformed
+    private void buttonPendingOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPendingOrderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS3ActionPerformed
+    }//GEN-LAST:event_buttonPendingOrderActionPerformed
 
-    private void txtAddOSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOSMouseClicked
+    private void txtNewOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewOrderMouseClicked
 
-    }//GEN-LAST:event_txtAddOSMouseClicked
+    }//GEN-LAST:event_txtNewOrderMouseClicked
 
-    private void txtAddOS4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddOS4MouseClicked
+    private void txtCanceledOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCanceledOrdersMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAddOS4MouseClicked
+    }//GEN-LAST:event_txtCanceledOrdersMouseClicked
 
-    private void buttonAddOS4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddOS4ActionPerformed
+    private void buttonCanceledOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCanceledOrdersActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonAddOS4ActionPerformed
+    }//GEN-LAST:event_buttonCanceledOrdersActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -269,15 +269,15 @@ public class OrderMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonAddOS;
-    private javax.swing.JButton buttonAddOS1;
-    private javax.swing.JButton buttonAddOS2;
-    private javax.swing.JButton buttonAddOS3;
-    private javax.swing.JButton buttonAddOS4;
-    private javax.swing.JLabel txtAddOS;
-    private javax.swing.JLabel txtAddOS1;
-    private javax.swing.JLabel txtAddOS2;
-    private javax.swing.JLabel txtAddOS3;
-    private javax.swing.JLabel txtAddOS4;
+    private javax.swing.JButton buttonAllOrders;
+    private javax.swing.JButton buttonCanceledOrders;
+    private javax.swing.JButton buttonLocaleOrder;
+    private javax.swing.JButton buttonNewOrder;
+    private javax.swing.JButton buttonPendingOrder;
+    private javax.swing.JLabel txtAllOrders;
+    private javax.swing.JLabel txtCanceledOrders;
+    private javax.swing.JLabel txtLocaleOrder;
+    private javax.swing.JLabel txtNewOrder;
+    private javax.swing.JLabel txtPendingOrder;
     // End of variables declaration//GEN-END:variables
 }
