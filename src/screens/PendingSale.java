@@ -31,6 +31,9 @@ public class PendingSale extends javax.swing.JFrame {
         tablePendingSale = new javax.swing.JScrollPane();
         tablePending = new javax.swing.JTable();
         buttonShow = new javax.swing.JButton();
+        inputStartDate = new javax.swing.JFormattedTextField();
+        inputEndDate = new javax.swing.JFormattedTextField();
+        buttonFilter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendas Pendete");
@@ -53,22 +56,45 @@ public class PendingSale extends javax.swing.JFrame {
 
         buttonShow.setText("MOSTRAR");
 
+        try {
+            inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        inputStartDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        try {
+            inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        inputEndDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        buttonFilter.setText("FILTRAR");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonShow)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtPendingSale)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonFilter)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonShow)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,9 +102,13 @@ public class PendingSale extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addComponent(txtPendingSale)
                 .addGap(18, 18, 18)
-                .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
+                .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonShow)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonShow)
+                    .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonFilter))
                 .addGap(14, 14, 14))
         );
 
@@ -122,9 +152,12 @@ public class PendingSale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonFilter;
     private javax.swing.JButton buttonShow;
+    private javax.swing.JFormattedTextField inputEndDate;
+    private javax.swing.JFormattedTextField inputStartDate;
     private javax.swing.JTable tablePending;
     private javax.swing.JScrollPane tablePendingSale;
-    private javax.swing.JLabel txtPendingSale;
+    public static javax.swing.JLabel txtPendingSale;
     // End of variables declaration//GEN-END:variables
 }

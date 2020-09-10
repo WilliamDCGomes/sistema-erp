@@ -44,6 +44,11 @@ public class LocaleSale extends javax.swing.JFrame {
         buttonLocale.setText("LOCALIZAR");
 
         buttonAllSales.setText("TODAS AS VENDAS");
+        buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllSalesActionPerformed(evt);
+            }
+        });
 
         txtLocaleSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLocaleSale.setText("Localizar Venda");
@@ -86,6 +91,14 @@ public class LocaleSale extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(450, 248));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonAllSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllSalesActionPerformed
+        PendingSale pendingSale = new PendingSale();
+        pendingSale.txtPendingSale.setText("Todas as Vendas");
+        pendingSale.setTitle("Todas as Vendas");
+        this.dispose();
+        pendingSale.setVisible(true);
+    }//GEN-LAST:event_buttonAllSalesActionPerformed
 
     /**
      * @param args the command line arguments

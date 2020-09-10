@@ -305,6 +305,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuSale.add(optNewSale);
 
         optLocaleSale.setText("Localizar Venda");
+        optLocaleSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleSaleActionPerformed(evt);
+            }
+        });
         menuSale.add(optLocaleSale);
 
         optEditSale.setText("Editar Venda");
@@ -314,6 +319,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuSale.add(optDeleteSale);
 
         optPendantSale.setText("Venda Pendente?");
+        optPendantSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPendantSaleActionPerformed(evt);
+            }
+        });
         menuSale.add(optPendantSale);
 
         menuBar.add(menuSale);
@@ -607,7 +617,8 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_optNewProductActionPerformed
 
     private void optNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewSaleActionPerformed
-        
+        NewSale newSale = new NewSale();
+        newSale.setVisible(true);
     }//GEN-LAST:event_optNewSaleActionPerformed
 
     private void menuFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileActionPerformed
@@ -627,7 +638,8 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_optUserActionPerformed
 
     private void txtBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBoxMouseClicked
-        
+        BillMenu billMenu = new BillMenu();
+        billMenu.setVisible(true);
     }//GEN-LAST:event_txtBoxMouseClicked
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
@@ -637,7 +649,9 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void txtLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLogoutMouseClicked
-        
+        LoginScreen loginScreen = new LoginScreen();
+        this.dispose();
+        loginScreen.setVisible(true);
     }//GEN-LAST:event_txtLogoutMouseClicked
 
     private void buttonBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBillActionPerformed
@@ -649,15 +663,27 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBillActionPerformed
 
     private void txtBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBillMouseClicked
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonBill.getX(), 310).split("/");
+        DeptMenu deptMenu = new DeptMenu();
+        deptMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        deptMenu.setVisible(true);
     }//GEN-LAST:event_txtBillMouseClicked
 
     private void txtStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockMouseClicked
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 250).split("/");
+        StockMenu stockMenu = new StockMenu();
+        stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        stockMenu.setVisible(true);
     }//GEN-LAST:event_txtStockMouseClicked
 
     private void txtSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSaleMouseClicked
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonSale.getX(), 134).split("/");
+        SaleMenu saleMenu = new SaleMenu();
+        saleMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        saleMenu.setVisible(true);
     }//GEN-LAST:event_txtSaleMouseClicked
 
     private void buttonSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaleActionPerformed
@@ -669,7 +695,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSaleActionPerformed
 
     private void txtClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtClientMouseClicked
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonClient.getX(), 134).split("/");
+        ClientMenu clientMenu = new ClientMenu();
+        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        clientMenu.setVisible(true);
     }//GEN-LAST:event_txtClientMouseClicked
 
     private void buttonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientActionPerformed
@@ -702,7 +732,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonStockActionPerformed
 
     private void txtOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtOrderMouseClicked
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonOrder.getX(), 405).split("/");
+        OrderMenu orderMenu = new OrderMenu();
+        orderMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        orderMenu.setVisible(true);
     }//GEN-LAST:event_txtOrderMouseClicked
 
     private void buttonProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProductActionPerformed
@@ -714,11 +748,19 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonProductActionPerformed
 
     private void txtProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtProductMouseClicked
-        
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonProduct.getX(), 195).split("/");
+        ProductMenu productMenu = new ProductMenu();
+        productMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        productMenu.setVisible(true);
     }//GEN-LAST:event_txtProductMouseClicked
 
     private void txtDiaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDiaryMouseClicked
-        // TODO add your handling code here:
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 600).split("/");
+        DiaryMenu diaryMenu = new DiaryMenu();
+        diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        diaryMenu.setVisible(true);
     }//GEN-LAST:event_txtDiaryMouseClicked
 
     private void buttonDiaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiaryActionPerformed
@@ -728,6 +770,16 @@ public class MainMenu extends javax.swing.JFrame {
         diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         diaryMenu.setVisible(true);
     }//GEN-LAST:event_buttonDiaryActionPerformed
+
+    private void optLocaleSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleSaleActionPerformed
+        LocaleSale localeSale = new LocaleSale();
+        localeSale.setVisible(true);
+    }//GEN-LAST:event_optLocaleSaleActionPerformed
+
+    private void optPendantSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPendantSaleActionPerformed
+        PendingSale pendingSale = new PendingSale();
+        pendingSale.setVisible(true);
+    }//GEN-LAST:event_optPendantSaleActionPerformed
 
     /**
      * @param args the command line arguments

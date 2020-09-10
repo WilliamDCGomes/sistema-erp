@@ -57,6 +57,9 @@ public class SaleMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtNewSaleMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtNewSaleMouseEntered(evt);
+            }
         });
 
         buttonNewSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newSale.png"))); // NOI18N
@@ -141,7 +144,8 @@ public class SaleMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNewSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewSaleMouseClicked
-
+        NewSale newSale = new NewSale();
+        newSale.setVisible(true);
     }//GEN-LAST:event_txtNewSaleMouseClicked
 
     private void buttonNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewSaleActionPerformed
@@ -150,7 +154,8 @@ public class SaleMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewSaleActionPerformed
 
     private void txtLocaleSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleSaleMouseClicked
-        // TODO add your handling code here:
+        LocaleSale localeSale = new LocaleSale();
+        localeSale.setVisible(true);
     }//GEN-LAST:event_txtLocaleSaleMouseClicked
 
     private void buttonLocaleSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleSaleActionPerformed
@@ -159,7 +164,8 @@ public class SaleMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLocaleSaleActionPerformed
 
     private void txtPendingSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPendingSaleMouseClicked
-        // TODO add your handling code here:
+        PendingSale pendingSale = new PendingSale();
+        pendingSale.setVisible(true);
     }//GEN-LAST:event_txtPendingSaleMouseClicked
 
     private void buttonPendingSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPendingSaleActionPerformed
@@ -170,6 +176,10 @@ public class SaleMenu extends javax.swing.JFrame {
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
     }//GEN-LAST:event_formWindowLostFocus
+
+    private void txtNewSaleMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewSaleMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNewSaleMouseEntered
 
     /**
      * @param args the command line arguments

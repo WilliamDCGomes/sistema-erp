@@ -87,6 +87,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Localizar Venda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleSaleActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optEditSale">
               <Properties>
@@ -102,6 +105,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Venda Pendente?"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optPendantSaleActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
