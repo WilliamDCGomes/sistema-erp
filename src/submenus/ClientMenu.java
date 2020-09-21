@@ -5,6 +5,10 @@
  */
 package submenus;
 
+import screens.AllClients;
+import screens.LocaleClient;
+import screens.NewClient;
+
 /**
  *
  * @author Alunos
@@ -139,7 +143,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNewClientMouseClicked
 
     private void buttonNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClientActionPerformed
-
+        NewClient newClient = new NewClient();
+        newClient.setVisible(true);
     }//GEN-LAST:event_buttonNewClientActionPerformed
 
     private void txtLocaleClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleClientMouseClicked
@@ -147,7 +152,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLocaleClientMouseClicked
 
     private void buttonLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleClientActionPerformed
-        // TODO add your handling code here:
+        LocaleClient localeClient = new LocaleClient();
+        localeClient.setVisible(true);
     }//GEN-LAST:event_buttonLocaleClientActionPerformed
 
     private void txtAllClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllClientsMouseClicked
@@ -155,7 +161,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAllClientsMouseClicked
 
     private void buttonAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllClientsActionPerformed
-        // TODO add your handling code here:
+        AllClients allClients = new AllClients();
+        allClients.setVisible(true);
     }//GEN-LAST:event_buttonAllClientsActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
