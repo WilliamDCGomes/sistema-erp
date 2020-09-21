@@ -52,6 +52,11 @@ public class LocaleClient extends javax.swing.JFrame {
         jButton1.setText("LOCALIZAR");
 
         jButton2.setText("TODOS OS CLIENTES");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setText("LOCALIZAR CLIENTES");
@@ -105,6 +110,12 @@ public class LocaleClient extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(381, 290));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AllClients allClients = new AllClients();
+        this.dispose();
+        allClients.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
