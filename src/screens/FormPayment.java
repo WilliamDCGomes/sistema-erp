@@ -47,14 +47,18 @@ public class FormPayment extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Forma de Pagamento");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         txtExpirationDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtExpirationDate.setText("Data de Vencimento");
+        getContentPane().add(txtExpirationDate);
+        txtExpirationDate.setBounds(25, 75, 141, 20);
 
         try {
             inputExpirationDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -62,14 +66,22 @@ public class FormPayment extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         inputExpirationDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputExpirationDate);
+        inputExpirationDate.setBounds(25, 105, 70, 25);
 
         txtPlots.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPlots.setText("Parcelas");
+        getContentPane().add(txtPlots);
+        txtPlots.setBounds(515, 75, 61, 20);
 
         inputPlots.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputPlots);
+        inputPlots.setBounds(515, 105, 61, 25);
 
         txtSaleValue.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtSaleValue.setText("Valor da Venda");
+        getContentPane().add(txtSaleValue);
+        txtSaleValue.setBounds(210, 75, 105, 20);
 
         tableOfPayments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,99 +103,48 @@ public class FormPayment extends javax.swing.JFrame {
         ));
         tableFormPayment.setViewportView(tableOfPayments);
 
+        getContentPane().add(tableFormPayment);
+        tableFormPayment.setBounds(25, 180, 735, 250);
+
         txtPayment.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPayment.setText("Pagamento");
+        getContentPane().add(txtPayment);
+        txtPayment.setBounds(25, 150, 79, 20);
 
         txtEnterValue.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtEnterValue.setText("Valor de Entrada");
+        getContentPane().add(txtEnterValue);
+        txtEnterValue.setBounds(360, 75, 117, 20);
 
         txtPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPlotsPeriod.setText("Período das Parcelas");
+        getContentPane().add(txtPlotsPeriod);
+        txtPlotsPeriod.setBounds(610, 75, 150, 20);
 
         inputPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         inputPlotsPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "10 dias", "15 dias", "20 dias", "30 dias", "45 dias", "60 dias" }));
+        getContentPane().add(inputPlotsPeriod);
+        inputPlotsPeriod.setBounds(610, 105, 150, 25);
 
         txtFormPayment.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtFormPayment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFormPayment.setText("Forma de Pagamento");
+        getContentPane().add(txtFormPayment);
+        txtFormPayment.setBounds(290, 20, 244, 32);
 
         buttonFinish.setText("Finalizar");
+        getContentPane().add(buttonFinish);
+        buttonFinish.setBounds(25, 450, 90, 23);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputSaleValue);
+        inputSaleValue.setBounds(210, 105, 94, 25);
 
         inputEnterValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputEnterValue);
+        inputEnterValue.setBounds(360, 105, 94, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtFormPayment)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonFinish)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tableFormPayment)
-                            .addComponent(txtPayment)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtExpirationDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inputExpirationDate))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSaleValue)
-                                    .addComponent(inputSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputEnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEnterValue))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPlots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inputPlots, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPlotsPeriod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(inputPlotsPeriod, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(20, 20, 20))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(txtFormPayment)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtExpirationDate)
-                    .addComponent(txtPlots)
-                    .addComponent(txtSaleValue)
-                    .addComponent(txtEnterValue))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(inputExpirationDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(inputSaleValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(inputPlots, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(inputEnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(txtPlotsPeriod)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inputPlotsPeriod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtPayment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tableFormPayment, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonFinish)
-                .addGap(17, 17, 17))
-        );
-
-        setSize(new java.awt.Dimension(612, 583));
+        setSize(new java.awt.Dimension(801, 518));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -21,12 +21,12 @@ public class LoginScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         txtDoLogin = new javax.swing.JLabel();
-        inputLogin = new javax.swing.JTextField();
         inputSenha = new javax.swing.JPasswordField();
         txtLogin = new javax.swing.JLabel();
         textPassoword = new javax.swing.JLabel();
         buttonLogin = new javax.swing.JButton();
         buttonCadastre = new javax.swing.JButton();
+        inputLogin = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -46,20 +46,27 @@ public class LoginScreen extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         txtDoLogin.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
         txtDoLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDoLogin.setText("FAÇA LOGIN");
-
-        inputLogin.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(txtDoLogin);
+        txtDoLogin.setBounds(184, 27, 184, 39);
 
         inputSenha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(inputSenha);
+        inputSenha.setBounds(260, 245, 146, 30);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLogin.setText("LOGIN");
+        getContentPane().add(txtLogin);
+        txtLogin.setBounds(150, 145, 105, 30);
 
         textPassoword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         textPassoword.setText("SENHA");
+        getContentPane().add(textPassoword);
+        textPassoword.setBounds(150, 245, 105, 30);
 
         buttonLogin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonLogin.setText("LOGAR");
@@ -68,6 +75,8 @@ public class LoginScreen extends javax.swing.JFrame {
                 buttonLoginActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonLogin);
+        buttonLogin.setBounds(110, 335, 105, 33);
 
         buttonCadastre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonCadastre.setText("CADASTRAR");
@@ -76,53 +85,13 @@ public class LoginScreen extends javax.swing.JFrame {
                 buttonCadastreActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonCadastre);
+        buttonCadastre.setBounds(300, 335, 141, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textPassoword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputSenha)
-                            .addComponent(inputLogin))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(buttonCadastre)))
-                .addGap(102, 102, 102))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(184, 184, 184)
-                .addComponent(txtDoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(185, 185, 185))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(txtDoLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textPassoword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonLogin)
-                    .addComponent(buttonCadastre))
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
+        inputLogin.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        inputLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
+        getContentPane().add(inputLogin);
+        inputLogin.setBounds(260, 145, 150, 30);
 
         setSize(new java.awt.Dimension(569, 444));
         setLocationRelativeTo(null);
@@ -188,7 +157,7 @@ public class LoginScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastre;
     private javax.swing.JButton buttonLogin;
-    private javax.swing.JTextField inputLogin;
+    private javax.swing.JComboBox<String> inputLogin;
     private javax.swing.JPasswordField inputSenha;
     private javax.swing.JLabel textPassoword;
     private javax.swing.JLabel txtDoLogin;

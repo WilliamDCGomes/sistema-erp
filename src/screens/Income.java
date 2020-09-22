@@ -36,9 +36,13 @@ public class Income extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Entrada no Caixa");
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         txtEnter.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtEnter.setText("Entrada");
+        getContentPane().add(txtEnter);
+        txtEnter.setBounds(308, 11, 89, 32);
 
         tableEnterCash.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,12 +57,17 @@ public class Income extends javax.swing.JFrame {
         ));
         tableIncome.setViewportView(tableEnterCash);
 
+        getContentPane().add(tableIncome);
+        tableIncome.setBounds(26, 61, 658, 327);
+
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         inputStartDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputStartDate);
+        inputStartDate.setBounds(26, 405, 89, 25);
 
         try {
             inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -66,43 +75,12 @@ public class Income extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputEndDate);
+        inputEndDate.setBounds(187, 405, 90, 25);
 
         buttonFilter.setText("FILTRAR");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(buttonFilter))
-                    .addComponent(tableIncome, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE))
-                .addGap(21, 21, 21))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtEnter)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(txtEnter)
-                .addGap(18, 18, 18)
-                .addComponent(tableIncome, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonFilter))
-                .addGap(25, 25, 25))
-        );
+        getContentPane().add(buttonFilter);
+        buttonFilter.setBounds(340, 405, 80, 25);
 
         setSize(new java.awt.Dimension(721, 497));
         setLocationRelativeTo(null);

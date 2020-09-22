@@ -161,8 +161,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAllClientsMouseClicked
 
     private void buttonAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllClientsActionPerformed
-        AllClients allClients = new AllClients();
-        allClients.setVisible(true);
+        AllClients ClientScreen = new AllClients();
+        ClientScreen.setVisible(true);
     }//GEN-LAST:event_buttonAllClientsActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus

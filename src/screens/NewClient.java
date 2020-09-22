@@ -63,12 +63,12 @@ public class NewClient extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Data de Nascimento");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(533, 95, 175, 24);
+        jLabel2.setBounds(535, 95, 175, 24);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Nome");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(44, 95, 52, 24);
+        jLabel3.setBounds(45, 95, 52, 24);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("CPF");
@@ -78,12 +78,12 @@ public class NewClient extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Telefone");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(44, 185, 77, 24);
+        jLabel5.setBounds(45, 185, 77, 24);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("CEP");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(44, 265, 37, 24);
+        jLabel6.setBounds(45, 265, 37, 24);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setText("Rua");
@@ -93,17 +93,17 @@ public class NewClient extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("Nº");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(533, 265, 20, 24);
+        jLabel8.setBounds(535, 265, 20, 24);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setText("Complemento");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(44, 347, 124, 24);
+        jLabel9.setBounds(45, 350, 124, 24);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel11.setText("E-mail");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(533, 185, 55, 24);
+        jLabel11.setBounds(535, 185, 55, 24);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel12.setText("Celular");
@@ -117,39 +117,39 @@ public class NewClient extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(44, 135, 219, 30);
+        jTextField1.setBounds(45, 125, 219, 30);
 
         jFormattedTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(290, 135, 130, 30);
+        jFormattedTextField1.setBounds(290, 125, 130, 30);
 
         jFormattedTextField2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(533, 135, 159, 30);
+        jFormattedTextField2.setBounds(535, 125, 159, 30);
 
         jFormattedTextField3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(44, 225, 184, 30);
+        jFormattedTextField3.setBounds(45, 215, 184, 30);
 
         jFormattedTextField4.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jFormattedTextField4);
-        jFormattedTextField4.setBounds(290, 225, 140, 30);
+        jFormattedTextField4.setBounds(290, 215, 140, 30);
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(533, 225, 185, 30);
+        jTextField2.setBounds(535, 215, 185, 30);
 
         jFormattedTextField5.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jFormattedTextField5);
-        jFormattedTextField5.setBounds(44, 300, 194, 30);
+        jFormattedTextField5.setBounds(45, 295, 194, 30);
 
         jTextField3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(290, 300, 189, 30);
+        jTextField3.setBounds(290, 295, 189, 30);
 
         jTextField4.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(533, 300, 98, 30);
+        jTextField4.setBounds(535, 295, 98, 30);
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
@@ -157,7 +157,7 @@ public class NewClient extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(43, 389, 553, 143);
+        jScrollPane1.setBounds(43, 382, 553, 150);
 
         jButton1.setText("FOTO");
         getContentPane().add(jButton1);
@@ -165,9 +165,9 @@ public class NewClient extends javax.swing.JFrame {
 
         jButton2.setText("SALVAR");
         getContentPane().add(jButton2);
-        jButton2.setBounds(620, 500, 77, 30);
+        jButton2.setBounds(620, 500, 80, 30);
 
-        setSize(new java.awt.Dimension(777, 590));
+        setSize(new java.awt.Dimension(765, 569));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

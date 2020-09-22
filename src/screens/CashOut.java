@@ -36,6 +36,8 @@ public class CashOut extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Saída de Caixa");
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         tableOutMoney.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -50,15 +52,22 @@ public class CashOut extends javax.swing.JFrame {
         ));
         tableCash.setViewportView(tableOutMoney);
 
+        getContentPane().add(tableCash);
+        tableCash.setBounds(25, 60, 572, 281);
+
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
         inputStartDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputStartDate);
+        inputStartDate.setBounds(25, 360, 89, 25);
 
         txtOut.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtOut.setText("Saída");
+        getContentPane().add(txtOut);
+        txtOut.setBounds(277, 11, 64, 32);
 
         try {
             inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -66,45 +75,14 @@ public class CashOut extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputEndDate);
+        inputEndDate.setBounds(150, 360, 90, 25);
 
         buttonFilter.setText("FILTRAR");
+        getContentPane().add(buttonFilter);
+        buttonFilter.setBounds(280, 360, 90, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(buttonFilter))
-                    .addComponent(tableCash, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE))
-                .addGap(21, 21, 21))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtOut)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(txtOut)
-                .addGap(18, 18, 18)
-                .addComponent(tableCash, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonFilter))
-                .addGap(25, 25, 25))
-        );
-
-        setSize(new java.awt.Dimension(635, 451));
+        setSize(new java.awt.Dimension(635, 437));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

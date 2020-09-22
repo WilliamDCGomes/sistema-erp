@@ -35,11 +35,17 @@ public class LocaleSale extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Localizar Venda");
+        setResizable(false);
+        getContentPane().setLayout(null);
 
         txtCodOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCodOfSale.setText("Código da Venda");
+        getContentPane().add(txtCodOfSale);
+        txtCodOfSale.setBounds(63, 73, 120, 20);
 
         inputCodOfSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCodOfSale);
+        inputCodOfSale.setBounds(63, 104, 170, 25);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +53,8 @@ public class LocaleSale extends javax.swing.JFrame {
                 buttonLocaleActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonLocale);
+        buttonLocale.setBounds(63, 164, 100, 23);
 
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
@@ -54,44 +62,13 @@ public class LocaleSale extends javax.swing.JFrame {
                 buttonAllSalesActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonAllSales);
+        buttonAllSales.setBounds(192, 164, 140, 23);
 
         txtLocaleSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLocaleSale.setText("Localizar Venda");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonLocale)
-                        .addGap(40, 40, 40)
-                        .addComponent(buttonAllSales))
-                    .addComponent(txtCodOfSale)
-                    .addComponent(inputCodOfSale))
-                .addGap(82, 82, 82))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtLocaleSale)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(txtLocaleSale)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(txtCodOfSale)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(inputCodOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonLocale)
-                    .addComponent(buttonAllSales))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        getContentPane().add(txtLocaleSale);
+        txtLocaleSale.setBounds(125, 20, 183, 32);
 
         setSize(new java.awt.Dimension(450, 248));
         setLocationRelativeTo(null);
