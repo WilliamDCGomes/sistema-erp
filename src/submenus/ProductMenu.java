@@ -5,6 +5,8 @@
  */
 package submenus;
 
+import screens.NewProduct;
+
 /**
  *
  * @author Alunos
@@ -167,7 +169,8 @@ public class ProductMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNewProductMouseClicked
 
     private void buttonNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductActionPerformed
-
+        NewProduct newProduct = new NewProduct();
+        newProduct.setVisible(true);
     }//GEN-LAST:event_buttonNewProductActionPerformed
 
     private void txtLocaleProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleProductMouseClicked
