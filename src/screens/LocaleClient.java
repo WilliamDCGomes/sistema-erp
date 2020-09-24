@@ -27,64 +27,75 @@ public class LocaleClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        inputName = new javax.swing.JTextField();
+        txtName = new javax.swing.JLabel();
+        txtCPF = new javax.swing.JLabel();
+        inputCPF = new javax.swing.JFormattedTextField();
+        buttonLocale = new javax.swing.JButton();
+        buttonAllClients = new javax.swing.JButton();
+        txtLocaleClients = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Localizar Cliente");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(35, 85, 250, 25);
+        inputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputName);
+        inputName.setBounds(35, 85, 250, 25);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setText("Name");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(35, 55, 51, 24);
+        txtName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtName.setText("Name");
+        getContentPane().add(txtName);
+        txtName.setBounds(35, 55, 51, 24);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("CPF");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(35, 120, 36, 24);
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCPF.setText("CPF");
+        getContentPane().add(txtCPF);
+        txtCPF.setBounds(35, 120, 36, 24);
 
-        jFormattedTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(35, 150, 151, 25);
+        inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCPF);
+        inputCPF.setBounds(35, 150, 151, 25);
 
-        jButton1.setText("LOCALIZAR");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(35, 195, 100, 23);
-
-        jButton2.setText("TODOS OS CLIENTES");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocale.setText("LOCALIZAR");
+        buttonLocale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonLocaleActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(170, 195, 160, 23);
+        getContentPane().add(buttonLocale);
+        buttonLocale.setBounds(35, 195, 100, 23);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setText("LOCALIZAR CLIENTES");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(49, 6, 263, 32);
+        buttonAllClients.setText("TODOS OS CLIENTES");
+        buttonAllClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllClientsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonAllClients);
+        buttonAllClients.setBounds(170, 195, 160, 23);
+
+        txtLocaleClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtLocaleClients.setText("LOCALIZAR CLIENTES");
+        getContentPane().add(txtLocaleClients);
+        txtLocaleClients.setBounds(49, 6, 263, 32);
 
         setSize(new java.awt.Dimension(381, 290));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllClientsActionPerformed
         AllClients allClients = new AllClients();
         this.dispose();
         allClients.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonAllClientsActionPerformed
+
+    private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
+        ClientScreen clientScreen = new ClientScreen();
+        this.dispose();
+        clientScreen.setVisible(true);
+    }//GEN-LAST:event_buttonLocaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,12 +133,12 @@ public class LocaleClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buttonAllClients;
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JFormattedTextField inputCPF;
+    private javax.swing.JTextField inputName;
+    private javax.swing.JLabel txtCPF;
+    private javax.swing.JLabel txtLocaleClients;
+    private javax.swing.JLabel txtName;
     // End of variables declaration//GEN-END:variables
 }

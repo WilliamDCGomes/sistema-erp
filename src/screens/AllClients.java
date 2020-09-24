@@ -27,26 +27,26 @@ public class AllClients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        inputNameClient = new javax.swing.JTextField();
+        txtAllClients = new javax.swing.JLabel();
+        tableAllClients = new javax.swing.JScrollPane();
+        tableClients = new javax.swing.JTable();
+        buttonShowClient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Clientes");
         getContentPane().setLayout(null);
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(10, 60, 256, 25);
+        inputNameClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputNameClient);
+        inputNameClient.setBounds(10, 60, 256, 25);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("TODOS OS CLIENTES");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(210, 20, 251, 32);
+        txtAllClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtAllClients.setText("TODOS OS CLIENTES");
+        getContentPane().add(txtAllClients);
+        txtAllClients.setBounds(210, 20, 251, 32);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableClients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,18 +57,28 @@ public class AllClients extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tableAllClients.setViewportView(tableClients);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 100, 639, 280);
+        getContentPane().add(tableAllClients);
+        tableAllClients.setBounds(10, 100, 639, 280);
 
-        jButton1.setText("MOSTRAR");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(300, 60, 90, 25);
+        buttonShowClient.setText("MOSTRAR");
+        buttonShowClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowClientActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonShowClient);
+        buttonShowClient.setBounds(300, 60, 90, 25);
 
         setSize(new java.awt.Dimension(676, 438));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonShowClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowClientActionPerformed
+        ClientScreen clientScreen = new ClientScreen();
+        clientScreen.setVisible(true);
+    }//GEN-LAST:event_buttonShowClientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,10 +119,10 @@ public class AllClients extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buttonShowClient;
+    private javax.swing.JTextField inputNameClient;
+    private javax.swing.JScrollPane tableAllClients;
+    private javax.swing.JTable tableClients;
+    private javax.swing.JLabel txtAllClients;
     // End of variables declaration//GEN-END:variables
 }

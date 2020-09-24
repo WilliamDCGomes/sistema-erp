@@ -139,7 +139,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNewClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewClientMouseClicked
-
+        NewClient newClient = new NewClient();
+        newClient.setVisible(true);
     }//GEN-LAST:event_txtNewClientMouseClicked
 
     private void buttonNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClientActionPerformed
@@ -148,7 +149,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewClientActionPerformed
 
     private void txtLocaleClientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleClientMouseClicked
-        // TODO add your handling code here:
+        LocaleClient localeClient = new LocaleClient();
+        localeClient.setVisible(true);
     }//GEN-LAST:event_txtLocaleClientMouseClicked
 
     private void buttonLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleClientActionPerformed
@@ -157,7 +159,8 @@ public class ClientMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLocaleClientActionPerformed
 
     private void txtAllClientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllClientsMouseClicked
-        // TODO add your handling code here:
+        AllClients ClientScreen = new AllClients();
+        ClientScreen.setVisible(true);
     }//GEN-LAST:event_txtAllClientsMouseClicked
 
     private void buttonAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllClientsActionPerformed

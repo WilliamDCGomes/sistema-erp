@@ -28,30 +28,30 @@ public class NewClient extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtBirthDay = new javax.swing.JLabel();
+        txtName = new javax.swing.JLabel();
+        txtCPF = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JLabel();
+        txtCEP = new javax.swing.JLabel();
+        txtStreet = new javax.swing.JLabel();
+        txtNumberHouse = new javax.swing.JLabel();
+        txtComplement = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JLabel();
+        txtCellPhone = new javax.swing.JLabel();
+        txtCadastreClient = new javax.swing.JLabel();
+        inputName = new javax.swing.JTextField();
+        inputCPF = new javax.swing.JFormattedTextField();
+        inputBirthDay = new javax.swing.JFormattedTextField();
+        inputPhone = new javax.swing.JFormattedTextField();
+        inputCellphone = new javax.swing.JFormattedTextField();
+        inputEmail = new javax.swing.JTextField();
+        inputCEP = new javax.swing.JFormattedTextField();
+        inputStreet = new javax.swing.JTextField();
+        inputNumberHouse = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        inputComplement = new javax.swing.JTextArea();
+        buttonPhoto = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -60,116 +60,127 @@ public class NewClient extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("Data de Nascimento");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(535, 95, 175, 24);
+        txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtBirthDay.setText("Data de Nascimento");
+        getContentPane().add(txtBirthDay);
+        txtBirthDay.setBounds(535, 95, 175, 24);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("Nome");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(45, 95, 52, 24);
+        txtName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtName.setText("Nome");
+        getContentPane().add(txtName);
+        txtName.setBounds(45, 95, 52, 24);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("CPF");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(290, 95, 36, 24);
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCPF.setText("CPF");
+        getContentPane().add(txtCPF);
+        txtCPF.setBounds(290, 95, 36, 24);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setText("Telefone");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(45, 185, 77, 24);
+        txtPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtPhone.setText("Telefone");
+        getContentPane().add(txtPhone);
+        txtPhone.setBounds(45, 185, 77, 24);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("CEP");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(45, 265, 37, 24);
+        txtCEP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCEP.setText("CEP");
+        getContentPane().add(txtCEP);
+        txtCEP.setBounds(45, 265, 37, 24);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setText("Rua");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(290, 265, 34, 24);
+        txtStreet.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtStreet.setText("Rua");
+        getContentPane().add(txtStreet);
+        txtStreet.setBounds(290, 265, 34, 24);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setText("Nº");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(535, 265, 20, 24);
+        txtNumberHouse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtNumberHouse.setText("Nº");
+        getContentPane().add(txtNumberHouse);
+        txtNumberHouse.setBounds(535, 265, 20, 24);
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel9.setText("Complemento");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(45, 350, 124, 24);
+        txtComplement.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtComplement.setText("Complemento");
+        getContentPane().add(txtComplement);
+        txtComplement.setBounds(45, 350, 124, 24);
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel11.setText("E-mail");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(535, 185, 55, 24);
+        txtEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtEmail.setText("E-mail");
+        getContentPane().add(txtEmail);
+        txtEmail.setBounds(535, 185, 55, 24);
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel12.setText("Celular");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(290, 185, 62, 24);
+        txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCellPhone.setText("Celular");
+        getContentPane().add(txtCellPhone);
+        txtCellPhone.setBounds(290, 185, 62, 24);
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel13.setText("Cadastro de Cliente");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(268, 40, 225, 32);
+        txtCadastreClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtCadastreClient.setText("Cadastro de Cliente");
+        getContentPane().add(txtCadastreClient);
+        txtCadastreClient.setBounds(268, 40, 225, 32);
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(45, 125, 219, 30);
+        inputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputName);
+        inputName.setBounds(45, 125, 219, 30);
 
-        jFormattedTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(290, 125, 130, 30);
+        inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCPF);
+        inputCPF.setBounds(290, 125, 130, 30);
 
-        jFormattedTextField2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(535, 125, 159, 30);
+        inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputBirthDay);
+        inputBirthDay.setBounds(535, 125, 159, 30);
 
-        jFormattedTextField3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(45, 215, 184, 30);
+        inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputPhone);
+        inputPhone.setBounds(45, 215, 184, 30);
 
-        jFormattedTextField4.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField4);
-        jFormattedTextField4.setBounds(290, 215, 140, 30);
+        inputCellphone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCellphone);
+        inputCellphone.setBounds(290, 215, 140, 30);
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(535, 215, 185, 30);
+        inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputEmail);
+        inputEmail.setBounds(535, 215, 185, 30);
 
-        jFormattedTextField5.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jFormattedTextField5);
-        jFormattedTextField5.setBounds(45, 295, 194, 30);
+        inputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCEP);
+        inputCEP.setBounds(45, 295, 194, 30);
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(290, 295, 189, 30);
+        inputStreet.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputStreet);
+        inputStreet.setBounds(290, 295, 189, 30);
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(535, 295, 98, 30);
+        inputNumberHouse.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputNumberHouse);
+        inputNumberHouse.setBounds(535, 295, 98, 30);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        inputComplement.setColumns(20);
+        inputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputComplement.setRows(5);
+        jScrollPane1.setViewportView(inputComplement);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(43, 382, 553, 150);
 
-        jButton1.setText("FOTO");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(620, 460, 61, 30);
+        buttonPhoto.setText("FOTO");
+        getContentPane().add(buttonPhoto);
+        buttonPhoto.setBounds(620, 460, 61, 30);
 
-        jButton2.setText("SALVAR");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(620, 500, 80, 30);
+        buttonSave.setText("SALVAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(620, 500, 80, 30);
 
         setSize(new java.awt.Dimension(765, 569));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        ClientScreen clientScreen = new ClientScreen();
+        this.dispose();
+        clientScreen.setVisible(true);
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,30 +218,30 @@ public class NewClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
+    private javax.swing.JButton buttonPhoto;
+    private javax.swing.JButton buttonSave;
+    private javax.swing.JFormattedTextField inputBirthDay;
+    private javax.swing.JFormattedTextField inputCEP;
+    private javax.swing.JFormattedTextField inputCPF;
+    private javax.swing.JFormattedTextField inputCellphone;
+    private javax.swing.JTextArea inputComplement;
+    private javax.swing.JTextField inputEmail;
+    private javax.swing.JTextField inputName;
+    private javax.swing.JTextField inputNumberHouse;
+    private javax.swing.JFormattedTextField inputPhone;
+    private javax.swing.JTextField inputStreet;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel txtBirthDay;
+    private javax.swing.JLabel txtCEP;
+    private javax.swing.JLabel txtCPF;
+    private javax.swing.JLabel txtCadastreClient;
+    private javax.swing.JLabel txtCellPhone;
+    private javax.swing.JLabel txtComplement;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtName;
+    private javax.swing.JLabel txtNumberHouse;
+    private javax.swing.JLabel txtPhone;
+    private javax.swing.JLabel txtStreet;
     // End of variables declaration//GEN-END:variables
 }
