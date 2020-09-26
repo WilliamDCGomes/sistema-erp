@@ -5,6 +5,8 @@
  */
 package screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -177,7 +179,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(601, 530, 100, 23);
+        buttonCancel.setBounds(601, 530, 100, 32);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -198,8 +200,13 @@ public class NewProduct extends javax.swing.JFrame {
         txtNewProduct.setBounds(240, 10, 220, 60);
 
         buttonSave.setText("SALVAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(510, 530, 80, 23);
+        buttonSave.setBounds(510, 530, 80, 32);
 
         setSize(new java.awt.Dimension(716, 595));
         setLocationRelativeTo(null);
@@ -215,6 +222,21 @@ public class NewProduct extends javax.swing.JFrame {
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        if(txtNewProduct.getText().equals("NOVO PRODUTO")){
+            JOptionPane.showMessageDialog(null, "PRODUTO CADASTRADO COM SUCESSO");
+            ProductScreen productScreen = new ProductScreen();
+            this.dispose();
+            productScreen.setVisible(true);
+        }
+        else if(txtNewProduct.getText().equals("EDITAR PRODUTO")){
+            JOptionPane.showMessageDialog(null, "PRODUTO ATUALIZADO COM SUCESSO");
+            ProductScreen productScreen = new ProductScreen();
+            this.dispose();
+            productScreen.setVisible(true);
+        }
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,7 +297,7 @@ public class NewProduct extends javax.swing.JFrame {
     private javax.swing.JLabel txtExpense;
     private javax.swing.JLabel txtLocalization;
     private javax.swing.JLabel txtName;
-    private javax.swing.JLabel txtNewProduct;
+    public static javax.swing.JLabel txtNewProduct;
     private javax.swing.JLabel txtPrice;
     private javax.swing.JLabel txtProfit;
     private javax.swing.JLabel txtProftPercentage;

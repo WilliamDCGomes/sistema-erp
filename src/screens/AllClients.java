@@ -10,7 +10,7 @@ package screens;
  * @author Lenovo
  */
 public class AllClients extends javax.swing.JFrame {
-
+    int x =0;
     /**
      * Creates new form Client
      */
@@ -38,6 +38,23 @@ public class AllClients extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         inputNameClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputNameClient.setText("NOME DO CLIENTE");
+        inputNameClient.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputNameClientFocusGained(evt);
+            }
+        });
+        inputNameClient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyTyped(evt);
+            }
+        });
         getContentPane().add(inputNameClient);
         inputNameClient.setBounds(10, 60, 256, 25);
 
@@ -54,7 +71,7 @@ public class AllClients extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "CPF", "Email", "Telefone"
             }
         ));
         tableAllClients.setViewportView(tableClients);
@@ -79,6 +96,29 @@ public class AllClients extends javax.swing.JFrame {
         ClientScreen clientScreen = new ClientScreen();
         clientScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowClientActionPerformed
+
+    private void inputNameClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyPressed
+        
+    }//GEN-LAST:event_inputNameClientKeyPressed
+
+    private void inputNameClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputNameClientFocusGained
+        inputNameClient.selectAll();
+    }//GEN-LAST:event_inputNameClientFocusGained
+
+    private void inputNameClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyReleased
+        
+    }//GEN-LAST:event_inputNameClientKeyReleased
+
+    private void inputNameClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyTyped
+        if(inputNameClient.getText().equals("")){
+            inputNameClient.setText("NOME DO CLIENTE");
+            x=0;
+        }
+        else if(x==0){
+            x++;
+            inputNameClient.setText("");
+        }
+    }//GEN-LAST:event_inputNameClientKeyTyped
 
     /**
      * @param args the command line arguments

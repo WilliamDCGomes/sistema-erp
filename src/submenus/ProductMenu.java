@@ -5,7 +5,10 @@
  */
 package submenus;
 
+import screens.AllProducts;
+import screens.LocaleProduct;
 import screens.NewProduct;
+import screens.ProductsBestSellers;
 
 /**
  *
@@ -165,7 +168,8 @@ public class ProductMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNewProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewProductMouseClicked
-
+        NewProduct newProduct = new NewProduct();
+        newProduct.setVisible(true);
     }//GEN-LAST:event_txtNewProductMouseClicked
 
     private void buttonNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductActionPerformed
@@ -174,27 +178,33 @@ public class ProductMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewProductActionPerformed
 
     private void txtLocaleProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleProductMouseClicked
-        // TODO add your handling code here:
+        LocaleProduct localeProduct = new LocaleProduct();
+        localeProduct.setVisible(true);
     }//GEN-LAST:event_txtLocaleProductMouseClicked
 
     private void buttonLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleProductActionPerformed
-        // TODO add your handling code here:
+        LocaleProduct localeProduct = new LocaleProduct();
+        localeProduct.setVisible(true);
     }//GEN-LAST:event_buttonLocaleProductActionPerformed
 
     private void txtAllProductsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllProductsMouseClicked
-        // TODO add your handling code here:
+        AllProducts allProducts = new AllProducts();
+        allProducts.setVisible(true);
     }//GEN-LAST:event_txtAllProductsMouseClicked
 
     private void buttonAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProductsActionPerformed
-        // TODO add your handling code here:
+        AllProducts allProducts = new AllProducts();
+        allProducts.setVisible(true);
     }//GEN-LAST:event_buttonAllProductsActionPerformed
 
     private void txtBestSellersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBestSellersMouseClicked
-        // TODO add your handling code here:
+        ProductsBestSellers productsBestSellers = new ProductsBestSellers();
+        productsBestSellers.setVisible(true);
     }//GEN-LAST:event_txtBestSellersMouseClicked
 
     private void buttonBestSellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBestSellersActionPerformed
-        // TODO add your handling code here:
+        ProductsBestSellers productsBestSellers = new ProductsBestSellers();
+        productsBestSellers.setVisible(true);
     }//GEN-LAST:event_buttonBestSellersActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus

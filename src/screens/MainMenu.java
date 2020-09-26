@@ -15,7 +15,8 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         ScreenUserSize screenUserSize = new ScreenUserSize();
-        this.setSize(screenUserSize.sizeOfScreen(), 197);
+        String[] size = screenUserSize.sizeOfScreen().split(";");
+        this.setSize(Integer.parseInt(size[0]), 197);
     }
     /**
      * This method is called from within the constructor to initialize the form.
