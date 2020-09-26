@@ -5,7 +5,7 @@ import java.util.Date;
  *
  * @author willi
  */
-public class GetDateSystem {
+public class GetDate {
     public String dateOfSystem(){
         Date data = new Date();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");

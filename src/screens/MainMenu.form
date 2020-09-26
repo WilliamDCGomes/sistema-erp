@@ -230,6 +230,11 @@
                 <Property name="text" type="java.lang.String" value="Pedidos Cancelados"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optBackOrders">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pedidos em Atraso"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuStock">
@@ -279,6 +284,28 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optMoreRequestesItemsActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuProvider">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fornecedores"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="optNewProvider">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo Fornecedor"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optLocaleProviders">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Localizar Fornecedor"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optAllProviders">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todos os Fornecedores"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>

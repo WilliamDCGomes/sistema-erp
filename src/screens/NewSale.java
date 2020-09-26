@@ -5,7 +5,7 @@
  */
 package screens;
 
-import functioncontroller.GetDateSystem;
+import functioncontroller.GetDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -132,12 +132,12 @@ public class NewSale extends javax.swing.JFrame {
         buttonLocaleClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleClient.setText("Localizar");
         getContentPane().add(buttonLocaleClient);
-        buttonLocaleClient.setBounds(390, 170, 77, 25);
+        buttonLocaleClient.setBounds(390, 170, 75, 25);
 
         buttonNewClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonNewClient.setText("Adicionar");
         getContentPane().add(buttonNewClient);
-        buttonNewClient.setBounds(480, 170, 79, 25);
+        buttonNewClient.setBounds(480, 170, 77, 25);
 
         txtDiscount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDiscount.setText("Desconto");
@@ -194,11 +194,11 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(45, 445, 80, 23);
+        buttonSave.setBounds(45, 445, 80, 32);
 
         buttomRemoveItems.setText("REMOVER");
         getContentPane().add(buttomRemoveItems);
-        buttomRemoveItems.setBounds(150, 445, 90, 23);
+        buttomRemoveItems.setBounds(150, 445, 90, 32);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
@@ -227,12 +227,12 @@ public class NewSale extends javax.swing.JFrame {
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(627, 100, 59, 23);
+        inputInCash.setBounds(627, 100, 72, 28);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(713, 100, 63, 23);
+        inputTerm.setBounds(713, 100, 76, 28);
 
         txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txtDiscount1.setText("%");
@@ -247,12 +247,12 @@ public class NewSale extends javax.swing.JFrame {
         groupStatus.add(inputFinishSale);
         inputFinishSale.setText("Finalizada");
         getContentPane().add(inputFinishSale);
-        inputFinishSale.setBounds(625, 213, 73, 20);
+        inputFinishSale.setBounds(625, 213, 88, 20);
 
         groupStatus.add(inputPendingSale);
         inputPendingSale.setText("Pendente");
         getContentPane().add(inputPendingSale);
-        inputPendingSale.setBounds(695, 213, 80, 20);
+        inputPendingSale.setBounds(695, 213, 90, 20);
 
         buttonCancele.setText("CANCELAR");
         buttonCancele.addActionListener(new java.awt.event.ActionListener() {
@@ -261,7 +261,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancele);
-        buttonCancele.setBounds(270, 445, 100, 23);
+        buttonCancele.setBounds(270, 445, 100, 32);
 
         setSize(new java.awt.Dimension(830, 517));
         setLocationRelativeTo(null);
@@ -281,7 +281,7 @@ public class NewSale extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if (x==0){
             x++;
-            GetDateSystem getDateSystem = new GetDateSystem();
+            GetDate getDateSystem = new GetDate();
             inputDateOfSale.setText(getDateSystem.dateOfSystem());
         }
     }//GEN-LAST:event_formWindowActivated

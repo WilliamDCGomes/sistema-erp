@@ -5,7 +5,7 @@
  */
 package screens;
 
-import functioncontroller.GetDateSystem;
+import functioncontroller.GetDate;
 
 /**
  *

@@ -5,6 +5,8 @@
  */
 package submenus;
 
+import screens.NewOrder;
+
 /**
  *
  * @author Alunos
@@ -190,7 +192,8 @@ public class OrderMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewOrderActionPerformed
-
+        NewOrder newOrder = new NewOrder();
+        newOrder.setVisible(true);
     }//GEN-LAST:event_buttonNewOrderActionPerformed
 
     private void txtLocaleOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleOrderMouseClicked
@@ -218,7 +221,8 @@ public class OrderMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPendingOrderActionPerformed
 
     private void txtNewOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewOrderMouseClicked
-
+        NewOrder newOrder = new NewOrder();
+        newOrder.setVisible(true);
     }//GEN-LAST:event_txtNewOrderMouseClicked
 
     private void txtCanceledOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCanceledOrdersMouseClicked

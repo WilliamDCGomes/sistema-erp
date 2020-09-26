@@ -77,12 +77,17 @@ public class MainMenu extends javax.swing.JFrame {
         optDeleteOrder = new javax.swing.JMenuItem();
         optPendantOrder = new javax.swing.JMenuItem();
         optCanceledOrders = new javax.swing.JMenuItem();
+        optBackOrders = new javax.swing.JMenuItem();
         menuStock = new javax.swing.JMenu();
         optNewItem = new javax.swing.JMenuItem();
         optLocaleItem = new javax.swing.JMenuItem();
         optEditItem = new javax.swing.JMenuItem();
         optDeleteItem = new javax.swing.JMenuItem();
         optMoreRequestesItems = new javax.swing.JMenuItem();
+        menuProvider = new javax.swing.JMenu();
+        optNewProvider = new javax.swing.JMenuItem();
+        optLocaleProviders = new javax.swing.JMenuItem();
+        optAllProviders = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         optSalesOfMonth = new javax.swing.JMenuItem();
         optCashHandling = new javax.swing.JMenuItem();
@@ -411,6 +416,9 @@ public class MainMenu extends javax.swing.JFrame {
         optCanceledOrders.setText("Pedidos Cancelados");
         menuOrder.add(optCanceledOrders);
 
+        optBackOrders.setText("Pedidos em Atraso");
+        menuOrder.add(optBackOrders);
+
         menuBar.add(menuOrder);
 
         menuStock.setText("Estoque");
@@ -449,6 +457,19 @@ public class MainMenu extends javax.swing.JFrame {
         menuStock.add(optMoreRequestesItems);
 
         menuBar.add(menuStock);
+
+        menuProvider.setText("Fornecedores");
+
+        optNewProvider.setText("Novo Fornecedor");
+        menuProvider.add(optNewProvider);
+
+        optLocaleProviders.setText("Localizar Fornecedor");
+        menuProvider.add(optLocaleProviders);
+
+        optAllProviders.setText("Todos os Fornecedores");
+        menuProvider.add(optAllProviders);
+
+        menuBar.add(menuProvider);
 
         menuReport.setText("Relatórios");
 
@@ -836,6 +857,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuHelp;
     private javax.swing.JMenu menuOrder;
     private javax.swing.JMenu menuProduct;
+    private javax.swing.JMenu menuProvider;
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenu menuSale;
     private javax.swing.JMenu menuStock;
@@ -843,6 +865,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opcClose;
     private javax.swing.JMenuItem opcLogout;
     private javax.swing.JMenuItem optAbout;
+    private javax.swing.JMenuItem optAllProviders;
+    private javax.swing.JMenuItem optBackOrders;
     private javax.swing.JMenuItem optCanceledOrders;
     private javax.swing.JMenuItem optCashHandling;
     private javax.swing.JMenuItem optDeleteClient;
@@ -860,6 +884,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optLocaleItem;
     private javax.swing.JMenuItem optLocaleOrder;
     private javax.swing.JMenuItem optLocaleProduct;
+    private javax.swing.JMenuItem optLocaleProviders;
     private javax.swing.JMenuItem optLocaleSale;
     private javax.swing.JMenuItem optMoreRequestesItems;
     private javax.swing.JMenuItem optMostRequestItems;
@@ -867,6 +892,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optNewItem;
     private javax.swing.JMenuItem optNewOrder;
     private javax.swing.JMenuItem optNewProduct;
+    private javax.swing.JMenuItem optNewProvider;
     private javax.swing.JMenuItem optNewSale;
     private javax.swing.JMenuItem optPendantOrder;
     private javax.swing.JMenuItem optPendantSale;
