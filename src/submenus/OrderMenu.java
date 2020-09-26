@@ -5,6 +5,8 @@
  */
 package submenus;
 
+import screens.AllOrders;
+import screens.LocaleOrder;
 import screens.NewOrder;
 
 /**
@@ -197,27 +199,37 @@ public class OrderMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonNewOrderActionPerformed
 
     private void txtLocaleOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleOrderMouseClicked
-        // TODO add your handling code here:
+        LocaleOrder localeOrder = new LocaleOrder();
+        localeOrder.setVisible(true);
     }//GEN-LAST:event_txtLocaleOrderMouseClicked
 
     private void buttonLocaleOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleOrderActionPerformed
-        // TODO add your handling code here:
+        LocaleOrder localeOrder = new LocaleOrder();
+        localeOrder.setVisible(true);
     }//GEN-LAST:event_buttonLocaleOrderActionPerformed
 
     private void txtAllOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllOrdersMouseClicked
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.setVisible(true);
     }//GEN-LAST:event_txtAllOrdersMouseClicked
 
     private void buttonAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllOrdersActionPerformed
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.setVisible(true);
     }//GEN-LAST:event_buttonAllOrdersActionPerformed
 
     private void txtPendingOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPendingOrderMouseClicked
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS PENDENTES");
+        allOrders.setTitle("Pedidos Pendentes");
+        allOrders.setVisible(true);
     }//GEN-LAST:event_txtPendingOrderMouseClicked
 
     private void buttonPendingOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPendingOrderActionPerformed
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS PENDENTES");
+        allOrders.setTitle("Pedidos Pendentes");
+        allOrders.setVisible(true);
     }//GEN-LAST:event_buttonPendingOrderActionPerformed
 
     private void txtNewOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewOrderMouseClicked
@@ -226,11 +238,17 @@ public class OrderMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNewOrderMouseClicked
 
     private void txtCanceledOrdersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCanceledOrdersMouseClicked
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS CANCELADOS");
+        allOrders.setTitle("Pedidos Cancelados");
+        allOrders.setVisible(true);
     }//GEN-LAST:event_txtCanceledOrdersMouseClicked
 
     private void buttonCanceledOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCanceledOrdersActionPerformed
-        // TODO add your handling code here:
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS CANCELADOS");
+        allOrders.setTitle("Pedidos Cancelados");
+        allOrders.setVisible(true);
     }//GEN-LAST:event_buttonCanceledOrdersActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus

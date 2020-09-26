@@ -27,8 +27,8 @@ public class StockMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNewItem = new javax.swing.JLabel();
-        buttonNewItem = new javax.swing.JButton();
+        txtAddItem = new javax.swing.JLabel();
+        buttonAddItem = new javax.swing.JButton();
         txtLocaleItem = new javax.swing.JLabel();
         buttonLocaleItem = new javax.swing.JButton();
         txtAllItems = new javax.swing.JLabel();
@@ -48,19 +48,19 @@ public class StockMenu extends javax.swing.JFrame {
             }
         });
 
-        txtNewItem.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtNewItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtNewItem.setText("NOVO");
-        txtNewItem.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAddItem.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAddItem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAddItem.setText("ADICIONAR");
+        txtAddItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtNewItemMouseClicked(evt);
+                txtAddItemMouseClicked(evt);
             }
         });
 
-        buttonNewItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newStock.png"))); // NOI18N
-        buttonNewItem.addActionListener(new java.awt.event.ActionListener() {
+        buttonAddItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newStock.png"))); // NOI18N
+        buttonAddItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNewItemActionPerformed(evt);
+                buttonAddItemActionPerformed(evt);
             }
         });
 
@@ -135,8 +135,8 @@ public class StockMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDownloadItem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,22 +177,22 @@ public class StockMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtLocaleItem))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonNewItem, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNewItem)))
+                        .addComponent(txtAddItem)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNewItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewItemMouseClicked
+    private void txtAddItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAddItemMouseClicked
 
-    }//GEN-LAST:event_txtNewItemMouseClicked
+    }//GEN-LAST:event_txtAddItemMouseClicked
 
-    private void buttonNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewItemActionPerformed
+    private void buttonAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddItemActionPerformed
 
-    }//GEN-LAST:event_buttonNewItemActionPerformed
+    }//GEN-LAST:event_buttonAddItemActionPerformed
 
     private void txtLocaleItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleItemMouseClicked
         // TODO add your handling code here:
@@ -266,15 +266,15 @@ public class StockMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAddItem;
     private javax.swing.JButton buttonAllItems;
     private javax.swing.JButton buttonDownloadItem;
     private javax.swing.JButton buttonLocaleItem;
     private javax.swing.JButton buttonMissingItems;
-    private javax.swing.JButton buttonNewItem;
+    private javax.swing.JLabel txtAddItem;
     private javax.swing.JLabel txtAllItems;
     private javax.swing.JLabel txtDownloadItem;
     private javax.swing.JLabel txtLocaleItem;
     private javax.swing.JLabel txtMissingItems;
-    private javax.swing.JLabel txtNewItem;
     // End of variables declaration//GEN-END:variables
 }

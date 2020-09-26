@@ -6,6 +6,7 @@
 package screens;
 
 import functioncontroller.GetDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,7 +32,7 @@ public class NewOrder extends javax.swing.JFrame {
 
         groupFormPayment = new javax.swing.ButtonGroup();
         groupStatus = new javax.swing.ButtonGroup();
-        txtItems = new javax.swing.JLabel();
+        txtObservation = new javax.swing.JLabel();
         inputProductCode = new javax.swing.JTextField();
         buttonNewProduct = new javax.swing.JButton();
         txtQuantity = new javax.swing.JLabel();
@@ -62,10 +63,15 @@ public class NewOrder extends javax.swing.JFrame {
         txtTotal = new javax.swing.JLabel();
         outputTotal = new javax.swing.JLabel();
         txtNewOrder = new javax.swing.JLabel();
-        buttonSave = new javax.swing.JButton();
+        buttonRemove = new javax.swing.JButton();
         txtStatus = new javax.swing.JLabel();
         inputFinishSale = new javax.swing.JRadioButton();
         inputPendingSale = new javax.swing.JRadioButton();
+        txtItems = new javax.swing.JLabel();
+        observationNewOrder = new javax.swing.JScrollPane();
+        inputObservation = new javax.swing.JTextArea();
+        buttonSave = new javax.swing.JButton();
+        buttonAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Pedido");
@@ -77,10 +83,10 @@ public class NewOrder extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtItems.setText("Itens");
-        getContentPane().add(txtItems);
-        txtItems.setBounds(20, 280, 40, 20);
+        txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtObservation.setText("Observações");
+        getContentPane().add(txtObservation);
+        txtObservation.setBounds(20, 280, 110, 20);
 
         inputProductCode.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputProductCode);
@@ -122,13 +128,13 @@ public class NewOrder extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Código Produto", "Descrição", "Quantidade", "Valor", "Cliente", "Fornecedor"
+                "Cód Produto", "Descrição", "Quantidade", "Valor", "Cliente", "Fornecedor"
             }
         ));
         tableNewOrder.setViewportView(tableItems);
 
         getContentPane().add(tableNewOrder);
-        tableNewOrder.setBounds(20, 310, 780, 240);
+        tableNewOrder.setBounds(310, 310, 490, 240);
 
         txtProductCode.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtProductCode.setText("Código do Produto");
@@ -258,33 +264,39 @@ public class NewOrder extends javax.swing.JFrame {
         txtSubTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtSubTotal.setText("SubTotal");
         getContentPane().add(txtSubTotal);
-        txtSubTotal.setBounds(170, 565, 64, 20);
+        txtSubTotal.setBounds(410, 565, 64, 20);
 
         outputSubTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         outputSubTotal.setText("0,00");
         getContentPane().add(outputSubTotal);
-        outputSubTotal.setBounds(250, 565, 100, 24);
+        outputSubTotal.setBounds(490, 563, 100, 24);
 
         txtTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtTotal.setText("Total");
         getContentPane().add(txtTotal);
-        txtTotal.setBounds(370, 565, 36, 20);
+        txtTotal.setBounds(610, 565, 36, 20);
 
         outputTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         outputTotal.setText("0,00");
         getContentPane().add(outputTotal);
-        outputTotal.setBounds(410, 565, 110, 24);
+        outputTotal.setBounds(650, 563, 110, 24);
 
         txtNewOrder.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtNewOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewOrder.setText("NOVO PEDIDO");
         getContentPane().add(txtNewOrder);
-        txtNewOrder.setBounds(310, 30, 170, 32);
+        txtNewOrder.setBounds(270, 30, 260, 32);
 
-        buttonSave.setText("SALVAR");
-        getContentPane().add(buttonSave);
-        buttonSave.setBounds(20, 560, 77, 32);
+        buttonRemove.setText("REMOVER");
+        buttonRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRemoveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonRemove);
+        buttonRemove.setBounds(140, 560, 100, 32);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
@@ -301,7 +313,37 @@ public class NewOrder extends javax.swing.JFrame {
         getContentPane().add(inputPendingSale);
         inputPendingSale.setBounds(690, 245, 90, 20);
 
-        setSize(new java.awt.Dimension(820, 636));
+        txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtItems.setText("Itens");
+        getContentPane().add(txtItems);
+        txtItems.setBounds(310, 280, 40, 20);
+
+        inputObservation.setColumns(20);
+        inputObservation.setRows(5);
+        observationNewOrder.setViewportView(inputObservation);
+
+        getContentPane().add(observationNewOrder);
+        observationNewOrder.setBounds(20, 310, 280, 240);
+
+        buttonSave.setText("SALVAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(260, 560, 77, 32);
+
+        buttonAdd.setText("ADICIONAR");
+        buttonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonAdd);
+        buttonAdd.setBounds(20, 560, 100, 32);
+
+        setSize(new java.awt.Dimension(826, 636));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -340,6 +382,21 @@ public class NewOrder extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowActivated
 
+    private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
+        
+    }//GEN-LAST:event_buttonRemoveActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        JOptionPane.showMessageDialog(null, "PEDIDO CADASTRADO COM SUCESSO");
+        OrderScreen orderScreen = new OrderScreen();
+        this.dispose();
+        orderScreen.setVisible(true);
+    }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -376,12 +433,14 @@ public class NewOrder extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonLocaleClient;
     private javax.swing.JButton buttonLocaleProduct;
     private javax.swing.JButton buttonLocaleProvider;
     private javax.swing.JButton buttonNewClient;
     private javax.swing.JButton buttonNewProduct;
     private javax.swing.JButton buttonNewProvider;
+    private javax.swing.JButton buttonRemove;
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup groupFormPayment;
     private javax.swing.ButtonGroup groupStatus;
@@ -391,11 +450,13 @@ public class NewOrder extends javax.swing.JFrame {
     private javax.swing.JRadioButton inputFinishSale;
     private javax.swing.JComboBox<String> inputFormPayment;
     private javax.swing.JRadioButton inputInCash;
+    private javax.swing.JTextArea inputObservation;
     private javax.swing.JRadioButton inputPendingSale;
     private javax.swing.JTextField inputProductCode;
     private javax.swing.JTextField inputProvider;
     private javax.swing.JTextField inputQuantity;
     private javax.swing.JRadioButton inputTerm;
+    private javax.swing.JScrollPane observationNewOrder;
     private javax.swing.JLabel outputSubTotal;
     private javax.swing.JLabel outputTotal;
     private javax.swing.JTable tableItems;
@@ -405,7 +466,8 @@ public class NewOrder extends javax.swing.JFrame {
     private javax.swing.JLabel txtDeliveryForecast;
     private javax.swing.JLabel txtFormPayment;
     private javax.swing.JLabel txtItems;
-    private javax.swing.JLabel txtNewOrder;
+    public static javax.swing.JLabel txtNewOrder;
+    private javax.swing.JLabel txtObservation;
     private javax.swing.JLabel txtPaymentMethod;
     private javax.swing.JLabel txtProductCode;
     private javax.swing.JLabel txtProvider;
