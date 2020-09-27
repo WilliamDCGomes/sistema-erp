@@ -16,6 +16,7 @@ public class ProductsBestSellers extends javax.swing.JFrame {
      */
     public ProductsBestSellers() {
         initComponents();
+        buttonRequest.setVisible(false);
     }
 
     /**
@@ -31,6 +32,7 @@ public class ProductsBestSellers extends javax.swing.JFrame {
         tableProductsBestSellers = new javax.swing.JScrollPane();
         tableBestSellers = new javax.swing.JTable();
         buttonShow = new javax.swing.JButton();
+        buttonRequest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mais Vendidos");
@@ -66,7 +68,16 @@ public class ProductsBestSellers extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(20, 420, 90, 25);
+        buttonShow.setBounds(20, 418, 90, 32);
+
+        buttonRequest.setText("PEDIR");
+        buttonRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRequestActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonRequest);
+        buttonRequest.setBounds(130, 418, 77, 32);
 
         setSize(new java.awt.Dimension(691, 487));
         setLocationRelativeTo(null);
@@ -76,6 +87,11 @@ public class ProductsBestSellers extends javax.swing.JFrame {
         ProductScreen productScreen = new ProductScreen();
         productScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowActionPerformed
+
+    private void buttonRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRequestActionPerformed
+        NewOrder newOrder = new NewOrder();
+        newOrder.setVisible(true);
+    }//GEN-LAST:event_buttonRequestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,6 +129,7 @@ public class ProductsBestSellers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton buttonRequest;
     private javax.swing.JButton buttonShow;
     private javax.swing.JTable tableBestSellers;
     private javax.swing.JScrollPane tableProductsBestSellers;

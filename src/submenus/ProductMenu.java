@@ -40,6 +40,8 @@ public class ProductMenu extends javax.swing.JFrame {
         buttonAllProducts = new javax.swing.JButton();
         txtBestSellers = new javax.swing.JLabel();
         buttonBestSellers = new javax.swing.JButton();
+        buttonMissingItems = new javax.swing.JButton();
+        txtMissingItems = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -115,6 +117,22 @@ public class ProductMenu extends javax.swing.JFrame {
             }
         });
 
+        buttonMissingItems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
+        buttonMissingItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMissingItemsActionPerformed(evt);
+            }
+        });
+
+        txtMissingItems.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtMissingItems.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtMissingItems.setText("EM FALTA");
+        txtMissingItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtMissingItemsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,6 +156,10 @@ public class ProductMenu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(buttonBestSellers, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
@@ -145,6 +167,10 @@ public class ProductMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMissingItems))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonAllProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -164,7 +190,7 @@ public class ProductMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 527, 140);
+        setBounds(0, 0, 645, 140);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNewProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewProductMouseClicked
@@ -211,6 +237,18 @@ public class ProductMenu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_formWindowLostFocus
 
+    private void buttonMissingItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMissingItemsActionPerformed
+        ProductsBestSellers productsBestSellers = new ProductsBestSellers();
+        productsBestSellers.txtBestSellers.setText("ITENS EM FALTA");
+        productsBestSellers.setTitle("Itens em Falta");
+        productsBestSellers.buttonRequest.setVisible(true);
+        productsBestSellers.setVisible(true);
+    }//GEN-LAST:event_buttonMissingItemsActionPerformed
+
+    private void txtMissingItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMissingItemsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMissingItemsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -250,10 +288,12 @@ public class ProductMenu extends javax.swing.JFrame {
     private javax.swing.JButton buttonAllProducts;
     private javax.swing.JButton buttonBestSellers;
     private javax.swing.JButton buttonLocaleProduct;
+    private javax.swing.JButton buttonMissingItems;
     private javax.swing.JButton buttonNewProduct;
     private javax.swing.JLabel txtAllProducts;
     private javax.swing.JLabel txtBestSellers;
     private javax.swing.JLabel txtLocaleProduct;
+    private javax.swing.JLabel txtMissingItems;
     private javax.swing.JLabel txtNewProduct;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,14 +2,16 @@ package screens;
 
 import functioncontroller.ScreenUserSize;
 import functioncontroller.SetLocationSubMenus;
+import java.awt.Frame;
+import javax.swing.JOptionPane;
 import submenus.BillMenu;
 import submenus.ClientMenu;
-import submenus.DeptMenu;
+import submenus.DebtMenu;
 import submenus.DiaryMenu;
 import submenus.OrderMenu;
 import submenus.ProductMenu;
 import submenus.SaleMenu;
-import submenus.StockMenu;
+import submenus.ProviderMenu;
 
 public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
@@ -57,37 +59,40 @@ public class MainMenu extends javax.swing.JFrame {
         menuSale = new javax.swing.JMenu();
         optNewSale = new javax.swing.JMenuItem();
         optLocaleSale = new javax.swing.JMenuItem();
-        optEditSale = new javax.swing.JMenuItem();
-        optDeleteSale = new javax.swing.JMenuItem();
+        optAllSales = new javax.swing.JMenuItem();
         optPendantSale = new javax.swing.JMenuItem();
+        menuDebts = new javax.swing.JMenu();
+        optNewBill = new javax.swing.JMenuItem();
+        optLocaleBill = new javax.swing.JMenuItem();
+        optBillToPay = new javax.swing.JMenuItem();
+        optBillToReceve = new javax.swing.JMenuItem();
+        optDelayBill = new javax.swing.JMenuItem();
+        optDebitBill = new javax.swing.JMenuItem();
+        optAllBills = new javax.swing.JMenuItem();
         menuClient = new javax.swing.JMenu();
         optNewClient = new javax.swing.JMenuItem();
         optLocaleClient = new javax.swing.JMenuItem();
-        optEditClient = new javax.swing.JMenuItem();
-        optDeleteClient = new javax.swing.JMenuItem();
+        optAllClients = new javax.swing.JMenuItem();
         menuProduct = new javax.swing.JMenu();
         optNewProduct = new javax.swing.JMenuItem();
         optLocaleProduct = new javax.swing.JMenuItem();
-        optEditProduct = new javax.swing.JMenuItem();
-        optDeleteProdutc = new javax.swing.JMenuItem();
+        optAllProducts = new javax.swing.JMenuItem();
         menuOrder = new javax.swing.JMenu();
         optNewOrder = new javax.swing.JMenuItem();
         optLocaleOrder = new javax.swing.JMenuItem();
-        optEditOrder = new javax.swing.JMenuItem();
-        optDeleteOrder = new javax.swing.JMenuItem();
+        optAllOrders = new javax.swing.JMenuItem();
         optPendantOrder = new javax.swing.JMenuItem();
         optCanceledOrders = new javax.swing.JMenuItem();
         optBackOrders = new javax.swing.JMenuItem();
-        menuStock = new javax.swing.JMenu();
-        optNewItem = new javax.swing.JMenuItem();
-        optLocaleItem = new javax.swing.JMenuItem();
-        optEditItem = new javax.swing.JMenuItem();
-        optDeleteItem = new javax.swing.JMenuItem();
-        optMoreRequestesItems = new javax.swing.JMenuItem();
         menuProvider = new javax.swing.JMenu();
         optNewProvider = new javax.swing.JMenuItem();
         optLocaleProviders = new javax.swing.JMenuItem();
         optAllProviders = new javax.swing.JMenuItem();
+        menuEmployee = new javax.swing.JMenu();
+        optNewEmployee = new javax.swing.JMenuItem();
+        optLocaleEmployee = new javax.swing.JMenuItem();
+        optCommissionControl = new javax.swing.JMenuItem();
+        optVacationControl = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         optSalesOfMonth = new javax.swing.JMenuItem();
         optCashHandling = new javax.swing.JMenuItem();
@@ -116,7 +121,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        buttonStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/stocks.png"))); // NOI18N
+        buttonStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/provider.png"))); // NOI18N
         buttonStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonStockActionPerformed(evt);
@@ -180,7 +185,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         txtStock.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtStock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtStock.setText("ESTOQUE");
+        txtStock.setText("FORNECEDOR");
         txtStock.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 txtStockMouseClicked(evt);
@@ -289,7 +294,7 @@ public class MainMenu extends javax.swing.JFrame {
         menuFile.add(opcLogout);
 
         opcClose.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_MASK));
-        opcClose.setText("Sair");
+        opcClose.setText("Fechar");
         opcClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opcCloseActionPerformed(evt);
@@ -318,13 +323,10 @@ public class MainMenu extends javax.swing.JFrame {
         });
         menuSale.add(optLocaleSale);
 
-        optEditSale.setText("Editar Venda");
-        menuSale.add(optEditSale);
+        optAllSales.setText("Todas as Vendas");
+        menuSale.add(optAllSales);
 
-        optDeleteSale.setText("Excluir Venda");
-        menuSale.add(optDeleteSale);
-
-        optPendantSale.setText("Venda Pendente?");
+        optPendantSale.setText("Venda Pendente");
         optPendantSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 optPendantSaleActionPerformed(evt);
@@ -333,6 +335,31 @@ public class MainMenu extends javax.swing.JFrame {
         menuSale.add(optPendantSale);
 
         menuBar.add(menuSale);
+
+        menuDebts.setText("Contas");
+
+        optNewBill.setText("Nova Conta");
+        menuDebts.add(optNewBill);
+
+        optLocaleBill.setText("Localizar");
+        menuDebts.add(optLocaleBill);
+
+        optBillToPay.setText("A Pagar");
+        menuDebts.add(optBillToPay);
+
+        optBillToReceve.setText("A Receber");
+        menuDebts.add(optBillToReceve);
+
+        optDelayBill.setText("Atrasos");
+        menuDebts.add(optDelayBill);
+
+        optDebitBill.setText("Debitar");
+        menuDebts.add(optDebitBill);
+
+        optAllBills.setText("Todas as Contas");
+        menuDebts.add(optAllBills);
+
+        menuBar.add(menuDebts);
 
         menuClient.setText("Clientes");
 
@@ -354,11 +381,8 @@ public class MainMenu extends javax.swing.JFrame {
         });
         menuClient.add(optLocaleClient);
 
-        optEditClient.setText("Editar Cliente");
-        menuClient.add(optEditClient);
-
-        optDeleteClient.setText("Excluir Cliente");
-        menuClient.add(optDeleteClient);
+        optAllClients.setText("Todos os Clientes");
+        menuClient.add(optAllClients);
 
         menuBar.add(menuClient);
 
@@ -382,17 +406,14 @@ public class MainMenu extends javax.swing.JFrame {
         });
         menuProduct.add(optLocaleProduct);
 
-        optEditProduct.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
-        optEditProduct.setText("Editar Produto");
-        optEditProduct.addActionListener(new java.awt.event.ActionListener() {
+        optAllProducts.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        optAllProducts.setText("Todos os Produtos");
+        optAllProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optEditProductActionPerformed(evt);
+                optAllProductsActionPerformed(evt);
             }
         });
-        menuProduct.add(optEditProduct);
-
-        optDeleteProdutc.setText("Excluir Produto");
-        menuProduct.add(optDeleteProdutc);
+        menuProduct.add(optAllProducts);
 
         menuBar.add(menuProduct);
 
@@ -404,11 +425,8 @@ public class MainMenu extends javax.swing.JFrame {
         optLocaleOrder.setText("Localizar Pedido");
         menuOrder.add(optLocaleOrder);
 
-        optEditOrder.setText("Editar Pedido");
-        menuOrder.add(optEditOrder);
-
-        optDeleteOrder.setText("Excluir Pedido");
-        menuOrder.add(optDeleteOrder);
+        optAllOrders.setText("Todos os Pedidos");
+        menuOrder.add(optAllOrders);
 
         optPendantOrder.setText("Pedido Pendente");
         menuOrder.add(optPendantOrder);
@@ -420,43 +438,6 @@ public class MainMenu extends javax.swing.JFrame {
         menuOrder.add(optBackOrders);
 
         menuBar.add(menuOrder);
-
-        menuStock.setText("Estoque");
-
-        optNewItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
-        optNewItem.setText("Adicionar itens ao estoque");
-        optNewItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optNewItemActionPerformed(evt);
-            }
-        });
-        menuStock.add(optNewItem);
-
-        optLocaleItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.ALT_MASK));
-        optLocaleItem.setText("Localizar itens do estoque");
-        optLocaleItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optLocaleItemActionPerformed(evt);
-            }
-        });
-        menuStock.add(optLocaleItem);
-
-        optEditItem.setText("Editar itens do estoque");
-        menuStock.add(optEditItem);
-
-        optDeleteItem.setText("Excluir itens do estoque");
-        menuStock.add(optDeleteItem);
-
-        optMoreRequestesItems.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.ALT_MASK));
-        optMoreRequestesItems.setText("Itens mais requisitados no estoque");
-        optMoreRequestesItems.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optMoreRequestesItemsActionPerformed(evt);
-            }
-        });
-        menuStock.add(optMoreRequestesItems);
-
-        menuBar.add(menuStock);
 
         menuProvider.setText("Fornecedores");
 
@@ -470,6 +451,22 @@ public class MainMenu extends javax.swing.JFrame {
         menuProvider.add(optAllProviders);
 
         menuBar.add(menuProvider);
+
+        menuEmployee.setText("Colaboradores");
+
+        optNewEmployee.setText("Novo Colaborador");
+        menuEmployee.add(optNewEmployee);
+
+        optLocaleEmployee.setText("Localizar Colaborador");
+        menuEmployee.add(optLocaleEmployee);
+
+        optCommissionControl.setText("Controle de Comissão");
+        menuEmployee.add(optCommissionControl);
+
+        optVacationControl.setText("Controle de Férias");
+        menuEmployee.add(optVacationControl);
+
+        menuBar.add(menuEmployee);
 
         menuReport.setText("Relatórios");
 
@@ -517,39 +514,42 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonBox, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonSale, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonClient, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buttonOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addComponent(buttonStock, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonBill, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtBill, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonDiary, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDiary, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,15 +583,14 @@ public class MainMenu extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtOrder))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(buttonStock, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtStock))
-                                    .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(buttonBill, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtBill)))
+                                        .addComponent(buttonStock, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtBill)
+                                        .addComponent(txtStock)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -599,7 +598,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 1318, 197);
+        setBounds(0, 0, 1314, 197);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -614,21 +613,9 @@ public class MainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_optNewClientActionPerformed
 
-    private void optMoreRequestesItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMoreRequestesItemsActionPerformed
+    private void optAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllProductsActionPerformed
         
-    }//GEN-LAST:event_optMoreRequestesItemsActionPerformed
-
-    private void optLocaleItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleItemActionPerformed
-        
-    }//GEN-LAST:event_optLocaleItemActionPerformed
-
-    private void optNewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewItemActionPerformed
-        
-    }//GEN-LAST:event_optNewItemActionPerformed
-
-    private void optEditProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEditProductActionPerformed
-        
-    }//GEN-LAST:event_optEditProductActionPerformed
+    }//GEN-LAST:event_optAllProductsActionPerformed
 
     private void optLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleProductActionPerformed
         
@@ -644,15 +631,30 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_optNewSaleActionPerformed
 
     private void menuFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileActionPerformed
-
+        
     }//GEN-LAST:event_menuFileActionPerformed
 
     private void opcCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcCloseActionPerformed
-        
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA FECHAR O SISTEMA?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            Frame[] frames = getFrames(); 
+            for (int i = 0; i < frames.length; i++){ 
+                frames[i].dispose(); 
+            }
+            this.dispose();
+        }
     }//GEN-LAST:event_opcCloseActionPerformed
 
     private void opcLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcLogoutActionPerformed
-        
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA FAZER LOGOUT?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            LoginScreen loginScreen = new LoginScreen();
+            Frame[] frames = getFrames(); 
+            for (int i = 0; i < frames.length; i++){ 
+                frames[i].dispose(); 
+            }
+            loginScreen.setVisible(true);
+        }
     }//GEN-LAST:event_opcLogoutActionPerformed
 
     private void optUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optUserActionPerformed
@@ -665,21 +667,33 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBoxMouseClicked
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        LoginScreen loginScreen = new LoginScreen();
-        this.dispose();
-        loginScreen.setVisible(true);
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA FAZER LOGOUT?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            LoginScreen loginScreen = new LoginScreen();
+            Frame[] frames = getFrames(); 
+            for (int i = 0; i < frames.length; i++){ 
+                frames[i].dispose(); 
+            }
+            loginScreen.setVisible(true);
+        }
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void txtLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLogoutMouseClicked
-        LoginScreen loginScreen = new LoginScreen();
-        this.dispose();
-        loginScreen.setVisible(true);
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA FAZER LOGOUT?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            LoginScreen loginScreen = new LoginScreen();
+            Frame[] frames = getFrames(); 
+            for (int i = 0; i < frames.length; i++){ 
+                frames[i].dispose(); 
+            }
+            loginScreen.setVisible(true);
+        }
     }//GEN-LAST:event_txtLogoutMouseClicked
 
     private void buttonBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBillActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
         String[] vet = setLocationSubMenus.processLocation(buttonBill.getX(), 310).split("/");
-        DeptMenu deptMenu = new DeptMenu();
+        DebtMenu deptMenu = new DebtMenu();
         deptMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         deptMenu.setVisible(true);
     }//GEN-LAST:event_buttonBillActionPerformed
@@ -687,15 +701,15 @@ public class MainMenu extends javax.swing.JFrame {
     private void txtBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBillMouseClicked
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
         String[] vet = setLocationSubMenus.processLocation(buttonBill.getX(), 310).split("/");
-        DeptMenu deptMenu = new DeptMenu();
+        DebtMenu deptMenu = new DebtMenu();
         deptMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         deptMenu.setVisible(true);
     }//GEN-LAST:event_txtBillMouseClicked
 
     private void txtStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockMouseClicked
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 250).split("/");
-        StockMenu stockMenu = new StockMenu();
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 80).split("/");
+        ProviderMenu stockMenu = new ProviderMenu();
         stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         stockMenu.setVisible(true);
     }//GEN-LAST:event_txtStockMouseClicked
@@ -747,8 +761,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void buttonStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStockActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 250).split("/");
-        StockMenu stockMenu = new StockMenu();
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 80).split("/");
+        ProviderMenu stockMenu = new ProviderMenu();
         stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         stockMenu.setVisible(true);
     }//GEN-LAST:event_buttonStockActionPerformed
@@ -853,6 +867,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator divider3;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuClient;
+    private javax.swing.JMenu menuDebts;
+    private javax.swing.JMenu menuEmployee;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenu menuHelp;
     private javax.swing.JMenu menuOrder;
@@ -860,36 +876,36 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuProvider;
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenu menuSale;
-    private javax.swing.JMenu menuStock;
     private javax.swing.JMenuItem opcBackup;
     private javax.swing.JMenuItem opcClose;
     private javax.swing.JMenuItem opcLogout;
     private javax.swing.JMenuItem optAbout;
+    private javax.swing.JMenuItem optAllBills;
+    private javax.swing.JMenuItem optAllClients;
+    private javax.swing.JMenuItem optAllOrders;
+    private javax.swing.JMenuItem optAllProducts;
     private javax.swing.JMenuItem optAllProviders;
+    private javax.swing.JMenuItem optAllSales;
     private javax.swing.JMenuItem optBackOrders;
+    private javax.swing.JMenuItem optBillToPay;
+    private javax.swing.JMenuItem optBillToReceve;
     private javax.swing.JMenuItem optCanceledOrders;
     private javax.swing.JMenuItem optCashHandling;
-    private javax.swing.JMenuItem optDeleteClient;
-    private javax.swing.JMenuItem optDeleteItem;
-    private javax.swing.JMenuItem optDeleteOrder;
-    private javax.swing.JMenuItem optDeleteProdutc;
-    private javax.swing.JMenuItem optDeleteSale;
-    private javax.swing.JMenuItem optEditClient;
-    private javax.swing.JMenuItem optEditItem;
-    private javax.swing.JMenuItem optEditOrder;
-    private javax.swing.JMenuItem optEditProduct;
-    private javax.swing.JMenuItem optEditSale;
+    private javax.swing.JMenuItem optCommissionControl;
+    private javax.swing.JMenuItem optDebitBill;
+    private javax.swing.JMenuItem optDelayBill;
     private javax.swing.JMenuItem optLeastRequestedItems;
+    private javax.swing.JMenuItem optLocaleBill;
     private javax.swing.JMenuItem optLocaleClient;
-    private javax.swing.JMenuItem optLocaleItem;
+    private javax.swing.JMenuItem optLocaleEmployee;
     private javax.swing.JMenuItem optLocaleOrder;
     private javax.swing.JMenuItem optLocaleProduct;
     private javax.swing.JMenuItem optLocaleProviders;
     private javax.swing.JMenuItem optLocaleSale;
-    private javax.swing.JMenuItem optMoreRequestesItems;
     private javax.swing.JMenuItem optMostRequestItems;
+    private javax.swing.JMenuItem optNewBill;
     private javax.swing.JMenuItem optNewClient;
-    private javax.swing.JMenuItem optNewItem;
+    private javax.swing.JMenuItem optNewEmployee;
     private javax.swing.JMenuItem optNewOrder;
     private javax.swing.JMenuItem optNewProduct;
     private javax.swing.JMenuItem optNewProvider;
@@ -902,6 +918,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optSpendOfMonth;
     private javax.swing.JMenuItem optSuport;
     private javax.swing.JMenuItem optUser;
+    private javax.swing.JMenuItem optVacationControl;
     private javax.swing.JLabel txtBill;
     private javax.swing.JLabel txtBox;
     private javax.swing.JLabel txtClient;

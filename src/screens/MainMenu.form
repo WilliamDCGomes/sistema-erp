@@ -59,7 +59,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+F2"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sair"/>
+                <Property name="text" type="java.lang.String" value="Fechar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opcCloseActionPerformed"/>
@@ -91,23 +91,60 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleSaleActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optEditSale">
+            <MenuItem class="javax.swing.JMenuItem" name="optAllSales">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar Venda"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optDeleteSale">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir Venda"/>
+                <Property name="text" type="java.lang.String" value="Todas as Vendas"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optPendantSale">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Venda Pendente?"/>
+                <Property name="text" type="java.lang.String" value="Venda Pendente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optPendantSaleActionPerformed"/>
               </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuDebts">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Contas"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="optNewBill">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nova Conta"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optLocaleBill">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Localizar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optBillToPay">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A Pagar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optBillToReceve">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A Receber"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optDelayBill">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Atrasos"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optDebitBill">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Debitar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optAllBills">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todas as Contas"/>
+              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -138,14 +175,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleClientActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optEditClient">
+            <MenuItem class="javax.swing.JMenuItem" name="optAllClients">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar Cliente"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optDeleteClient">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir Cliente"/>
+                <Property name="text" type="java.lang.String" value="Todos os Clientes"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -177,21 +209,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleProductActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optEditProduct">
+            <MenuItem class="javax.swing.JMenuItem" name="optAllProducts">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+P"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Editar Produto"/>
+                <Property name="text" type="java.lang.String" value="Todos os Produtos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optEditProductActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optAllProductsActionPerformed"/>
               </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optDeleteProdutc">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir Produto"/>
-              </Properties>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -210,14 +237,9 @@
                 <Property name="text" type="java.lang.String" value="Localizar Pedido"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optEditOrder">
+            <MenuItem class="javax.swing.JMenuItem" name="optAllOrders">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Editar Pedido"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optDeleteOrder">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir Pedido"/>
+                <Property name="text" type="java.lang.String" value="Todos os Pedidos"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optPendantOrder">
@@ -234,56 +256,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pedidos em Atraso"/>
               </Properties>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuStock">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Estoque"/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="optNewItem">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Alt+Q"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Adicionar itens ao estoque"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optNewItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optLocaleItem">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Alt+L"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Localizar itens do estoque"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optEditItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Editar itens do estoque"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optDeleteItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Excluir itens do estoque"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optMoreRequestesItems">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Alt+R"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Itens mais requisitados no estoque"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optMoreRequestesItemsActionPerformed"/>
-              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -305,6 +277,33 @@
             <MenuItem class="javax.swing.JMenuItem" name="optAllProviders">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Todos os Fornecedores"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuEmployee">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Colaboradores"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="optNewEmployee">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo Colaborador"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optLocaleEmployee">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Localizar Colaborador"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optCommissionControl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Controle de Comiss&#xe3;o"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optVacationControl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Controle de F&#xe9;rias"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -381,7 +380,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
-    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-59,0,0,5,38"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-59,0,0,5,34"/>
     <SyntheticProperty name="formPosition" type="java.awt.Point" value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,97,119,116,46,80,111,105,110,116,-74,-60,-118,114,52,126,-56,38,2,0,2,73,0,1,120,73,0,1,121,120,112,0,0,0,0,0,0,0,0"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
     <SyntheticProperty name="generatePosition" type="boolean" value="true"/>
@@ -412,47 +411,51 @@
                   <Component id="txtBox" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="buttonBox" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="buttonSale" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtClient" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="buttonClient" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="buttonProduct" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="txtProduct" min="-2" pref="97" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="buttonOrder" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="txtOrder" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="txtOrder" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Component id="txtStock" min="-2" pref="136" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="buttonOrder" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                      <Component id="buttonStock" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="buttonStock" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="txtStock" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="buttonBill" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="txtBill" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="buttonDiary" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="txtDiary" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="buttonLogout" min="-2" pref="101" max="-2" attributes="0"/>
                   <Component id="txtLogout" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -494,16 +497,15 @@
                               <Component id="txtOrder" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="buttonStock" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtStock" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="buttonBill" min="-2" pref="98" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtBill" min="-2" max="-2" attributes="0"/>
+                                      <Component id="buttonStock" min="-2" pref="98" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtBill" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtStock" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -534,7 +536,7 @@
     <Component class="javax.swing.JButton" name="buttonStock">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/stocks.png"/>
+          <Image iconType="3" name="/images/provider.png"/>
         </Property>
       </Properties>
       <Events>
@@ -626,7 +628,7 @@
           <Font name="Dialog" size="18" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="ESTOQUE"/>
+        <Property name="text" type="java.lang.String" value="FORNECEDOR"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtStockMouseClicked"/>
