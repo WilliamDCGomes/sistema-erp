@@ -52,6 +52,10 @@ public class NewClient extends javax.swing.JFrame {
         inputComplement = new javax.swing.JTextArea();
         buttonPhoto = new javax.swing.JButton();
         buttonSave = new javax.swing.JButton();
+        txtCity = new javax.swing.JLabel();
+        inputCity = new javax.swing.JTextField();
+        txtState = new javax.swing.JLabel();
+        inputState = new javax.swing.JComboBox<>();
 
         jLabel1.setText("jLabel1");
 
@@ -63,12 +67,12 @@ public class NewClient extends javax.swing.JFrame {
         txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtBirthDay.setText("Data de Nascimento");
         getContentPane().add(txtBirthDay);
-        txtBirthDay.setBounds(535, 95, 175, 24);
+        txtBirthDay.setBounds(530, 95, 175, 24);
 
         txtName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtName.setText("Nome");
         getContentPane().add(txtName);
-        txtName.setBounds(45, 95, 52, 24);
+        txtName.setBounds(40, 95, 52, 24);
 
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCPF.setText("CPF / CNPJ");
@@ -78,37 +82,37 @@ public class NewClient extends javax.swing.JFrame {
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtPhone.setText("Telefone");
         getContentPane().add(txtPhone);
-        txtPhone.setBounds(45, 185, 77, 24);
+        txtPhone.setBounds(40, 160, 77, 30);
 
         txtCEP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCEP.setText("CEP");
         getContentPane().add(txtCEP);
-        txtCEP.setBounds(45, 265, 37, 24);
+        txtCEP.setBounds(40, 240, 37, 24);
 
         txtStreet.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtStreet.setText("Rua");
         getContentPane().add(txtStreet);
-        txtStreet.setBounds(290, 265, 34, 24);
+        txtStreet.setBounds(290, 240, 34, 24);
 
         txtNumberHouse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtNumberHouse.setText("Nº");
         getContentPane().add(txtNumberHouse);
-        txtNumberHouse.setBounds(535, 265, 20, 24);
+        txtNumberHouse.setBounds(530, 240, 20, 24);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtComplement.setText("Complemento");
         getContentPane().add(txtComplement);
-        txtComplement.setBounds(45, 350, 124, 24);
+        txtComplement.setBounds(40, 380, 124, 24);
 
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtEmail.setText("E-mail");
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(535, 185, 55, 24);
+        txtEmail.setBounds(530, 160, 55, 30);
 
         txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCellPhone.setText("Celular");
         getContentPane().add(txtCellPhone);
-        txtCellPhone.setBounds(290, 185, 62, 24);
+        txtCellPhone.setBounds(290, 160, 62, 30);
 
         txtCadastreClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCadastreClient.setText("Cadastro de Cliente");
@@ -117,7 +121,7 @@ public class NewClient extends javax.swing.JFrame {
 
         inputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputName);
-        inputName.setBounds(45, 125, 219, 30);
+        inputName.setBounds(40, 125, 219, 30);
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCPF);
@@ -125,31 +129,31 @@ public class NewClient extends javax.swing.JFrame {
 
         inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBirthDay);
-        inputBirthDay.setBounds(535, 125, 159, 30);
+        inputBirthDay.setBounds(530, 125, 159, 30);
 
         inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPhone);
-        inputPhone.setBounds(45, 215, 184, 30);
+        inputPhone.setBounds(40, 190, 184, 30);
 
         inputCellphone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCellphone);
-        inputCellphone.setBounds(290, 215, 140, 30);
+        inputCellphone.setBounds(290, 190, 140, 30);
 
         inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEmail);
-        inputEmail.setBounds(535, 215, 185, 30);
+        inputEmail.setBounds(530, 190, 185, 30);
 
         inputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCEP);
-        inputCEP.setBounds(45, 295, 194, 30);
+        inputCEP.setBounds(40, 270, 194, 30);
 
         inputStreet.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputStreet);
-        inputStreet.setBounds(290, 295, 189, 30);
+        inputStreet.setBounds(290, 270, 189, 30);
 
         inputNumberHouse.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNumberHouse);
-        inputNumberHouse.setBounds(535, 295, 98, 30);
+        inputNumberHouse.setBounds(530, 270, 98, 30);
 
         inputComplement.setColumns(20);
         inputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
@@ -157,7 +161,7 @@ public class NewClient extends javax.swing.JFrame {
         jScrollPane1.setViewportView(inputComplement);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(43, 382, 553, 150);
+        jScrollPane1.setBounds(43, 412, 553, 120);
 
         buttonPhoto.setText("FOTO");
         getContentPane().add(buttonPhoto);
@@ -171,6 +175,25 @@ public class NewClient extends javax.swing.JFrame {
         });
         getContentPane().add(buttonSave);
         buttonSave.setBounds(620, 500, 80, 30);
+
+        txtCity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCity.setText("Cidade");
+        getContentPane().add(txtCity);
+        txtCity.setBounds(40, 310, 80, 24);
+
+        inputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCity);
+        inputCity.setBounds(40, 340, 189, 30);
+
+        txtState.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtState.setText("Estado");
+        getContentPane().add(txtState);
+        txtState.setBounds(290, 310, 80, 24);
+
+        inputState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        inputState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        getContentPane().add(inputState);
+        inputState.setBounds(290, 340, 140, 35);
 
         setSize(new java.awt.Dimension(765, 569));
         setLocationRelativeTo(null);
@@ -224,11 +247,13 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField inputCEP;
     private javax.swing.JFormattedTextField inputCPF;
     private javax.swing.JFormattedTextField inputCellphone;
+    private javax.swing.JTextField inputCity;
     private javax.swing.JTextArea inputComplement;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputName;
     private javax.swing.JTextField inputNumberHouse;
     private javax.swing.JFormattedTextField inputPhone;
+    private javax.swing.JComboBox<String> inputState;
     private javax.swing.JTextField inputStreet;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -237,11 +262,13 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel txtCPF;
     private javax.swing.JLabel txtCadastreClient;
     private javax.swing.JLabel txtCellPhone;
+    private javax.swing.JLabel txtCity;
     private javax.swing.JLabel txtComplement;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtNumberHouse;
     private javax.swing.JLabel txtPhone;
+    private javax.swing.JLabel txtState;
     private javax.swing.JLabel txtStreet;
     // End of variables declaration//GEN-END:variables
 }

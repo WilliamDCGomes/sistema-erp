@@ -5,6 +5,10 @@
  */
 package submenus;
 
+import screens.AllProviders;
+import screens.LocaleProvider;
+import screens.NewProvider;
+
 /**
  *
  * @author Alunos
@@ -27,12 +31,12 @@ public class ProviderMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtMissingItems = new javax.swing.JLabel();
-        buttonMissingItems = new javax.swing.JButton();
-        txtMissingItems1 = new javax.swing.JLabel();
-        buttonMissingItems1 = new javax.swing.JButton();
-        txtMissingItems2 = new javax.swing.JLabel();
-        buttonMissingItems2 = new javax.swing.JButton();
+        txtNewProvider = new javax.swing.JLabel();
+        buttonNewProvider = new javax.swing.JButton();
+        txtLocaleProvider = new javax.swing.JLabel();
+        buttonLocaleProvider = new javax.swing.JButton();
+        txtAllProviders = new javax.swing.JLabel();
+        buttonAllProviders = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -49,51 +53,51 @@ public class ProviderMenu extends javax.swing.JFrame {
             }
         });
 
-        txtMissingItems.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtMissingItems.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMissingItems.setText("NOVO");
-        txtMissingItems.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtNewProvider.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNewProvider.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewProvider.setText("NOVO");
+        txtNewProvider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtMissingItemsMouseClicked(evt);
+                txtNewProviderMouseClicked(evt);
             }
         });
 
-        buttonMissingItems.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
-        buttonMissingItems.addActionListener(new java.awt.event.ActionListener() {
+        buttonNewProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/newProvider.png"))); // NOI18N
+        buttonNewProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMissingItemsActionPerformed(evt);
+                buttonNewProviderActionPerformed(evt);
             }
         });
 
-        txtMissingItems1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtMissingItems1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMissingItems1.setText("LOCALIZAR");
-        txtMissingItems1.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtLocaleProvider.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtLocaleProvider.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtLocaleProvider.setText("LOCALIZAR");
+        txtLocaleProvider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtMissingItems1MouseClicked(evt);
+                txtLocaleProviderMouseClicked(evt);
             }
         });
 
-        buttonMissingItems1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/faltStock.png"))); // NOI18N
-        buttonMissingItems1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocaleProvider.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/localeProvider.png"))); // NOI18N
+        buttonLocaleProvider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMissingItems1ActionPerformed(evt);
+                buttonLocaleProviderActionPerformed(evt);
             }
         });
 
-        txtMissingItems2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtMissingItems2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtMissingItems2.setText("TODOS");
-        txtMissingItems2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAllProviders.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtAllProviders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllProviders.setText("TODOS");
+        txtAllProviders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtMissingItems2MouseClicked(evt);
+                txtAllProvidersMouseClicked(evt);
             }
         });
 
-        buttonMissingItems2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allProviders.png"))); // NOI18N
-        buttonMissingItems2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllProviders.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/allProviders.png"))); // NOI18N
+        buttonAllProviders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMissingItems2ActionPerformed(evt);
+                buttonAllProvidersActionPerformed(evt);
             }
         });
 
@@ -104,44 +108,46 @@ public class ProviderMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonNewProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMissingItems1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonMissingItems1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocaleProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonLocaleProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtMissingItems2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonMissingItems2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAllProviders, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonAllProviders, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(buttonMissingItems, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonNewProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMissingItems))
+                .addComponent(txtNewProvider))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(buttonMissingItems1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonLocaleProvider, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMissingItems1))
+                .addComponent(txtLocaleProvider))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(buttonMissingItems2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonAllProviders, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtMissingItems2))
+                .addComponent(txtAllProviders))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtMissingItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMissingItemsMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMissingItemsMouseClicked
+    private void txtNewProviderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewProviderMouseClicked
+        NewProvider newProvider = new NewProvider();
+        newProvider.setVisible(true);
+    }//GEN-LAST:event_txtNewProviderMouseClicked
 
-    private void buttonMissingItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMissingItemsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonMissingItemsActionPerformed
+    private void buttonNewProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProviderActionPerformed
+        NewProvider newProvider = new NewProvider();
+        newProvider.setVisible(true);
+    }//GEN-LAST:event_buttonNewProviderActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -151,21 +157,25 @@ public class ProviderMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
 
-    private void txtMissingItems1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMissingItems1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMissingItems1MouseClicked
+    private void txtLocaleProviderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleProviderMouseClicked
+        LocaleProvider localeProvider = new LocaleProvider();
+        localeProvider.setVisible(true);
+    }//GEN-LAST:event_txtLocaleProviderMouseClicked
 
-    private void buttonMissingItems1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMissingItems1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonMissingItems1ActionPerformed
+    private void buttonLocaleProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleProviderActionPerformed
+        LocaleProvider localeProvider = new LocaleProvider();
+        localeProvider.setVisible(true);
+    }//GEN-LAST:event_buttonLocaleProviderActionPerformed
 
-    private void txtMissingItems2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMissingItems2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMissingItems2MouseClicked
+    private void txtAllProvidersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAllProvidersMouseClicked
+        AllProviders allProviders = new AllProviders();
+        allProviders.setVisible(true);
+    }//GEN-LAST:event_txtAllProvidersMouseClicked
 
-    private void buttonMissingItems2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMissingItems2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonMissingItems2ActionPerformed
+    private void buttonAllProvidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProvidersActionPerformed
+        AllProviders allProviders = new AllProviders();
+        allProviders.setVisible(true);
+    }//GEN-LAST:event_buttonAllProvidersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,11 +214,11 @@ public class ProviderMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonMissingItems;
-    private javax.swing.JButton buttonMissingItems1;
-    private javax.swing.JButton buttonMissingItems2;
-    private javax.swing.JLabel txtMissingItems;
-    private javax.swing.JLabel txtMissingItems1;
-    private javax.swing.JLabel txtMissingItems2;
+    private javax.swing.JButton buttonAllProviders;
+    private javax.swing.JButton buttonLocaleProvider;
+    private javax.swing.JButton buttonNewProvider;
+    private javax.swing.JLabel txtAllProviders;
+    private javax.swing.JLabel txtLocaleProvider;
+    private javax.swing.JLabel txtNewProvider;
     // End of variables declaration//GEN-END:variables
 }

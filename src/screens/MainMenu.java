@@ -708,7 +708,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void txtStockMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtStockMouseClicked
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 80).split("/");
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 133).split("/");
         ProviderMenu stockMenu = new ProviderMenu();
         stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         stockMenu.setVisible(true);
@@ -761,7 +761,7 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void buttonStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStockActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 80).split("/");
+        String[] vet = setLocationSubMenus.processLocation(buttonStock.getX(), 133).split("/");
         ProviderMenu stockMenu = new ProviderMenu();
         stockMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         stockMenu.setVisible(true);

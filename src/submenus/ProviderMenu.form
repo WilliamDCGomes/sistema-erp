@@ -31,18 +31,18 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtMissingItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonMissingItems" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtNewProvider" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonNewProvider" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtMissingItems1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonMissingItems1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtLocaleProvider" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonLocaleProvider" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtMissingItems2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                  <Component id="buttonMissingItems2" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="txtAllProviders" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="buttonAllProviders" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
           </Group>
@@ -51,25 +51,25 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="buttonMissingItems" min="-2" pref="98" max="-2" attributes="0"/>
+              <Component id="buttonNewProvider" min="-2" pref="98" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtMissingItems" min="-2" max="-2" attributes="0"/>
+              <Component id="txtNewProvider" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Component id="buttonMissingItems1" min="-2" pref="98" max="-2" attributes="0"/>
+              <Component id="buttonLocaleProvider" min="-2" pref="98" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtMissingItems1" min="-2" max="-2" attributes="0"/>
+              <Component id="txtLocaleProvider" min="-2" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
-              <Component id="buttonMissingItems2" min="-2" pref="98" max="-2" attributes="0"/>
+              <Component id="buttonAllProviders" min="-2" pref="98" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtMissingItems2" min="-2" max="-2" attributes="0"/>
+              <Component id="txtAllProviders" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="txtMissingItems">
+    <Component class="javax.swing.JLabel" name="txtNewProvider">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -78,20 +78,20 @@
         <Property name="text" type="java.lang.String" value="NOVO"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMissingItemsMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNewProviderMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonMissingItems">
+    <Component class="javax.swing.JButton" name="buttonNewProvider">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/faltStock.png"/>
+          <Image iconType="3" name="/images/newProvider.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMissingItemsActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNewProviderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtMissingItems1">
+    <Component class="javax.swing.JLabel" name="txtLocaleProvider">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -100,20 +100,20 @@
         <Property name="text" type="java.lang.String" value="LOCALIZAR"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMissingItems1MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtLocaleProviderMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonMissingItems1">
+    <Component class="javax.swing.JButton" name="buttonLocaleProvider">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/images/faltStock.png"/>
+          <Image iconType="3" name="/images/localeProvider.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMissingItems1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLocaleProviderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtMissingItems2">
+    <Component class="javax.swing.JLabel" name="txtAllProviders">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="0"/>
@@ -122,17 +122,17 @@
         <Property name="text" type="java.lang.String" value="TODOS"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtMissingItems2MouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtAllProvidersMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonMissingItems2">
+    <Component class="javax.swing.JButton" name="buttonAllProviders">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/allProviders.png"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMissingItems2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAllProvidersActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
