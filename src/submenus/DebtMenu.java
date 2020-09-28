@@ -5,6 +5,11 @@
  */
 package submenus;
 
+import screens.AllBills;
+import screens.DebtScreen;
+import screens.LocaleBill;
+import screens.NewBill;
+
 /**
  *
  * @author Alunos
@@ -215,51 +220,75 @@ public class DebtMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDeptToPayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDeptToPayMouseClicked
-
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A PAGAR");
+        allBills.setTitle("Contas a Pagar");
+        allBills.setVisible(true);
     }//GEN-LAST:event_txtDeptToPayMouseClicked
 
     private void buttonDeptToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeptToPayActionPerformed
-
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A PAGAR");
+        allBills.setTitle("Contas a Pagar");
+        allBills.setVisible(true);
     }//GEN-LAST:event_buttonDeptToPayActionPerformed
 
     private void txtDelayDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDelayDeptMouseClicked
-        // TODO add your handling code here:
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS EM ATRASO");
+        allBills.setTitle("Contas em Atraso");
+        allBills.setVisible(true);
     }//GEN-LAST:event_txtDelayDeptMouseClicked
 
     private void buttonDelayDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDelayDeptActionPerformed
-        // TODO add your handling code here:
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS EM ATRASO");
+        allBills.setTitle("Contas em Atraso");
+        allBills.setVisible(true);
     }//GEN-LAST:event_buttonDelayDeptActionPerformed
 
     private void txtDepitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDepitMouseClicked
-        // TODO add your handling code here:
+        DebtScreen debtScreen = new DebtScreen();
+        debtScreen.setVisible(true);
     }//GEN-LAST:event_txtDepitMouseClicked
 
     private void buttonDebitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDebitActionPerformed
-        // TODO add your handling code here:
+        DebtScreen debtScreen = new DebtScreen();
+        debtScreen.setVisible(true);
     }//GEN-LAST:event_buttonDebitActionPerformed
 
     private void txtNewDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNewDeptMouseClicked
-        // TODO add your handling code here:
+        NewBill newBill = new NewBill();
+        newBill.setVisible(true);
     }//GEN-LAST:event_txtNewDeptMouseClicked
 
     private void buttonNewDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewDeptActionPerformed
-        // TODO add your handling code here:
+        NewBill newBill = new NewBill();
+        newBill.setVisible(true);
     }//GEN-LAST:event_buttonNewDeptActionPerformed
 
     private void txtDeptToRecevMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDeptToRecevMouseClicked
-        // TODO add your handling code here:
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A RECEBER");
+        allBills.setTitle("Contas a Receber");
+        allBills.setVisible(true);
     }//GEN-LAST:event_txtDeptToRecevMouseClicked
 
     private void buttonDeptToRecevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeptToRecevActionPerformed
-        // TODO add your handling code here:
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A RECEBER");
+        allBills.setTitle("Contas a Receber");
+        allBills.setVisible(true);
     }//GEN-LAST:event_buttonDeptToRecevActionPerformed
 
     private void txtLocaleDeptMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtLocaleDeptMouseClicked
-        // TODO add your handling code here:
+        LocaleBill localeBill = new LocaleBill();
+        localeBill.setVisible(true);
     }//GEN-LAST:event_txtLocaleDeptMouseClicked
 
     private void buttonLocaleDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleDeptActionPerformed
-        // TODO add your handling code here:
+        LocaleBill localeBill = new LocaleBill();
+        localeBill.setVisible(true);
     }//GEN-LAST:event_buttonLocaleDeptActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus

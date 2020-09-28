@@ -134,7 +134,7 @@ public class FormPayment extends javax.swing.JFrame {
 
         buttonFinish.setText("Finalizar");
         getContentPane().add(buttonFinish);
-        buttonFinish.setBounds(25, 450, 90, 23);
+        buttonFinish.setBounds(25, 450, 90, 32);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputSaleValue);
@@ -202,6 +202,6 @@ public class FormPayment extends javax.swing.JFrame {
     private javax.swing.JLabel txtPayment;
     private javax.swing.JLabel txtPlots;
     private javax.swing.JLabel txtPlotsPeriod;
-    private javax.swing.JLabel txtSaleValue;
+    public static javax.swing.JLabel txtSaleValue;
     // End of variables declaration//GEN-END:variables
 }
