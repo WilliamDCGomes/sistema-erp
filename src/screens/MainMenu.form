@@ -345,6 +345,40 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="menuSchedule">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Agenda"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="optNewTask">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Novo Compromisso"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optCheckEventsDay">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Verificar Compromissos do Dia"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optCheckEventMonth">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Verificar Compromisso do M&#xea;s"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optAllEvents">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Todos os Compromissos"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="divider4">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optNotificationsControl">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Controle de Notifica&#xe7;&#xf5;es"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="menuHelp">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ajuda"/>

@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import submenus.BillMenu;
 import submenus.ClientMenu;
 import submenus.DebtMenu;
-import submenus.DiaryMenu;
+import submenus.ScheduleMenu;
 import submenus.OrderMenu;
 import submenus.ProductMenu;
 import submenus.SaleMenu;
@@ -100,6 +100,13 @@ public class MainMenu extends javax.swing.JFrame {
         optLeastRequestedItems = new javax.swing.JMenuItem();
         optSalesOfEmployees = new javax.swing.JMenuItem();
         optSpendOfMonth = new javax.swing.JMenuItem();
+        menuSchedule = new javax.swing.JMenu();
+        optNewTask = new javax.swing.JMenuItem();
+        optCheckEventsDay = new javax.swing.JMenuItem();
+        optCheckEventMonth = new javax.swing.JMenuItem();
+        optAllEvents = new javax.swing.JMenuItem();
+        divider4 = new javax.swing.JPopupMenu.Separator();
+        optNotificationsControl = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         optSuport = new javax.swing.JMenuItem();
         divider3 = new javax.swing.JPopupMenu.Separator();
@@ -490,6 +497,26 @@ public class MainMenu extends javax.swing.JFrame {
 
         menuBar.add(menuReport);
 
+        menuSchedule.setText("Agenda");
+
+        optNewTask.setText("Novo Compromisso");
+        menuSchedule.add(optNewTask);
+
+        optCheckEventsDay.setText("Verificar Compromissos do Dia");
+        menuSchedule.add(optCheckEventsDay);
+
+        optCheckEventMonth.setText("Verificar Compromisso do Mês");
+        menuSchedule.add(optCheckEventMonth);
+
+        optAllEvents.setText("Todos os Compromissos");
+        menuSchedule.add(optAllEvents);
+        menuSchedule.add(divider4);
+
+        optNotificationsControl.setText("Controle de Notificações");
+        menuSchedule.add(optNotificationsControl);
+
+        menuBar.add(menuSchedule);
+
         menuHelp.setText("Ajuda");
 
         optSuport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
@@ -793,18 +820,18 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void txtDiaryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtDiaryMouseClicked
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 600).split("/");
-        DiaryMenu diaryMenu = new DiaryMenu();
+        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 1250).split("/");
+        ScheduleMenu diaryMenu = new ScheduleMenu();
         diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         diaryMenu.setVisible(true);
     }//GEN-LAST:event_txtDiaryMouseClicked
 
     private void buttonDiaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiaryActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 600).split("/");
-        DiaryMenu diaryMenu = new DiaryMenu();
-        diaryMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        diaryMenu.setVisible(true);
+        String[] vet = setLocationSubMenus.processLocation(this.getWidth(), 1250).split("/");
+        ScheduleMenu scheduleMenu = new ScheduleMenu();
+        scheduleMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        scheduleMenu.setVisible(true);
     }//GEN-LAST:event_buttonDiaryActionPerformed
 
     private void optLocaleSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleSaleActionPerformed
@@ -865,6 +892,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator divider1;
     private javax.swing.JPopupMenu.Separator divider2;
     private javax.swing.JPopupMenu.Separator divider3;
+    private javax.swing.JPopupMenu.Separator divider4;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuClient;
     private javax.swing.JMenu menuDebts;
@@ -876,12 +904,14 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenu menuProvider;
     private javax.swing.JMenu menuReport;
     private javax.swing.JMenu menuSale;
+    private javax.swing.JMenu menuSchedule;
     private javax.swing.JMenuItem opcBackup;
     private javax.swing.JMenuItem opcClose;
     private javax.swing.JMenuItem opcLogout;
     private javax.swing.JMenuItem optAbout;
     private javax.swing.JMenuItem optAllBills;
     private javax.swing.JMenuItem optAllClients;
+    private javax.swing.JMenuItem optAllEvents;
     private javax.swing.JMenuItem optAllOrders;
     private javax.swing.JMenuItem optAllProducts;
     private javax.swing.JMenuItem optAllProviders;
@@ -891,6 +921,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optBillToReceve;
     private javax.swing.JMenuItem optCanceledOrders;
     private javax.swing.JMenuItem optCashHandling;
+    private javax.swing.JMenuItem optCheckEventMonth;
+    private javax.swing.JMenuItem optCheckEventsDay;
     private javax.swing.JMenuItem optCommissionControl;
     private javax.swing.JMenuItem optDebitBill;
     private javax.swing.JMenuItem optDelayBill;
@@ -910,6 +942,8 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optNewProduct;
     private javax.swing.JMenuItem optNewProvider;
     private javax.swing.JMenuItem optNewSale;
+    private javax.swing.JMenuItem optNewTask;
+    private javax.swing.JMenuItem optNotificationsControl;
     private javax.swing.JMenuItem optPendantOrder;
     private javax.swing.JMenuItem optPendantSale;
     private javax.swing.JMenuItem optRestore;
