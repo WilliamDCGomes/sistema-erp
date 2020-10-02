@@ -33,6 +33,9 @@ public class Income extends javax.swing.JFrame {
         inputStartDate = new javax.swing.JFormattedTextField();
         inputEndDate = new javax.swing.JFormattedTextField();
         buttonFilter = new javax.swing.JButton();
+        txtSeparatorDate = new javax.swing.JLabel();
+        outputBillType = new javax.swing.JComboBox<>();
+        buttonShow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Entrada no Caixa");
@@ -40,9 +43,10 @@ public class Income extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         txtEnter.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        txtEnter.setText("Entrada");
+        txtEnter.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtEnter.setText("ENTRADA");
         getContentPane().add(txtEnter);
-        txtEnter.setBounds(308, 11, 89, 32);
+        txtEnter.setBounds(280, 10, 140, 32);
 
         tableEnterCash.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,7 +56,7 @@ public class Income extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Descrição", "Data", "Valor", "Lucro"
+                "Descrição", "Data", "Valor", "Tipo"
             }
         ));
         tableIncome.setViewportView(tableEnterCash);
@@ -76,15 +80,40 @@ public class Income extends javax.swing.JFrame {
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEndDate);
-        inputEndDate.setBounds(187, 405, 90, 25);
+        inputEndDate.setBounds(160, 405, 90, 25);
 
         buttonFilter.setText("FILTRAR");
         getContentPane().add(buttonFilter);
-        buttonFilter.setBounds(340, 405, 80, 25);
+        buttonFilter.setBounds(430, 405, 80, 25);
+
+        txtSeparatorDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        txtSeparatorDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSeparatorDate.setText("A");
+        getContentPane().add(txtSeparatorDate);
+        txtSeparatorDate.setBounds(110, 405, 50, 25);
+
+        outputBillType.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        outputBillType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tudo", "Entrada", "Saída" }));
+        getContentPane().add(outputBillType);
+        outputBillType.setBounds(270, 405, 130, 25);
+
+        buttonShow.setText("MOSTRAR");
+        buttonShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonShow);
+        buttonShow.setBounds(540, 405, 90, 23);
 
         setSize(new java.awt.Dimension(721, 497));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
+        CashDrive cashDrive = new CashDrive();
+        cashDrive.setVisible(true);
+    }//GEN-LAST:event_buttonShowActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,10 +152,13 @@ public class Income extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonFilter;
+    private javax.swing.JButton buttonShow;
     private javax.swing.JFormattedTextField inputEndDate;
     private javax.swing.JFormattedTextField inputStartDate;
+    public static javax.swing.JComboBox<String> outputBillType;
     private javax.swing.JTable tableEnterCash;
     private javax.swing.JScrollPane tableIncome;
-    private javax.swing.JLabel txtEnter;
+    public static javax.swing.JLabel txtEnter;
+    private javax.swing.JLabel txtSeparatorDate;
     // End of variables declaration//GEN-END:variables
 }

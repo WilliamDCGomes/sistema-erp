@@ -5,7 +5,8 @@
  */
 package submenus;
 
-import screens.CashOut;
+
+import screens.ChangeTheValue;
 import screens.Income;
 
 /**
@@ -138,29 +139,41 @@ public class BillMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMoneyEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMoneyEnterMouseClicked
-
+        Income income = new Income();
+        income.outputBillType.setSelectedIndex(1);
+        income.setVisible(true);
     }//GEN-LAST:event_txtMoneyEnterMouseClicked
 
     private void buttonMoneyEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMoneyEnterActionPerformed
         Income income = new Income();
+        income.outputBillType.setSelectedIndex(1);
         income.setVisible(true);
     }//GEN-LAST:event_buttonMoneyEnterActionPerformed
 
     private void txtCashOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCashOutMouseClicked
-        // TODO add your handling code here:
+        Income income = new Income();
+        income.txtEnter.setText("SAÍDA");
+        income.setTitle("Saída");
+        income.outputBillType.setSelectedIndex(2);
+        income.setVisible(true);
     }//GEN-LAST:event_txtCashOutMouseClicked
 
     private void buttonCashOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCashOutActionPerformed
-        CashOut cashOut = new CashOut();
-        cashOut.setVisible(true);
+        Income income = new Income();
+        income.txtEnter.setText("SAÍDA");
+        income.setTitle("Saída");
+        income.outputBillType.setSelectedIndex(2);
+        income.setVisible(true);
     }//GEN-LAST:event_buttonCashOutActionPerformed
 
     private void txtSwitchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSwitchMouseClicked
-        // TODO add your handling code here:
+        ChangeTheValue changeTheValue = new ChangeTheValue();
+        changeTheValue.setVisible(true);
     }//GEN-LAST:event_txtSwitchMouseClicked
 
     private void buttonSwitchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSwitchActionPerformed
-        // TODO add your handling code here:
+        ChangeTheValue changeTheValue = new ChangeTheValue();
+        changeTheValue.setVisible(true);
     }//GEN-LAST:event_buttonSwitchActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus

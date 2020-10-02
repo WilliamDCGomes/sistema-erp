@@ -77,6 +77,8 @@ public class MainMenu extends javax.swing.JFrame {
         optNewProduct = new javax.swing.JMenuItem();
         optLocaleProduct = new javax.swing.JMenuItem();
         optAllProducts = new javax.swing.JMenuItem();
+        optBestSellers = new javax.swing.JMenuItem();
+        optMissingItems = new javax.swing.JMenuItem();
         menuOrder = new javax.swing.JMenu();
         optNewOrder = new javax.swing.JMenuItem();
         optLocaleOrder = new javax.swing.JMenuItem();
@@ -331,6 +333,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuSale.add(optLocaleSale);
 
         optAllSales.setText("Todas as Vendas");
+        optAllSales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllSalesActionPerformed(evt);
+            }
+        });
         menuSale.add(optAllSales);
 
         optPendantSale.setText("Venda Pendente");
@@ -346,24 +353,59 @@ public class MainMenu extends javax.swing.JFrame {
         menuDebts.setText("Contas");
 
         optNewBill.setText("Nova Conta");
+        optNewBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optNewBillActionPerformed(evt);
+            }
+        });
         menuDebts.add(optNewBill);
 
         optLocaleBill.setText("Localizar");
+        optLocaleBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleBillActionPerformed(evt);
+            }
+        });
         menuDebts.add(optLocaleBill);
 
         optBillToPay.setText("A Pagar");
+        optBillToPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optBillToPayActionPerformed(evt);
+            }
+        });
         menuDebts.add(optBillToPay);
 
         optBillToReceve.setText("A Receber");
+        optBillToReceve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optBillToReceveActionPerformed(evt);
+            }
+        });
         menuDebts.add(optBillToReceve);
 
         optDelayBill.setText("Atrasos");
+        optDelayBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optDelayBillActionPerformed(evt);
+            }
+        });
         menuDebts.add(optDelayBill);
 
         optDebitBill.setText("Debitar");
+        optDebitBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optDebitBillActionPerformed(evt);
+            }
+        });
         menuDebts.add(optDebitBill);
 
         optAllBills.setText("Todas as Contas");
+        optAllBills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllBillsActionPerformed(evt);
+            }
+        });
         menuDebts.add(optAllBills);
 
         menuBar.add(menuDebts);
@@ -389,6 +431,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuClient.add(optLocaleClient);
 
         optAllClients.setText("Todos os Clientes");
+        optAllClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllClientsActionPerformed(evt);
+            }
+        });
         menuClient.add(optAllClients);
 
         menuBar.add(menuClient);
@@ -422,26 +469,72 @@ public class MainMenu extends javax.swing.JFrame {
         });
         menuProduct.add(optAllProducts);
 
+        optBestSellers.setText("Produtos Mais Vendidos");
+        optBestSellers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optBestSellersActionPerformed(evt);
+            }
+        });
+        menuProduct.add(optBestSellers);
+
+        optMissingItems.setText("Produtos em Falta");
+        optMissingItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optMissingItemsActionPerformed(evt);
+            }
+        });
+        menuProduct.add(optMissingItems);
+
         menuBar.add(menuProduct);
 
         menuOrder.setText("Pedidos");
 
         optNewOrder.setText("Novo Pedido");
+        optNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optNewOrderActionPerformed(evt);
+            }
+        });
         menuOrder.add(optNewOrder);
 
         optLocaleOrder.setText("Localizar Pedido");
+        optLocaleOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleOrderActionPerformed(evt);
+            }
+        });
         menuOrder.add(optLocaleOrder);
 
         optAllOrders.setText("Todos os Pedidos");
+        optAllOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllOrdersActionPerformed(evt);
+            }
+        });
         menuOrder.add(optAllOrders);
 
         optPendantOrder.setText("Pedido Pendente");
+        optPendantOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPendantOrderActionPerformed(evt);
+            }
+        });
         menuOrder.add(optPendantOrder);
 
         optCanceledOrders.setText("Pedidos Cancelados");
+        optCanceledOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCanceledOrdersActionPerformed(evt);
+            }
+        });
         menuOrder.add(optCanceledOrders);
 
         optBackOrders.setText("Pedidos em Atraso");
+        optBackOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optBackOrdersActionPerformed(evt);
+            }
+        });
         menuOrder.add(optBackOrders);
 
         menuBar.add(menuOrder);
@@ -449,12 +542,27 @@ public class MainMenu extends javax.swing.JFrame {
         menuProvider.setText("Fornecedores");
 
         optNewProvider.setText("Novo Fornecedor");
+        optNewProvider.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optNewProviderActionPerformed(evt);
+            }
+        });
         menuProvider.add(optNewProvider);
 
         optLocaleProviders.setText("Localizar Fornecedor");
+        optLocaleProviders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleProvidersActionPerformed(evt);
+            }
+        });
         menuProvider.add(optLocaleProviders);
 
         optAllProviders.setText("Todos os Fornecedores");
+        optAllProviders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllProvidersActionPerformed(evt);
+            }
+        });
         menuProvider.add(optAllProviders);
 
         menuBar.add(menuProvider);
@@ -500,15 +608,35 @@ public class MainMenu extends javax.swing.JFrame {
         menuSchedule.setText("Agenda");
 
         optNewTask.setText("Novo Compromisso");
+        optNewTask.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optNewTaskActionPerformed(evt);
+            }
+        });
         menuSchedule.add(optNewTask);
 
         optCheckEventsDay.setText("Verificar Compromissos do Dia");
+        optCheckEventsDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCheckEventsDayActionPerformed(evt);
+            }
+        });
         menuSchedule.add(optCheckEventsDay);
 
         optCheckEventMonth.setText("Verificar Compromisso do Mês");
+        optCheckEventMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCheckEventMonthActionPerformed(evt);
+            }
+        });
         menuSchedule.add(optCheckEventMonth);
 
         optAllEvents.setText("Todos os Compromissos");
+        optAllEvents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllEventsActionPerformed(evt);
+            }
+        });
         menuSchedule.add(optAllEvents);
         menuSchedule.add(divider4);
 
@@ -633,23 +761,28 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
-        
+        LocaleClient localeClient = new LocaleClient();
+        localeClient.setVisible(true);
     }//GEN-LAST:event_optLocaleClientActionPerformed
 
     private void optNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewClientActionPerformed
-        
+        NewClient newClient = new NewClient();
+        newClient.setVisible(true);
     }//GEN-LAST:event_optNewClientActionPerformed
 
     private void optAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllProductsActionPerformed
-        
+        AllProducts allProducts = new AllProducts();
+        allProducts.setVisible(true);
     }//GEN-LAST:event_optAllProductsActionPerformed
 
     private void optLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleProductActionPerformed
-        
+        LocaleProduct localeProduct = new LocaleProduct();
+        localeProduct.setVisible(true);
     }//GEN-LAST:event_optLocaleProductActionPerformed
 
     private void optNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewProductActionPerformed
-        
+        NewProduct newProduct = new NewProduct();
+        newProduct.setVisible(true);
     }//GEN-LAST:event_optNewProductActionPerformed
 
     private void optNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewSaleActionPerformed
@@ -844,6 +977,150 @@ public class MainMenu extends javax.swing.JFrame {
         pendingSale.setVisible(true);
     }//GEN-LAST:event_optPendantSaleActionPerformed
 
+    private void optAllSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllSalesActionPerformed
+        PendingSale pendingSale = new PendingSale();
+        pendingSale.txtPendingSale.setText("TODAS AS VENDAS");
+        pendingSale.setTitle("Todas as Vendas");
+        pendingSale.setVisible(true);
+    }//GEN-LAST:event_optAllSalesActionPerformed
+
+    private void optNewBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewBillActionPerformed
+        NewBill newBill = new NewBill();
+        newBill.setVisible(true);
+    }//GEN-LAST:event_optNewBillActionPerformed
+
+    private void optLocaleBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleBillActionPerformed
+        LocaleBill localeBill = new LocaleBill();
+        localeBill.setVisible(true);
+    }//GEN-LAST:event_optLocaleBillActionPerformed
+
+    private void optBillToPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optBillToPayActionPerformed
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A PAGAR");
+        allBills.setTitle("Contas a Pagar");
+        allBills.setVisible(true);
+    }//GEN-LAST:event_optBillToPayActionPerformed
+
+    private void optBillToReceveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optBillToReceveActionPerformed
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS A RECEBER");
+        allBills.setTitle("Contas a Receber");
+        allBills.setVisible(true);
+    }//GEN-LAST:event_optBillToReceveActionPerformed
+
+    private void optDelayBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optDelayBillActionPerformed
+        AllBills allBills = new AllBills();
+        allBills.txtAllBills.setText("CONTAS EM ATRASO");
+        allBills.setTitle("Contas em Atraso");
+        allBills.setVisible(true);
+    }//GEN-LAST:event_optDelayBillActionPerformed
+
+    private void optDebitBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optDebitBillActionPerformed
+        DebtScreen debtScreen = new DebtScreen();
+        debtScreen.setVisible(true);
+    }//GEN-LAST:event_optDebitBillActionPerformed
+
+    private void optAllBillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllBillsActionPerformed
+        AllBills allBills = new AllBills();
+        allBills.setVisible(true);
+    }//GEN-LAST:event_optAllBillsActionPerformed
+
+    private void optAllClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllClientsActionPerformed
+        AllClients ClientScreen = new AllClients();
+        ClientScreen.setVisible(true);
+    }//GEN-LAST:event_optAllClientsActionPerformed
+
+    private void optBestSellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optBestSellersActionPerformed
+        ProductsBestSellers productsBestSellers = new ProductsBestSellers();
+        productsBestSellers.setVisible(true);
+    }//GEN-LAST:event_optBestSellersActionPerformed
+
+    private void optMissingItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMissingItemsActionPerformed
+        ProductsBestSellers productsBestSellers = new ProductsBestSellers();
+        productsBestSellers.txtBestSellers.setText("ITENS EM FALTA");
+        productsBestSellers.setTitle("Itens em Falta");
+        productsBestSellers.buttonRequest.setVisible(true);
+        productsBestSellers.setVisible(true);
+    }//GEN-LAST:event_optMissingItemsActionPerformed
+
+    private void optNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewOrderActionPerformed
+        NewOrder newOrder = new NewOrder();
+        newOrder.setVisible(true);
+    }//GEN-LAST:event_optNewOrderActionPerformed
+
+    private void optLocaleOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleOrderActionPerformed
+        LocaleOrder localeOrder = new LocaleOrder();
+        localeOrder.setVisible(true);
+    }//GEN-LAST:event_optLocaleOrderActionPerformed
+
+    private void optAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllOrdersActionPerformed
+        AllOrders allOrders = new AllOrders();
+        allOrders.setVisible(true);
+    }//GEN-LAST:event_optAllOrdersActionPerformed
+
+    private void optPendantOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPendantOrderActionPerformed
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS PENDENTES");
+        allOrders.setTitle("Pedidos Pendentes");
+        allOrders.setVisible(true);
+    }//GEN-LAST:event_optPendantOrderActionPerformed
+
+    private void optCanceledOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCanceledOrdersActionPerformed
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS CANCELADOS");
+        allOrders.setTitle("Pedidos Cancelados");
+        allOrders.setVisible(true);
+    }//GEN-LAST:event_optCanceledOrdersActionPerformed
+
+    private void optBackOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optBackOrdersActionPerformed
+        AllOrders allOrders = new AllOrders();
+        allOrders.txtAllOrders.setText("PEDIDOS EM ATRASO");
+        allOrders.setTitle("Pedidos em Atraso");
+        allOrders.setVisible(true);
+    }//GEN-LAST:event_optBackOrdersActionPerformed
+
+    private void optNewProviderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewProviderActionPerformed
+        NewProvider newProvider = new NewProvider();
+        newProvider.setVisible(true);
+    }//GEN-LAST:event_optNewProviderActionPerformed
+
+    private void optLocaleProvidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleProvidersActionPerformed
+        LocaleProvider localeProvider = new LocaleProvider();
+        localeProvider.setVisible(true);
+    }//GEN-LAST:event_optLocaleProvidersActionPerformed
+
+    private void optAllProvidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllProvidersActionPerformed
+        AllProviders allProviders = new AllProviders();
+        allProviders.setVisible(true);
+    }//GEN-LAST:event_optAllProvidersActionPerformed
+
+    private void optNewTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewTaskActionPerformed
+        NewSchedule newSchedule = new NewSchedule();
+        newSchedule.setVisible(true);
+    }//GEN-LAST:event_optNewTaskActionPerformed
+
+    private void optCheckEventsDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCheckEventsDayActionPerformed
+        AllSchedule allSchedule = new AllSchedule();
+        allSchedule.txtAllSchedules.setText("COMPROMISSOS DO DIA");
+        allSchedule.setTitle("Compromissos do Dia");
+        allSchedule.outputScheduleType.setSelectedIndex(0);
+        allSchedule.setVisible(true);
+    }//GEN-LAST:event_optCheckEventsDayActionPerformed
+
+    private void optCheckEventMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCheckEventMonthActionPerformed
+        AllSchedule allSchedule = new AllSchedule();
+        allSchedule.txtAllSchedules.setText("COMPROMISSOS DO MÊS");
+        allSchedule.outputScheduleType.setSelectedIndex(1);
+        allSchedule.setTitle("Compromissos do Mês");
+        allSchedule.setVisible(true);
+    }//GEN-LAST:event_optCheckEventMonthActionPerformed
+
+    private void optAllEventsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllEventsActionPerformed
+        AllSchedule allSchedule = new AllSchedule();
+        allSchedule.outputScheduleType.setSelectedIndex(2);
+        allSchedule.setVisible(true);
+    }//GEN-LAST:event_optAllEventsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -917,6 +1194,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optAllProviders;
     private javax.swing.JMenuItem optAllSales;
     private javax.swing.JMenuItem optBackOrders;
+    private javax.swing.JMenuItem optBestSellers;
     private javax.swing.JMenuItem optBillToPay;
     private javax.swing.JMenuItem optBillToReceve;
     private javax.swing.JMenuItem optCanceledOrders;
@@ -934,6 +1212,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optLocaleProduct;
     private javax.swing.JMenuItem optLocaleProviders;
     private javax.swing.JMenuItem optLocaleSale;
+    private javax.swing.JMenuItem optMissingItems;
     private javax.swing.JMenuItem optMostRequestItems;
     private javax.swing.JMenuItem optNewBill;
     private javax.swing.JMenuItem optNewClient;

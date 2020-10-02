@@ -47,7 +47,7 @@ public class AllOrders extends javax.swing.JFrame {
         txtAllOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAllOrders.setText("TODOS OS PEDIDOS");
         getContentPane().add(txtAllOrders);
-        txtAllOrders.setBounds(190, 10, 300, 32);
+        txtAllOrders.setBounds(140, 10, 380, 32);
 
         tableOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
