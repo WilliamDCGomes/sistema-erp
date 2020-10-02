@@ -36,8 +36,6 @@ public class BillMenu extends javax.swing.JFrame {
         buttonCashOut = new javax.swing.JButton();
         txtSwitch = new javax.swing.JLabel();
         buttonSwitch = new javax.swing.JButton();
-        txtFlow = new javax.swing.JLabel();
-        buttonFlow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -97,44 +95,24 @@ public class BillMenu extends javax.swing.JFrame {
             }
         });
 
-        txtFlow.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtFlow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFlow.setText("FLUXO");
-        txtFlow.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtFlowMouseClicked(evt);
-            }
-        });
-
-        buttonFlow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cashFlow.png"))); // NOI18N
-        buttonFlow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonFlowActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMoneyEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonMoneyEnter, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonSwitch, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,10 +124,6 @@ public class BillMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSwitch))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonFlow, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFlow))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonCashOut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCashOut))
@@ -160,7 +134,7 @@ public class BillMenu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        setBounds(0, 190, 489, 140);
+        setBounds(0, 190, 335, 140);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMoneyEnterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtMoneyEnterMouseClicked
@@ -188,14 +162,6 @@ public class BillMenu extends javax.swing.JFrame {
     private void buttonSwitchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSwitchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonSwitchActionPerformed
-
-    private void txtFlowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFlowMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFlowMouseClicked
-
-    private void buttonFlowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFlowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonFlowActionPerformed
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
         this.dispose();
@@ -238,11 +204,9 @@ public class BillMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCashOut;
-    private javax.swing.JButton buttonFlow;
     private javax.swing.JButton buttonMoneyEnter;
     private javax.swing.JButton buttonSwitch;
     private javax.swing.JLabel txtCashOut;
-    private javax.swing.JLabel txtFlow;
     private javax.swing.JLabel txtMoneyEnter;
     private javax.swing.JLabel txtSwitch;
     // End of variables declaration//GEN-END:variables
