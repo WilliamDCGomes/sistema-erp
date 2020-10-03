@@ -570,6 +570,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuEmployee.setText("Colaboradores");
 
         optNewEmployee.setText("Novo Colaborador");
+        optNewEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optNewEmployeeActionPerformed(evt);
+            }
+        });
         menuEmployee.add(optNewEmployee);
 
         optLocaleEmployee.setText("Localizar Colaborador");
@@ -1120,6 +1125,11 @@ public class MainMenu extends javax.swing.JFrame {
         allSchedule.outputScheduleType.setSelectedIndex(2);
         allSchedule.setVisible(true);
     }//GEN-LAST:event_optAllEventsActionPerformed
+
+    private void optNewEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewEmployeeActionPerformed
+        NewEmployee newEmployee = new NewEmployee();
+        newEmployee.setVisible(true);
+    }//GEN-LAST:event_optNewEmployeeActionPerformed
 
     /**
      * @param args the command line arguments
