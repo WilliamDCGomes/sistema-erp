@@ -255,7 +255,7 @@ public class ProductScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_outputPhotoKeyPressed
 
     private void outputPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputPhotoActionPerformed
-        ProductImage productImage = new ProductImage();
+        ImageScreen productImage = new ImageScreen();
         productImage.setVisible(true);
     }//GEN-LAST:event_outputPhotoActionPerformed
 

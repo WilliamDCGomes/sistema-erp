@@ -5,12 +5,14 @@
  */
 package screens;
 
+import functioncontroller.GetDate;
+
 /**
  *
  * @author Lenovo
  */
 public class AllSchedule extends javax.swing.JFrame {
-
+    int x = 0;
     /**
      * Creates new form AllSchedule
      */
@@ -39,6 +41,11 @@ public class AllSchedule extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Compromissos");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtAllSchedules.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -64,7 +71,6 @@ public class AllSchedule extends javax.swing.JFrame {
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
-                {null, null, null},
                 {null, null, null}
             },
             new String [] {
@@ -74,7 +80,7 @@ public class AllSchedule extends javax.swing.JFrame {
         tableAllSchedules.setViewportView(tableSchedules);
 
         getContentPane().add(tableAllSchedules);
-        tableAllSchedules.setBounds(20, 120, 620, 310);
+        tableAllSchedules.setBounds(20, 130, 620, 300);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -83,26 +89,36 @@ public class AllSchedule extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(300, 80, 90, 25);
+        buttonShow.setBounds(300, 80, 90, 30);
 
         inputFirstDateFilter.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputFirstDateFilter.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputFirstDateFilterFocusGained(evt);
+            }
+        });
         getContentPane().add(inputFirstDateFilter);
-        inputFirstDateFilter.setBounds(20, 80, 100, 25);
+        inputFirstDateFilter.setBounds(20, 80, 100, 30);
 
         txtSeparatorDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         txtSeparatorDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSeparatorDate.setText("A");
         getContentPane().add(txtSeparatorDate);
-        txtSeparatorDate.setBounds(120, 80, 40, 25);
+        txtSeparatorDate.setBounds(120, 80, 40, 30);
 
         inputSecondDateFilter.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputSecondDateFilter.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputSecondDateFilterFocusGained(evt);
+            }
+        });
         getContentPane().add(inputSecondDateFilter);
-        inputSecondDateFilter.setBounds(160, 80, 100, 25);
+        inputSecondDateFilter.setBounds(160, 80, 100, 30);
 
         outputScheduleType.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         outputScheduleType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compromissos do Dia", "Compromissos do Mês", "Todos os Compromissos", "Compromissos Concluídos" }));
         getContentPane().add(outputScheduleType);
-        outputScheduleType.setBounds(430, 80, 210, 25);
+        outputScheduleType.setBounds(430, 80, 210, 30);
 
         setSize(new java.awt.Dimension(668, 485));
         setLocationRelativeTo(null);
@@ -112,6 +128,23 @@ public class AllSchedule extends javax.swing.JFrame {
         ScheduleScreen scheduleScreen = new ScheduleScreen();
         scheduleScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowActionPerformed
+
+    private void inputFirstDateFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputFirstDateFilterFocusGained
+        inputFirstDateFilter.selectAll();
+    }//GEN-LAST:event_inputFirstDateFilterFocusGained
+
+    private void inputSecondDateFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputSecondDateFilterFocusGained
+        inputSecondDateFilter.selectAll();
+    }//GEN-LAST:event_inputSecondDateFilterFocusGained
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x==0){
+            x++;
+            GetDate getDate = new GetDate();
+            inputFirstDateFilter.setText(getDate.dateOfSystem());
+            inputSecondDateFilter.setText(getDate.dateOfSystem());
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments

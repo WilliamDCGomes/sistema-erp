@@ -94,7 +94,7 @@ public class MainMenu extends javax.swing.JFrame {
         optNewEmployee = new javax.swing.JMenuItem();
         optLocaleEmployee = new javax.swing.JMenuItem();
         optCommissionControl = new javax.swing.JMenuItem();
-        optVacationControl = new javax.swing.JMenuItem();
+        optEmployeeTermination = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         optSalesOfMonth = new javax.swing.JMenuItem();
         optCashHandling = new javax.swing.JMenuItem();
@@ -578,13 +578,28 @@ public class MainMenu extends javax.swing.JFrame {
         menuEmployee.add(optNewEmployee);
 
         optLocaleEmployee.setText("Localizar Colaborador");
+        optLocaleEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleEmployeeActionPerformed(evt);
+            }
+        });
         menuEmployee.add(optLocaleEmployee);
 
         optCommissionControl.setText("Controle de Comissão");
+        optCommissionControl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCommissionControlActionPerformed(evt);
+            }
+        });
         menuEmployee.add(optCommissionControl);
 
-        optVacationControl.setText("Controle de Férias");
-        menuEmployee.add(optVacationControl);
+        optEmployeeTermination.setText("Desligamento de Colaborador");
+        optEmployeeTermination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optEmployeeTerminationActionPerformed(evt);
+            }
+        });
+        menuEmployee.add(optEmployeeTermination);
 
         menuBar.add(menuEmployee);
 
@@ -1131,6 +1146,21 @@ public class MainMenu extends javax.swing.JFrame {
         newEmployee.setVisible(true);
     }//GEN-LAST:event_optNewEmployeeActionPerformed
 
+    private void optLocaleEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleEmployeeActionPerformed
+        LocaleEmployee localeEmployee = new LocaleEmployee();
+        localeEmployee.setVisible(true);
+    }//GEN-LAST:event_optLocaleEmployeeActionPerformed
+
+    private void optCommissionControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCommissionControlActionPerformed
+        CommissionScreen commissionScreen = new CommissionScreen();
+        commissionScreen.setVisible(true);
+    }//GEN-LAST:event_optCommissionControlActionPerformed
+
+    private void optEmployeeTerminationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optEmployeeTerminationActionPerformed
+        EmployeeDismissal employeeDismissal = new EmployeeDismissal();
+        employeeDismissal.setVisible(true);
+    }//GEN-LAST:event_optEmployeeTerminationActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1214,6 +1244,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optCommissionControl;
     private javax.swing.JMenuItem optDebitBill;
     private javax.swing.JMenuItem optDelayBill;
+    private javax.swing.JMenuItem optEmployeeTermination;
     private javax.swing.JMenuItem optLeastRequestedItems;
     private javax.swing.JMenuItem optLocaleBill;
     private javax.swing.JMenuItem optLocaleClient;
@@ -1241,7 +1272,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optSpendOfMonth;
     private javax.swing.JMenuItem optSuport;
     private javax.swing.JMenuItem optUser;
-    private javax.swing.JMenuItem optVacationControl;
     private javax.swing.JLabel txtBill;
     private javax.swing.JLabel txtBox;
     private javax.swing.JLabel txtClient;

@@ -368,16 +368,25 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Localizar Colaborador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optLocaleEmployeeActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optCommissionControl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Controle de Comiss&#xe3;o"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optCommissionControlActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optVacationControl">
+            <MenuItem class="javax.swing.JMenuItem" name="optEmployeeTermination">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Controle de F&#xe9;rias"/>
+                <Property name="text" type="java.lang.String" value="Desligamento de Colaborador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optEmployeeTerminationActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

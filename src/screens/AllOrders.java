@@ -66,7 +66,6 @@ public class AllOrders extends javax.swing.JFrame {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
@@ -76,7 +75,7 @@ public class AllOrders extends javax.swing.JFrame {
         tableAllOrder.setViewportView(tableOrders);
 
         getContentPane().add(tableAllOrder);
-        tableAllOrder.setBounds(20, 120, 620, 310);
+        tableAllOrder.setBounds(20, 130, 620, 300);
 
         inputIdentification.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputIdentification.setText("CPF / CNPJ");
@@ -91,7 +90,7 @@ public class AllOrders extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputIdentification);
-        inputIdentification.setBounds(20, 80, 190, 25);
+        inputIdentification.setBounds(20, 80, 190, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -100,7 +99,7 @@ public class AllOrders extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(240, 80, 90, 25);
+        buttonShow.setBounds(240, 80, 90, 30);
 
         setSize(new java.awt.Dimension(671, 474));
         setLocationRelativeTo(null);

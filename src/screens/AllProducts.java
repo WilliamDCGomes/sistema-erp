@@ -58,7 +58,7 @@ public class AllProducts extends javax.swing.JFrame {
         tableAllProducts.setViewportView(tableProducts);
 
         getContentPane().add(tableAllProducts);
-        tableAllProducts.setBounds(20, 130, 640, 330);
+        tableAllProducts.setBounds(20, 140, 640, 320);
 
         inputProductName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputProductName.setText("NOME DO PRODUTO");
@@ -73,7 +73,7 @@ public class AllProducts extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputProductName);
-        inputProductName.setBounds(20, 90, 240, 25);
+        inputProductName.setBounds(20, 90, 240, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +82,7 @@ public class AllProducts extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(300, 90, 90, 25);
+        buttonShow.setBounds(300, 90, 90, 30);
 
         setSize(new java.awt.Dimension(698, 509));
         setLocationRelativeTo(null);

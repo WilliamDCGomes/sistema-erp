@@ -32,6 +32,7 @@ public class AllProviders extends javax.swing.JFrame {
         tableProviders = new javax.swing.JTable();
         inputIdentification = new javax.swing.JTextField();
         buttonShow = new javax.swing.JButton();
+        inpuCPFClient = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Fornecedores");
@@ -70,7 +71,7 @@ public class AllProviders extends javax.swing.JFrame {
         tableAllProviders.setViewportView(tableProviders);
 
         getContentPane().add(tableAllProviders);
-        tableAllProviders.setBounds(20, 120, 620, 310);
+        tableAllProviders.setBounds(20, 130, 620, 300);
 
         inputIdentification.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputIdentification.setText("CPF / CNPJ");
@@ -85,7 +86,7 @@ public class AllProviders extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputIdentification);
-        inputIdentification.setBounds(20, 80, 190, 25);
+        inputIdentification.setBounds(20, 80, 190, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +95,28 @@ public class AllProviders extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(240, 80, 90, 25);
+        buttonShow.setBounds(520, 80, 90, 30);
+
+        inpuCPFClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inpuCPFClient.setText("NOME FANTASIA");
+        inpuCPFClient.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inpuCPFClientFocusGained(evt);
+            }
+        });
+        inpuCPFClient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inpuCPFClientKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inpuCPFClientKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inpuCPFClientKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inpuCPFClient);
+        inpuCPFClient.setBounds(240, 80, 256, 30);
 
         setSize(new java.awt.Dimension(666, 472));
         setLocationRelativeTo(null);
@@ -119,6 +141,29 @@ public class AllProviders extends javax.swing.JFrame {
         ProviderScreen providerScreen = new ProviderScreen();
         providerScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowActionPerformed
+
+    private void inpuCPFClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inpuCPFClientFocusGained
+        inpuCPFClient.selectAll();
+    }//GEN-LAST:event_inpuCPFClientFocusGained
+
+    private void inpuCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyPressed
+
+    }//GEN-LAST:event_inpuCPFClientKeyPressed
+
+    private void inpuCPFClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyReleased
+
+    }//GEN-LAST:event_inpuCPFClientKeyReleased
+
+    private void inpuCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyTyped
+        if(inpuCPFClient.getText().equals("")){
+            inpuCPFClient.setText("NOME FANTASIA");
+            x=0;
+        }
+        else if(x==0){
+            x++;
+            inpuCPFClient.setText("");
+        }
+    }//GEN-LAST:event_inpuCPFClientKeyTyped
 
     /**
      * @param args the command line arguments
@@ -157,6 +202,7 @@ public class AllProviders extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonShow;
+    private javax.swing.JTextField inpuCPFClient;
     private javax.swing.JTextField inputIdentification;
     private javax.swing.JScrollPane tableAllProviders;
     private javax.swing.JTable tableProviders;

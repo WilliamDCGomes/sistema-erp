@@ -38,9 +38,12 @@ public class PendingSale extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Vendas Pendete");
         setResizable(false);
+        getContentPane().setLayout(null);
 
         txtPendingSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtPendingSale.setText("Vendas Pendentes");
+        getContentPane().add(txtPendingSale);
+        txtPendingSale.setBounds(212, 17, 213, 32);
 
         tablePending.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -55,12 +58,17 @@ public class PendingSale extends javax.swing.JFrame {
         ));
         tablePendingSale.setViewportView(tablePending);
 
+        getContentPane().add(tablePendingSale);
+        tablePendingSale.setBounds(12, 67, 620, 304);
+
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonShowActionPerformed(evt);
             }
         });
+        getContentPane().add(buttonShow);
+        buttonShow.setBounds(365, 389, 88, 32);
 
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -68,6 +76,8 @@ public class PendingSale extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         inputStartDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputStartDate);
+        inputStartDate.setBounds(32, 392, 101, 25);
 
         try {
             inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -75,48 +85,12 @@ public class PendingSale extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        getContentPane().add(inputEndDate);
+        inputEndDate.setBounds(151, 392, 101, 25);
 
         buttonFilter.setText("FILTRAR");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtPendingSale)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonFilter)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonShow)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
-                        .addGap(35, 35, 35))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(txtPendingSale)
-                .addGap(18, 18, 18)
-                .addComponent(tablePendingSale, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonShow)
-                    .addComponent(inputStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonFilter))
-                .addGap(14, 14, 14))
-        );
+        getContentPane().add(buttonFilter);
+        buttonFilter.setBounds(270, 389, 77, 32);
 
         setSize(new java.awt.Dimension(653, 474));
         setLocationRelativeTo(null);

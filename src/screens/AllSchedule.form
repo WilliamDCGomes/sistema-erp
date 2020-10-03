@@ -12,6 +12,9 @@
     <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowActivated" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowActivated"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -51,7 +54,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="120" width="620" height="310"/>
+          <AbsoluteConstraints x="20" y="130" width="620" height="300"/>
         </Constraint>
       </Constraints>
 
@@ -60,7 +63,7 @@
         <Component class="javax.swing.JTable" name="tableSchedules">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="17">
+              <Table columnCount="3" rowCount="16">
                 <Column editable="true" title="Nome do Compromisso" type="java.lang.Object"/>
                 <Column editable="true" title="Dia Marcado" type="java.lang.Object"/>
                 <Column editable="true" title="Hor&#xe1;rio Marcado" type="java.lang.Object"/>
@@ -101,7 +104,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="300" y="80" width="90" height="25"/>
+          <AbsoluteConstraints x="300" y="80" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -111,9 +114,12 @@
           <Font name="Tahoma" size="15" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="inputFirstDateFilterFocusGained"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="80" width="100" height="25"/>
+          <AbsoluteConstraints x="20" y="80" width="100" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -127,7 +133,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="80" width="40" height="-1"/>
+          <AbsoluteConstraints x="120" y="80" width="40" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -137,9 +143,12 @@
           <Font name="Tahoma" size="15" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="inputSecondDateFilterFocusGained"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="160" y="80" width="100" height="25"/>
+          <AbsoluteConstraints x="160" y="80" width="100" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -163,7 +172,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="430" y="80" width="210" height="25"/>
+          <AbsoluteConstraints x="430" y="80" width="210" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

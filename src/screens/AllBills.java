@@ -71,7 +71,7 @@ public class AllBills extends javax.swing.JFrame {
         tableAllBills.setViewportView(tableBills);
 
         getContentPane().add(tableAllBills);
-        tableAllBills.setBounds(20, 120, 620, 310);
+        tableAllBills.setBounds(20, 110, 620, 320);
 
         inputIdentification.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputIdentification.setText("CPF / CNPJ");
@@ -86,7 +86,7 @@ public class AllBills extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputIdentification);
-        inputIdentification.setBounds(20, 80, 190, 25);
+        inputIdentification.setBounds(20, 60, 190, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +95,7 @@ public class AllBills extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(240, 80, 90, 25);
+        buttonShow.setBounds(240, 60, 90, 30);
 
         setSize(new java.awt.Dimension(664, 474));
         setLocationRelativeTo(null);

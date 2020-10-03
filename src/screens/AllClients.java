@@ -27,36 +27,37 @@ public class AllClients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inputNameClient = new javax.swing.JTextField();
+        inpuCPFClient = new javax.swing.JTextField();
         txtAllClients = new javax.swing.JLabel();
         tableAllClients = new javax.swing.JScrollPane();
         tableClients = new javax.swing.JTable();
         buttonShowClient = new javax.swing.JButton();
+        inputNameClient = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Clientes");
         getContentPane().setLayout(null);
 
-        inputNameClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        inputNameClient.setText("NOME DO CLIENTE");
-        inputNameClient.addFocusListener(new java.awt.event.FocusAdapter() {
+        inpuCPFClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inpuCPFClient.setText("CPF DO CLIENTE");
+        inpuCPFClient.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                inputNameClientFocusGained(evt);
+                inpuCPFClientFocusGained(evt);
             }
         });
-        inputNameClient.addKeyListener(new java.awt.event.KeyAdapter() {
+        inpuCPFClient.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inputNameClientKeyPressed(evt);
+                inpuCPFClientKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                inputNameClientKeyReleased(evt);
+                inpuCPFClientKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputNameClientKeyTyped(evt);
+                inpuCPFClientKeyTyped(evt);
             }
         });
-        getContentPane().add(inputNameClient);
-        inputNameClient.setBounds(10, 60, 256, 25);
+        getContentPane().add(inpuCPFClient);
+        inpuCPFClient.setBounds(290, 60, 256, 30);
 
         txtAllClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtAllClients.setText("TODOS OS CLIENTES");
@@ -77,7 +78,7 @@ public class AllClients extends javax.swing.JFrame {
         tableAllClients.setViewportView(tableClients);
 
         getContentPane().add(tableAllClients);
-        tableAllClients.setBounds(10, 100, 639, 280);
+        tableAllClients.setBounds(10, 110, 650, 270);
 
         buttonShowClient.setText("MOSTRAR");
         buttonShowClient.addActionListener(new java.awt.event.ActionListener() {
@@ -86,9 +87,30 @@ public class AllClients extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowClient);
-        buttonShowClient.setBounds(300, 60, 90, 25);
+        buttonShowClient.setBounds(570, 60, 90, 30);
 
-        setSize(new java.awt.Dimension(676, 438));
+        inputNameClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputNameClient.setText("NOME DO CLIENTE");
+        inputNameClient.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputNameClientFocusGained(evt);
+            }
+        });
+        inputNameClient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputNameClientKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputNameClient);
+        inputNameClient.setBounds(10, 60, 256, 30);
+
+        setSize(new java.awt.Dimension(689, 438));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -97,16 +119,39 @@ public class AllClients extends javax.swing.JFrame {
         clientScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowClientActionPerformed
 
-    private void inputNameClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyPressed
+    private void inpuCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyPressed
         
-    }//GEN-LAST:event_inputNameClientKeyPressed
+    }//GEN-LAST:event_inpuCPFClientKeyPressed
+
+    private void inpuCPFClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inpuCPFClientFocusGained
+        inpuCPFClient.selectAll();
+    }//GEN-LAST:event_inpuCPFClientFocusGained
+
+    private void inpuCPFClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyReleased
+        
+    }//GEN-LAST:event_inpuCPFClientKeyReleased
+
+    private void inpuCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyTyped
+        if(inpuCPFClient.getText().equals("")){
+            inpuCPFClient.setText("CPF DO CLIENTE");
+            x=0;
+        }
+        else if(x==0){
+            x++;
+            inpuCPFClient.setText("");
+        }
+    }//GEN-LAST:event_inpuCPFClientKeyTyped
 
     private void inputNameClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputNameClientFocusGained
         inputNameClient.selectAll();
     }//GEN-LAST:event_inputNameClientFocusGained
 
+    private void inputNameClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputNameClientKeyPressed
+
     private void inputNameClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyReleased
-        
+        // TODO add your handling code here:
     }//GEN-LAST:event_inputNameClientKeyReleased
 
     private void inputNameClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyTyped
@@ -160,6 +205,7 @@ public class AllClients extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonShowClient;
+    private javax.swing.JTextField inpuCPFClient;
     private javax.swing.JTextField inputNameClient;
     private javax.swing.JScrollPane tableAllClients;
     private javax.swing.JTable tableClients;
