@@ -5,6 +5,8 @@
  */
 package screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alunos
@@ -27,359 +29,364 @@ public class NewEmployee extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
+        txtNewEmployee = new javax.swing.JLabel();
+        txtFullName = new javax.swing.JLabel();
+        txtBirthDay = new javax.swing.JLabel();
+        txtRG = new javax.swing.JLabel();
+        txtCPF = new javax.swing.JLabel();
+        txtSex = new javax.swing.JLabel();
+        txtCEP = new javax.swing.JLabel();
+        txtStreet = new javax.swing.JLabel();
+        txtNumberHouse = new javax.swing.JLabel();
+        txtNeighBorhood = new javax.swing.JLabel();
+        txtCity = new javax.swing.JLabel();
+        txtState = new javax.swing.JLabel();
+        txtComplement = new javax.swing.JLabel();
+        txtAadmissionDate = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JLabel();
+        txtCellPhone = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JLabel();
+        txtOccupation = new javax.swing.JLabel();
+        txtCommission = new javax.swing.JLabel();
+        inputPicture = new javax.swing.JButton();
+        txtSalary = new javax.swing.JLabel();
+        txtFoodVoucher = new javax.swing.JLabel();
+        txtTranportationVoucher = new javax.swing.JLabel();
+        txtMealTicket = new javax.swing.JLabel();
+        txtPIS = new javax.swing.JLabel();
+        txtBank = new javax.swing.JLabel();
+        txtAgency = new javax.swing.JLabel();
+        txtAccount = new javax.swing.JLabel();
+        txtAccountType = new javax.swing.JLabel();
+        txtFatherName = new javax.swing.JLabel();
+        txtMotherName = new javax.swing.JLabel();
+        inputEmail = new javax.swing.JTextField();
+        inputCPF = new javax.swing.JTextField();
+        inputCellPhone = new javax.swing.JTextField();
+        inputSex = new javax.swing.JComboBox<>();
+        inputCEP = new javax.swing.JTextField();
+        inputPhone = new javax.swing.JTextField();
+        inputMotherName = new javax.swing.JTextField();
+        inputFullName = new javax.swing.JTextField();
+        inputComplement = new javax.swing.JTextField();
+        inputRG = new javax.swing.JTextField();
+        inputFatherName = new javax.swing.JTextField();
+        inputBirthDay = new javax.swing.JTextField();
+        inputOccupation = new javax.swing.JTextField();
+        inputStreet = new javax.swing.JTextField();
+        inputNeighBorhood = new javax.swing.JTextField();
+        inputAccountType = new javax.swing.JComboBox<>();
+        inputAdmissionDate = new javax.swing.JTextField();
+        inputPIS = new javax.swing.JTextField();
+        inputNumberHouse = new javax.swing.JTextField();
+        inputAgency = new javax.swing.JTextField();
+        inputAccount = new javax.swing.JTextField();
         inputState = new javax.swing.JComboBox<>();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
-        inputState1 = new javax.swing.JComboBox<>();
-        jTextField24 = new javax.swing.JTextField();
-        jTextField25 = new javax.swing.JTextField();
-        inputState2 = new javax.swing.JComboBox<>();
-        jTextField26 = new javax.swing.JTextField();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        inputTranportationVoucher = new javax.swing.JTextField();
+        inputCity = new javax.swing.JTextField();
+        inputBank = new javax.swing.JComboBox<>();
+        inputSalary = new javax.swing.JTextField();
+        inputCommission = new javax.swing.JTextField();
+        inputFoodVoucher = new javax.swing.JTextField();
+        inputMealTicket = new javax.swing.JTextField();
+        buttonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Funcionário");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("NOVO FUNCIONÁRIO");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(370, 20, 280, 32);
+        txtNewEmployee.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtNewEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewEmployee.setText("NOVO FUNCIONÁRIO");
+        getContentPane().add(txtNewEmployee);
+        txtNewEmployee.setBounds(370, 20, 280, 32);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel2.setText("Nome Completo");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(60, 80, 120, 20);
+        txtFullName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtFullName.setText("Nome Completo");
+        getContentPane().add(txtFullName);
+        txtFullName.setBounds(60, 80, 120, 20);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel3.setText("Data de Nascimento");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(420, 80, 150, 20);
+        txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtBirthDay.setText("Data de Nascimento");
+        getContentPane().add(txtBirthDay);
+        txtBirthDay.setBounds(420, 80, 150, 20);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel4.setText("RG");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(590, 80, 40, 20);
+        txtRG.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtRG.setText("RG");
+        getContentPane().add(txtRG);
+        txtRG.setBounds(590, 80, 40, 20);
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel5.setText("CPF");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(730, 80, 50, 20);
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCPF.setText("CPF");
+        getContentPane().add(txtCPF);
+        txtCPF.setBounds(730, 80, 50, 20);
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel6.setText("Sexo");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(60, 150, 50, 20);
+        txtSex.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtSex.setText("Sexo");
+        getContentPane().add(txtSex);
+        txtSex.setBounds(60, 150, 50, 20);
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel7.setText("CEP");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(60, 310, 50, 20);
+        txtCEP.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCEP.setText("CEP");
+        getContentPane().add(txtCEP);
+        txtCEP.setBounds(60, 310, 50, 20);
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel8.setText("Rua");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(190, 310, 40, 20);
+        txtStreet.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtStreet.setText("Rua");
+        getContentPane().add(txtStreet);
+        txtStreet.setBounds(190, 310, 40, 20);
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel9.setText("Número");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(620, 310, 60, 20);
+        txtNumberHouse.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtNumberHouse.setText("Número");
+        getContentPane().add(txtNumberHouse);
+        txtNumberHouse.setBounds(620, 310, 60, 20);
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel10.setText("Bairro");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(60, 390, 50, 20);
+        txtNeighBorhood.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtNeighBorhood.setText("Bairro");
+        getContentPane().add(txtNeighBorhood);
+        txtNeighBorhood.setBounds(60, 390, 50, 20);
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel11.setText("Cidade");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(410, 390, 60, 20);
+        txtCity.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCity.setText("Cidade");
+        getContentPane().add(txtCity);
+        txtCity.setBounds(410, 390, 60, 20);
 
-        jLabel12.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel12.setText("Estado");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(670, 390, 70, 20);
+        txtState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtState.setText("Estado");
+        getContentPane().add(txtState);
+        txtState.setBounds(670, 390, 70, 20);
 
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel13.setText("Complemento");
-        getContentPane().add(jLabel13);
-        jLabel13.setBounds(730, 310, 110, 20);
+        txtComplement.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtComplement.setText("Complemento");
+        getContentPane().add(txtComplement);
+        txtComplement.setBounds(730, 310, 110, 20);
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel14.setText("Data de Admissão");
-        getContentPane().add(jLabel14);
-        jLabel14.setBounds(60, 470, 140, 20);
+        txtAadmissionDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAadmissionDate.setText("Data de Admissão");
+        getContentPane().add(txtAadmissionDate);
+        txtAadmissionDate.setBounds(60, 470, 140, 20);
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel15.setText("Telefone");
-        getContentPane().add(jLabel15);
-        jLabel15.setBounds(210, 150, 80, 20);
+        txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPhone.setText("Telefone");
+        getContentPane().add(txtPhone);
+        txtPhone.setBounds(210, 150, 80, 20);
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel16.setText("Celular");
-        getContentPane().add(jLabel16);
-        jLabel16.setBounds(370, 150, 60, 20);
+        txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCellPhone.setText("Celular");
+        getContentPane().add(txtCellPhone);
+        txtCellPhone.setBounds(370, 150, 60, 20);
 
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel17.setText("Email");
-        getContentPane().add(jLabel17);
-        jLabel17.setBounds(530, 150, 50, 20);
+        txtEmail.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtEmail.setText("Email");
+        getContentPane().add(txtEmail);
+        txtEmail.setBounds(530, 150, 50, 20);
 
-        jLabel18.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel18.setText("Função");
-        getContentPane().add(jLabel18);
-        jLabel18.setBounds(230, 470, 70, 20);
+        txtOccupation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtOccupation.setText("Função");
+        getContentPane().add(txtOccupation);
+        txtOccupation.setBounds(230, 470, 70, 20);
 
-        jLabel20.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel20.setText("Comissão");
-        getContentPane().add(jLabel20);
-        jLabel20.setBounds(730, 470, 80, 20);
+        txtCommission.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCommission.setText("Comissão");
+        getContentPane().add(txtCommission);
+        txtCommission.setBounds(730, 470, 80, 20);
 
-        jButton1.setText("FOTO");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(890, 80, 150, 190);
+        inputPicture.setText("FOTO");
+        getContentPane().add(inputPicture);
+        inputPicture.setBounds(890, 80, 150, 190);
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel21.setText("Remuneração");
-        getContentPane().add(jLabel21);
-        jLabel21.setBounds(570, 470, 110, 20);
+        txtSalary.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtSalary.setText("Remuneração");
+        getContentPane().add(txtSalary);
+        txtSalary.setBounds(570, 470, 110, 20);
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel22.setText("Vale Alimentação");
-        getContentPane().add(jLabel22);
-        jLabel22.setBounds(890, 470, 130, 20);
+        txtFoodVoucher.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtFoodVoucher.setText("Vale Alimentação");
+        getContentPane().add(txtFoodVoucher);
+        txtFoodVoucher.setBounds(890, 470, 130, 20);
 
-        jLabel23.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel23.setText("Vale Transporte");
-        getContentPane().add(jLabel23);
-        jLabel23.setBounds(220, 550, 130, 20);
+        txtTranportationVoucher.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtTranportationVoucher.setText("Vale Transporte");
+        getContentPane().add(txtTranportationVoucher);
+        txtTranportationVoucher.setBounds(220, 550, 130, 20);
 
-        jLabel24.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel24.setText("Vale Refeição");
-        getContentPane().add(jLabel24);
-        jLabel24.setBounds(60, 550, 110, 20);
+        txtMealTicket.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtMealTicket.setText("Vale Refeição");
+        getContentPane().add(txtMealTicket);
+        txtMealTicket.setBounds(60, 550, 110, 20);
 
-        jLabel25.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel25.setText("PIS/PASEP");
-        getContentPane().add(jLabel25);
-        jLabel25.setBounds(400, 550, 90, 20);
+        txtPIS.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPIS.setText("PIS/PASEP");
+        getContentPane().add(txtPIS);
+        txtPIS.setBounds(400, 550, 90, 20);
 
-        jLabel27.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel27.setText("Banco");
-        getContentPane().add(jLabel27);
-        jLabel27.setBounds(650, 550, 60, 20);
+        txtBank.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtBank.setText("Banco");
+        getContentPane().add(txtBank);
+        txtBank.setBounds(650, 550, 60, 20);
 
-        jLabel28.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel28.setText("Agência");
-        getContentPane().add(jLabel28);
-        jLabel28.setBounds(60, 640, 70, 20);
+        txtAgency.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAgency.setText("Agência");
+        getContentPane().add(txtAgency);
+        txtAgency.setBounds(60, 640, 70, 20);
 
-        jLabel29.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel29.setText("Conta");
-        getContentPane().add(jLabel29);
-        jLabel29.setBounds(220, 640, 50, 20);
+        txtAccount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAccount.setText("Conta");
+        getContentPane().add(txtAccount);
+        txtAccount.setBounds(220, 640, 50, 20);
 
-        jLabel30.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel30.setText("Tipo de Conta");
-        getContentPane().add(jLabel30);
-        jLabel30.setBounds(520, 640, 110, 20);
+        txtAccountType.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAccountType.setText("Tipo de Conta");
+        getContentPane().add(txtAccountType);
+        txtAccountType.setBounds(520, 640, 110, 20);
 
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel31.setText("Nome do Pai");
-        getContentPane().add(jLabel31);
-        jLabel31.setBounds(60, 230, 100, 20);
+        txtFatherName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtFatherName.setText("Nome do Pai");
+        getContentPane().add(txtFatherName);
+        txtFatherName.setBounds(60, 230, 100, 20);
 
-        jLabel32.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel32.setText("Nome da Mãe");
-        getContentPane().add(jLabel32);
-        jLabel32.setBounds(440, 230, 110, 20);
+        txtMotherName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtMotherName.setText("Nome da Mãe");
+        getContentPane().add(txtMotherName);
+        txtMotherName.setBounds(440, 230, 110, 20);
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(530, 180, 340, 30);
+        inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputEmail);
+        inputEmail.setBounds(530, 180, 340, 30);
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jTextField3.setText("446.588.588-19");
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(730, 110, 130, 30);
+        inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCPF);
+        inputCPF.setBounds(730, 110, 130, 30);
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jTextField4.setText("(14) 99907-5693");
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(370, 180, 130, 30);
+        inputCellPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCellPhone);
+        inputCellPhone.setBounds(370, 180, 130, 30);
 
-        jComboBox1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(60, 180, 130, 30);
+        inputSex.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        inputSex.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
+        getContentPane().add(inputSex);
+        inputSex.setBounds(60, 180, 130, 30);
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jTextField5.setText("17026-730");
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(60, 340, 100, 30);
+        inputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCEP);
+        inputCEP.setBounds(60, 340, 100, 30);
 
-        jTextField6.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jTextField6.setText("(14) 99907-5693");
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(210, 180, 130, 30);
+        inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputPhone);
+        inputPhone.setBounds(210, 180, 130, 30);
 
-        jTextField7.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(440, 260, 340, 30);
+        inputMotherName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputMotherName);
+        inputMotherName.setBounds(440, 260, 340, 30);
 
-        jTextField8.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(60, 110, 330, 30);
+        inputFullName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputFullName);
+        inputFullName.setBounds(60, 110, 330, 30);
 
-        jTextField9.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(730, 340, 310, 30);
+        inputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputComplement);
+        inputComplement.setBounds(730, 340, 310, 30);
 
-        jTextField10.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField10);
-        jTextField10.setBounds(590, 110, 110, 30);
+        inputRG.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputRG);
+        inputRG.setBounds(590, 110, 110, 30);
 
-        jTextField11.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField11);
-        jTextField11.setBounds(60, 260, 330, 30);
+        inputFatherName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputFatherName);
+        inputFatherName.setBounds(60, 260, 330, 30);
 
-        jTextField12.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField12);
-        jTextField12.setBounds(420, 110, 110, 30);
+        inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputBirthDay);
+        inputBirthDay.setBounds(420, 110, 110, 30);
 
-        jTextField13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField13);
-        jTextField13.setBounds(230, 500, 290, 30);
+        inputOccupation.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputOccupation);
+        inputOccupation.setBounds(230, 500, 290, 30);
 
-        jTextField14.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField14);
-        jTextField14.setBounds(190, 340, 400, 30);
+        inputStreet.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputStreet);
+        inputStreet.setBounds(190, 340, 400, 30);
 
-        jTextField15.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField15);
-        jTextField15.setBounds(60, 420, 330, 30);
+        inputNeighBorhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputNeighBorhood);
+        inputNeighBorhood.setBounds(60, 420, 330, 30);
+
+        inputAccountType.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        inputAccountType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "CONTA CORRENTE", "POUPANÇA", "CONTA SALÁRIO" }));
+        getContentPane().add(inputAccountType);
+        inputAccountType.setBounds(520, 670, 270, 30);
+
+        inputAdmissionDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputAdmissionDate);
+        inputAdmissionDate.setBounds(60, 500, 110, 30);
+
+        inputPIS.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputPIS);
+        inputPIS.setBounds(400, 580, 220, 30);
+
+        inputNumberHouse.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputNumberHouse);
+        inputNumberHouse.setBounds(620, 340, 80, 30);
+
+        inputAgency.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputAgency);
+        inputAgency.setBounds(60, 670, 110, 30);
+
+        inputAccount.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputAccount);
+        inputAccount.setBounds(220, 670, 270, 30);
 
         inputState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         inputState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         getContentPane().add(inputState);
-        inputState.setBounds(520, 670, 270, 30);
+        inputState.setBounds(670, 420, 140, 30);
 
-        jTextField16.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField16);
-        jTextField16.setBounds(60, 500, 110, 30);
+        inputTranportationVoucher.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputTranportationVoucher);
+        inputTranportationVoucher.setBounds(220, 580, 100, 30);
 
-        jTextField17.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField17);
-        jTextField17.setBounds(400, 580, 220, 30);
+        inputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCity);
+        inputCity.setBounds(410, 420, 240, 30);
 
-        jTextField18.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField18);
-        jTextField18.setBounds(620, 340, 80, 30);
+        inputBank.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        inputBank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "ACESSO SOLUCOES DE PAGAMENTO S", "ADVANCED CORRET.CAMBIO LTDA", "AGK CORRETORA DE CAMBIO S.A.", "AL5 S.A.CRED. FINANC. E INVEST", "AMAZONIA CORRETORA DE CAMBIO L", "ATIVA INVESTIMENTOS S.A.", "AVISTA S.A. CREDITO.FINAN. E", "B.OF A.MERRILL LYNCH B.MULT.S.", "B&T ASSOCIADOS CORRETORA DE CA", "BANCO ABC-BRASIL S.A.", "BANCO ABN AMRO S.A.", "BANCO AGIBANK S.A.", "BANCO ALFA S.A.", "BANCO ALVORADA S.A.", "BANCO ANDBANK BRASIL S.A.", "BANCO ARBI S.A.", "BANCO B3 S.A.", "BANCO BARI INVESTIMENO E FINA", "BANCO BMG S.A.", "BANCO BNP PARIBAS BRASIL S.A.", "BANCO BOCOM BBM S.A.", "BANCO BRADESCARD S.A.", "BANCO BRADESCO BBI S.A.", "BANCO BRADESCO BERJ S.A.", "BANCO BRADESCO S.A.", "BANCO BS2 S.A.", "BANCO BTG PACTUAL S.A.", "BANCO C6 CONSIGNADO S.A.", "BANCO C6 S.A.", "BANCO CAIXA GERAL - BRASIL S.A.", "BANCO CAPITAL S.A.", "BANCO CARGILL S.A", "BANCO CEDULA S.A.", "BANCO CETELEM S.A.", "BANCO CIFRA S.A.", "BANCO CITIBANK S.A.", "BANCO CLASSICO S.A.", "BANCO CM CAPITAL MARKETS CCTVM", "BANCO COOPERATIOVO SICREDI S.A.", "BANCO COOPERATIVO DO BRASIL S.A.", "BANCO CREDIT AGRICOLE BRASIL S.A.", "BANCO CREDIT SUISSE(BRASIL) S", "BANCO CREFISA S.A.", "BANCO CSF S.A.", "BANCO DA AMAZONIA S.A.", "BANCO DA CHINA BRASIL S.A.", "BANCO DAYCOVAL S.A.", "BANCO DE LA NACION ARGENTINA", "BANCO DE LA PROV. DE BUENOS AL", "BANCO DE PERNAMBUCO S.A. - BANDE", "BANCO DIGIMAIS S.A.", "BANCO DIGIO S.A.", "BANCO DO BRASIL S.A.", "BANCO DO EST. DE SERGIPE S.A.", "BANCO DO EST. DO PARA S.A.", "BANCO DO NORDESTE DO BRASIL S.A.", "BANCO FATOR S.A.", "BANCO FIBRA S.A.", "BANCO FINAXIS S.A.", "BANCO GM S.A.", "BANCO GUANABARA S.A.", "BANCO HSBC S.A.", "BANCO INBURSA S.A.", "BANCO INDUSTRIAL DO BRASIL S.A.", "BANCO INDUSVAL S.A.", "BANCO INTER S.A.", "BANCO INVESTCRED UNIBANCO S.A.", "BANCO ITAU BBA S.A.", "BANCO ITAU HOLDING FINANCEIRA", "BANCO ITAUBANK S.A.", "BANCO J. P. MORGAN S.A.", "BANCO J. SAFRA S.A.", "BANCO JOHN DEERE S.A.", "BANCO KEB HANA DO BRASIL S.A.", "BANCO LUSO BRASILEIRO S.A.", "BANCO MAXIMA S.A.", "BANCO MECANTIL DO BRASIL S.A.", "BANCO MERCEDES-BENZ DO BRASIL", "BANCO MIZUHO DO BRASIL S.A.", "BANCO MODAL S.A.", "BANCO MORGAN STANLEY S.A.", "BANCO MUFG BRASIL S.A.", "BANCO NAC.DESENV.ECON. SOCIAL", "BANCO OLE CONSIGNADO S.A.", "BANCO ORIGINAL DO AGRONEGOCIO", "BANCO ORIGINAL S.A.", "BANCO OURINVEST S.A.", "BANCO PAN S.A.", "BANCO PAULISTA S.A.", "BANCO PINA. S.A.", "BANCO RADOBANK INTERNATIONAL B", "BANCO RANDON S.A.", "BANCO RENDIMENTO S.A.", "BANCO RIBEIRAO PRETO S.A.", "BANCO RODOBENS S.A.", "BANCO SAFRA S.A.", "BANCO SANTANDER (BRASIL) S.A.", "BANCO SC TULLET PREBON", "BANCO SEMEAR S.A.", "BANCO SISTEMA S.A.", "BANCO SMARTBANK S.A.", "BANCO SOCIETE GENERALE BRASIL", "BANCO SOFISA S.A.", "BANCO SUMITOMO MITSUI BRASILEI", "BANCO TOPAZIO S.A.", "BANCO TOYOTA DO BRASIL S.A.", "BANCO TRIANGULO S.A.", "BANCO TRICURY S.A.", "BANCO UNICO S.A.", "BANCO VOLKSWAGEN S.A.", "BANCO VOTORANTIM S.A.", "BANCO VR S.A.", "BANCO WESTERN UNION DO BRASIL", "BANCO WOORI BANK DO BRASIL S.A.", "BANCO XP S.A.", "BANCOSEGURO S.A.", "BANESTES S.A. BCO.EST.ESPIRITO", "BARI COMPANHIA HIPOTECARIA", "BBC LEASING S.A. - ARRENDAMENTO", "BCG LIQUIDEZ DISTR TITS VLRS M", "BCO BRADESCO FINANCIAMENTOS S.A.", "BCO.EST.R.GRANDE DO SUL S.A.", "BCO.ITAU BMG CONSIGNADO S.A.", "BCV - BANCO DE CRÉDITO E VAREJ", "BEXS BANCO DE CAMBIO S.A.", "BEXS CORRETORA DE CAMBIO S/A", "BI UBS BRASIL", "BNY MELLON BANCO S.A.", "BOLETOBANCARIO.COM TEC DE PAGT", "BPP INSTITUIÇÃO DE PAGAMENTOS", "BR PARTNERS BCO INVEST. S.A.", "BRB-BANCO DE BRASILIA S.A.", "BRK S.A. CRED. FINANC E INVEST", "BRL TRUST DIST. DE TIT. E VAL.", "BROKER BRASIL CORRET CAMBIO LT", "BS2 DIST. DE TIT. E VAL. MOB.", "CAIXA ECONOMICA FEDERAL", "CAMBIONET CORRETORA DE CÂMBIO", "CAROL DISTR. D. TIT. E VAL. IM", "CARTOS SOCIEDADE DE CREDITO DI", "CARUANA S.A. - SOC.CRED. FINAN", "CASA DO CREDITO S.A. SOC.D.CRED.", "CC UNIPRIME CENTRAL", "CC UNIPRIME NORTE DO PARANA", "CENTRAL COOP.EC.CR.MUTUO ESP.S", "CHINA CONSTRUCTION BANK (BRASIL", "CIELO S.A.", "CITIBANCK N.A.", "CODEPE - CORRETORA DE VALORES", "COMMERZBANK BRASIL S.A. - BANC", "CONFED.NAC.COOP.CENTRAIS ECON", "CONFIDENCE CORRETORA DE CÂMBIO", "COOP CRED RURAL DE IBIAM-SULCR", "COOP CRED RURAL PEQ AGRICULTOR", "COOP DE CRED RURAL DE ABELARDO", "COOP DE CRED.RURAL DA REG DA M", "COOP. DE CRED. RURAL D.PRIMAVE", "COOP.CRED.MUTUO DESP.TR.DE STA", "COOP.D.CRED.RURAL DE OUROSULC", "COOP.D.CRED.RURAL DE S. MIGUE", "COOPERATIVA CENTRAL SANTA CATAR", "COOPERATIVA DE CREDITO RURAL C", "COOPERFORTE-COOP DE ECON E CRE", "CORA SOCIEDADE DE CREDITO DIRE", "CREDIALIANCA COOP CRED RURAL", "CREDICOAMO CRED.RURAL COOP", "CREDISIS-CENTRAL DE COOP DE CR", "CREDIT SUISSE HG CORRETORA", "CREDITAS SOC. DE CREDITO DIRET", "CREFAZ SOC DE CRED AO MICROEMP", "DECYSEO CORRETORA DE CAMBIO LT", "DEUTSCHE BANK S.A.-BANCO ALEMA", "EASYNVEST TIT CORR VALORES S.A.", "FACTA FINANCEIRA S.A.", "FAIR CORRETORA DE CAMBIO S.A.", "FFA SOC DE CRED AO MIC E A EMP", "FIDUCIA SOC DE CRED AO MICRO E", "FRAM CAPITAL DIST DE TIT E VAL", "FRENT CORRETORA DE CAMBIO LTD", "GENIAL INVEST. COR DE VAL MOBI", "GERENCIANET PAGAMENTOS DO BRASIL", "GET MONEY CORRETORA DE CAMBIO", "GOLDMAN SACHS DO BRASIL. BCO MU", "GUIDE INVEST S.A. CORRETORA DE", "GUITTA CORRETORA DE CAMBIO", "HAITONG BANCO DE INVEST DO BRA", "HIPERCARD BANCO MULTIPLO S.A.", "HS FINANCEIRA S/A", "HUB PAGAMENTOS S.A.", "IB CORRET. DE CAMBIO. TIT.E VA", "ICAP DO BRASIL CORRETORA TITS", "ICBC DO BRASIL BCO MULTIPLO S.", "ING BANK N.V.", "INTESA SANPAOLO BRASIL S.A.", "ITAU UNIBANCO S.A.", "JP MORGAN CHASE BANK", "KDB DO BRASIL", "KIRTON BANK S.A. BCO. MULTIPLO", "LASTRO RDV DISTR D TIT E VAL M", "LECCA CREDITO FINANC.E INVESTI", "LEVYCAM - CORRET DE CAMBIO E V", "MAGLIANO S.A. COR.CAMB VLS MOBL", "MERCADOPAGO COM", "MONEY PLUS SOC DE CRED MICROEM", "MONEYCORP BANCO DE CAMBIO S.A.", "MS SOC DE CRED AO MICRO E EMP", "MSB BANK - BANCO DE CAMBIO", "NECTON INV SA CORRET DE VAL MO", "NEXT", "NOVA FUTURA CTVM LTDA", "NOVA PLATAFORMA DE COBRANÇA", "NOVO BANCO CONTINENTAL S.A.B - M", "NU PAGAMENTOS S.A.", "OLIVEIRA TRUST DIST TIT.VAL MO", "OM DIST DE TIT E VAL MOBILIARI", "OMNI BANCO S.A.", "ORAMA DIST DE TITULOS E VALORES", "OTIMO SOCIEDADE DE CREDITO DIR", "PAGSEGURO INTERNET S.A.", "PARANA BANCO S.A.", "PARATI-CREDITO FINANCIAMENTO E", "PARMETAL DISTRI. TIT. VAL. IMO", "PEFISA S.A. -CRED. FINANCIAMENT", "PI DIST. DE TIT. E VAL. MOBILI", "PLANNER CORRET. DE VALORES S.A.", "PLURAL S.A. BCO MULTIPLO", "POLOCRED SOC.CRED.MICROEMP.EMP", "PORTOPAR DIST. TIT. E VAL. MOB", "PORTOPCRED S.A. CRED.FINANC E IN", "QI SOCIEDADE DE CRÉDITO DIRETO", "RB CAPITAL INVESTIMENTOS DTVM", "REALIZE CRED. FINANC. E INVEST", "RENANSCENCA DIST.TIT.VAL.MOB.L.", "SAGITUR CORRETORA DE CAMBIO LT", "SCOTIABANK BRASIL S/A B.MULTIP", "SELECIONAR", "SENFF S.A. - CRED. FINANC. E IN", "SENSO CORR.CAMB.VAL.MOBILIARIO", "SERVICOOP-COOP DE CRED DOS SER", "SOC.DE CRED.AO MICROEMP.E EMP.", "SOCOPA SOCIEDADE CORRETORA PAU", "SOLIDUS S.A. C. CAMB. E VAL. MO", "SOROCRED CRED. FINAN. E INVESTI", "STATE STREET BRASIL S.A. - BCO", "STONE PAGAMENTOS S.A.", "SUPER PAGAMENTOS E ADMDE MEIOS", "TERRA INV. DIST. E TIT. E VAL", "TORO CORRETORA DE TIT E VALORES", "TRAVELEX BANCO DE CAMBIO S.A.", "TREVISO CORRETORA DE CAMBIO S/", "TRINUS CAPITAL DIST DE TIT E V", "UNICRED", "UNICRED CENTRAL RS-C.C.EC CRED", "UNS NRASIL CCTMV S.A.", "UP.P SOC DE EMPREST ENTRE PRESS", "VIP'S DE CORRETORA DE CAMBIO L", "VISION S.A. CORRETORA DE CAMBI", "VITREO DISTRIBUIDORA DE TIT E", "VORTX DIST. DE TIT. E VAL. MOB", "WARREN CORRET E VALORES IMOB", "XP INVEST.CORR.CAMP.VLS MOB.S.", "ZEMA CREDITO, FINANCIAMENTO IN" }));
+        getContentPane().add(inputBank);
+        inputBank.setBounds(650, 580, 360, 30);
 
-        jTextField19.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField19);
-        jTextField19.setBounds(60, 670, 110, 30);
+        inputSalary.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputSalary);
+        inputSalary.setBounds(570, 500, 100, 30);
 
-        jTextField23.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField23);
-        jTextField23.setBounds(220, 670, 270, 30);
+        inputCommission.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCommission);
+        inputCommission.setBounds(730, 500, 100, 30);
 
-        inputState1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        inputState1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        getContentPane().add(inputState1);
-        inputState1.setBounds(670, 420, 140, 30);
+        inputFoodVoucher.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputFoodVoucher);
+        inputFoodVoucher.setBounds(890, 500, 100, 30);
 
-        jTextField24.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField24);
-        jTextField24.setBounds(220, 580, 100, 30);
+        inputMealTicket.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputMealTicket);
+        inputMealTicket.setBounds(60, 580, 100, 30);
 
-        jTextField25.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField25);
-        jTextField25.setBounds(410, 420, 240, 30);
-
-        inputState2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        inputState2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "BANCO BRADESCO S.A.", "BANCO DO BRASIL S.A.", "CAIXA ECONOMICA FEDERAL", "BANCO ORIGINAL S.A.", "BANCO INTER S.A.", "BANCO SANTANDER (BRASIL) S.A.", "BANCO CITIBANK S.A.", "ITAU UNIBANCO S.A.", "BANCO DA AMAZONIA S.A.", "BANCO DO NORDESTE DO BRASIL S.A.", "BANCO NAC.DESENV.ECON. SOCIAL", "CREDICOAMO CRED.RURAL COOP", "CREDIT SUISSE HG CORRETORA", "BANCO INBURSA S.A.", "STATE STREET BRASIL S.A. - BCO", "UNS NRASIL CCTMV S.A.", "COOP.CRED.MUTUO DESP.TR.DE STA", "BNY MELLON BANCO S.A.", "BANCO TRICURY S.A.", "NEXT", "BANESTES S.A. BCO.EST.ESPIRITO", "BANCO DE PERNAMBUCO S.A. - BANDE", "BANCO ALFA S.A.", "BCO.ITAU BMG CONSIGNADO S.A.", "BANCO BRADESCO BBI S.A.", "BANCO DO EST. DO PARA S.A.", "BANCO CARGILL S.A", "BCO.EST.R.GRANDE DO SUL S.A.", "BANCO DO EST. DE SERGIPE S.A.", "CONFIDENCE CORRETORA DE CÂMBIO", "HIPERCARD BANCO MULTIPLO S.A.", "BANCO BRADESCARD S.A.", "GOLDMAN SACHS DO BRASIL. BCO MU", "BANCO ANDBANK BRASIL S.A.", "BANCO MORGAN STANLEY S.A.", "BANCO CREFISA S.A.", "BRB-BANCO DE BRASILIA S.A.", "BANCO J. SAFRA S.A.", "BANCO ABN AMRO S.A.", "KDB DO BRASIL", "HAITONG BANCO DE INVEST DO BRA", "BANCO ORIGINAL DO AGRONEGOCIO", "B&T ASSOCIADOS CORRETORA DE CA", "BANCOSEGURO S.A.", "BANCO TOPAZIO S.A.", "BANCO DA CHINA BRASIL S.A.", "CC UNIPRIME NORTE DO PARANA", "COOPERATIVA CENTRAL SANTA CATAR", "BANCO RANDON S.A.", "COOP DE CRED.RURAL DA REG DA M", "UNICRED CENTRAL RS-C.C.EC CRED", "BRK S.A. CRED. FINANC E INVEST", "POLOCRED SOC.CRED.MICROEMP.EMP", "BANCO FINAXIS S.A.", "TRAVELEX BANCO DE CAMBIO S.A.", "BANCO B3 S.A.", "CREDISIS-CENTRAL DE COOP DE CR", "CREDIALIANCA COOP CRED RURAL", "CC UNIPRIME CENTRAL", "PLANNER CORRET. DE VALORES S.A.", "RENANSCENCA DIST.TIT.VAL.MOB.L.", "XP INVEST.CORR.CAMP.VLS MOB.S.", "LECCA CREDITO FINANC.E INVESTI", "BANCO BOCOM BBM S.A.", "PORTOPCRED S.A. CRED.FINANC E IN", "OLIVEIRA TRUST DIST TIT.VAL MO", "MAGLIANO S.A. COR.CAMB VLS MOBL", "CENTRAL COOP.EC.CR.MUTUO ESP.S", "BANCO UNICO S.A.", "ADVANCED CORRET.CAMBIO LTDA", "BANCO WESTERN UNION DO BRASIL", "BANCO RODOBENS S.A.", "BANCO AGIBANK S.A.", "BANCO BRADESCO BERJ S.A.", "BANCO WOORI BANK DO BRASIL S.A.", "PLURAL S.A. BCO MULTIPLO", "BR PARTNERS BCO INVEST. S.A.", "127" }));
-        getContentPane().add(inputState2);
-        inputState2.setBounds(650, 580, 360, 30);
-
-        jTextField26.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField26);
-        jTextField26.setBounds(570, 500, 100, 30);
-
-        jTextField27.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField27);
-        jTextField27.setBounds(730, 500, 100, 30);
-
-        jTextField28.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField28);
-        jTextField28.setBounds(890, 500, 100, 30);
-
-        jTextField29.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField29);
-        jTextField29.setBounds(60, 580, 100, 30);
-
-        jButton2.setText("SALVAR");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(60, 730, 100, 32);
+        buttonSave.setText("SALVAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(60, 730, 100, 32);
 
         setSize(new java.awt.Dimension(1072, 828));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        JOptionPane.showMessageDialog(null, "FUNCIONÁRIO CADASTRADO COM SUCESSO");
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,66 +424,66 @@ public class NewEmployee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonSave;
+    private javax.swing.JTextField inputAccount;
+    private javax.swing.JComboBox<String> inputAccountType;
+    private javax.swing.JTextField inputAdmissionDate;
+    private javax.swing.JTextField inputAgency;
+    private javax.swing.JComboBox<String> inputBank;
+    private javax.swing.JTextField inputBirthDay;
+    private javax.swing.JTextField inputCEP;
+    private javax.swing.JTextField inputCPF;
+    private javax.swing.JTextField inputCellPhone;
+    private javax.swing.JTextField inputCity;
+    private javax.swing.JTextField inputCommission;
+    private javax.swing.JTextField inputComplement;
+    private javax.swing.JTextField inputEmail;
+    private javax.swing.JTextField inputFatherName;
+    private javax.swing.JTextField inputFoodVoucher;
+    private javax.swing.JTextField inputFullName;
+    private javax.swing.JTextField inputMealTicket;
+    private javax.swing.JTextField inputMotherName;
+    private javax.swing.JTextField inputNeighBorhood;
+    private javax.swing.JTextField inputNumberHouse;
+    private javax.swing.JTextField inputOccupation;
+    private javax.swing.JTextField inputPIS;
+    private javax.swing.JTextField inputPhone;
+    private javax.swing.JButton inputPicture;
+    private javax.swing.JTextField inputRG;
+    private javax.swing.JTextField inputSalary;
+    private javax.swing.JComboBox<String> inputSex;
     private javax.swing.JComboBox<String> inputState;
-    private javax.swing.JComboBox<String> inputState1;
-    private javax.swing.JComboBox<String> inputState2;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField inputStreet;
+    private javax.swing.JTextField inputTranportationVoucher;
+    private javax.swing.JLabel txtAadmissionDate;
+    private javax.swing.JLabel txtAccount;
+    private javax.swing.JLabel txtAccountType;
+    private javax.swing.JLabel txtAgency;
+    private javax.swing.JLabel txtBank;
+    private javax.swing.JLabel txtBirthDay;
+    private javax.swing.JLabel txtCEP;
+    private javax.swing.JLabel txtCPF;
+    private javax.swing.JLabel txtCellPhone;
+    private javax.swing.JLabel txtCity;
+    private javax.swing.JLabel txtCommission;
+    private javax.swing.JLabel txtComplement;
+    private javax.swing.JLabel txtEmail;
+    private javax.swing.JLabel txtFatherName;
+    private javax.swing.JLabel txtFoodVoucher;
+    private javax.swing.JLabel txtFullName;
+    private javax.swing.JLabel txtMealTicket;
+    private javax.swing.JLabel txtMotherName;
+    private javax.swing.JLabel txtNeighBorhood;
+    private javax.swing.JLabel txtNewEmployee;
+    private javax.swing.JLabel txtNumberHouse;
+    private javax.swing.JLabel txtOccupation;
+    private javax.swing.JLabel txtPIS;
+    private javax.swing.JLabel txtPhone;
+    private javax.swing.JLabel txtRG;
+    private javax.swing.JLabel txtSalary;
+    private javax.swing.JLabel txtSex;
+    private javax.swing.JLabel txtState;
+    private javax.swing.JLabel txtStreet;
+    private javax.swing.JLabel txtTranportationVoucher;
     // End of variables declaration//GEN-END:variables
 }

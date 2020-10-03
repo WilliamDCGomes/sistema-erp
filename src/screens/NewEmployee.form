@@ -28,7 +28,7 @@
     <Property name="useNullLayout" type="boolean" value="true"/>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="txtNewEmployee">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="24" style="1"/>
@@ -42,7 +42,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="txtFullName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -55,7 +55,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="txtBirthDay">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -68,7 +68,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="txtRG">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -81,7 +81,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="txtCPF">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -94,7 +94,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
+    <Component class="javax.swing.JLabel" name="txtSex">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -107,7 +107,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
+    <Component class="javax.swing.JLabel" name="txtCEP">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -120,7 +120,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="txtStreet">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -133,7 +133,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
+    <Component class="javax.swing.JLabel" name="txtNumberHouse">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -146,7 +146,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="txtNeighBorhood">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -159,7 +159,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
+    <Component class="javax.swing.JLabel" name="txtCity">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -172,7 +172,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="txtState">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -185,7 +185,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
+    <Component class="javax.swing.JLabel" name="txtComplement">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -198,7 +198,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel14">
+    <Component class="javax.swing.JLabel" name="txtAadmissionDate">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -211,7 +211,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel15">
+    <Component class="javax.swing.JLabel" name="txtPhone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -224,7 +224,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel16">
+    <Component class="javax.swing.JLabel" name="txtCellPhone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -237,7 +237,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel17">
+    <Component class="javax.swing.JLabel" name="txtEmail">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -250,7 +250,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel18">
+    <Component class="javax.swing.JLabel" name="txtOccupation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -263,7 +263,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel20">
+    <Component class="javax.swing.JLabel" name="txtCommission">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -276,7 +276,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="inputPicture">
       <Properties>
         <Property name="text" type="java.lang.String" value="FOTO"/>
       </Properties>
@@ -286,7 +286,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel21">
+    <Component class="javax.swing.JLabel" name="txtSalary">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -299,7 +299,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel22">
+    <Component class="javax.swing.JLabel" name="txtFoodVoucher">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -312,7 +312,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel23">
+    <Component class="javax.swing.JLabel" name="txtTranportationVoucher">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -325,7 +325,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel24">
+    <Component class="javax.swing.JLabel" name="txtMealTicket">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -338,7 +338,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel25">
+    <Component class="javax.swing.JLabel" name="txtPIS">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -351,7 +351,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel27">
+    <Component class="javax.swing.JLabel" name="txtBank">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -364,7 +364,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel28">
+    <Component class="javax.swing.JLabel" name="txtAgency">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -377,7 +377,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel29">
+    <Component class="javax.swing.JLabel" name="txtAccount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -390,7 +390,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel30">
+    <Component class="javax.swing.JLabel" name="txtAccountType">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -403,7 +403,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel31">
+    <Component class="javax.swing.JLabel" name="txtFatherName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -416,7 +416,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel32">
+    <Component class="javax.swing.JLabel" name="txtMotherName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -429,7 +429,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="inputEmail">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -441,12 +441,11 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="inputCPF">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="446.588.588-19"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -454,12 +453,11 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="inputCellPhone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="(14) 99907-5693"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -467,7 +465,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="inputSex">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -489,12 +487,11 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="inputCEP">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="17026-730"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -502,12 +499,11 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="inputPhone">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="(14) 99907-5693"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -515,7 +511,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="inputMotherName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -527,7 +523,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="inputFullName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -539,7 +535,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="inputComplement">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -551,7 +547,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField10">
+    <Component class="javax.swing.JTextField" name="inputRG">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -563,7 +559,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField11">
+    <Component class="javax.swing.JTextField" name="inputFatherName">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -575,7 +571,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
+    <Component class="javax.swing.JTextField" name="inputBirthDay">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -587,7 +583,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField13">
+    <Component class="javax.swing.JTextField" name="inputOccupation">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -599,7 +595,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField14">
+    <Component class="javax.swing.JTextField" name="inputStreet">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -611,7 +607,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField15">
+    <Component class="javax.swing.JTextField" name="inputNeighBorhood">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -620,6 +616,89 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="60" y="420" width="330" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="inputAccountType">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="1"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="SELECIONAR"/>
+            <StringItem index="1" value="CONTA CORRENTE"/>
+            <StringItem index="2" value="POUPAN&#xc7;A"/>
+            <StringItem index="3" value="CONTA SAL&#xc1;RIO"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="520" y="670" width="270" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputAdmissionDate">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="60" y="500" width="110" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputPIS">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="400" y="580" width="220" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputNumberHouse">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="620" y="340" width="80" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputAgency">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="60" y="670" width="110" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="inputAccount">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="220" y="670" width="270" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -666,118 +745,11 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="520" y="670" width="270" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField16">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="0"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="60" y="500" width="110" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField17">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="0"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="400" y="580" width="220" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField18">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="0"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="620" y="340" width="80" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField19">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="0"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="60" y="670" width="110" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField23">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="0"/>
-        </Property>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="220" y="670" width="270" height="30"/>
-        </Constraint>
-      </Constraints>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="inputState1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="15" style="1"/>
-        </Property>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="28">
-            <StringItem index="0" value="SELECIONAR"/>
-            <StringItem index="1" value="AC"/>
-            <StringItem index="2" value="AL"/>
-            <StringItem index="3" value="AP"/>
-            <StringItem index="4" value="AM"/>
-            <StringItem index="5" value="BA"/>
-            <StringItem index="6" value="CE"/>
-            <StringItem index="7" value="DF"/>
-            <StringItem index="8" value="ES"/>
-            <StringItem index="9" value="GO"/>
-            <StringItem index="10" value="MA"/>
-            <StringItem index="11" value="MT"/>
-            <StringItem index="12" value="MS"/>
-            <StringItem index="13" value="MG"/>
-            <StringItem index="14" value="PA"/>
-            <StringItem index="15" value="PB"/>
-            <StringItem index="16" value="PR"/>
-            <StringItem index="17" value="PE"/>
-            <StringItem index="18" value="PI"/>
-            <StringItem index="19" value="RJ"/>
-            <StringItem index="20" value="RN"/>
-            <StringItem index="21" value="RS"/>
-            <StringItem index="22" value="RO"/>
-            <StringItem index="23" value="RR"/>
-            <StringItem index="24" value="SC"/>
-            <StringItem index="25" value="SP"/>
-            <StringItem index="26" value="SE"/>
-            <StringItem index="27" value="TO"/>
-          </StringArray>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="670" y="420" width="140" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField24">
+    <Component class="javax.swing.JTextField" name="inputTranportationVoucher">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -789,7 +761,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField25">
+    <Component class="javax.swing.JTextField" name="inputCity">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -801,92 +773,276 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="inputState2">
+    <Component class="javax.swing.JComboBox" name="inputBank">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="79">
+          <StringArray count="263">
             <StringItem index="0" value="SELECIONAR"/>
-            <StringItem index="1" value="BANCO BRADESCO S.A."/>
-            <StringItem index="2" value="BANCO DO BRASIL S.A."/>
-            <StringItem index="3" value="CAIXA ECONOMICA FEDERAL"/>
-            <StringItem index="4" value="BANCO ORIGINAL S.A."/>
-            <StringItem index="5" value="BANCO INTER S.A."/>
-            <StringItem index="6" value="BANCO SANTANDER (BRASIL) S.A."/>
-            <StringItem index="7" value="BANCO CITIBANK S.A."/>
-            <StringItem index="8" value="ITAU UNIBANCO S.A."/>
-            <StringItem index="9" value="BANCO DA AMAZONIA S.A."/>
-            <StringItem index="10" value="BANCO DO NORDESTE DO BRASIL S.A."/>
-            <StringItem index="11" value="BANCO NAC.DESENV.ECON. SOCIAL"/>
-            <StringItem index="12" value="CREDICOAMO CRED.RURAL COOP"/>
-            <StringItem index="13" value="CREDIT SUISSE HG CORRETORA"/>
-            <StringItem index="14" value="BANCO INBURSA S.A."/>
-            <StringItem index="15" value="STATE STREET BRASIL S.A. - BCO"/>
-            <StringItem index="16" value="UNS NRASIL CCTMV S.A."/>
-            <StringItem index="17" value="COOP.CRED.MUTUO DESP.TR.DE STA"/>
-            <StringItem index="18" value="BNY MELLON BANCO S.A."/>
-            <StringItem index="19" value="BANCO TRICURY S.A."/>
-            <StringItem index="20" value="NEXT"/>
-            <StringItem index="21" value="BANESTES S.A. BCO.EST.ESPIRITO"/>
-            <StringItem index="22" value="BANCO DE PERNAMBUCO S.A. - BANDE"/>
-            <StringItem index="23" value="BANCO ALFA S.A."/>
-            <StringItem index="24" value="BCO.ITAU BMG CONSIGNADO S.A."/>
-            <StringItem index="25" value="BANCO BRADESCO BBI S.A."/>
-            <StringItem index="26" value="BANCO DO EST. DO PARA S.A."/>
-            <StringItem index="27" value="BANCO CARGILL S.A"/>
-            <StringItem index="28" value="BCO.EST.R.GRANDE DO SUL S.A."/>
-            <StringItem index="29" value="BANCO DO EST. DE SERGIPE S.A."/>
-            <StringItem index="30" value="CONFIDENCE CORRETORA DE C&#xc2;MBIO"/>
-            <StringItem index="31" value="HIPERCARD BANCO MULTIPLO S.A."/>
-            <StringItem index="32" value="BANCO BRADESCARD S.A."/>
-            <StringItem index="33" value="GOLDMAN SACHS DO BRASIL. BCO MU"/>
-            <StringItem index="34" value="BANCO ANDBANK BRASIL S.A."/>
-            <StringItem index="35" value="BANCO MORGAN STANLEY S.A."/>
-            <StringItem index="36" value="BANCO CREFISA S.A."/>
-            <StringItem index="37" value="BRB-BANCO DE BRASILIA S.A."/>
-            <StringItem index="38" value="BANCO J. SAFRA S.A."/>
-            <StringItem index="39" value="BANCO ABN AMRO S.A."/>
-            <StringItem index="40" value="KDB DO BRASIL"/>
-            <StringItem index="41" value="HAITONG BANCO DE INVEST DO BRA"/>
-            <StringItem index="42" value="BANCO ORIGINAL DO AGRONEGOCIO"/>
-            <StringItem index="43" value="B&amp;T ASSOCIADOS CORRETORA DE CA"/>
-            <StringItem index="44" value="BANCOSEGURO S.A."/>
-            <StringItem index="45" value="BANCO TOPAZIO S.A."/>
+            <StringItem index="1" value="ACESSO SOLUCOES DE PAGAMENTO S"/>
+            <StringItem index="2" value="ADVANCED CORRET.CAMBIO LTDA"/>
+            <StringItem index="3" value="AGK CORRETORA DE CAMBIO S.A."/>
+            <StringItem index="4" value="AL5 S.A.CRED. FINANC. E INVEST"/>
+            <StringItem index="5" value="AMAZONIA CORRETORA DE CAMBIO L"/>
+            <StringItem index="6" value="ATIVA INVESTIMENTOS S.A."/>
+            <StringItem index="7" value="AVISTA S.A. CREDITO.FINAN. E"/>
+            <StringItem index="8" value="B.OF A.MERRILL LYNCH B.MULT.S."/>
+            <StringItem index="9" value="B&amp;T ASSOCIADOS CORRETORA DE CA"/>
+            <StringItem index="10" value="BANCO ABC-BRASIL S.A."/>
+            <StringItem index="11" value="BANCO ABN AMRO S.A."/>
+            <StringItem index="12" value="BANCO AGIBANK S.A."/>
+            <StringItem index="13" value="BANCO ALFA S.A."/>
+            <StringItem index="14" value="BANCO ALVORADA S.A."/>
+            <StringItem index="15" value="BANCO ANDBANK BRASIL S.A."/>
+            <StringItem index="16" value="BANCO ARBI S.A."/>
+            <StringItem index="17" value="BANCO B3 S.A."/>
+            <StringItem index="18" value="BANCO BARI INVESTIMENO E FINA"/>
+            <StringItem index="19" value="BANCO BMG S.A."/>
+            <StringItem index="20" value="BANCO BNP PARIBAS BRASIL S.A."/>
+            <StringItem index="21" value="BANCO BOCOM BBM S.A."/>
+            <StringItem index="22" value="BANCO BRADESCARD S.A."/>
+            <StringItem index="23" value="BANCO BRADESCO BBI S.A."/>
+            <StringItem index="24" value="BANCO BRADESCO BERJ S.A."/>
+            <StringItem index="25" value="BANCO BRADESCO S.A."/>
+            <StringItem index="26" value="BANCO BS2 S.A."/>
+            <StringItem index="27" value="BANCO BTG PACTUAL S.A."/>
+            <StringItem index="28" value="BANCO C6 CONSIGNADO S.A."/>
+            <StringItem index="29" value="BANCO C6 S.A."/>
+            <StringItem index="30" value="BANCO CAIXA GERAL - BRASIL S.A."/>
+            <StringItem index="31" value="BANCO CAPITAL S.A."/>
+            <StringItem index="32" value="BANCO CARGILL S.A"/>
+            <StringItem index="33" value="BANCO CEDULA S.A."/>
+            <StringItem index="34" value="BANCO CETELEM S.A."/>
+            <StringItem index="35" value="BANCO CIFRA S.A."/>
+            <StringItem index="36" value="BANCO CITIBANK S.A."/>
+            <StringItem index="37" value="BANCO CLASSICO S.A."/>
+            <StringItem index="38" value="BANCO CM CAPITAL MARKETS CCTVM"/>
+            <StringItem index="39" value="BANCO COOPERATIOVO SICREDI S.A."/>
+            <StringItem index="40" value="BANCO COOPERATIVO DO BRASIL S.A."/>
+            <StringItem index="41" value="BANCO CREDIT AGRICOLE BRASIL S.A."/>
+            <StringItem index="42" value="BANCO CREDIT SUISSE(BRASIL) S"/>
+            <StringItem index="43" value="BANCO CREFISA S.A."/>
+            <StringItem index="44" value="BANCO CSF S.A."/>
+            <StringItem index="45" value="BANCO DA AMAZONIA S.A."/>
             <StringItem index="46" value="BANCO DA CHINA BRASIL S.A."/>
-            <StringItem index="47" value="CC UNIPRIME NORTE DO PARANA"/>
-            <StringItem index="48" value="COOPERATIVA CENTRAL SANTA CATAR"/>
-            <StringItem index="49" value="BANCO RANDON S.A."/>
-            <StringItem index="50" value="COOP DE CRED.RURAL DA REG DA M"/>
-            <StringItem index="51" value="UNICRED CENTRAL RS-C.C.EC CRED"/>
-            <StringItem index="52" value="BRK S.A. CRED. FINANC E INVEST"/>
-            <StringItem index="53" value="POLOCRED SOC.CRED.MICROEMP.EMP"/>
-            <StringItem index="54" value="BANCO FINAXIS S.A."/>
-            <StringItem index="55" value="TRAVELEX BANCO DE CAMBIO S.A."/>
-            <StringItem index="56" value="BANCO B3 S.A."/>
-            <StringItem index="57" value="CREDISIS-CENTRAL DE COOP DE CR"/>
-            <StringItem index="58" value="CREDIALIANCA COOP CRED RURAL"/>
-            <StringItem index="59" value="CC UNIPRIME CENTRAL"/>
-            <StringItem index="60" value="PLANNER CORRET. DE VALORES S.A."/>
-            <StringItem index="61" value="RENANSCENCA DIST.TIT.VAL.MOB.L."/>
-            <StringItem index="62" value="XP INVEST.CORR.CAMP.VLS MOB.S."/>
-            <StringItem index="63" value="LECCA CREDITO FINANC.E INVESTI"/>
-            <StringItem index="64" value="BANCO BOCOM BBM S.A."/>
-            <StringItem index="65" value="PORTOPCRED S.A. CRED.FINANC E IN"/>
-            <StringItem index="66" value="OLIVEIRA TRUST DIST TIT.VAL MO"/>
-            <StringItem index="67" value="MAGLIANO S.A. COR.CAMB VLS MOBL"/>
-            <StringItem index="68" value="CENTRAL COOP.EC.CR.MUTUO ESP.S"/>
-            <StringItem index="69" value="BANCO UNICO S.A."/>
-            <StringItem index="70" value="ADVANCED CORRET.CAMBIO LTDA"/>
-            <StringItem index="71" value="BANCO WESTERN UNION DO BRASIL"/>
-            <StringItem index="72" value="BANCO RODOBENS S.A."/>
-            <StringItem index="73" value="BANCO AGIBANK S.A."/>
-            <StringItem index="74" value="BANCO BRADESCO BERJ S.A."/>
-            <StringItem index="75" value="BANCO WOORI BANK DO BRASIL S.A."/>
-            <StringItem index="76" value="PLURAL S.A. BCO MULTIPLO"/>
-            <StringItem index="77" value="BR PARTNERS BCO INVEST. S.A."/>
-            <StringItem index="78" value="127"/>
+            <StringItem index="47" value="BANCO DAYCOVAL S.A."/>
+            <StringItem index="48" value="BANCO DE LA NACION ARGENTINA"/>
+            <StringItem index="49" value="BANCO DE LA PROV. DE BUENOS AL"/>
+            <StringItem index="50" value="BANCO DE PERNAMBUCO S.A. - BANDE"/>
+            <StringItem index="51" value="BANCO DIGIMAIS S.A."/>
+            <StringItem index="52" value="BANCO DIGIO S.A."/>
+            <StringItem index="53" value="BANCO DO BRASIL S.A."/>
+            <StringItem index="54" value="BANCO DO EST. DE SERGIPE S.A."/>
+            <StringItem index="55" value="BANCO DO EST. DO PARA S.A."/>
+            <StringItem index="56" value="BANCO DO NORDESTE DO BRASIL S.A."/>
+            <StringItem index="57" value="BANCO FATOR S.A."/>
+            <StringItem index="58" value="BANCO FIBRA S.A."/>
+            <StringItem index="59" value="BANCO FINAXIS S.A."/>
+            <StringItem index="60" value="BANCO GM S.A."/>
+            <StringItem index="61" value="BANCO GUANABARA S.A."/>
+            <StringItem index="62" value="BANCO HSBC S.A."/>
+            <StringItem index="63" value="BANCO INBURSA S.A."/>
+            <StringItem index="64" value="BANCO INDUSTRIAL DO BRASIL S.A."/>
+            <StringItem index="65" value="BANCO INDUSVAL S.A."/>
+            <StringItem index="66" value="BANCO INTER S.A."/>
+            <StringItem index="67" value="BANCO INVESTCRED UNIBANCO S.A."/>
+            <StringItem index="68" value="BANCO ITAU BBA S.A."/>
+            <StringItem index="69" value="BANCO ITAU HOLDING FINANCEIRA"/>
+            <StringItem index="70" value="BANCO ITAUBANK S.A."/>
+            <StringItem index="71" value="BANCO J. P. MORGAN S.A."/>
+            <StringItem index="72" value="BANCO J. SAFRA S.A."/>
+            <StringItem index="73" value="BANCO JOHN DEERE S.A."/>
+            <StringItem index="74" value="BANCO KEB HANA DO BRASIL S.A."/>
+            <StringItem index="75" value="BANCO LUSO BRASILEIRO S.A."/>
+            <StringItem index="76" value="BANCO MAXIMA S.A."/>
+            <StringItem index="77" value="BANCO MECANTIL DO BRASIL S.A."/>
+            <StringItem index="78" value="BANCO MERCEDES-BENZ DO BRASIL"/>
+            <StringItem index="79" value="BANCO MIZUHO DO BRASIL S.A."/>
+            <StringItem index="80" value="BANCO MODAL S.A."/>
+            <StringItem index="81" value="BANCO MORGAN STANLEY S.A."/>
+            <StringItem index="82" value="BANCO MUFG BRASIL S.A."/>
+            <StringItem index="83" value="BANCO NAC.DESENV.ECON. SOCIAL"/>
+            <StringItem index="84" value="BANCO OLE CONSIGNADO S.A."/>
+            <StringItem index="85" value="BANCO ORIGINAL DO AGRONEGOCIO"/>
+            <StringItem index="86" value="BANCO ORIGINAL S.A."/>
+            <StringItem index="87" value="BANCO OURINVEST S.A."/>
+            <StringItem index="88" value="BANCO PAN S.A."/>
+            <StringItem index="89" value="BANCO PAULISTA S.A."/>
+            <StringItem index="90" value="BANCO PINA. S.A."/>
+            <StringItem index="91" value="BANCO RADOBANK INTERNATIONAL B"/>
+            <StringItem index="92" value="BANCO RANDON S.A."/>
+            <StringItem index="93" value="BANCO RENDIMENTO S.A."/>
+            <StringItem index="94" value="BANCO RIBEIRAO PRETO S.A."/>
+            <StringItem index="95" value="BANCO RODOBENS S.A."/>
+            <StringItem index="96" value="BANCO SAFRA S.A."/>
+            <StringItem index="97" value="BANCO SANTANDER (BRASIL) S.A."/>
+            <StringItem index="98" value="BANCO SC TULLET PREBON"/>
+            <StringItem index="99" value="BANCO SEMEAR S.A."/>
+            <StringItem index="100" value="BANCO SISTEMA S.A."/>
+            <StringItem index="101" value="BANCO SMARTBANK S.A."/>
+            <StringItem index="102" value="BANCO SOCIETE GENERALE BRASIL"/>
+            <StringItem index="103" value="BANCO SOFISA S.A."/>
+            <StringItem index="104" value="BANCO SUMITOMO MITSUI BRASILEI"/>
+            <StringItem index="105" value="BANCO TOPAZIO S.A."/>
+            <StringItem index="106" value="BANCO TOYOTA DO BRASIL S.A."/>
+            <StringItem index="107" value="BANCO TRIANGULO S.A."/>
+            <StringItem index="108" value="BANCO TRICURY S.A."/>
+            <StringItem index="109" value="BANCO UNICO S.A."/>
+            <StringItem index="110" value="BANCO VOLKSWAGEN S.A."/>
+            <StringItem index="111" value="BANCO VOTORANTIM S.A."/>
+            <StringItem index="112" value="BANCO VR S.A."/>
+            <StringItem index="113" value="BANCO WESTERN UNION DO BRASIL"/>
+            <StringItem index="114" value="BANCO WOORI BANK DO BRASIL S.A."/>
+            <StringItem index="115" value="BANCO XP S.A."/>
+            <StringItem index="116" value="BANCOSEGURO S.A."/>
+            <StringItem index="117" value="BANESTES S.A. BCO.EST.ESPIRITO"/>
+            <StringItem index="118" value="BARI COMPANHIA HIPOTECARIA"/>
+            <StringItem index="119" value="BBC LEASING S.A. - ARRENDAMENTO"/>
+            <StringItem index="120" value="BCG LIQUIDEZ DISTR TITS VLRS M"/>
+            <StringItem index="121" value="BCO BRADESCO FINANCIAMENTOS S.A."/>
+            <StringItem index="122" value="BCO.EST.R.GRANDE DO SUL S.A."/>
+            <StringItem index="123" value="BCO.ITAU BMG CONSIGNADO S.A."/>
+            <StringItem index="124" value="BCV - BANCO DE CR&#xc9;DITO E VAREJ"/>
+            <StringItem index="125" value="BEXS BANCO DE CAMBIO S.A."/>
+            <StringItem index="126" value="BEXS CORRETORA DE CAMBIO S/A"/>
+            <StringItem index="127" value="BI UBS BRASIL"/>
+            <StringItem index="128" value="BNY MELLON BANCO S.A."/>
+            <StringItem index="129" value="BOLETOBANCARIO.COM TEC DE PAGT"/>
+            <StringItem index="130" value="BPP INSTITUI&#xc7;&#xc3;O DE PAGAMENTOS"/>
+            <StringItem index="131" value="BR PARTNERS BCO INVEST. S.A."/>
+            <StringItem index="132" value="BRB-BANCO DE BRASILIA S.A."/>
+            <StringItem index="133" value="BRK S.A. CRED. FINANC E INVEST"/>
+            <StringItem index="134" value="BRL TRUST DIST. DE TIT. E VAL."/>
+            <StringItem index="135" value="BROKER BRASIL CORRET CAMBIO LT"/>
+            <StringItem index="136" value="BS2 DIST. DE TIT. E VAL. MOB."/>
+            <StringItem index="137" value="CAIXA ECONOMICA FEDERAL"/>
+            <StringItem index="138" value="CAMBIONET CORRETORA DE C&#xc2;MBIO"/>
+            <StringItem index="139" value="CAROL DISTR. D. TIT. E VAL. IM"/>
+            <StringItem index="140" value="CARTOS SOCIEDADE DE CREDITO DI"/>
+            <StringItem index="141" value="CARUANA S.A. - SOC.CRED. FINAN"/>
+            <StringItem index="142" value="CASA DO CREDITO S.A. SOC.D.CRED."/>
+            <StringItem index="143" value="CC UNIPRIME CENTRAL"/>
+            <StringItem index="144" value="CC UNIPRIME NORTE DO PARANA"/>
+            <StringItem index="145" value="CENTRAL COOP.EC.CR.MUTUO ESP.S"/>
+            <StringItem index="146" value="CHINA CONSTRUCTION BANK (BRASIL"/>
+            <StringItem index="147" value="CIELO S.A."/>
+            <StringItem index="148" value="CITIBANCK N.A."/>
+            <StringItem index="149" value="CODEPE - CORRETORA DE VALORES"/>
+            <StringItem index="150" value="COMMERZBANK BRASIL S.A. - BANC"/>
+            <StringItem index="151" value="CONFED.NAC.COOP.CENTRAIS ECON"/>
+            <StringItem index="152" value="CONFIDENCE CORRETORA DE C&#xc2;MBIO"/>
+            <StringItem index="153" value="COOP CRED RURAL DE IBIAM-SULCR"/>
+            <StringItem index="154" value="COOP CRED RURAL PEQ AGRICULTOR"/>
+            <StringItem index="155" value="COOP DE CRED RURAL DE ABELARDO"/>
+            <StringItem index="156" value="COOP DE CRED.RURAL DA REG DA M"/>
+            <StringItem index="157" value="COOP. DE CRED. RURAL D.PRIMAVE"/>
+            <StringItem index="158" value="COOP.CRED.MUTUO DESP.TR.DE STA"/>
+            <StringItem index="159" value="COOP.D.CRED.RURAL DE OUROSULC"/>
+            <StringItem index="160" value="COOP.D.CRED.RURAL DE S. MIGUE"/>
+            <StringItem index="161" value="COOPERATIVA CENTRAL SANTA CATAR"/>
+            <StringItem index="162" value="COOPERATIVA DE CREDITO RURAL C"/>
+            <StringItem index="163" value="COOPERFORTE-COOP DE ECON E CRE"/>
+            <StringItem index="164" value="CORA SOCIEDADE DE CREDITO DIRE"/>
+            <StringItem index="165" value="CREDIALIANCA COOP CRED RURAL"/>
+            <StringItem index="166" value="CREDICOAMO CRED.RURAL COOP"/>
+            <StringItem index="167" value="CREDISIS-CENTRAL DE COOP DE CR"/>
+            <StringItem index="168" value="CREDIT SUISSE HG CORRETORA"/>
+            <StringItem index="169" value="CREDITAS SOC. DE CREDITO DIRET"/>
+            <StringItem index="170" value="CREFAZ SOC DE CRED AO MICROEMP"/>
+            <StringItem index="171" value="DECYSEO CORRETORA DE CAMBIO LT"/>
+            <StringItem index="172" value="DEUTSCHE BANK S.A.-BANCO ALEMA"/>
+            <StringItem index="173" value="EASYNVEST TIT CORR VALORES S.A."/>
+            <StringItem index="174" value="FACTA FINANCEIRA S.A."/>
+            <StringItem index="175" value="FAIR CORRETORA DE CAMBIO S.A."/>
+            <StringItem index="176" value="FFA SOC DE CRED AO MIC E A EMP"/>
+            <StringItem index="177" value="FIDUCIA SOC DE CRED AO MICRO E"/>
+            <StringItem index="178" value="FRAM CAPITAL DIST DE TIT E VAL"/>
+            <StringItem index="179" value="FRENT CORRETORA DE CAMBIO LTD"/>
+            <StringItem index="180" value="GENIAL INVEST. COR DE VAL MOBI"/>
+            <StringItem index="181" value="GERENCIANET PAGAMENTOS DO BRASIL"/>
+            <StringItem index="182" value="GET MONEY CORRETORA DE CAMBIO"/>
+            <StringItem index="183" value="GOLDMAN SACHS DO BRASIL. BCO MU"/>
+            <StringItem index="184" value="GUIDE INVEST S.A. CORRETORA DE"/>
+            <StringItem index="185" value="GUITTA CORRETORA DE CAMBIO"/>
+            <StringItem index="186" value="HAITONG BANCO DE INVEST DO BRA"/>
+            <StringItem index="187" value="HIPERCARD BANCO MULTIPLO S.A."/>
+            <StringItem index="188" value="HS FINANCEIRA S/A"/>
+            <StringItem index="189" value="HUB PAGAMENTOS S.A."/>
+            <StringItem index="190" value="IB CORRET. DE CAMBIO. TIT.E VA"/>
+            <StringItem index="191" value="ICAP DO BRASIL CORRETORA TITS"/>
+            <StringItem index="192" value="ICBC DO BRASIL BCO MULTIPLO S."/>
+            <StringItem index="193" value="ING BANK N.V."/>
+            <StringItem index="194" value="INTESA SANPAOLO BRASIL S.A."/>
+            <StringItem index="195" value="ITAU UNIBANCO S.A."/>
+            <StringItem index="196" value="JP MORGAN CHASE BANK"/>
+            <StringItem index="197" value="KDB DO BRASIL"/>
+            <StringItem index="198" value="KIRTON BANK S.A. BCO. MULTIPLO"/>
+            <StringItem index="199" value="LASTRO RDV DISTR D TIT E VAL M"/>
+            <StringItem index="200" value="LECCA CREDITO FINANC.E INVESTI"/>
+            <StringItem index="201" value="LEVYCAM - CORRET DE CAMBIO E V"/>
+            <StringItem index="202" value="MAGLIANO S.A. COR.CAMB VLS MOBL"/>
+            <StringItem index="203" value="MERCADOPAGO COM"/>
+            <StringItem index="204" value="MONEY PLUS SOC DE CRED MICROEM"/>
+            <StringItem index="205" value="MONEYCORP BANCO DE CAMBIO S.A."/>
+            <StringItem index="206" value="MS SOC DE CRED AO MICRO E EMP"/>
+            <StringItem index="207" value="MSB BANK - BANCO DE CAMBIO"/>
+            <StringItem index="208" value="NECTON INV SA CORRET DE VAL MO"/>
+            <StringItem index="209" value="NEXT"/>
+            <StringItem index="210" value="NOVA FUTURA CTVM LTDA"/>
+            <StringItem index="211" value="NOVA PLATAFORMA DE COBRAN&#xc7;A"/>
+            <StringItem index="212" value="NOVO BANCO CONTINENTAL S.A.B - M"/>
+            <StringItem index="213" value="NU PAGAMENTOS S.A."/>
+            <StringItem index="214" value="OLIVEIRA TRUST DIST TIT.VAL MO"/>
+            <StringItem index="215" value="OM DIST DE TIT E VAL MOBILIARI"/>
+            <StringItem index="216" value="OMNI BANCO S.A."/>
+            <StringItem index="217" value="ORAMA DIST DE TITULOS E VALORES"/>
+            <StringItem index="218" value="OTIMO SOCIEDADE DE CREDITO DIR"/>
+            <StringItem index="219" value="PAGSEGURO INTERNET S.A."/>
+            <StringItem index="220" value="PARANA BANCO S.A."/>
+            <StringItem index="221" value="PARATI-CREDITO FINANCIAMENTO E"/>
+            <StringItem index="222" value="PARMETAL DISTRI. TIT. VAL. IMO"/>
+            <StringItem index="223" value="PEFISA S.A. -CRED. FINANCIAMENT"/>
+            <StringItem index="224" value="PI DIST. DE TIT. E VAL. MOBILI"/>
+            <StringItem index="225" value="PLANNER CORRET. DE VALORES S.A."/>
+            <StringItem index="226" value="PLURAL S.A. BCO MULTIPLO"/>
+            <StringItem index="227" value="POLOCRED SOC.CRED.MICROEMP.EMP"/>
+            <StringItem index="228" value="PORTOPAR DIST. TIT. E VAL. MOB"/>
+            <StringItem index="229" value="PORTOPCRED S.A. CRED.FINANC E IN"/>
+            <StringItem index="230" value="QI SOCIEDADE DE CR&#xc9;DITO DIRETO"/>
+            <StringItem index="231" value="RB CAPITAL INVESTIMENTOS DTVM"/>
+            <StringItem index="232" value="REALIZE CRED. FINANC. E INVEST"/>
+            <StringItem index="233" value="RENANSCENCA DIST.TIT.VAL.MOB.L."/>
+            <StringItem index="234" value="SAGITUR CORRETORA DE CAMBIO LT"/>
+            <StringItem index="235" value="SCOTIABANK BRASIL S/A B.MULTIP"/>
+            <StringItem index="236" value="SELECIONAR"/>
+            <StringItem index="237" value="SENFF S.A. - CRED. FINANC. E IN"/>
+            <StringItem index="238" value="SENSO CORR.CAMB.VAL.MOBILIARIO"/>
+            <StringItem index="239" value="SERVICOOP-COOP DE CRED DOS SER"/>
+            <StringItem index="240" value="SOC.DE CRED.AO MICROEMP.E EMP."/>
+            <StringItem index="241" value="SOCOPA SOCIEDADE CORRETORA PAU"/>
+            <StringItem index="242" value="SOLIDUS S.A. C. CAMB. E VAL. MO"/>
+            <StringItem index="243" value="SOROCRED CRED. FINAN. E INVESTI"/>
+            <StringItem index="244" value="STATE STREET BRASIL S.A. - BCO"/>
+            <StringItem index="245" value="STONE PAGAMENTOS S.A."/>
+            <StringItem index="246" value="SUPER PAGAMENTOS E ADMDE MEIOS"/>
+            <StringItem index="247" value="TERRA INV. DIST. E TIT. E VAL"/>
+            <StringItem index="248" value="TORO CORRETORA DE TIT E VALORES"/>
+            <StringItem index="249" value="TRAVELEX BANCO DE CAMBIO S.A."/>
+            <StringItem index="250" value="TREVISO CORRETORA DE CAMBIO S/"/>
+            <StringItem index="251" value="TRINUS CAPITAL DIST DE TIT E V"/>
+            <StringItem index="252" value="UNICRED"/>
+            <StringItem index="253" value="UNICRED CENTRAL RS-C.C.EC CRED"/>
+            <StringItem index="254" value="UNS NRASIL CCTMV S.A."/>
+            <StringItem index="255" value="UP.P SOC DE EMPREST ENTRE PRESS"/>
+            <StringItem index="256" value="VIP&apos;S DE CORRETORA DE CAMBIO L"/>
+            <StringItem index="257" value="VISION S.A. CORRETORA DE CAMBI"/>
+            <StringItem index="258" value="VITREO DISTRIBUIDORA DE TIT E"/>
+            <StringItem index="259" value="VORTX DIST. DE TIT. E VAL. MOB"/>
+            <StringItem index="260" value="WARREN CORRET E VALORES IMOB"/>
+            <StringItem index="261" value="XP INVEST.CORR.CAMP.VLS MOB.S."/>
+            <StringItem index="262" value="ZEMA CREDITO, FINANCIAMENTO IN"/>
           </StringArray>
         </Property>
       </Properties>
@@ -899,7 +1055,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField26">
+    <Component class="javax.swing.JTextField" name="inputSalary">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -911,7 +1067,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField27">
+    <Component class="javax.swing.JTextField" name="inputCommission">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -923,7 +1079,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField28">
+    <Component class="javax.swing.JTextField" name="inputFoodVoucher">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -935,7 +1091,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField29">
+    <Component class="javax.swing.JTextField" name="inputMealTicket">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="0"/>
@@ -947,10 +1103,13 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="buttonSave">
       <Properties>
         <Property name="text" type="java.lang.String" value="SALVAR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSaveActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="60" y="730" width="100" height="-1"/>
