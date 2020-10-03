@@ -5,6 +5,8 @@
  */
 package screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alunos
@@ -67,93 +69,93 @@ public class NewClient extends javax.swing.JFrame {
         txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtBirthDay.setText("Data de Nascimento");
         getContentPane().add(txtBirthDay);
-        txtBirthDay.setBounds(530, 95, 175, 24);
+        txtBirthDay.setBounds(510, 70, 175, 24);
 
         txtName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtName.setText("Nome");
         getContentPane().add(txtName);
-        txtName.setBounds(40, 95, 52, 24);
+        txtName.setBounds(40, 80, 52, 24);
 
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCPF.setText("CPF / CNPJ");
         getContentPane().add(txtCPF);
-        txtCPF.setBounds(290, 95, 120, 24);
+        txtCPF.setBounds(290, 80, 120, 24);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtPhone.setText("Telefone");
         getContentPane().add(txtPhone);
-        txtPhone.setBounds(40, 160, 77, 30);
+        txtPhone.setBounds(40, 140, 77, 30);
 
         txtCEP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCEP.setText("CEP");
         getContentPane().add(txtCEP);
-        txtCEP.setBounds(40, 240, 37, 24);
+        txtCEP.setBounds(40, 220, 37, 24);
 
         txtStreet.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtStreet.setText("Rua");
         getContentPane().add(txtStreet);
-        txtStreet.setBounds(290, 240, 34, 24);
+        txtStreet.setBounds(290, 220, 34, 24);
 
         txtNumberHouse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtNumberHouse.setText("Nº");
         getContentPane().add(txtNumberHouse);
-        txtNumberHouse.setBounds(530, 240, 20, 24);
+        txtNumberHouse.setBounds(530, 220, 20, 24);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtComplement.setText("Complemento");
         getContentPane().add(txtComplement);
-        txtComplement.setBounds(40, 380, 124, 24);
+        txtComplement.setBounds(40, 360, 124, 24);
 
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtEmail.setText("E-mail");
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(530, 160, 55, 30);
+        txtEmail.setBounds(510, 140, 55, 30);
 
         txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCellPhone.setText("Celular");
         getContentPane().add(txtCellPhone);
-        txtCellPhone.setBounds(290, 160, 62, 30);
+        txtCellPhone.setBounds(290, 140, 62, 30);
 
         txtCadastreClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCadastreClient.setText("Cadastro de Cliente");
         getContentPane().add(txtCadastreClient);
-        txtCadastreClient.setBounds(268, 40, 225, 32);
+        txtCadastreClient.setBounds(340, 10, 225, 32);
 
         inputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputName);
-        inputName.setBounds(40, 125, 219, 30);
+        inputName.setBounds(40, 110, 219, 30);
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCPF);
-        inputCPF.setBounds(290, 125, 130, 30);
+        inputCPF.setBounds(290, 110, 130, 30);
 
         inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBirthDay);
-        inputBirthDay.setBounds(530, 125, 159, 30);
+        inputBirthDay.setBounds(510, 100, 159, 30);
 
         inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPhone);
-        inputPhone.setBounds(40, 190, 184, 30);
+        inputPhone.setBounds(40, 170, 184, 30);
 
         inputCellphone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCellphone);
-        inputCellphone.setBounds(290, 190, 140, 30);
+        inputCellphone.setBounds(290, 170, 140, 30);
 
         inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEmail);
-        inputEmail.setBounds(530, 190, 185, 30);
+        inputEmail.setBounds(510, 170, 185, 30);
 
         inputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCEP);
-        inputCEP.setBounds(40, 270, 194, 30);
+        inputCEP.setBounds(40, 250, 194, 30);
 
         inputStreet.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputStreet);
-        inputStreet.setBounds(290, 270, 189, 30);
+        inputStreet.setBounds(290, 250, 189, 30);
 
         inputNumberHouse.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNumberHouse);
-        inputNumberHouse.setBounds(530, 270, 98, 30);
+        inputNumberHouse.setBounds(510, 250, 98, 30);
 
         inputComplement.setColumns(20);
         inputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
@@ -161,11 +163,11 @@ public class NewClient extends javax.swing.JFrame {
         jScrollPane1.setViewportView(inputComplement);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(43, 412, 553, 120);
+        jScrollPane1.setBounds(40, 400, 740, 120);
 
         buttonPhoto.setText("FOTO");
         getContentPane().add(buttonPhoto);
-        buttonPhoto.setBounds(620, 460, 61, 30);
+        buttonPhoto.setBounds(720, 70, 170, 230);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -174,33 +176,34 @@ public class NewClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(620, 500, 80, 30);
+        buttonSave.setBounds(800, 480, 80, 30);
 
         txtCity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCity.setText("Cidade");
         getContentPane().add(txtCity);
-        txtCity.setBounds(40, 310, 80, 24);
+        txtCity.setBounds(40, 290, 80, 24);
 
         inputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCity);
-        inputCity.setBounds(40, 340, 189, 30);
+        inputCity.setBounds(40, 320, 189, 30);
 
         txtState.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtState.setText("Estado");
         getContentPane().add(txtState);
-        txtState.setBounds(290, 310, 80, 24);
+        txtState.setBounds(290, 290, 80, 24);
 
         inputState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         inputState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         getContentPane().add(inputState);
-        inputState.setBounds(290, 340, 140, 35);
+        inputState.setBounds(290, 320, 140, 35);
 
-        setSize(new java.awt.Dimension(765, 569));
+        setSize(new java.awt.Dimension(930, 569));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         ClientScreen clientScreen = new ClientScreen();
+        JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO COM SUCESSO");
         this.dispose();
         clientScreen.setVisible(true);
     }//GEN-LAST:event_buttonSaveActionPerformed

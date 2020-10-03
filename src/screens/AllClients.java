@@ -33,6 +33,7 @@ public class AllClients extends javax.swing.JFrame {
         tableClients = new javax.swing.JTable();
         buttonShowClient = new javax.swing.JButton();
         inputNameClient = new javax.swing.JTextField();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Clientes");
@@ -62,7 +63,7 @@ public class AllClients extends javax.swing.JFrame {
         txtAllClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtAllClients.setText("TODOS OS CLIENTES");
         getContentPane().add(txtAllClients);
-        txtAllClients.setBounds(210, 20, 251, 32);
+        txtAllClients.setBounds(280, 10, 251, 32);
 
         tableClients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,7 +79,7 @@ public class AllClients extends javax.swing.JFrame {
         tableAllClients.setViewportView(tableClients);
 
         getContentPane().add(tableAllClients);
-        tableAllClients.setBounds(10, 110, 650, 270);
+        tableAllClients.setBounds(10, 110, 760, 270);
 
         buttonShowClient.setText("MOSTRAR");
         buttonShowClient.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +111,11 @@ public class AllClients extends javax.swing.JFrame {
         getContentPane().add(inputNameClient);
         inputNameClient.setBounds(10, 60, 256, 30);
 
-        setSize(new java.awt.Dimension(689, 438));
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(680, 60, 90, 32);
+
+        setSize(new java.awt.Dimension(791, 438));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -204,6 +209,7 @@ public class AllClients extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShowClient;
     private javax.swing.JTextField inpuCPFClient;
     private javax.swing.JTextField inputNameClient;

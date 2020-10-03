@@ -62,7 +62,7 @@ public class Income extends javax.swing.JFrame {
         tableIncome.setViewportView(tableEnterCash);
 
         getContentPane().add(tableIncome);
-        tableIncome.setBounds(26, 61, 658, 327);
+        tableIncome.setBounds(30, 110, 658, 340);
 
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -71,7 +71,7 @@ public class Income extends javax.swing.JFrame {
         }
         inputStartDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputStartDate);
-        inputStartDate.setBounds(26, 405, 89, 25);
+        inputStartDate.setBounds(30, 60, 89, 30);
 
         try {
             inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -80,22 +80,22 @@ public class Income extends javax.swing.JFrame {
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEndDate);
-        inputEndDate.setBounds(160, 405, 90, 25);
+        inputEndDate.setBounds(160, 60, 90, 30);
 
         buttonFilter.setText("FILTRAR");
         getContentPane().add(buttonFilter);
-        buttonFilter.setBounds(430, 405, 80, 25);
+        buttonFilter.setBounds(430, 60, 80, 30);
 
         txtSeparatorDate.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         txtSeparatorDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSeparatorDate.setText("A");
         getContentPane().add(txtSeparatorDate);
-        txtSeparatorDate.setBounds(110, 405, 50, 25);
+        txtSeparatorDate.setBounds(110, 60, 50, 30);
 
         outputBillType.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         outputBillType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tudo", "Entrada", "Saída" }));
         getContentPane().add(outputBillType);
-        outputBillType.setBounds(270, 405, 130, 25);
+        outputBillType.setBounds(270, 60, 130, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class Income extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(540, 405, 90, 23);
+        buttonShow.setBounds(540, 60, 90, 30);
 
         setSize(new java.awt.Dimension(721, 497));
         setLocationRelativeTo(null);

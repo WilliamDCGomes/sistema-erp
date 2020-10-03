@@ -66,7 +66,7 @@ public class BillScreen extends javax.swing.JFrame {
         getContentPane().add(txtReceiver);
         txtReceiver.setBounds(30, 160, 100, 24);
         getContentPane().add(outputPayerDescription);
-        outputPayerDescription.setBounds(220, 120, 270, 20);
+        outputPayerDescription.setBounds(220, 120, 270, 30);
 
         txtCPFAndCNPJPayer.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJPayer.setText("CPF / CNPJ");
@@ -78,9 +78,9 @@ public class BillScreen extends javax.swing.JFrame {
         getContentPane().add(txtPayerDescription);
         txtPayerDescription.setBounds(220, 90, 80, 20);
         getContentPane().add(outputCPFAndCNPJPayer);
-        outputCPFAndCNPJPayer.setBounds(30, 120, 150, 20);
+        outputCPFAndCNPJPayer.setBounds(30, 120, 150, 30);
         getContentPane().add(outputReceiverDescription);
-        outputReceiverDescription.setBounds(220, 220, 270, 20);
+        outputReceiverDescription.setBounds(220, 220, 270, 30);
 
         txtCPFAndCNPJReceiver.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJReceiver.setText("CPF / CNPJ");
@@ -92,7 +92,7 @@ public class BillScreen extends javax.swing.JFrame {
         getContentPane().add(txtReceiverDescription);
         txtReceiverDescription.setBounds(220, 190, 80, 20);
         getContentPane().add(outputCPFAndCNPJReceiver);
-        outputCPFAndCNPJReceiver.setBounds(30, 220, 150, 20);
+        outputCPFAndCNPJReceiver.setBounds(30, 220, 150, 30);
 
         txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtObservation.setText("Observações");
@@ -113,7 +113,7 @@ public class BillScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFormPayment);
-        buttonFormPayment.setBounds(30, 440, 180, 23);
+        buttonFormPayment.setBounds(30, 440, 180, 32);
 
         buttonEdit.setText("EDITAR");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +122,7 @@ public class BillScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(250, 440, 69, 23);
+        buttonEdit.setBounds(250, 440, 71, 32);
 
         buttonDebit.setText("DEBITAR");
         buttonDebit.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +131,7 @@ public class BillScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDebit);
-        buttonDebit.setBounds(360, 440, 100, 23);
+        buttonDebit.setBounds(360, 440, 100, 32);
 
         setSize(new java.awt.Dimension(521, 523));
         setLocationRelativeTo(null);

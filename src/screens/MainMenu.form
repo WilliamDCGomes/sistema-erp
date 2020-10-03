@@ -399,31 +399,49 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vendas do M&#xea;s"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optSalesOfMonthActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optMostRequestItems">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Itens Mais Vendidos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optMostRequestItemsActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="optSpendOfMonth">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gastos do M&#xea;s"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optSpendOfMonthActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="optCashHandling">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Movimenta&#xe7;&#xe3;o no Caixa"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optCashHandlingActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optMostRequestItems">
+            <MenuItem class="javax.swing.JMenuItem" name="optAccountsOfMonth">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Itens mais vendidos"/>
+                <Property name="text" type="java.lang.String" value="Contas do M&#xea;s"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optAccountsOfMonthActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optLeastRequestedItems">
+            <MenuItem class="javax.swing.JMenuItem" name="optStock">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Itens menos vendidos"/>
+                <Property name="text" type="java.lang.String" value="Estoque"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optSalesOfEmployees">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Venda dos funcion&#xe1;rios"/>
-              </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="optSpendOfMonth">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Gastos do m&#xea;s"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optStockActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

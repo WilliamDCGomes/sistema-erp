@@ -45,6 +45,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
         buttonFinishTask = new javax.swing.JButton();
         txtStatus = new javax.swing.JLabel();
         outputStatus = new javax.swing.JTextField();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Compromisso");
@@ -107,7 +108,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(30, 440, 80, 23);
+        buttonEdit.setBounds(30, 440, 80, 32);
 
         buttonAllSchedules.setText("TODOS OS COMPROMISSOS");
         buttonAllSchedules.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +117,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSchedules);
-        buttonAllSchedules.setBounds(130, 440, 210, 23);
+        buttonAllSchedules.setBounds(130, 440, 210, 32);
 
         buttonDelete.setText("APAGAR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +126,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(360, 440, 100, 23);
+        buttonDelete.setBounds(360, 440, 100, 32);
 
         buttonFinishTask.setText("FINALIZAR COMPROMISSO");
         buttonFinishTask.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +135,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFinishTask);
-        buttonFinishTask.setBounds(30, 470, 190, 23);
+        buttonFinishTask.setBounds(30, 470, 190, 32);
 
         txtStatus.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtStatus.setText("Status");
@@ -144,6 +145,10 @@ public class ScheduleScreen extends javax.swing.JFrame {
         outputStatus.setEnabled(false);
         getContentPane().add(outputStatus);
         outputStatus.setBounds(310, 170, 110, 25);
+
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(230, 470, 90, 32);
 
         setSize(new java.awt.Dimension(500, 545));
         setLocationRelativeTo(null);
@@ -212,6 +217,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
     public static javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonFinishTask;
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JTextField outputAppointmentDate;
     private javax.swing.JTextArea outputAppointmentDescription;
     private javax.swing.JTextField outputAppointmentHour;

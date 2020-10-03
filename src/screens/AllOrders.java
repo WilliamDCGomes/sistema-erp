@@ -32,6 +32,7 @@ public class AllOrders extends javax.swing.JFrame {
         tableOrders = new javax.swing.JTable();
         inputIdentification = new javax.swing.JTextField();
         buttonShow = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Pedidos");
@@ -101,6 +102,10 @@ public class AllOrders extends javax.swing.JFrame {
         getContentPane().add(buttonShow);
         buttonShow.setBounds(240, 80, 90, 30);
 
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(360, 80, 90, 32);
+
         setSize(new java.awt.Dimension(671, 474));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -165,6 +170,7 @@ public class AllOrders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShow;
     private javax.swing.JTextField inputIdentification;
     private javax.swing.JScrollPane tableAllOrder;

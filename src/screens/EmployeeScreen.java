@@ -97,6 +97,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         txtStatus = new javax.swing.JLabel();
         outputStatus = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Funcionário: 150");
@@ -451,6 +452,10 @@ public class EmployeeScreen extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(540, 720, 110, 32);
 
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(720, 720, 90, 32);
+
         setSize(new java.awt.Dimension(1030, 795));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -521,6 +526,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonTerminator;
     private javax.swing.JComboBox<String> inputSex;
     private javax.swing.JButton jButton1;

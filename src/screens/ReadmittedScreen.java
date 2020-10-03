@@ -57,6 +57,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtPrevious = new javax.swing.JLabel();
         txtNext = new javax.swing.JLabel();
         buttonSave = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Readmissão de Funcionário");
@@ -187,7 +188,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtPrevious);
-        txtPrevious.setBounds(130, 410, 30, 30);
+        txtPrevious.setBounds(250, 410, 30, 30);
 
         txtNext.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/RightArrow.png"))); // NOI18N
@@ -197,7 +198,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtNext);
-        txtNext.setBounds(170, 410, 30, 30);
+        txtNext.setBounds(290, 410, 30, 30);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +208,10 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         });
         getContentPane().add(buttonSave);
         buttonSave.setBounds(10, 410, 100, 32);
+
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(130, 410, 90, 32);
 
         setSize(new java.awt.Dimension(866, 491));
         setLocationRelativeTo(null);
@@ -261,6 +266,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonSave;
     private javax.swing.JTextField inputAccount;
     private javax.swing.JComboBox<String> inputAccountType;

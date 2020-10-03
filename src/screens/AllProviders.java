@@ -33,6 +33,7 @@ public class AllProviders extends javax.swing.JFrame {
         inputIdentification = new javax.swing.JTextField();
         buttonShow = new javax.swing.JButton();
         inpuCPFClient = new javax.swing.JTextField();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Fornecedores");
@@ -42,7 +43,7 @@ public class AllProviders extends javax.swing.JFrame {
         txtAllProviders.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtAllProviders.setText("TODOS OS FORNECEDORES");
         getContentPane().add(txtAllProviders);
-        txtAllProviders.setBounds(160, 10, 340, 32);
+        txtAllProviders.setBounds(210, 10, 340, 32);
 
         tableProviders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -71,7 +72,7 @@ public class AllProviders extends javax.swing.JFrame {
         tableAllProviders.setViewportView(tableProviders);
 
         getContentPane().add(tableAllProviders);
-        tableAllProviders.setBounds(20, 130, 620, 300);
+        tableAllProviders.setBounds(20, 130, 700, 300);
 
         inputIdentification.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputIdentification.setText("CPF / CNPJ");
@@ -118,7 +119,11 @@ public class AllProviders extends javax.swing.JFrame {
         getContentPane().add(inpuCPFClient);
         inpuCPFClient.setBounds(240, 80, 256, 30);
 
-        setSize(new java.awt.Dimension(666, 472));
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(630, 80, 90, 32);
+
+        setSize(new java.awt.Dimension(744, 472));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -201,6 +206,7 @@ public class AllProviders extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShow;
     private javax.swing.JTextField inpuCPFClient;
     private javax.swing.JTextField inputIdentification;

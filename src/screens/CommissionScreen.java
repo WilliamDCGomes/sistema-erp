@@ -51,6 +51,7 @@ public class CommissionScreen extends javax.swing.JFrame {
         inputCPFEmployee = new javax.swing.JTextField();
         inputCodeEmployee = new javax.swing.JTextField();
         buttonLocale = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Controle de Comissão");
@@ -215,6 +216,10 @@ public class CommissionScreen extends javax.swing.JFrame {
         getContentPane().add(buttonLocale);
         buttonLocale.setBounds(590, 80, 100, 32);
 
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(170, 480, 90, 32);
+
         setSize(new java.awt.Dimension(718, 555));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -330,6 +335,7 @@ public class CommissionScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAltern;
     private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShow;
     private javax.swing.JTextField inputCPFEmployee;
     private javax.swing.JTextField inputCodeEmployee;

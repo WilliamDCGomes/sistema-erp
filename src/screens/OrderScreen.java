@@ -53,6 +53,7 @@ public class OrderScreen extends javax.swing.JFrame {
         tableItems = new javax.swing.JTable();
         txtItems = new javax.swing.JLabel();
         buttonCancel = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pedido: 15");
@@ -218,7 +219,11 @@ public class OrderScreen extends javax.swing.JFrame {
 
         buttonCancel.setText("CANCELAR PEDIDO");
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(270, 480, 140, 32);
+        buttonCancel.setBounds(380, 480, 140, 32);
+
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(260, 480, 90, 32);
 
         setSize(new java.awt.Dimension(878, 556));
         setLocationRelativeTo(null);
@@ -283,6 +288,7 @@ public class OrderScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JScrollPane observationOrder;
     private javax.swing.JFormattedTextField outputDateOfSale;
     private javax.swing.JFormattedTextField outputDeliveryForecast;

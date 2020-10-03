@@ -4,6 +4,7 @@ import functioncontroller.ScreenUserSize;
 import functioncontroller.SetLocationSubMenus;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableColumn;
 import submenus.BillMenu;
 import submenus.ClientMenu;
 import submenus.DebtMenu;
@@ -97,11 +98,11 @@ public class MainMenu extends javax.swing.JFrame {
         optEmployeeTermination = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         optSalesOfMonth = new javax.swing.JMenuItem();
-        optCashHandling = new javax.swing.JMenuItem();
         optMostRequestItems = new javax.swing.JMenuItem();
-        optLeastRequestedItems = new javax.swing.JMenuItem();
-        optSalesOfEmployees = new javax.swing.JMenuItem();
         optSpendOfMonth = new javax.swing.JMenuItem();
+        optCashHandling = new javax.swing.JMenuItem();
+        optAccountsOfMonth = new javax.swing.JMenuItem();
+        optStock = new javax.swing.JMenuItem();
         menuSchedule = new javax.swing.JMenu();
         optNewTask = new javax.swing.JMenuItem();
         optCheckEventsDay = new javax.swing.JMenuItem();
@@ -606,22 +607,52 @@ public class MainMenu extends javax.swing.JFrame {
         menuReport.setText("Relatórios");
 
         optSalesOfMonth.setText("Vendas do Mês");
+        optSalesOfMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optSalesOfMonthActionPerformed(evt);
+            }
+        });
         menuReport.add(optSalesOfMonth);
 
-        optCashHandling.setText("Movimentação no Caixa");
-        menuReport.add(optCashHandling);
-
-        optMostRequestItems.setText("Itens mais vendidos");
+        optMostRequestItems.setText("Itens Mais Vendidos");
+        optMostRequestItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optMostRequestItemsActionPerformed(evt);
+            }
+        });
         menuReport.add(optMostRequestItems);
 
-        optLeastRequestedItems.setText("Itens menos vendidos");
-        menuReport.add(optLeastRequestedItems);
-
-        optSalesOfEmployees.setText("Venda dos funcionários");
-        menuReport.add(optSalesOfEmployees);
-
-        optSpendOfMonth.setText("Gastos do mês");
+        optSpendOfMonth.setText("Gastos do Mês");
+        optSpendOfMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optSpendOfMonthActionPerformed(evt);
+            }
+        });
         menuReport.add(optSpendOfMonth);
+
+        optCashHandling.setText("Movimentação no Caixa");
+        optCashHandling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optCashHandlingActionPerformed(evt);
+            }
+        });
+        menuReport.add(optCashHandling);
+
+        optAccountsOfMonth.setText("Contas do Mês");
+        optAccountsOfMonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAccountsOfMonthActionPerformed(evt);
+            }
+        });
+        menuReport.add(optAccountsOfMonth);
+
+        optStock.setText("Estoque");
+        optStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optStockActionPerformed(evt);
+            }
+        });
+        menuReport.add(optStock);
 
         menuBar.add(menuReport);
 
@@ -1161,6 +1192,60 @@ public class MainMenu extends javax.swing.JFrame {
         employeeDismissal.setVisible(true);
     }//GEN-LAST:event_optEmployeeTerminationActionPerformed
 
+    private void optSalesOfMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSalesOfMonthActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("VENDAS DO MÊS");
+        reportScreen.setTitle("Relatório de Vendas do Mês");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optSalesOfMonthActionPerformed
+
+    private void optMostRequestItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optMostRequestItemsActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("ITENS MAIS VENDIDOS");
+        reportScreen.setTitle("Relatório de Itens Mais Vendidos");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optMostRequestItemsActionPerformed
+
+    private void optSpendOfMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSpendOfMonthActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("GASTOS DO MÊS");
+        reportScreen.setTitle("Relatório de Gastos do Mês");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optSpendOfMonthActionPerformed
+
+    private void optCashHandlingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optCashHandlingActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("MOVIMENTAÇÃO DO CAIXA");
+        reportScreen.setTitle("Relatório de Movimentação do Caixa");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optCashHandlingActionPerformed
+
+    private void optAccountsOfMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAccountsOfMonthActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("CONTAS DO MÊS");
+        reportScreen.setTitle("Relatório de Contas do Mês");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optAccountsOfMonthActionPerformed
+
+    private void optStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optStockActionPerformed
+        ReportScreen reportScreen = new ReportScreen();
+        TableColumn table = new TableColumn();
+        reportScreen.tableReport.addColumn(table);
+        reportScreen.txtReport.setText("ESTOQUE");
+        reportScreen.setTitle("Relatório de Estoque");
+        reportScreen.setVisible(true);
+    }//GEN-LAST:event_optStockActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1226,6 +1311,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem opcClose;
     private javax.swing.JMenuItem opcLogout;
     private javax.swing.JMenuItem optAbout;
+    private javax.swing.JMenuItem optAccountsOfMonth;
     private javax.swing.JMenuItem optAllBills;
     private javax.swing.JMenuItem optAllClients;
     private javax.swing.JMenuItem optAllEvents;
@@ -1245,7 +1331,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optDebitBill;
     private javax.swing.JMenuItem optDelayBill;
     private javax.swing.JMenuItem optEmployeeTermination;
-    private javax.swing.JMenuItem optLeastRequestedItems;
     private javax.swing.JMenuItem optLocaleBill;
     private javax.swing.JMenuItem optLocaleClient;
     private javax.swing.JMenuItem optLocaleEmployee;
@@ -1267,9 +1352,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optPendantOrder;
     private javax.swing.JMenuItem optPendantSale;
     private javax.swing.JMenuItem optRestore;
-    private javax.swing.JMenuItem optSalesOfEmployees;
     private javax.swing.JMenuItem optSalesOfMonth;
     private javax.swing.JMenuItem optSpendOfMonth;
+    private javax.swing.JMenuItem optStock;
     private javax.swing.JMenuItem optSuport;
     private javax.swing.JMenuItem optUser;
     private javax.swing.JLabel txtBill;

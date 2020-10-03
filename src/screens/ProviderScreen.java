@@ -62,6 +62,7 @@ public class ProviderScreen extends javax.swing.JFrame {
         outputComplement = new javax.swing.JTextField();
         txtCode = new javax.swing.JLabel();
         outputCode = new javax.swing.JTextField();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Fornecedor");
@@ -224,7 +225,7 @@ public class ProviderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(720, 620, 71, 32);
+        buttonEdit.setBounds(720, 580, 71, 32);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtComplement.setText("Complemento");
@@ -245,6 +246,10 @@ public class ProviderScreen extends javax.swing.JFrame {
         outputCode.setEnabled(false);
         getContentPane().add(outputCode);
         outputCode.setBounds(20, 100, 130, 30);
+
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(700, 620, 90, 32);
 
         setSize(new java.awt.Dimension(819, 699));
         setLocationRelativeTo(null);
@@ -295,6 +300,7 @@ public class ProviderScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonPrinter;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField outputAdress;
     private javax.swing.JTextField outputCPFAndCNPJ;

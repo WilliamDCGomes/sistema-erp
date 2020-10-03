@@ -5,18 +5,16 @@
  */
 package screens;
 
-import functioncontroller.GetDate;
-
 /**
  *
- * @author Lenovo
+ * @author Alunos
  */
-public class AllSchedule extends javax.swing.JFrame {
-    int x = 0;
+public class ReportScreen extends javax.swing.JFrame {
+
     /**
-     * Creates new form AllSchedule
+     * Creates new form ReportScreen
      */
-    public AllSchedule() {
+    public ReportScreen() {
         initComponents();
     }
 
@@ -29,59 +27,53 @@ public class AllSchedule extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtAllSchedules = new javax.swing.JLabel();
-        tableAllSchedules = new javax.swing.JScrollPane();
-        tableSchedules = new javax.swing.JTable();
+        txtReport = new javax.swing.JLabel();
+        tableReportScreen = new javax.swing.JScrollPane();
+        tableReport = new javax.swing.JTable();
         buttonShow = new javax.swing.JButton();
         inputFirstDateFilter = new javax.swing.JTextField();
         txtSeparatorDate = new javax.swing.JLabel();
         inputSecondDateFilter = new javax.swing.JTextField();
-        outputScheduleType = new javax.swing.JComboBox<>();
         buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Todos os Compromissos");
+        setTitle("Relatório");
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
         getContentPane().setLayout(null);
 
-        txtAllSchedules.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        txtAllSchedules.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtAllSchedules.setText("TODOS OS COMPROMISSOS");
-        getContentPane().add(txtAllSchedules);
-        txtAllSchedules.setBounds(180, 10, 400, 32);
+        txtReport.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtReport.setText("RELATÓRIO");
+        getContentPane().add(txtReport);
+        txtReport.setBounds(140, 10, 540, 32);
 
-        tableSchedules.setModel(new javax.swing.table.DefaultTableModel(
+        tableReport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Nome do Compromisso", "Dia Marcado", "Horário Marcado"
+                "Título 1", "Título 2", "Título 3", "Título 4"
             }
         ));
-        tableAllSchedules.setViewportView(tableSchedules);
+        tableReportScreen.setViewportView(tableReport);
 
-        getContentPane().add(tableAllSchedules);
-        tableAllSchedules.setBounds(20, 130, 700, 300);
+        getContentPane().add(tableReportScreen);
+        tableReportScreen.setBounds(20, 130, 780, 340);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +82,7 @@ public class AllSchedule extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(520, 80, 90, 30);
+        buttonShow.setBounds(300, 80, 90, 30);
 
         inputFirstDateFilter.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputFirstDateFilter.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -116,22 +108,39 @@ public class AllSchedule extends javax.swing.JFrame {
         getContentPane().add(inputSecondDateFilter);
         inputSecondDateFilter.setBounds(160, 80, 100, 30);
 
-        outputScheduleType.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputScheduleType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Compromissos do Dia", "Compromissos do Mês", "Todos os Compromissos", "Compromissos Concluídos" }));
-        getContentPane().add(outputScheduleType);
-        outputScheduleType.setBounds(290, 80, 210, 30);
-
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(630, 80, 90, 32);
+        buttonPrinter.setBounds(410, 80, 90, 32);
 
-        setSize(new java.awt.Dimension(747, 485));
+        setSize(new java.awt.Dimension(819, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
-        ScheduleScreen scheduleScreen = new ScheduleScreen();
-        scheduleScreen.setVisible(true);
+        if(txtReport.getText().equals("VENDAS DO MÊS")){
+            SaleScreen saleScreen = new SaleScreen();
+            saleScreen.setVisible(true);
+        }
+        else if(txtReport.getText().equals("ITENS MAIS VENDIDOS")){
+            ProductScreen productScreen = new ProductScreen();
+            productScreen.setVisible(true);
+        }
+        else if(txtReport.getText().equals("GASTOS DO MÊS")){
+            CashDrive cashDrive = new CashDrive();
+            cashDrive.setVisible(true);
+        }
+        else if(txtReport.getText().equals("MOVIMENTAÇÃO DO CAIXA")){
+            CashDrive cashDrive = new CashDrive();
+            cashDrive.setVisible(true);
+        }
+        else if(txtReport.getText().equals("CONTAS DO MÊS")){
+            BillScreen billScreen = new BillScreen();
+            billScreen.setVisible(true);
+        }
+        else if(txtReport.getText().equals("ESTOQUE")){
+            ProductScreen productScreen = new ProductScreen();
+            productScreen.setVisible(true);
+        }
     }//GEN-LAST:event_buttonShowActionPerformed
 
     private void inputFirstDateFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputFirstDateFilterFocusGained
@@ -141,15 +150,6 @@ public class AllSchedule extends javax.swing.JFrame {
     private void inputSecondDateFilterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputSecondDateFilterFocusGained
         inputSecondDateFilter.selectAll();
     }//GEN-LAST:event_inputSecondDateFilterFocusGained
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        if(x==0){
-            x++;
-            GetDate getDate = new GetDate();
-            inputFirstDateFilter.setText(getDate.dateOfSystem());
-            inputSecondDateFilter.setText(getDate.dateOfSystem());
-        }
-    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -168,20 +168,20 @@ public class AllSchedule extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AllSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AllSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AllSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AllSchedule.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReportScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AllSchedule().setVisible(true);
+                new ReportScreen().setVisible(true);
             }
         });
     }
@@ -191,10 +191,9 @@ public class AllSchedule extends javax.swing.JFrame {
     private javax.swing.JButton buttonShow;
     private javax.swing.JTextField inputFirstDateFilter;
     private javax.swing.JTextField inputSecondDateFilter;
-    public static javax.swing.JComboBox<String> outputScheduleType;
-    private javax.swing.JScrollPane tableAllSchedules;
-    private javax.swing.JTable tableSchedules;
-    public static javax.swing.JLabel txtAllSchedules;
+    public static javax.swing.JTable tableReport;
+    private javax.swing.JScrollPane tableReportScreen;
+    public static javax.swing.JLabel txtReport;
     private javax.swing.JLabel txtSeparatorDate;
     // End of variables declaration//GEN-END:variables
 }

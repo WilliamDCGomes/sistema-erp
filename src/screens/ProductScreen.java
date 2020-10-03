@@ -57,6 +57,7 @@ public class ProductScreen extends javax.swing.JFrame {
         txtProduct = new javax.swing.JLabel();
         buttonEdit = new javax.swing.JButton();
         buttonRequest = new javax.swing.JButton();
+        buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Produto");
@@ -194,7 +195,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(601, 520, 100, 32);
+        buttonLocale.setBounds(680, 470, 100, 32);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -206,7 +207,7 @@ public class ProductScreen extends javax.swing.JFrame {
         tableNewProduct.setViewportView(outputDescription);
 
         getContentPane().add(tableNewProduct);
-        tableNewProduct.setBounds(20, 410, 480, 140);
+        tableNewProduct.setBounds(20, 410, 550, 140);
 
         txtProduct.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -221,7 +222,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(510, 520, 80, 32);
+        buttonEdit.setBounds(590, 470, 80, 32);
 
         buttonRequest.setText("PEDIR");
         buttonRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +231,11 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRequest);
-        buttonRequest.setBounds(710, 520, 77, 32);
+        buttonRequest.setBounds(590, 510, 77, 32);
+
+        buttonPrinter.setText("IMPRIMIR");
+        getContentPane().add(buttonPrinter);
+        buttonPrinter.setBounds(680, 510, 90, 32);
 
         setSize(new java.awt.Dimension(805, 596));
         setLocationRelativeTo(null);
@@ -302,6 +307,7 @@ public class ProductScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonPrinter;
     public static javax.swing.JButton buttonRequest;
     private javax.swing.JTextField outputBarCode;
     private javax.swing.JTextField outputBrand;
