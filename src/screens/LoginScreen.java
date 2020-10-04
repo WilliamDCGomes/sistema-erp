@@ -55,7 +55,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
         inputPassword.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         getContentPane().add(inputPassword);
-        inputPassword.setBounds(230, 230, 220, 30);
+        inputPassword.setBounds(230, 225, 220, 40);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLogin.setText("LOGIN");
@@ -67,7 +67,7 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(txtPassoword);
         txtPassoword.setBounds(90, 230, 105, 30);
 
-        buttonLogin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        buttonLogin.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         buttonLogin.setText("LOGAR");
         buttonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,14 +75,14 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLogin);
-        buttonLogin.setBounds(90, 320, 105, 40);
+        buttonLogin.setBounds(90, 320, 90, 30);
 
         inputLogin.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         inputLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
         getContentPane().add(inputLogin);
-        inputLogin.setBounds(230, 130, 220, 30);
+        inputLogin.setBounds(230, 125, 220, 40);
 
-        setSize(new java.awt.Dimension(536, 437));
+        setSize(new java.awt.Dimension(536, 430));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

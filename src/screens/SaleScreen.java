@@ -175,7 +175,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(250, 470, 79, 32);
+        buttonDelete.setBounds(250, 470, 90, 32);
 
         buttonLocale.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         buttonLocale.setText("PESQUISAR");
@@ -194,7 +194,7 @@ public class SaleScreen extends javax.swing.JFrame {
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
         getContentPane().add(txtSale);
-        txtSale.setBounds(290, 18, 74, 29);
+        txtSale.setBounds(340, 20, 74, 29);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");

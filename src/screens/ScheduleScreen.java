@@ -175,6 +175,7 @@ public class ScheduleScreen extends javax.swing.JFrame {
 
     private void buttonFinishTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinishTaskActionPerformed
         JOptionPane.showMessageDialog(null, "COMPROMISSO MARCADO COMO CONCLUIDO");
+        this.dispose();
     }//GEN-LAST:event_buttonFinishTaskActionPerformed
 
     /**

@@ -140,6 +140,8 @@ public class BillScreen extends javax.swing.JFrame {
     private void buttonFormPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFormPaymentActionPerformed
         FormPayment formPayment = new FormPayment();
         formPayment.txtSaleValue.setText("Valor da Conta");
+        formPayment.buttonFinish.setVisible(false);
+        formPayment.setSize(785, 489);
         formPayment.setVisible(true);
     }//GEN-LAST:event_buttonFormPaymentActionPerformed
 

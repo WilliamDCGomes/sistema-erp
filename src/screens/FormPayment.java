@@ -133,6 +133,11 @@ public class FormPayment extends javax.swing.JFrame {
         txtFormPayment.setBounds(290, 20, 244, 32);
 
         buttonFinish.setText("Finalizar");
+        buttonFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonFinishActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonFinish);
         buttonFinish.setBounds(25, 450, 90, 32);
 
@@ -144,13 +149,17 @@ public class FormPayment extends javax.swing.JFrame {
         getContentPane().add(inputEnterValue);
         inputEnterValue.setBounds(360, 105, 94, 25);
 
-        setSize(new java.awt.Dimension(801, 518));
+        setSize(new java.awt.Dimension(801, 528));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
     }//GEN-LAST:event_formWindowActivated
+
+    private void buttonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinishActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonFinishActionPerformed
 
     /**
      * @param args the command line arguments

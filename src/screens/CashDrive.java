@@ -51,7 +51,7 @@ public class CashDrive extends javax.swing.JFrame {
         txtCashDrive.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtCashDrive.setText("MOVIMENTAÇÃO DO CAIXA");
         getContentPane().add(txtCashDrive);
-        txtCashDrive.setBounds(70, 20, 360, 40);
+        txtCashDrive.setBounds(50, 20, 360, 40);
 
         txtChangeDate.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtChangeDate.setText("Data da Movimentação");

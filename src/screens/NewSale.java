@@ -194,11 +194,11 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(45, 445, 80, 32);
+        buttonSave.setBounds(45, 440, 80, 32);
 
         buttomRemoveItems.setText("REMOVER");
         getContentPane().add(buttomRemoveItems);
-        buttomRemoveItems.setBounds(150, 445, 90, 32);
+        buttomRemoveItems.setBounds(150, 440, 90, 32);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
@@ -261,7 +261,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancele);
-        buttonCancele.setBounds(270, 445, 100, 32);
+        buttonCancele.setBounds(270, 440, 100, 32);
 
         setSize(new java.awt.Dimension(830, 517));
         setLocationRelativeTo(null);

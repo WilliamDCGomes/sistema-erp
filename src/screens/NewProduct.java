@@ -179,7 +179,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(601, 530, 100, 32);
+        buttonCancel.setBounds(600, 520, 100, 32);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -206,9 +206,9 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(510, 530, 80, 32);
+        buttonSave.setBounds(510, 520, 80, 32);
 
-        setSize(new java.awt.Dimension(716, 595));
+        setSize(new java.awt.Dimension(716, 601));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
