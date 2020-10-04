@@ -1,9 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -12,13 +13,58 @@ package screens;
 public class AllClients extends javax.swing.JFrame {
     int x = 0;
     int x2 = 0;
+    int x3 = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form Client
      */
     public AllClients() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
-
+    private void getAllClients(){
+        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs= pst.executeQuery();
+            tableClients.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getClientsCPF(){
+        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where cpf like '" + inputCPFClient.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableClients.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getClientsName(){
+        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where clientName like '" + inputNameClient.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableClients.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getClientsCPFAndName(){
+        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where cpf like '" + inputCPFClient.getText() + "%' and clientName like '" + inputNameClient.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableClients.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +74,7 @@ public class AllClients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        inpuCPFClient = new javax.swing.JTextField();
+        inputCPFClient = new javax.swing.JTextField();
         txtAllClients = new javax.swing.JLabel();
         tableAllClients = new javax.swing.JScrollPane();
         tableClients = new javax.swing.JTable();
@@ -38,28 +84,33 @@ public class AllClients extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Clientes");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
-        inpuCPFClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        inpuCPFClient.setText("CPF DO CLIENTE");
-        inpuCPFClient.addFocusListener(new java.awt.event.FocusAdapter() {
+        inputCPFClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPFClient.setText("CPF DO CLIENTE");
+        inputCPFClient.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                inpuCPFClientFocusGained(evt);
+                inputCPFClientFocusGained(evt);
             }
         });
-        inpuCPFClient.addKeyListener(new java.awt.event.KeyAdapter() {
+        inputCPFClient.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyPressed(evt);
+                inputCPFClientKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyReleased(evt);
+                inputCPFClientKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyTyped(evt);
+                inputCPFClientKeyTyped(evt);
             }
         });
-        getContentPane().add(inpuCPFClient);
-        inpuCPFClient.setBounds(290, 60, 256, 30);
+        getContentPane().add(inputCPFClient);
+        inputCPFClient.setBounds(290, 60, 256, 30);
 
         txtAllClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtAllClients.setText("TODOS OS CLIENTES");
@@ -68,13 +119,13 @@ public class AllClients extends javax.swing.JFrame {
 
         tableClients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Email", "Telefone"
+                "Código", "Nome", "CPF", "Email", "Telefone", "Celular"
             }
         ));
         tableAllClients.setViewportView(tableClients);
@@ -121,32 +172,40 @@ public class AllClients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonShowClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowClientActionPerformed
+        int set = tableClients.getSelectedRow();
         ClientScreen clientScreen = new ClientScreen();
+        clientScreen.setTitle("Cliente: " + tableClients.getModel().getValueAt(set,0).toString());
         clientScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowClientActionPerformed
 
-    private void inpuCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyPressed
+    private void inputCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFClientKeyPressed
         
-    }//GEN-LAST:event_inpuCPFClientKeyPressed
+    }//GEN-LAST:event_inputCPFClientKeyPressed
 
-    private void inpuCPFClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inpuCPFClientFocusGained
-        inpuCPFClient.selectAll();
-    }//GEN-LAST:event_inpuCPFClientFocusGained
+    private void inputCPFClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFClientFocusGained
+        inputCPFClient.selectAll();
+    }//GEN-LAST:event_inputCPFClientFocusGained
 
-    private void inpuCPFClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyReleased
-        
-    }//GEN-LAST:event_inpuCPFClientKeyReleased
+    private void inputCPFClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFClientKeyReleased
+        if(!inputCPFClient.getText().equals("CPF DO CLIENTE")&&inputNameClient.getText().equals("NOME DO CLIENTE")){
+            getClientsCPF();
+        }
+        else if(!inputCPFClient.getText().equals("CPF DO CLIENTE")&&!inputNameClient.getText().equals("NOME DO CLIENTE")){
+            getClientsCPFAndName();
+        }
+    }//GEN-LAST:event_inputCPFClientKeyReleased
 
-    private void inpuCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyTyped
-        if(inpuCPFClient.getText().equals("")){
-            inpuCPFClient.setText("CPF DO CLIENTE");
+    private void inputCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFClientKeyTyped
+        if(inputCPFClient.getText().equals("")){
+            inputCPFClient.setText("CPF DO CLIENTE");
+            getAllClients();
             x=0;
         }
         else if(x==0){
             x++;
-            inpuCPFClient.setText("");
+            inputCPFClient.setText("");
         }
-    }//GEN-LAST:event_inpuCPFClientKeyTyped
+    }//GEN-LAST:event_inputCPFClientKeyTyped
 
     private void inputNameClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputNameClientFocusGained
         inputNameClient.selectAll();
@@ -157,12 +216,18 @@ public class AllClients extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNameClientKeyPressed
 
     private void inputNameClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyReleased
-        // TODO add your handling code here:
+        if(!inputNameClient.getText().equals("NOME DO CLIENTE")&&inputCPFClient.getText().equals("CPF DO CLIENTE")){
+            getClientsName();
+        }
+        else if(!inputCPFClient.getText().equals("CPF DO CLIENTE")&&!inputNameClient.getText().equals("NOME DO CLIENTE")){
+            getClientsCPFAndName();
+        }
     }//GEN-LAST:event_inputNameClientKeyReleased
 
     private void inputNameClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyTyped
         if(inputNameClient.getText().equals("")){
             inputNameClient.setText("NOME DO CLIENTE");
+            getAllClients();
             x2=0;
         }
         else if(x2==0){
@@ -170,6 +235,13 @@ public class AllClients extends javax.swing.JFrame {
             inputNameClient.setText("");
         }
     }//GEN-LAST:event_inputNameClientKeyTyped
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x3==0){
+            x3++;
+            getAllClients();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -212,7 +284,7 @@ public class AllClients extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShowClient;
-    private javax.swing.JTextField inpuCPFClient;
+    private javax.swing.JTextField inputCPFClient;
     private javax.swing.JTextField inputNameClient;
     private javax.swing.JScrollPane tableAllClients;
     private javax.swing.JTable tableClients;

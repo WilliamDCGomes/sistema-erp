@@ -6,6 +6,8 @@
 package screens;
 
 import functioncontroller.ScreenUserSize;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -13,6 +15,7 @@ import functioncontroller.ScreenUserSize;
  */
 public class ImageScreen extends javax.swing.JFrame {
     int x = 0;
+    public String adress = null;
     /**
      * Creates new form ProductImage
      */
@@ -79,6 +82,11 @@ public class ImageScreen extends javax.swing.JFrame {
             ScreenUserSize screenUserSize = new ScreenUserSize();
             String[] size = screenUserSize.sizeOfScreen().split(";");
             this.setSize(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
+            if(!adress.equals(null)){
+                outputPicture.setText("");
+            }
+            ImageIcon imagen = new ImageIcon(adress);
+            outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
         }
     }//GEN-LAST:event_formWindowActivated
 

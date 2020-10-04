@@ -4,20 +4,46 @@
  * and open the template in the editor.
  */
 package screens;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Alunos
  */
 public class LocaleClient extends javax.swing.JFrame {
-
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form LocaleClient
      */
     public LocaleClient() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
-
+    private void setClient(){
+        String sql ="select id from clients where cpf=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputCPF.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                ClientScreen clientScreen = new ClientScreen();
+                clientScreen.setTitle("Cliente: " + rs.getString(1));
+                this.dispose();
+                clientScreen.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "CLIENTE NÃO LOCALIZADO NO SISTEMA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,7 +71,7 @@ public class LocaleClient extends javax.swing.JFrame {
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCPF);
-        inputCPF.setBounds(30, 80, 151, 25);
+        inputCPF.setBounds(30, 80, 151, 30);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -81,9 +107,12 @@ public class LocaleClient extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAllClientsActionPerformed
 
     private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
-        ClientScreen clientScreen = new ClientScreen();
-        this.dispose();
-        clientScreen.setVisible(true);
+        if(!inputCPF.getText().equals("")){
+            setClient();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR, DIGITE UM CPF!");
+        }
     }//GEN-LAST:event_buttonLocaleActionPerformed
 
     /**

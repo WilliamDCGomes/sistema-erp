@@ -6,20 +6,97 @@
 package screens;
 
 import javax.swing.JOptionPane;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import functioncontroller.GetImageAdress;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Lenovo
  */
 public class ClientScreen extends javax.swing.JFrame {
-
+    int x = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    String imageAdress = null;
+    GetImageAdress getImageAdress = new GetImageAdress();
     /**
      * Creates new form ClientScreen
      */
     public ClientScreen() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
-
+    private void updateClient(int id){
+        String sql = "update clients set clientName=?, cpf=?, birthDay=?, phone=?, cellPhone=?, email=?, cep=?, street=?, houseNumber=?, neighborhood=?, city=?, state=?, observation=?,photoAdress=? where id=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,outputName.getText());
+            pst.setString(2,outputCPF.getText());
+            pst.setString(3,outputBirthDay.getText());
+            pst.setString(4,outputPhone.getText());
+            pst.setString(5,outputCellphone.getText());
+            pst.setString(6,outputEmail.getText());
+            pst.setString(7,outputCEP.getText());
+            pst.setString(8,outputStreet.getText());
+            pst.setString(9,outputNumberHouse.getText());
+            pst.setString(10,outputNeighborhood.getText());
+            pst.setString(11,outputCity.getText());
+            pst.setString(12,outputState.getSelectedItem().toString());
+            pst.setString(13,outputObservation.getText());
+            pst.setString(14,imageAdress);
+            pst.setInt(15,id);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"CLIENTE ATUALIZADO COM SUCESSO");
+            this.dispose();
+            txtClient.setText("CLIENTE");
+            buttonEdit.setText("EDITAR");
+            String[] idAux = this.getTitle().split(" ");
+            int idAuxSiz = idAux.length;
+            this.setTitle("Cliente " + idAux[idAuxSiz - 1]);
+            this.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void setClient(int id){
+        String sql ="select clientName, cpf, birthDay, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, observation, photoAdress from clients where id=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, id);
+            rs= pst.executeQuery();
+            if(rs.next()){
+                outputName.setText(rs.getString(1));
+                outputCPF.setText(rs.getString(2));
+                outputBirthDay.setText(rs.getString(3));
+                outputPhone.setText(rs.getString(4));
+                outputCellphone.setText(rs.getString(5));
+                outputEmail.setText(rs.getString(6));
+                outputCEP.setText(rs.getString(7));
+                outputStreet.setText(rs.getString(8));
+                outputNumberHouse.setText(rs.getString(9));
+                outputNeighborhood.setText(rs.getString(10));
+                outputCity.setText(rs.getString(11));
+                outputState.setSelectedItem(rs.getString(12));
+                outputObservation.setText(rs.getString(13));
+                if(!rs.getString(14).equals(null)){
+                    buttonPhoto.setText("");
+                }
+                imageAdress = rs.getString(14);
+                ImageIcon imagen = new ImageIcon(imageAdress);
+                buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +116,7 @@ public class ClientScreen extends javax.swing.JFrame {
         txtObservation = new javax.swing.JLabel();
         txtEmail = new javax.swing.JLabel();
         txtCellPhone = new javax.swing.JLabel();
-        txtCadastreClient = new javax.swing.JLabel();
+        txtClient = new javax.swing.JLabel();
         outputName = new javax.swing.JTextField();
         outputCPF = new javax.swing.JFormattedTextField();
         outputBirthDay = new javax.swing.JFormattedTextField();
@@ -59,11 +136,16 @@ public class ClientScreen extends javax.swing.JFrame {
         outputState = new javax.swing.JComboBox<>();
         buttonPrinter = new javax.swing.JButton();
         txtNeighborhood = new javax.swing.JLabel();
-        inputNeighborhood = new javax.swing.JTextField();
+        outputNeighborhood = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cliente");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -116,11 +198,11 @@ public class ClientScreen extends javax.swing.JFrame {
         getContentPane().add(txtCellPhone);
         txtCellPhone.setBounds(200, 130, 62, 24);
 
-        txtCadastreClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        txtCadastreClient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtCadastreClient.setText("Cliente");
-        getContentPane().add(txtCadastreClient);
-        txtCadastreClient.setBounds(260, 10, 320, 32);
+        txtClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtClient.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtClient.setText("CLIENTE");
+        getContentPane().add(txtClient);
+        txtClient.setBounds(260, 10, 320, 32);
 
         outputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputName);
@@ -214,36 +296,55 @@ public class ClientScreen extends javax.swing.JFrame {
         getContentPane().add(txtNeighborhood);
         txtNeighborhood.setBounds(20, 270, 60, 24);
 
-        inputNeighborhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(inputNeighborhood);
-        inputNeighborhood.setBounds(20, 300, 360, 30);
+        outputNeighborhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(outputNeighborhood);
+        outputNeighborhood.setBounds(20, 300, 360, 30);
 
         setSize(new java.awt.Dimension(855, 550));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
         if(buttonEdit.getText().equals("EDITAR")){
             this.dispose();
-            txtCadastreClient.setText("Editar Cliente");
+            txtClient.setText("EDITAR CLIENTE");
             buttonEdit.setText("SALVAR");
-            this.setTitle("Editar Cliente");
+            String[] idAux = this.getTitle().split(" ");
+            int idAuxSize = idAux.length;
+            this.setTitle("Editar Cliente " + idAux[idAuxSize - 1]);
             this.setVisible(true);
         }
         else if(buttonEdit.getText().equals("SALVAR")){
-            JOptionPane.showMessageDialog(null, "CLIENTE ATUALIZADO COM SUCESSO");
-            this.dispose();
-            txtCadastreClient.setText("Cliente");
-            buttonEdit.setText("EDITAR");
-            this.setTitle("Cliente");
-            this.setVisible(true);
+            String[] idAux = this.getTitle().split(" ");
+            int idAuxSize = idAux.length - 1;
+            updateClient(Integer.parseInt(idAux[idAuxSize]));
         }
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPhotoActionPerformed
-        ImageScreen imageScreen = new ImageScreen();
-        imageScreen.setVisible(true);
+        if(txtClient.getText().equals("CLIENTE")){
+            ImageScreen imageScreen = new ImageScreen();
+            imageScreen.adress = imageAdress;
+            imageScreen.setVisible(true);
+        }
+        else if(txtClient.getText().equals("EDITAR CLIENTE")){
+            imageAdress = getImageAdress.getAdress();
+            if(!imageAdress.equals(null)){
+                buttonPhoto.setText("");
+            }
+            ImageIcon imagen = new ImageIcon(imageAdress);
+            buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+        }
     }//GEN-LAST:event_buttonPhotoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x==0){
+            x++;
+            String[] idAux = this.getTitle().split(" ");
+            int idAuxSiz = idAux.length;
+            setClient(Integer.parseInt(idAux[idAuxSiz - 1]));
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -284,7 +385,6 @@ public class ClientScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonPhoto;
     private javax.swing.JButton buttonPrinter;
-    private javax.swing.JTextField inputNeighborhood;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField outputBirthDay;
     private javax.swing.JFormattedTextField outputCEP;
@@ -293,6 +393,7 @@ public class ClientScreen extends javax.swing.JFrame {
     private javax.swing.JTextField outputCity;
     private javax.swing.JTextField outputEmail;
     private javax.swing.JTextField outputName;
+    private javax.swing.JTextField outputNeighborhood;
     private javax.swing.JTextField outputNumberHouse;
     private javax.swing.JTextArea outputObservation;
     private javax.swing.JFormattedTextField outputPhone;
@@ -301,9 +402,9 @@ public class ClientScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtBirthDay;
     private javax.swing.JLabel txtCEP;
     private javax.swing.JLabel txtCPF;
-    private javax.swing.JLabel txtCadastreClient;
     private javax.swing.JLabel txtCellPhone;
     private javax.swing.JLabel txtCity;
+    private javax.swing.JLabel txtClient;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtNeighborhood;

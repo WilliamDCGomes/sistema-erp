@@ -13,9 +13,9 @@ import connectionbd.ConnectionModule;
 import functioncontroller.GetImageAdress;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
+import functioncontroller.UpperLetter;
+import functioncontroller.UpperLetterAux;
 import java.awt.Image;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 /**
  *
@@ -25,14 +25,23 @@ public class NewClient extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
     GetImageAdress getImageAdress = new GetImageAdress();
     String imageAdress = null;
     int x = 0;
+    String clientID;
     /**
      * Creates new form NewClient
      */
     public NewClient() {
         initComponents();
+        inputName.setDocument(new UpperLetter());
+        inputEmail.setDocument(new UpperLetter());
+        inputStreet.setDocument(new UpperLetter());
+        inputNeighborhood.setDocument(new UpperLetter());
+        inputCity.setDocument(new UpperLetter());
+        inputObservation.setDocument(new UpperLetter());
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
     }
@@ -58,9 +67,69 @@ public class NewClient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO");
             ClientScreen clientScreen = new ClientScreen();
             this.dispose();
+            getId();
+            clientScreen.setTitle("Cliente: " + clientID);
             clientScreen.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private boolean getId(){
+        String sql ="select id,clientName from clients where cpf=?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, inputCPF.getText());
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                clientID = Integer.toString(rs2.getInt(1));
+                if(rs2.getString(2)!=null){
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false;
+    }
+    private void setInformations(){
+        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        SearchCEP searchCEP = new SearchCEP();
+        try {
+            searchCEP.buscar(inputCEP.getText());
+            String neighBorhood = "";
+            String street = "";
+            String city = "";
+            String neighBorhoodAux = searchCEP.getBairro();
+            String streetAux = searchCEP.getLogradouro();
+            String cityAux = searchCEP.getLocalidade();
+            for(int i=0;i<neighBorhoodAux.length();i++){
+                if(i==neighBorhoodAux.length()-1){
+                    neighBorhood += upperLetterAux.makeUp(neighBorhoodAux.substring(i));
+                    break;
+                }
+                neighBorhood += upperLetterAux.makeUp(neighBorhoodAux.substring(i, i + 1));
+            }
+            for(int i=0;i<streetAux.length();i++){
+                if(i==streetAux.length()-1){
+                    street += upperLetterAux.makeUp(streetAux.substring(i));
+                    break;
+                }
+                street += upperLetterAux.makeUp(streetAux.substring(i, i + 1));
+            }
+            for(int i=0;i<cityAux.length();i++){
+                if(i==cityAux.length()-1){
+                    city += upperLetterAux.makeUp(cityAux.substring(i));
+                    break;
+                }
+                city += upperLetterAux.makeUp(cityAux.substring(i, i + 1));
+            }
+            inputNeighborhood.setText(neighBorhood);
+            inputStreet.setText(street);
+            inputCity.setText(city);
+            inputState.setSelectedItem(searchCEP.getUf());
+            inputNumberHouse.requestFocus();
+        } catch (SearchCEPException ex) {
+            JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
         }
     }
     /**
@@ -103,6 +172,14 @@ public class NewClient extends javax.swing.JFrame {
         inputState = new javax.swing.JComboBox<>();
         txtNeighborhood = new javax.swing.JLabel();
         inputNeighborhood = new javax.swing.JTextField();
+        txtRequiredField1 = new javax.swing.JLabel();
+        txtRequiredField2 = new javax.swing.JLabel();
+        txtRequiredField3 = new javax.swing.JLabel();
+        txtRequiredField4 = new javax.swing.JLabel();
+        txtRequiredField5 = new javax.swing.JLabel();
+        txtRequiredField6 = new javax.swing.JLabel();
+        txtRequiredField7 = new javax.swing.JLabel();
+        txtRequiredField8 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -248,7 +325,7 @@ public class NewClient extends javax.swing.JFrame {
         txtCity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCity.setText("Cidade");
         getContentPane().add(txtCity);
-        txtCity.setBounds(410, 290, 80, 24);
+        txtCity.setBounds(410, 290, 70, 24);
 
         inputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCity);
@@ -273,12 +350,76 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(inputNeighborhood);
         inputNeighborhood.setBounds(40, 320, 360, 30);
 
+        txtRequiredField1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField1.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField1.setText("*");
+        getContentPane().add(txtRequiredField1);
+        txtRequiredField1.setBounds(510, 80, 20, 30);
+
+        txtRequiredField2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField2.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField2.setText("*");
+        getContentPane().add(txtRequiredField2);
+        txtRequiredField2.setBounds(100, 80, 20, 30);
+
+        txtRequiredField3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField3.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField3.setText("*");
+        getContentPane().add(txtRequiredField3);
+        txtRequiredField3.setBounds(90, 290, 30, 30);
+
+        txtRequiredField4.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField4.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField4.setText("*");
+        getContentPane().add(txtRequiredField4);
+        txtRequiredField4.setBounds(670, 290, 30, 30);
+
+        txtRequiredField5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField5.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField5.setText("*");
+        getContentPane().add(txtRequiredField5);
+        txtRequiredField5.setBounds(725, 80, 20, 30);
+
+        txtRequiredField6.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField6.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField6.setText("*");
+        getContentPane().add(txtRequiredField6);
+        txtRequiredField6.setBounds(80, 216, 20, 40);
+
+        txtRequiredField7.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField7.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField7.setText("*");
+        getContentPane().add(txtRequiredField7);
+        txtRequiredField7.setBounds(230, 220, 20, 30);
+
+        txtRequiredField8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField8.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField8.setText("*");
+        getContentPane().add(txtRequiredField8);
+        txtRequiredField8.setBounds(470, 290, 30, 30);
+
         setSize(new java.awt.Dimension(930, 560));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        add();
+        if(inputName.getText().equals("")||inputCPF.getText().equals("")||inputBirthDay.getText().equals("")||inputCEP.getText().equals("")||inputStreet.getText().equals("")||inputNeighborhood.getText().equals("")||inputCity.getText().equals("")||inputState.getSelectedItem().equals("SELECIONAR")){
+            JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+        }
+        else if(getId()){
+            JOptionPane.showMessageDialog(null, "USUÁRIO JÁ CADASTRADO NO SISTEMA");
+        }
+        else{
+            add();
+        }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPhotoActionPerformed
@@ -299,33 +440,13 @@ public class NewClient extends javax.swing.JFrame {
 
     private void inputCEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCEPKeyPressed
         if(evt.getKeyCode() == evt.VK_ENTER){
-            SearchCEP searchCEP = new SearchCEP();
-            try {
-                searchCEP.buscar(inputCEP.getText());
-                inputNeighborhood.setText(searchCEP.getBairro());
-                inputStreet.setText(searchCEP.getLogradouro());
-                inputCity.setText(searchCEP.getLocalidade());
-                inputState.setSelectedItem(searchCEP.getUf());
-                inputNumberHouse.requestFocus();
-            } catch (SearchCEPException ex) {
-                JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
-            }
+            setInformations();
         }
     }//GEN-LAST:event_inputCEPKeyPressed
 
     private void inputCEPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCEPFocusLost
         if(!inputCEP.getText().equals("")){
-            SearchCEP searchCEP = new SearchCEP();
-            try {
-                searchCEP.buscar(inputCEP.getText());
-                inputNeighborhood.setText(searchCEP.getBairro());
-                inputStreet.setText(searchCEP.getLogradouro());
-                inputCity.setText(searchCEP.getLocalidade());
-                inputState.setSelectedItem(searchCEP.getUf());
-                inputNumberHouse.requestFocus();
-            } catch (SearchCEPException ex) {
-                JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
-            }
+            setInformations();
         }
     }//GEN-LAST:event_inputCEPFocusLost
 
@@ -394,6 +515,14 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel txtNumberHouse;
     private javax.swing.JLabel txtObservation;
     private javax.swing.JLabel txtPhone;
+    private javax.swing.JLabel txtRequiredField1;
+    private javax.swing.JLabel txtRequiredField2;
+    private javax.swing.JLabel txtRequiredField3;
+    private javax.swing.JLabel txtRequiredField4;
+    private javax.swing.JLabel txtRequiredField5;
+    private javax.swing.JLabel txtRequiredField6;
+    private javax.swing.JLabel txtRequiredField7;
+    private javax.swing.JLabel txtRequiredField8;
     private javax.swing.JLabel txtState;
     private javax.swing.JLabel txtStreet;
     // End of variables declaration//GEN-END:variables
