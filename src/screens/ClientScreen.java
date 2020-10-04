@@ -11,6 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
 import functioncontroller.GetImageAdress;
+import functioncontroller.SearchCEP;
+import functioncontroller.SearchCEPException;
+import functioncontroller.UpperLetterAux;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 /**
@@ -95,6 +98,47 @@ public class ClientScreen extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void setInformations(){
+        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        SearchCEP searchCEP = new SearchCEP();
+        try {
+            searchCEP.buscar(outputCEP.getText());
+            String neighBorhood = "";
+            String street = "";
+            String city = "";
+            String neighBorhoodAux = searchCEP.getBairro();
+            String streetAux = searchCEP.getLogradouro();
+            String cityAux = searchCEP.getLocalidade();
+            for(int i=0;i<neighBorhoodAux.length();i++){
+                if(i==neighBorhoodAux.length()-1){
+                    neighBorhood += upperLetterAux.makeUp(neighBorhoodAux.substring(i));
+                    break;
+                }
+                neighBorhood += upperLetterAux.makeUp(neighBorhoodAux.substring(i, i + 1));
+            }
+            for(int i=0;i<streetAux.length();i++){
+                if(i==streetAux.length()-1){
+                    street += upperLetterAux.makeUp(streetAux.substring(i));
+                    break;
+                }
+                street += upperLetterAux.makeUp(streetAux.substring(i, i + 1));
+            }
+            for(int i=0;i<cityAux.length();i++){
+                if(i==cityAux.length()-1){
+                    city += upperLetterAux.makeUp(cityAux.substring(i));
+                    break;
+                }
+                city += upperLetterAux.makeUp(cityAux.substring(i, i + 1));
+            }
+            outputNeighborhood.setText(neighBorhood);
+            outputStreet.setText(street);
+            outputCity.setText(city);
+            outputState.setSelectedItem(searchCEP.getUf());
+            outputNumberHouse.requestFocus();
+        } catch (SearchCEPException ex) {
+            JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
         }
     }
     /**
@@ -229,6 +273,16 @@ public class ClientScreen extends javax.swing.JFrame {
         outputEmail.setBounds(370, 160, 310, 30);
 
         outputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        outputCEP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                outputCEPFocusLost(evt);
+            }
+        });
+        outputCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                outputCEPKeyPressed(evt);
+            }
+        });
         getContentPane().add(outputCEP);
         outputCEP.setBounds(20, 230, 120, 30);
 
@@ -345,6 +399,18 @@ public class ClientScreen extends javax.swing.JFrame {
             setClient(Integer.parseInt(idAux[idAuxSiz - 1]));
         }
     }//GEN-LAST:event_formWindowActivated
+
+    private void outputCEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputCEPKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER&&txtClient.getText().equals("EDITAR CLIENTE")){
+            setInformations();
+        }
+    }//GEN-LAST:event_outputCEPKeyPressed
+
+    private void outputCEPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_outputCEPFocusLost
+        if(!outputCEP.getText().equals("")&&txtClient.getText().equals("EDITAR CLIENTE")){
+            setInformations();
+        }
+    }//GEN-LAST:event_outputCEPFocusLost
 
     /**
      * @param args the command line arguments
