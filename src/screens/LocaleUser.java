@@ -27,14 +27,73 @@ public class LocaleUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtCPF = new javax.swing.JLabel();
+        inputCPF = new javax.swing.JFormattedTextField();
+        buttonLocale = new javax.swing.JButton();
+        buttonAllUsers = new javax.swing.JButton();
+        txtLocaleUser = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JLabel();
+        inputLogin = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Localizar Usuário");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(416, 339));
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCPF.setText("CPF");
+        getContentPane().add(txtCPF);
+        txtCPF.setBounds(30, 50, 36, 24);
+
+        inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCPF);
+        inputCPF.setBounds(30, 80, 160, 30);
+
+        buttonLocale.setText("LOCALIZAR");
+        buttonLocale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLocaleActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonLocale);
+        buttonLocale.setBounds(30, 200, 100, 32);
+
+        buttonAllUsers.setText("TODOS OS CLIENTES");
+        buttonAllUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllUsersActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonAllUsers);
+        buttonAllUsers.setBounds(170, 200, 160, 32);
+
+        txtLocaleUser.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtLocaleUser.setText("LOCALIZAR USUÁRIO");
+        getContentPane().add(txtLocaleUser);
+        txtLocaleUser.setBounds(49, 6, 253, 32);
+
+        txtLogin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtLogin.setText("Login");
+        getContentPane().add(txtLogin);
+        txtLogin.setBounds(30, 120, 90, 24);
+        getContentPane().add(inputLogin);
+        inputLogin.setBounds(30, 150, 160, 30);
+
+        setSize(new java.awt.Dimension(373, 283));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
+        UserScreen userScreen = new UserScreen();
+        this.dispose();
+        userScreen.setVisible(true);
+    }//GEN-LAST:event_buttonLocaleActionPerformed
+
+    private void buttonAllUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllUsersActionPerformed
+        AllUsers allUsers = new AllUsers();
+        this.dispose();
+        allUsers.setVisible(true);
+    }//GEN-LAST:event_buttonAllUsersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,5 +131,12 @@ public class LocaleUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAllUsers;
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JFormattedTextField inputCPF;
+    private javax.swing.JTextField inputLogin;
+    private javax.swing.JLabel txtCPF;
+    private javax.swing.JLabel txtLocaleUser;
+    private javax.swing.JLabel txtLogin;
     // End of variables declaration//GEN-END:variables
 }

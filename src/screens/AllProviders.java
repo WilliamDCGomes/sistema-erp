@@ -11,6 +11,7 @@ package screens;
  */
 public class AllProviders extends javax.swing.JFrame {
     int x = 0;
+    int x2 = 0;
     /**
      * Creates new form AllProviders
      */
@@ -162,10 +163,10 @@ public class AllProviders extends javax.swing.JFrame {
     private void inpuCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyTyped
         if(inpuCPFClient.getText().equals("")){
             inpuCPFClient.setText("NOME FANTASIA");
-            x=0;
+            x2=0;
         }
-        else if(x==0){
-            x++;
+        else if(x2==0){
+            x2++;
             inpuCPFClient.setText("");
         }
     }//GEN-LAST:event_inpuCPFClientKeyTyped

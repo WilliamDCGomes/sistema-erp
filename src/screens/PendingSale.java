@@ -59,7 +59,7 @@ public class PendingSale extends javax.swing.JFrame {
         tablePendingSale.setViewportView(tablePending);
 
         getContentPane().add(tablePendingSale);
-        tablePendingSale.setBounds(12, 67, 620, 304);
+        tablePendingSale.setBounds(10, 110, 620, 304);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +68,7 @@ public class PendingSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShow);
-        buttonShow.setBounds(365, 389, 88, 32);
+        buttonShow.setBounds(350, 70, 88, 32);
 
         try {
             inputStartDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -77,7 +77,7 @@ public class PendingSale extends javax.swing.JFrame {
         }
         inputStartDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputStartDate);
-        inputStartDate.setBounds(32, 392, 101, 25);
+        inputStartDate.setBounds(10, 70, 101, 25);
 
         try {
             inputEndDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -86,11 +86,11 @@ public class PendingSale extends javax.swing.JFrame {
         }
         inputEndDate.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputEndDate);
-        inputEndDate.setBounds(151, 392, 101, 25);
+        inputEndDate.setBounds(130, 70, 101, 25);
 
         buttonFilter.setText("FILTRAR");
         getContentPane().add(buttonFilter);
-        buttonFilter.setBounds(270, 389, 77, 32);
+        buttonFilter.setBounds(250, 70, 77, 32);
 
         setSize(new java.awt.Dimension(653, 474));
         setLocationRelativeTo(null);

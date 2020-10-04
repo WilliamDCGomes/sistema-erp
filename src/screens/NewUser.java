@@ -5,12 +5,15 @@
  */
 package screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alunos
  */
 public class NewUser extends javax.swing.JFrame {
-
+    int x = 0;
+    int x2 = 0;
     /**
      * Creates new form NewUser
      */
@@ -27,15 +30,185 @@ public class NewUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        inputCPFEmployee = new javax.swing.JTextField();
+        inputCodeEmployee = new javax.swing.JTextField();
+        inputConfirmPassword = new javax.swing.JPasswordField();
+        buttonLocale = new javax.swing.JButton();
+        txtNewUser = new javax.swing.JLabel();
+        txtConfirmPassword = new javax.swing.JLabel();
+        inputPassword = new javax.swing.JPasswordField();
+        txtLogin = new javax.swing.JLabel();
+        txtPassoword = new javax.swing.JLabel();
+        inputLogin = new javax.swing.JTextField();
+        txtAccessLevel = new javax.swing.JLabel();
+        inputAccessLevel = new javax.swing.JComboBox<>();
+        buttonSave = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Usuário");
         setAutoRequestFocus(false);
         setResizable(false);
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(511, 465));
+        inputCPFEmployee.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPFEmployee.setText("CPF DO FUNCIONÁRIO");
+        inputCPFEmployee.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputCPFEmployeeFocusGained(evt);
+            }
+        });
+        inputCPFEmployee.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCPFEmployeeKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputCPFEmployeeKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputCPFEmployeeKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputCPFEmployee);
+        inputCPFEmployee.setBounds(330, 70, 256, 30);
+
+        inputCodeEmployee.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCodeEmployee.setText("CÓDIGO DO FUNCIONÁRIO");
+        inputCodeEmployee.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputCodeEmployeeFocusGained(evt);
+            }
+        });
+        inputCodeEmployee.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCodeEmployeeKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputCodeEmployeeKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputCodeEmployeeKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputCodeEmployee);
+        inputCodeEmployee.setBounds(40, 70, 256, 30);
+
+        inputConfirmPassword.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(inputConfirmPassword);
+        inputConfirmPassword.setBounds(190, 190, 140, 30);
+
+        buttonLocale.setText("LOCALIZAR");
+        getContentPane().add(buttonLocale);
+        buttonLocale.setBounds(610, 70, 100, 32);
+
+        txtNewUser.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtNewUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtNewUser.setText("CADASTRO DE USUÁRIOS");
+        getContentPane().add(txtNewUser);
+        txtNewUser.setBounds(180, 10, 350, 32);
+
+        txtConfirmPassword.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtConfirmPassword.setText("Confirmar Senha");
+        getContentPane().add(txtConfirmPassword);
+        txtConfirmPassword.setBounds(40, 190, 150, 30);
+
+        inputPassword.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(inputPassword);
+        inputPassword.setBounds(450, 130, 140, 30);
+
+        txtLogin.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtLogin.setText("Login");
+        getContentPane().add(txtLogin);
+        txtLogin.setBounds(40, 130, 70, 30);
+
+        txtPassoword.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPassoword.setText("Senha");
+        getContentPane().add(txtPassoword);
+        txtPassoword.setBounds(380, 130, 70, 30);
+
+        inputLogin.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputLogin);
+        inputLogin.setBounds(110, 130, 240, 28);
+
+        txtAccessLevel.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAccessLevel.setText("Nível de Acesso");
+        getContentPane().add(txtAccessLevel);
+        txtAccessLevel.setBounds(380, 190, 130, 30);
+
+        inputAccessLevel.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        inputAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Nível 1", "Nível 2", "Nível 3", "Nível 4", "Nível 5" }));
+        getContentPane().add(inputAccessLevel);
+        inputAccessLevel.setBounds(520, 190, 120, 30);
+
+        buttonSave.setText("SALVAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(40, 240, 90, 32);
+
+        setSize(new java.awt.Dimension(739, 310));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inputCPFEmployeeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFEmployeeFocusGained
+        inputCPFEmployee.selectAll();
+    }//GEN-LAST:event_inputCPFEmployeeFocusGained
+
+    private void inputCPFEmployeeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFEmployeeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCPFEmployeeKeyPressed
+
+    private void inputCPFEmployeeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFEmployeeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCPFEmployeeKeyReleased
+
+    private void inputCPFEmployeeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFEmployeeKeyTyped
+        if(inputCPFEmployee.getText().equals("")){
+            inputCPFEmployee.setText("CPF DO FUNCIONÁRIO");
+            x=0;
+        }
+        else if(x==0){
+            x++;
+            inputCPFEmployee.setText("");
+        }
+    }//GEN-LAST:event_inputCPFEmployeeKeyTyped
+
+    private void inputCodeEmployeeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCodeEmployeeFocusGained
+        inputCodeEmployee.selectAll();
+    }//GEN-LAST:event_inputCodeEmployeeFocusGained
+
+    private void inputCodeEmployeeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCodeEmployeeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCodeEmployeeKeyPressed
+
+    private void inputCodeEmployeeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCodeEmployeeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCodeEmployeeKeyReleased
+
+    private void inputCodeEmployeeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCodeEmployeeKeyTyped
+        if(inputCodeEmployee.getText().equals("")){
+            inputCodeEmployee.setText("CPF DO FUNCIONÁRIO");
+            x2=0;
+        }
+        else if(x2==0){
+            x2++;
+            inputCodeEmployee.setText("");
+        }
+    }//GEN-LAST:event_inputCodeEmployeeKeyTyped
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        if(txtNewUser.getText().equals("CADASTRO DE USUÁRIOS")){
+            JOptionPane.showMessageDialog(null, "USUÁRIO CADASTRADO COM SUCESSO");
+        }
+        else if(txtNewUser.getText().equals("EDITAR USUÁRIO")){
+            JOptionPane.showMessageDialog(null, "USUÁRIO ATUALIZADO COM SUCESSO");
+        }
+        UserScreen userScreen = new UserScreen();
+        this.dispose();
+        userScreen.setVisible(true);
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -73,5 +246,18 @@ public class NewUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JButton buttonSave;
+    private javax.swing.JComboBox<String> inputAccessLevel;
+    private javax.swing.JTextField inputCPFEmployee;
+    private javax.swing.JTextField inputCodeEmployee;
+    private javax.swing.JPasswordField inputConfirmPassword;
+    private javax.swing.JTextField inputLogin;
+    private javax.swing.JPasswordField inputPassword;
+    private javax.swing.JLabel txtAccessLevel;
+    private javax.swing.JLabel txtConfirmPassword;
+    private javax.swing.JLabel txtLogin;
+    public static javax.swing.JLabel txtNewUser;
+    private javax.swing.JLabel txtPassoword;
     // End of variables declaration//GEN-END:variables
 }

@@ -10,7 +10,8 @@ package screens;
  * @author Lenovo
  */
 public class AllClients extends javax.swing.JFrame {
-    int x =0;
+    int x = 0;
+    int x2 = 0;
     /**
      * Creates new form Client
      */
@@ -162,10 +163,10 @@ public class AllClients extends javax.swing.JFrame {
     private void inputNameClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameClientKeyTyped
         if(inputNameClient.getText().equals("")){
             inputNameClient.setText("NOME DO CLIENTE");
-            x=0;
+            x2=0;
         }
-        else if(x==0){
-            x++;
+        else if(x2==0){
+            x2++;
             inputNameClient.setText("");
         }
     }//GEN-LAST:event_inputNameClientKeyTyped

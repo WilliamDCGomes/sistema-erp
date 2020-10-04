@@ -27,14 +27,125 @@ public class UserScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        outputEmployeeCode = new javax.swing.JTextField();
+        txtUser = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JLabel();
+        outputLogin = new javax.swing.JTextField();
+        txtAccessLevel = new javax.swing.JLabel();
+        outputAccessLevel = new javax.swing.JComboBox<>();
+        buttonSave = new javax.swing.JButton();
+        txtEmployeeCode = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Usuário");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(416, 339));
+        outputEmployeeCode.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        outputEmployeeCode.setEnabled(false);
+        outputEmployeeCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                outputEmployeeCodeFocusGained(evt);
+            }
+        });
+        outputEmployeeCode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                outputEmployeeCodeKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                outputEmployeeCodeKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                outputEmployeeCodeKeyTyped(evt);
+            }
+        });
+        getContentPane().add(outputEmployeeCode);
+        outputEmployeeCode.setBounds(230, 70, 256, 30);
+
+        txtUser.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtUser.setText("USUÁRIO");
+        getContentPane().add(txtUser);
+        txtUser.setBounds(80, 10, 350, 32);
+
+        txtLogin.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtLogin.setText("Login");
+        getContentPane().add(txtLogin);
+        txtLogin.setBounds(40, 130, 70, 30);
+
+        outputLogin.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        outputLogin.setEnabled(false);
+        getContentPane().add(outputLogin);
+        outputLogin.setBounds(110, 130, 240, 28);
+
+        txtAccessLevel.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtAccessLevel.setText("Nível de Acesso");
+        getContentPane().add(txtAccessLevel);
+        txtAccessLevel.setBounds(40, 190, 130, 30);
+
+        outputAccessLevel.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        outputAccessLevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Nível 1", "Nível 2", "Nível 3", "Nível 4", "Nível 5" }));
+        outputAccessLevel.setEnabled(false);
+        getContentPane().add(outputAccessLevel);
+        outputAccessLevel.setBounds(180, 190, 120, 30);
+
+        buttonSave.setText("EDITAR");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(40, 240, 90, 32);
+
+        txtEmployeeCode.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtEmployeeCode.setText("Código do Funcionário");
+        getContentPane().add(txtEmployeeCode);
+        txtEmployeeCode.setBounds(40, 70, 180, 30);
+
+        jButton1.setText("LOCALIZAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(160, 240, 120, 32);
+
+        setSize(new java.awt.Dimension(511, 324));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void outputEmployeeCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_outputEmployeeCodeFocusGained
+        
+    }//GEN-LAST:event_outputEmployeeCodeFocusGained
+
+    private void outputEmployeeCodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputEmployeeCodeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputEmployeeCodeKeyPressed
+
+    private void outputEmployeeCodeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputEmployeeCodeKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputEmployeeCodeKeyReleased
+
+    private void outputEmployeeCodeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputEmployeeCodeKeyTyped
+        
+    }//GEN-LAST:event_outputEmployeeCodeKeyTyped
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        NewUser newUser = new NewUser();
+        newUser.txtNewUser.setText("EDITAR USUÁRIO");
+        newUser.setTitle("Editar Usuário");
+        this.dispose();
+        newUser.setVisible(true);
+    }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LocaleUser localeUser = new LocaleUser();
+        this.dispose();
+        localeUser.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,5 +183,14 @@ public class UserScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonSave;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> outputAccessLevel;
+    private javax.swing.JTextField outputEmployeeCode;
+    private javax.swing.JTextField outputLogin;
+    private javax.swing.JLabel txtAccessLevel;
+    private javax.swing.JLabel txtEmployeeCode;
+    private javax.swing.JLabel txtLogin;
+    private javax.swing.JLabel txtUser;
     // End of variables declaration//GEN-END:variables
 }

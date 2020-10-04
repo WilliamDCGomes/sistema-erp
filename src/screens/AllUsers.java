@@ -10,7 +10,8 @@ package screens;
  * @author Alunos
  */
 public class AllUsers extends javax.swing.JFrame {
-
+    int x = 0;
+    int x2 = 0;
     /**
      * Creates new form AllUsers
      */
@@ -27,14 +28,145 @@ public class AllUsers extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtAllUsers = new javax.swing.JLabel();
+        inputLoginUser = new javax.swing.JTextField();
+        tableAllUsers = new javax.swing.JScrollPane();
+        tableUsers = new javax.swing.JTable();
+        buttonShow = new javax.swing.JButton();
+        inputCPFUser = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Usuários");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(416, 339));
+        txtAllUsers.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtAllUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtAllUsers.setText("TODOS OS USUÁRIOS");
+        getContentPane().add(txtAllUsers);
+        txtAllUsers.setBounds(180, 20, 340, 32);
+
+        inputLoginUser.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputLoginUser.setText("LOGIN DO USUÁRIO");
+        inputLoginUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputLoginUserFocusGained(evt);
+            }
+        });
+        inputLoginUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputLoginUserKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputLoginUserKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputLoginUserKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputLoginUser);
+        inputLoginUser.setBounds(310, 70, 256, 30);
+
+        tableUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Login", "Email", "Telefone", "Celular"
+            }
+        ));
+        tableAllUsers.setViewportView(tableUsers);
+
+        getContentPane().add(tableAllUsers);
+        tableAllUsers.setBounds(10, 120, 690, 290);
+
+        buttonShow.setText("MOSTRAR");
+        buttonShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonShow);
+        buttonShow.setBounds(610, 70, 90, 30);
+
+        inputCPFUser.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPFUser.setText("CPF DO USUÁRIO");
+        inputCPFUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputCPFUserFocusGained(evt);
+            }
+        });
+        inputCPFUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCPFUserKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputCPFUserKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputCPFUserKeyTyped(evt);
+            }
+        });
+        getContentPane().add(inputCPFUser);
+        inputCPFUser.setBounds(10, 70, 256, 30);
+
+        setSize(new java.awt.Dimension(722, 456));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void inputLoginUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputLoginUserFocusGained
+        inputLoginUser.selectAll();
+    }//GEN-LAST:event_inputLoginUserFocusGained
+
+    private void inputLoginUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputLoginUserKeyPressed
+
+    }//GEN-LAST:event_inputLoginUserKeyPressed
+
+    private void inputLoginUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputLoginUserKeyReleased
+
+    }//GEN-LAST:event_inputLoginUserKeyReleased
+
+    private void inputLoginUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputLoginUserKeyTyped
+        if(inputLoginUser.getText().equals("")){
+            inputLoginUser.setText("NOME DO FUNCIONÁRIO");
+            x=0;
+        }
+        else if(x==0){
+            x++;
+            inputLoginUser.setText("");
+        }
+    }//GEN-LAST:event_inputLoginUserKeyTyped
+
+    private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
+        UserScreen userScreen = new UserScreen();
+        userScreen.setVisible(true);
+    }//GEN-LAST:event_buttonShowActionPerformed
+
+    private void inputCPFUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFUserFocusGained
+        inputCPFUser.selectAll();
+    }//GEN-LAST:event_inputCPFUserFocusGained
+
+    private void inputCPFUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFUserKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCPFUserKeyPressed
+
+    private void inputCPFUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFUserKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputCPFUserKeyReleased
+
+    private void inputCPFUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFUserKeyTyped
+        if(inputCPFUser.getText().equals("")){
+            inputCPFUser.setText("CPF DO FUNCIONÁRIO");
+            x2=0;
+        }
+        else if(x2==0){
+            x2++;
+            inputCPFUser.setText("");
+        }
+    }//GEN-LAST:event_inputCPFUserKeyTyped
 
     /**
      * @param args the command line arguments
@@ -72,5 +204,11 @@ public class AllUsers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonShow;
+    private javax.swing.JTextField inputCPFUser;
+    private javax.swing.JTextField inputLoginUser;
+    private javax.swing.JScrollPane tableAllUsers;
+    private javax.swing.JTable tableUsers;
+    private javax.swing.JLabel txtAllUsers;
     // End of variables declaration//GEN-END:variables
 }

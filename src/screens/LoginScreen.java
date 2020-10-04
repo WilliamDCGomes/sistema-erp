@@ -21,9 +21,9 @@ public class LoginScreen extends javax.swing.JFrame {
     private void initComponents() {
 
         txtDoLogin = new javax.swing.JLabel();
-        inputSenha = new javax.swing.JPasswordField();
+        inputPassword = new javax.swing.JPasswordField();
         txtLogin = new javax.swing.JLabel();
-        textPassoword = new javax.swing.JLabel();
+        txtPassoword = new javax.swing.JLabel();
         buttonLogin = new javax.swing.JButton();
         inputLogin = new javax.swing.JComboBox<>();
 
@@ -53,19 +53,19 @@ public class LoginScreen extends javax.swing.JFrame {
         getContentPane().add(txtDoLogin);
         txtDoLogin.setBounds(170, 30, 184, 39);
 
-        inputSenha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        getContentPane().add(inputSenha);
-        inputSenha.setBounds(230, 230, 220, 30);
+        inputPassword.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        getContentPane().add(inputPassword);
+        inputPassword.setBounds(230, 230, 220, 30);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLogin.setText("LOGIN");
         getContentPane().add(txtLogin);
         txtLogin.setBounds(90, 130, 105, 30);
 
-        textPassoword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        textPassoword.setText("SENHA");
-        getContentPane().add(textPassoword);
-        textPassoword.setBounds(90, 230, 105, 30);
+        txtPassoword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtPassoword.setText("SENHA");
+        getContentPane().add(txtPassoword);
+        txtPassoword.setBounds(90, 230, 105, 30);
 
         buttonLogin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonLogin.setText("LOGAR");
@@ -142,10 +142,10 @@ public class LoginScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLogin;
     private javax.swing.JComboBox<String> inputLogin;
-    private javax.swing.JPasswordField inputSenha;
-    private javax.swing.JLabel textPassoword;
+    private javax.swing.JPasswordField inputPassword;
     private javax.swing.JLabel txtDoLogin;
     private javax.swing.JLabel txtLogin;
+    private javax.swing.JLabel txtPassoword;
     // End of variables declaration//GEN-END:variables
 
     
