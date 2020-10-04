@@ -53,7 +53,8 @@ public class MainMenu extends javax.swing.JFrame {
         opcBackup = new javax.swing.JMenuItem();
         optRestore = new javax.swing.JMenuItem();
         divider1 = new javax.swing.JPopupMenu.Separator();
-        optUser = new javax.swing.JMenuItem();
+        optNewUser = new javax.swing.JMenuItem();
+        optLocaleUser = new javax.swing.JMenuItem();
         divider2 = new javax.swing.JPopupMenu.Separator();
         opcLogout = new javax.swing.JMenuItem();
         opcClose = new javax.swing.JMenuItem();
@@ -284,14 +285,22 @@ public class MainMenu extends javax.swing.JFrame {
         menuFile.add(optRestore);
         menuFile.add(divider1);
 
-        optUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        optUser.setText("Usuário");
-        optUser.addActionListener(new java.awt.event.ActionListener() {
+        optNewUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        optNewUser.setText("Novo Usuário");
+        optNewUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optUserActionPerformed(evt);
+                optNewUserActionPerformed(evt);
             }
         });
-        menuFile.add(optUser);
+        menuFile.add(optNewUser);
+
+        optLocaleUser.setText("Localizar Usuário");
+        optLocaleUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optLocaleUserActionPerformed(evt);
+            }
+        });
+        menuFile.add(optLocaleUser);
         menuFile.add(divider2);
 
         opcLogout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_MASK));
@@ -700,11 +709,21 @@ public class MainMenu extends javax.swing.JFrame {
 
         optSuport.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         optSuport.setText("Suporte");
+        optSuport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optSuportActionPerformed(evt);
+            }
+        });
         menuHelp.add(optSuport);
         menuHelp.add(divider3);
 
         optAbout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
         optAbout.setText("Sobre");
+        optAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAboutActionPerformed(evt);
+            }
+        });
         menuHelp.add(optAbout);
 
         menuBar.add(menuHelp);
@@ -868,9 +887,10 @@ public class MainMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_opcLogoutActionPerformed
 
-    private void optUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optUserActionPerformed
-        
-    }//GEN-LAST:event_optUserActionPerformed
+    private void optNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optNewUserActionPerformed
+        NewUser newUser = new NewUser();
+        newUser.setVisible(true);
+    }//GEN-LAST:event_optNewUserActionPerformed
 
     private void txtBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtBoxMouseClicked
         BillMenu billMenu = new BillMenu();
@@ -1246,6 +1266,21 @@ public class MainMenu extends javax.swing.JFrame {
         reportScreen.setVisible(true);
     }//GEN-LAST:event_optStockActionPerformed
 
+    private void optAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAboutActionPerformed
+        AboutScreen aboutScreen = new AboutScreen();
+        aboutScreen.setVisible(true);
+    }//GEN-LAST:event_optAboutActionPerformed
+
+    private void optSuportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optSuportActionPerformed
+        SuportScreen suportScreen = new SuportScreen();
+        suportScreen.setVisible(true);
+    }//GEN-LAST:event_optSuportActionPerformed
+
+    private void optLocaleUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleUserActionPerformed
+        LocaleUser localeUser = new LocaleUser();
+        localeUser.setVisible(true);
+    }//GEN-LAST:event_optLocaleUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1338,6 +1373,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optLocaleProduct;
     private javax.swing.JMenuItem optLocaleProviders;
     private javax.swing.JMenuItem optLocaleSale;
+    private javax.swing.JMenuItem optLocaleUser;
     private javax.swing.JMenuItem optMissingItems;
     private javax.swing.JMenuItem optMostRequestItems;
     private javax.swing.JMenuItem optNewBill;
@@ -1348,6 +1384,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optNewProvider;
     private javax.swing.JMenuItem optNewSale;
     private javax.swing.JMenuItem optNewTask;
+    private javax.swing.JMenuItem optNewUser;
     private javax.swing.JMenuItem optNotificationsControl;
     private javax.swing.JMenuItem optPendantOrder;
     private javax.swing.JMenuItem optPendantSale;
@@ -1356,7 +1393,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optSpendOfMonth;
     private javax.swing.JMenuItem optStock;
     private javax.swing.JMenuItem optSuport;
-    private javax.swing.JMenuItem optUser;
     private javax.swing.JLabel txtBill;
     private javax.swing.JLabel txtBox;
     private javax.swing.JLabel txtClient;

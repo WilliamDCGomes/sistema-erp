@@ -25,7 +25,6 @@ public class LoginScreen extends javax.swing.JFrame {
         txtLogin = new javax.swing.JLabel();
         textPassoword = new javax.swing.JLabel();
         buttonLogin = new javax.swing.JButton();
-        buttonCadastre = new javax.swing.JButton();
         inputLogin = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,21 +51,21 @@ public class LoginScreen extends javax.swing.JFrame {
         txtDoLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDoLogin.setText("FAÇA LOGIN");
         getContentPane().add(txtDoLogin);
-        txtDoLogin.setBounds(184, 27, 184, 39);
+        txtDoLogin.setBounds(170, 30, 184, 39);
 
         inputSenha.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         getContentPane().add(inputSenha);
-        inputSenha.setBounds(260, 245, 146, 30);
+        inputSenha.setBounds(230, 230, 220, 30);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLogin.setText("LOGIN");
         getContentPane().add(txtLogin);
-        txtLogin.setBounds(150, 145, 105, 30);
+        txtLogin.setBounds(90, 130, 105, 30);
 
         textPassoword.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         textPassoword.setText("SENHA");
         getContentPane().add(textPassoword);
-        textPassoword.setBounds(150, 245, 105, 30);
+        textPassoword.setBounds(90, 230, 105, 30);
 
         buttonLogin.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         buttonLogin.setText("LOGAR");
@@ -76,34 +75,20 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLogin);
-        buttonLogin.setBounds(110, 335, 105, 33);
-
-        buttonCadastre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        buttonCadastre.setText("CADASTRAR");
-        buttonCadastre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastreActionPerformed(evt);
-            }
-        });
-        getContentPane().add(buttonCadastre);
-        buttonCadastre.setBounds(300, 335, 141, 33);
+        buttonLogin.setBounds(90, 320, 105, 40);
 
         inputLogin.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         inputLogin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
         getContentPane().add(inputLogin);
-        inputLogin.setBounds(260, 145, 150, 30);
+        inputLogin.setBounds(230, 130, 220, 30);
 
-        setSize(new java.awt.Dimension(569, 444));
+        setSize(new java.awt.Dimension(536, 437));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         
     }//GEN-LAST:event_formWindowActivated
-
-    private void buttonCadastreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastreActionPerformed
-       
-    }//GEN-LAST:event_buttonCadastreActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         MainMenu mainMenu = new MainMenu();
@@ -155,7 +140,6 @@ public class LoginScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonCadastre;
     private javax.swing.JButton buttonLogin;
     private javax.swing.JComboBox<String> inputLogin;
     private javax.swing.JPasswordField inputSenha;
