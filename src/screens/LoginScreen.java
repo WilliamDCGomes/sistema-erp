@@ -1,5 +1,5 @@
 package screens;
-import conexaobd.ModuloConexao;
+import connectionbd.ConnectionModule;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +13,7 @@ public class LoginScreen extends javax.swing.JFrame {
     ResultSet rs = null;
     public LoginScreen() {
         initComponents();
-        //conexao = ModuloConexao.conector();
+        //conexao = ConnectionModule.conector();
     }
     
     @SuppressWarnings("unchecked")

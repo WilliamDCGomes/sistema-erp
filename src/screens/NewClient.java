@@ -6,20 +6,63 @@
 package screens;
 
 import javax.swing.JOptionPane;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import functioncontroller.GetImageAdress;
+import functioncontroller.SearchCEP;
+import functioncontroller.SearchCEPException;
+import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 /**
  *
  * @author Alunos
  */
 public class NewClient extends javax.swing.JFrame {
-
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    GetImageAdress getImageAdress = new GetImageAdress();
+    String imageAdress = null;
+    int x = 0;
     /**
      * Creates new form NewClient
      */
     public NewClient() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
-
+    private void add(){
+        String sql = "insert into clients(clientName, cpf, birthDay, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, observation, photoAdress)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1,inputName.getText());
+            pst.setString(2,inputCPF.getText());
+            pst.setString(3,inputBirthDay.getText());
+            pst.setString(4,inputPhone.getText());
+            pst.setString(5,inputCellphone.getText());
+            pst.setString(6,inputEmail.getText());
+            pst.setString(7,inputCEP.getText());
+            pst.setString(8,inputStreet.getText());
+            pst.setString(9,inputNumberHouse.getText());
+            pst.setString(10,inputNeighborhood.getText());
+            pst.setString(11,inputCity.getText());
+            pst.setString(12,inputState.getSelectedItem().toString());
+            pst.setString(13,inputObservation.getText());
+            pst.setString(14,imageAdress);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO");
+            ClientScreen clientScreen = new ClientScreen();
+            this.dispose();
+            clientScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,7 +80,7 @@ public class NewClient extends javax.swing.JFrame {
         txtCEP = new javax.swing.JLabel();
         txtStreet = new javax.swing.JLabel();
         txtNumberHouse = new javax.swing.JLabel();
-        txtComplement = new javax.swing.JLabel();
+        txtObservation = new javax.swing.JLabel();
         txtEmail = new javax.swing.JLabel();
         txtCellPhone = new javax.swing.JLabel();
         txtCadastreClient = new javax.swing.JLabel();
@@ -51,25 +94,32 @@ public class NewClient extends javax.swing.JFrame {
         inputStreet = new javax.swing.JTextField();
         inputNumberHouse = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        inputComplement = new javax.swing.JTextArea();
+        inputObservation = new javax.swing.JTextArea();
         buttonPhoto = new javax.swing.JButton();
         buttonSave = new javax.swing.JButton();
         txtCity = new javax.swing.JLabel();
         inputCity = new javax.swing.JTextField();
         txtState = new javax.swing.JLabel();
         inputState = new javax.swing.JComboBox<>();
+        txtNeighborhood = new javax.swing.JLabel();
+        inputNeighborhood = new javax.swing.JTextField();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Cliente");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtBirthDay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtBirthDay.setText("Data de Nascimento");
         getContentPane().add(txtBirthDay);
-        txtBirthDay.setBounds(510, 70, 175, 24);
+        txtBirthDay.setBounds(550, 80, 175, 24);
 
         txtName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtName.setText("Nome");
@@ -79,12 +129,12 @@ public class NewClient extends javax.swing.JFrame {
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCPF.setText("CPF / CNPJ");
         getContentPane().add(txtCPF);
-        txtCPF.setBounds(290, 80, 120, 24);
+        txtCPF.setBounds(410, 80, 120, 24);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtPhone.setText("Telefone");
         getContentPane().add(txtPhone);
-        txtPhone.setBounds(40, 140, 77, 30);
+        txtPhone.setBounds(40, 150, 77, 30);
 
         txtCEP.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCEP.setText("CEP");
@@ -94,27 +144,27 @@ public class NewClient extends javax.swing.JFrame {
         txtStreet.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtStreet.setText("Rua");
         getContentPane().add(txtStreet);
-        txtStreet.setBounds(290, 220, 34, 24);
+        txtStreet.setBounds(190, 220, 34, 24);
 
         txtNumberHouse.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtNumberHouse.setText("Nº");
         getContentPane().add(txtNumberHouse);
-        txtNumberHouse.setBounds(530, 220, 20, 24);
+        txtNumberHouse.setBounds(620, 220, 20, 24);
 
-        txtComplement.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        txtComplement.setText("Complemento");
-        getContentPane().add(txtComplement);
-        txtComplement.setBounds(40, 360, 124, 24);
+        txtObservation.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtObservation.setText("Observação");
+        getContentPane().add(txtObservation);
+        txtObservation.setBounds(40, 360, 124, 24);
 
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtEmail.setText("E-mail");
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(510, 140, 55, 30);
+        txtEmail.setBounds(410, 150, 55, 30);
 
         txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCellPhone.setText("Celular");
         getContentPane().add(txtCellPhone);
-        txtCellPhone.setBounds(290, 140, 62, 30);
+        txtCellPhone.setBounds(220, 150, 62, 30);
 
         txtCadastreClient.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtCadastreClient.setText("Cadastro de Cliente");
@@ -123,51 +173,68 @@ public class NewClient extends javax.swing.JFrame {
 
         inputName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputName);
-        inputName.setBounds(40, 110, 219, 30);
+        inputName.setBounds(40, 110, 360, 30);
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCPF);
-        inputCPF.setBounds(290, 110, 130, 30);
+        inputCPF.setBounds(410, 110, 130, 30);
 
         inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBirthDay);
-        inputBirthDay.setBounds(510, 100, 159, 30);
+        inputBirthDay.setBounds(550, 110, 159, 30);
 
         inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPhone);
-        inputPhone.setBounds(40, 170, 184, 30);
+        inputPhone.setBounds(40, 180, 160, 30);
 
         inputCellphone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCellphone);
-        inputCellphone.setBounds(290, 170, 140, 30);
+        inputCellphone.setBounds(220, 180, 170, 30);
 
         inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEmail);
-        inputEmail.setBounds(510, 170, 185, 30);
+        inputEmail.setBounds(410, 180, 330, 30);
 
         inputCEP.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCEP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputCEPFocusLost(evt);
+            }
+        });
+        inputCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCEPKeyPressed(evt);
+            }
+        });
         getContentPane().add(inputCEP);
-        inputCEP.setBounds(40, 250, 194, 30);
+        inputCEP.setBounds(40, 250, 130, 30);
 
         inputStreet.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputStreet);
-        inputStreet.setBounds(290, 250, 189, 30);
+        inputStreet.setBounds(190, 250, 410, 30);
 
         inputNumberHouse.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNumberHouse);
-        inputNumberHouse.setBounds(510, 250, 98, 30);
+        inputNumberHouse.setBounds(620, 250, 98, 30);
 
-        inputComplement.setColumns(20);
-        inputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        inputComplement.setRows(5);
-        jScrollPane1.setViewportView(inputComplement);
+        inputObservation.setColumns(20);
+        inputObservation.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputObservation.setRows(5);
+        jScrollPane1.setViewportView(inputObservation);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 400, 740, 120);
+        jScrollPane1.setBounds(40, 390, 740, 120);
 
         buttonPhoto.setText("FOTO");
+        buttonPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
+        buttonPhoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonPhoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPhotoActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonPhoto);
-        buttonPhoto.setBounds(720, 70, 170, 230);
+        buttonPhoto.setBounds(750, 80, 160, 200);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -176,37 +243,91 @@ public class NewClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(800, 480, 80, 30);
+        buttonSave.setBounds(830, 480, 80, 30);
 
         txtCity.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCity.setText("Cidade");
         getContentPane().add(txtCity);
-        txtCity.setBounds(40, 290, 80, 24);
+        txtCity.setBounds(410, 290, 80, 24);
 
         inputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCity);
-        inputCity.setBounds(40, 320, 189, 30);
+        inputCity.setBounds(410, 320, 189, 30);
 
         txtState.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtState.setText("Estado");
         getContentPane().add(txtState);
-        txtState.setBounds(290, 290, 80, 24);
+        txtState.setBounds(610, 290, 80, 24);
 
         inputState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         inputState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         getContentPane().add(inputState);
-        inputState.setBounds(290, 320, 140, 35);
+        inputState.setBounds(610, 320, 140, 35);
 
-        setSize(new java.awt.Dimension(930, 569));
+        txtNeighborhood.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtNeighborhood.setText("Bairro");
+        getContentPane().add(txtNeighborhood);
+        txtNeighborhood.setBounds(40, 290, 60, 24);
+
+        inputNeighborhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputNeighborhood);
+        inputNeighborhood.setBounds(40, 320, 360, 30);
+
+        setSize(new java.awt.Dimension(930, 560));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        ClientScreen clientScreen = new ClientScreen();
-        JOptionPane.showMessageDialog(null, "CLIENTE CADASTRADO COM SUCESSO");
-        this.dispose();
-        clientScreen.setVisible(true);
+        add();
     }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPhotoActionPerformed
+        imageAdress = getImageAdress.getAdress();
+        if(!imageAdress.equals(null)){
+            buttonPhoto.setText("");
+        }
+        ImageIcon imagen = new ImageIcon(imageAdress);
+        buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+    }//GEN-LAST:event_buttonPhotoActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x==0){
+            x++;
+            inputName.requestFocus();
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void inputCEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCEPKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            SearchCEP searchCEP = new SearchCEP();
+            try {
+                searchCEP.buscar(inputCEP.getText());
+                inputNeighborhood.setText(searchCEP.getBairro());
+                inputStreet.setText(searchCEP.getLogradouro());
+                inputCity.setText(searchCEP.getLocalidade());
+                inputState.setSelectedItem(searchCEP.getUf());
+                inputNumberHouse.requestFocus();
+            } catch (SearchCEPException ex) {
+                JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
+            }
+        }
+    }//GEN-LAST:event_inputCEPKeyPressed
+
+    private void inputCEPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCEPFocusLost
+        if(!inputCEP.getText().equals("")){
+            SearchCEP searchCEP = new SearchCEP();
+            try {
+                searchCEP.buscar(inputCEP.getText());
+                inputNeighborhood.setText(searchCEP.getBairro());
+                inputStreet.setText(searchCEP.getLogradouro());
+                inputCity.setText(searchCEP.getLocalidade());
+                inputState.setSelectedItem(searchCEP.getUf());
+                inputNumberHouse.requestFocus();
+            } catch (SearchCEPException ex) {
+                JOptionPane.showMessageDialog(null, "NÃO FOI POSSÍVEL ENCONTRAR O CEP");
+            }
+        }
+    }//GEN-LAST:event_inputCEPFocusLost
 
     /**
      * @param args the command line arguments
@@ -251,10 +372,11 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField inputCPF;
     private javax.swing.JFormattedTextField inputCellphone;
     private javax.swing.JTextField inputCity;
-    private javax.swing.JTextArea inputComplement;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputName;
+    private javax.swing.JTextField inputNeighborhood;
     private javax.swing.JTextField inputNumberHouse;
+    private javax.swing.JTextArea inputObservation;
     private javax.swing.JFormattedTextField inputPhone;
     private javax.swing.JComboBox<String> inputState;
     private javax.swing.JTextField inputStreet;
@@ -266,10 +388,11 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel txtCadastreClient;
     private javax.swing.JLabel txtCellPhone;
     private javax.swing.JLabel txtCity;
-    private javax.swing.JLabel txtComplement;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtName;
+    private javax.swing.JLabel txtNeighborhood;
     private javax.swing.JLabel txtNumberHouse;
+    private javax.swing.JLabel txtObservation;
     private javax.swing.JLabel txtPhone;
     private javax.swing.JLabel txtState;
     private javax.swing.JLabel txtStreet;
