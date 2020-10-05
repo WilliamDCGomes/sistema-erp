@@ -43,6 +43,14 @@ public class ClientScreen extends javax.swing.JFrame {
         outputNeighborhood.setDocument(new UpperLetter());
         outputCity.setDocument(new UpperLetter());
         outputObservation.setDocument(new UpperLetter());
+        txtRequiredField1.setVisible(false);
+        txtRequiredField2.setVisible(false);
+        txtRequiredField3.setVisible(false);
+        txtRequiredField4.setVisible(false);
+        txtRequiredField5.setVisible(false);
+        txtRequiredField6.setVisible(false);
+        txtRequiredField7.setVisible(false);
+        txtRequiredField8.setVisible(false);
     }
     private void updateClient(int id){
         String sql = "update clients set clientName=?, cpf=?, birthDay=?, phone=?, cellPhone=?, email=?, cep=?, street=?, houseNumber=?, neighborhood=?, city=?, state=?, observation=?,photoAdress=? where id=?";
@@ -71,6 +79,14 @@ public class ClientScreen extends javax.swing.JFrame {
             String[] idAux = this.getTitle().split(" ");
             int idAuxSiz = idAux.length;
             this.setTitle("Cliente " + idAux[idAuxSiz - 1]);
+            txtRequiredField1.setVisible(false);
+            txtRequiredField2.setVisible(false);
+            txtRequiredField3.setVisible(false);
+            txtRequiredField4.setVisible(false);
+            txtRequiredField5.setVisible(false);
+            txtRequiredField6.setVisible(false);
+            txtRequiredField7.setVisible(false);
+            txtRequiredField8.setVisible(false);
             this.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -188,6 +204,14 @@ public class ClientScreen extends javax.swing.JFrame {
         buttonPrinter = new javax.swing.JButton();
         txtNeighborhood = new javax.swing.JLabel();
         outputNeighborhood = new javax.swing.JTextField();
+        txtRequiredField2 = new javax.swing.JLabel();
+        txtRequiredField1 = new javax.swing.JLabel();
+        txtRequiredField5 = new javax.swing.JLabel();
+        txtRequiredField6 = new javax.swing.JLabel();
+        txtRequiredField7 = new javax.swing.JLabel();
+        txtRequiredField8 = new javax.swing.JLabel();
+        txtRequiredField3 = new javax.swing.JLabel();
+        txtRequiredField4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cliente");
@@ -350,7 +374,7 @@ public class ClientScreen extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(740, 470, 90, 32);
+        buttonPrinter.setBounds(740, 470, 90, 23);
 
         txtNeighborhood.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtNeighborhood.setText("Bairro");
@@ -360,6 +384,62 @@ public class ClientScreen extends javax.swing.JFrame {
         outputNeighborhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputNeighborhood);
         outputNeighborhood.setBounds(20, 300, 360, 30);
+
+        txtRequiredField2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField2.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField2.setText("*");
+        getContentPane().add(txtRequiredField2);
+        txtRequiredField2.setBounds(70, 60, 30, 30);
+
+        txtRequiredField1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField1.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField1.setText("*");
+        getContentPane().add(txtRequiredField1);
+        txtRequiredField1.setBounds(400, 60, 20, 30);
+
+        txtRequiredField5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField5.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField5.setText("*");
+        getContentPane().add(txtRequiredField5);
+        txtRequiredField5.setBounds(670, 60, 30, 30);
+
+        txtRequiredField6.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField6.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField6.setText("*");
+        getContentPane().add(txtRequiredField6);
+        txtRequiredField6.setBounds(60, 190, 20, 50);
+
+        txtRequiredField7.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField7.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField7.setText("*");
+        getContentPane().add(txtRequiredField7);
+        txtRequiredField7.setBounds(200, 200, 20, 30);
+
+        txtRequiredField8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField8.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField8.setText("*");
+        getContentPane().add(txtRequiredField8);
+        txtRequiredField8.setBounds(440, 270, 40, 30);
+
+        txtRequiredField3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField3.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField3.setText("*");
+        getContentPane().add(txtRequiredField3);
+        txtRequiredField3.setBounds(60, 270, 50, 30);
+
+        txtRequiredField4.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField4.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField4.setText("*");
+        getContentPane().add(txtRequiredField4);
+        txtRequiredField4.setBounds(620, 270, 40, 30);
 
         setSize(new java.awt.Dimension(855, 550));
         setLocationRelativeTo(null);
@@ -373,6 +453,14 @@ public class ClientScreen extends javax.swing.JFrame {
             String[] idAux = this.getTitle().split(" ");
             int idAuxSize = idAux.length;
             this.setTitle("Editar Cliente " + idAux[idAuxSize - 1]);
+            txtRequiredField1.setVisible(true);
+            txtRequiredField2.setVisible(true);
+            txtRequiredField3.setVisible(true);
+            txtRequiredField4.setVisible(true);
+            txtRequiredField5.setVisible(true);
+            txtRequiredField6.setVisible(true);
+            txtRequiredField7.setVisible(true);
+            txtRequiredField8.setVisible(true);
             this.setVisible(true);
         }
         else if(buttonEdit.getText().equals("SALVAR")){
@@ -484,6 +572,14 @@ public class ClientScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtNumberHouse;
     private javax.swing.JLabel txtObservation;
     private javax.swing.JLabel txtPhone;
+    private javax.swing.JLabel txtRequiredField1;
+    private javax.swing.JLabel txtRequiredField2;
+    private javax.swing.JLabel txtRequiredField3;
+    private javax.swing.JLabel txtRequiredField4;
+    private javax.swing.JLabel txtRequiredField5;
+    private javax.swing.JLabel txtRequiredField6;
+    private javax.swing.JLabel txtRequiredField7;
+    private javax.swing.JLabel txtRequiredField8;
     private javax.swing.JLabel txtState;
     private javax.swing.JLabel txtStreet;
     // End of variables declaration//GEN-END:variables

@@ -206,7 +206,7 @@ public class NewClient extends javax.swing.JFrame {
         txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtCPF.setText("CPF / CNPJ");
         getContentPane().add(txtCPF);
-        txtCPF.setBounds(410, 80, 120, 24);
+        txtCPF.setBounds(410, 80, 110, 24);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtPhone.setText("Telefone");
