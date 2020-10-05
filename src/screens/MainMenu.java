@@ -422,7 +422,7 @@ public class MainMenu extends javax.swing.JFrame {
 
         menuClient.setText("Clientes");
 
-        optNewClient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
+        optNewClient.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         optNewClient.setText("Adicionar Cliente");
         optNewClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -969,14 +969,6 @@ public class MainMenu extends javax.swing.JFrame {
         clientMenu.setVisible(true);
     }//GEN-LAST:event_txtClientMouseClicked
 
-    private void buttonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientActionPerformed
-        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
-        String[] vet = setLocationSubMenus.processLocation(buttonClient.getX(), 134).split("/");
-        ClientMenu clientMenu = new ClientMenu();
-        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
-        clientMenu.setVisible(true);
-    }//GEN-LAST:event_buttonClientActionPerformed
-
     private void buttonOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOrderActionPerformed
         SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
         String[] vet = setLocationSubMenus.processLocation(buttonOrder.getX(), 405).split("/");
@@ -1280,6 +1272,14 @@ public class MainMenu extends javax.swing.JFrame {
         LocaleUser localeUser = new LocaleUser();
         localeUser.setVisible(true);
     }//GEN-LAST:event_optLocaleUserActionPerformed
+
+    private void buttonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonClientActionPerformed
+        SetLocationSubMenus setLocationSubMenus = new SetLocationSubMenus();
+        String[] vet = setLocationSubMenus.processLocation(buttonClient.getX(), 134).split("/");
+        ClientMenu clientMenu = new ClientMenu();
+        clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
+        clientMenu.setVisible(true);
+    }//GEN-LAST:event_buttonClientActionPerformed
 
     /**
      * @param args the command line arguments

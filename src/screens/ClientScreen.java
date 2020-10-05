@@ -13,6 +13,7 @@ import connectionbd.ConnectionModule;
 import functioncontroller.GetImageAdress;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
+import functioncontroller.UpperLetter;
 import functioncontroller.UpperLetterAux;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -36,6 +37,12 @@ public class ClientScreen extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        outputName.setDocument(new UpperLetter());
+        outputEmail.setDocument(new UpperLetter());
+        outputStreet.setDocument(new UpperLetter());
+        outputNeighborhood.setDocument(new UpperLetter());
+        outputCity.setDocument(new UpperLetter());
+        outputObservation.setDocument(new UpperLetter());
     }
     private void updateClient(int id){
         String sql = "update clients set clientName=?, cpf=?, birthDay=?, phone=?, cellPhone=?, email=?, cep=?, street=?, houseNumber=?, neighborhood=?, city=?, state=?, observation=?,photoAdress=? where id=?";
