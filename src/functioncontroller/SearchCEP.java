@@ -6,7 +6,10 @@
  */
 package functioncontroller;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -75,17 +78,27 @@ public class SearchCEP extends SearchCEPBase {
         String url = "http://viacep.com.br/ws/" + cep + "/json/";
 
         // define os dados
-        JSONObject obj = new JSONObject(getHttpGET(url));
+        JSONObject obj = null;
+        try {
+            obj = new JSONObject(getHttpGET(url));
+        } catch (JSONException ex) {
+            Logger.getLogger(SearchCEP.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (!obj.has("erro")) {
-            CEP novoCEP = new CEP(obj.getString("cep"),
-                    obj.getString("logradouro"),
-                    obj.getString("complemento"),
-                    obj.getString("bairro"),
-                    obj.getString("localidade"),
-                    obj.getString("uf"),
-                    obj.getString("ibge"),
-                    obj.getString("gia"));
+            CEP novoCEP = null;
+            try {
+                novoCEP = new CEP(obj.getString("cep"),
+                        obj.getString("logradouro"),
+                        obj.getString("complemento"),
+                        obj.getString("bairro"),
+                        obj.getString("localidade"),
+                        obj.getString("uf"),
+                        obj.getString("ibge"),
+                        obj.getString("gia"));
+            } catch (JSONException ex) {
+                Logger.getLogger(SearchCEP.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             // insere o novo CEP
             CEPs.add(novoCEP);
@@ -135,21 +148,36 @@ public class SearchCEP extends SearchCEPBase {
         String url = "http://viacep.com.br/ws/" + Uf.toUpperCase() + "/" + Localidade + "/" + Logradouro + "/json/";
 
         // obtem a lista de CEP's
-        JSONArray ceps = new JSONArray(getHttpGET(url));
+        JSONArray ceps = null;
+        try {
+            ceps = new JSONArray(getHttpGET(url));
+        } catch (JSONException ex) {
+            Logger.getLogger(SearchCEP.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         if (ceps.length() > 0) {
             for (int i = 0; i < ceps.length(); i++) {
-                JSONObject obj = ceps.getJSONObject(i);
+                JSONObject obj = null;
+                try {
+                    obj = ceps.getJSONObject(i);
+                } catch (JSONException ex) {
+                    Logger.getLogger(SearchCEP.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
                 if (!obj.has("erro")) {
-                    CEP novoCEP = new CEP(obj.getString("cep"),
-                            obj.getString("logradouro"),
-                            obj.getString("complemento"),
-                            obj.getString("bairro"),
-                            obj.getString("localidade"),
-                            obj.getString("uf"),
-                            obj.getString("ibge"),
-                            obj.getString("gia"));
+                    CEP novoCEP = null;
+                    try {
+                        novoCEP = new CEP(obj.getString("cep"),
+                                obj.getString("logradouro"),
+                                obj.getString("complemento"),
+                                obj.getString("bairro"),
+                                obj.getString("localidade"),
+                                obj.getString("uf"),
+                                obj.getString("ibge"),
+                                obj.getString("gia"));
+                    } catch (JSONException ex) {
+                        Logger.getLogger(SearchCEP.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                     // insere o novo CEP
                     CEPs.add(novoCEP);
