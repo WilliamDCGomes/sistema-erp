@@ -10,6 +10,7 @@ import com.googlecode.javacv.OpenCVFrameGrabber;
 import com.googlecode.javacv.cpp.opencv_core.IplImage;
 import com.googlecode.javacv.cpp.opencv_highgui;
 import static com.googlecode.javacv.cpp.opencv_highgui.*;
+import functioncontroller.ScreenUserSize;
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JFileChooser;
@@ -30,6 +31,10 @@ public class TakePicture extends javax.swing.JFrame {
         initComponents();
     }
     private void openWebcam(){
+        ScreenUserSize screenUserSize = new ScreenUserSize();
+        String[] vect = screenUserSize.sizeOfScreen().split(";");
+        int x = (Integer.parseInt(vect[0])/2)-300;
+        int y = (Integer.parseInt(vect[1])/2)-380;
         Thread webcam = new Thread(){
             public void run(){
                 CvCapture capture = opencv_highgui.cvCreateCameraCapture(0);
@@ -37,7 +42,7 @@ public class TakePicture extends javax.swing.JFrame {
                 opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_WIDTH, 480);
                 IplImage grabbedImage = opencv_highgui.cvQueryFrame(capture);
                 CanvasFrame frame = new CanvasFrame("Webcam");
-                frame.setLocation(218, 84);
+                frame.setLocation(x, y);
                 canvas = frame;
                 while(frame.isVisible() && (grabbedImage = opencv_highgui.cvQueryFrame(capture))!=null){
                     frame.showImage(grabbedImage);
@@ -68,50 +73,53 @@ public class TakePicture extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        buttonTakePicture = new javax.swing.JButton();
+        buttonDeletePicture = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Captura de Imagem");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
-        });
-
-        jButton2.setText("TIRAR FOTO DA WEBCAM");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(540, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
-        );
+        buttonTakePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/takePicture.png"))); // NOI18N
+        buttonTakePicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTakePictureActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonTakePicture);
+        buttonTakePicture.setBounds(20, 10, 88, 91);
 
-        pack();
+        buttonDeletePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deletePicture.png"))); // NOI18N
+        getContentPane().add(buttonDeletePicture);
+        buttonDeletePicture.setBounds(20, 130, 90, 90);
+
+        setSize(new java.awt.Dimension(142, 267));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
-        canvas.setVisible(false);
-        JOptionPane.showMessageDialog(null, "FOTO TIRADA");
         try{
             grabber.start();
             IplImage img = grabber.grab();
+            JOptionPane.showMessageDialog(null, "FOTO TIRADA");
+            String userDir = System.getProperty("user.home");
+            String dir = userDir + "\\Pictures\\temp.png";
+            System.out.println(dir);
+            cvSaveImage(dir, img);
+            ImageScreen imageScreen = new ImageScreen();
+            imageScreen.adress = dir;
+            imageScreen.setVisible(true);
+            canvas.setVisible(false);
             if(img!=null){
                 File whereToSave = export();
                 if(whereToSave!=null){
@@ -120,11 +128,13 @@ public class TakePicture extends javax.swing.JFrame {
                     this.dispose();
                 }
             }
+            File del = new File(dir);
+            del.delete();
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonTakePictureActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
@@ -132,6 +142,10 @@ public class TakePicture extends javax.swing.JFrame {
             openWebcam();
         }
     }//GEN-LAST:event_formWindowActivated
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        canvas.dispose();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -172,6 +186,7 @@ public class TakePicture extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton buttonDeletePicture;
+    private javax.swing.JButton buttonTakePicture;
     // End of variables declaration//GEN-END:variables
 }

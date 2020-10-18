@@ -128,6 +128,6 @@ public class ImageScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPrinter;
-    private javax.swing.JLabel outputPicture;
+    public javax.swing.JLabel outputPicture;
     // End of variables declaration//GEN-END:variables
 }

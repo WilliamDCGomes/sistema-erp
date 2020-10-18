@@ -124,6 +124,9 @@ public class MainMenu extends javax.swing.JFrame {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
         });
 
         buttonProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/product.png"))); // NOI18N
@@ -831,6 +834,12 @@ public class MainMenu extends javax.swing.JFrame {
         if(x==0){
             x++;
             TakePicture takePicture = new TakePicture();
+            ScreenUserSize screenUserSize = new ScreenUserSize();
+            String[] vect = screenUserSize.sizeOfScreen().split(";");
+            System.out.println(this.getSize());
+            int x = (Integer.parseInt(vect[0])/2)-450;
+            int y = (Integer.parseInt(vect[1])/2)-250;
+            takePicture.setLocation(x, y);
             takePicture.setVisible(true);
         }
     }//GEN-LAST:event_formWindowActivated
@@ -1285,6 +1294,10 @@ public class MainMenu extends javax.swing.JFrame {
         clientMenu.setLocation(Integer.parseInt(vet[0]), Integer.parseInt(vet[1]));
         clientMenu.setVisible(true);
     }//GEN-LAST:event_buttonClientActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
