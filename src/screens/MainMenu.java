@@ -15,6 +15,7 @@ import submenus.SaleMenu;
 import submenus.ProviderMenu;
 
 public class MainMenu extends javax.swing.JFrame {
+    int x =0 ;
     public MainMenu() {
         initComponents();
         ScreenUserSize screenUserSize = new ScreenUserSize();
@@ -827,8 +828,11 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        GetImage getImage = new GetImage();
-        getImage.setVisible(true);
+        if(x==0){
+            x++;
+            TakePicture takePicture = new TakePicture();
+            takePicture.setVisible(true);
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
