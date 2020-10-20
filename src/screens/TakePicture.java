@@ -13,6 +13,8 @@ import static com.googlecode.javacv.cpp.opencv_highgui.*;
 import functioncontroller.ScreenUserSize;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -24,6 +26,10 @@ public class TakePicture extends javax.swing.JFrame {
     int x = 0;
     Export export = new Export();
     CanvasFrame canvas;
+    IplImage img;
+    String dir;
+    Thread webcam;
+    CvCapture capture;
     /**
      * Creates new form javacv_image
      */
@@ -35,18 +41,20 @@ public class TakePicture extends javax.swing.JFrame {
         String[] vect = screenUserSize.sizeOfScreen().split(";");
         int x = (Integer.parseInt(vect[0])/2)-300;
         int y = (Integer.parseInt(vect[1])/2)-380;
-        Thread webcam = new Thread(){
+        webcam = new Thread(){
             public void run(){
-                CvCapture capture = opencv_highgui.cvCreateCameraCapture(0);
+                capture = opencv_highgui.cvCreateCameraCapture(0);
                 opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_HEIGHT, 600);
                 opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_WIDTH, 480);
                 IplImage grabbedImage = opencv_highgui.cvQueryFrame(capture);
                 CanvasFrame frame = new CanvasFrame("Webcam");
+                frame.setDefaultCloseOperation(2);
                 frame.setLocation(x, y);
                 canvas = frame;
                 while(frame.isVisible() && (grabbedImage = opencv_highgui.cvQueryFrame(capture))!=null){
                     frame.showImage(grabbedImage);
                 }
+                opencv_highgui.cvQueryFrame(capture).setNull();
             }
         };
         webcam.start();
@@ -75,6 +83,7 @@ public class TakePicture extends javax.swing.JFrame {
 
         buttonTakePicture = new javax.swing.JButton();
         buttonDeletePicture = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Captura de Imagem");
@@ -100,9 +109,18 @@ public class TakePicture extends javax.swing.JFrame {
 
         buttonDeletePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deletePicture.png"))); // NOI18N
         getContentPane().add(buttonDeletePicture);
-        buttonDeletePicture.setBounds(20, 130, 90, 90);
+        buttonDeletePicture.setBounds(20, 230, 90, 90);
 
-        setSize(new java.awt.Dimension(142, 267));
+        buttonSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonSave);
+        buttonSave.setBounds(20, 120, 90, 90);
+
+        setSize(new java.awt.Dimension(136, 369));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -110,26 +128,16 @@ public class TakePicture extends javax.swing.JFrame {
         OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(0);
         try{
             grabber.start();
-            IplImage img = grabber.grab();
-            JOptionPane.showMessageDialog(null, "FOTO TIRADA");
+            img = grabber.grab();
             String userDir = System.getProperty("user.home");
-            String dir = userDir + "\\Pictures\\temp.png";
-            System.out.println(dir);
+            dir = userDir + "\\Pictures\\temp.png";
             cvSaveImage(dir, img);
             ImageScreen imageScreen = new ImageScreen();
             imageScreen.adress = dir;
+            imageScreen.minimum = true;
+            canvas.dispose();
             imageScreen.setVisible(true);
-            canvas.setVisible(false);
-            if(img!=null){
-                File whereToSave = export();
-                if(whereToSave!=null){
-                    cvSaveImage(whereToSave.toString(), img);
-                    JOptionPane.showMessageDialog(null, "FOTO SALVA");
-                    this.dispose();
-                }
-            }
-            File del = new File(dir);
-            del.delete();
+            webcam.stop();
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
@@ -146,6 +154,24 @@ public class TakePicture extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         canvas.dispose();
     }//GEN-LAST:event_formWindowClosing
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        if(img!=null){
+            try{
+                File whereToSave = export();
+                if(whereToSave!=null){
+                    cvSaveImage(whereToSave.toString(), img);
+                    JOptionPane.showMessageDialog(null, "FOTO SALVA");
+                    this.dispose();
+                }
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, "ERRO " + e);
+            }
+        }
+        File del = new File(dir);
+        del.delete();
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +213,7 @@ public class TakePicture extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonDeletePicture;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JButton buttonTakePicture;
     // End of variables declaration//GEN-END:variables
 }

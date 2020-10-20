@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 public class ImageScreen extends javax.swing.JFrame {
     int x = 0;
     public String adress = null;
+    public boolean minimum = false;
     /**
      * Creates new form ProductImage
      */
@@ -73,20 +74,31 @@ public class ImageScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setBounds(0, 0, 559, 468);
+        setSize(new java.awt.Dimension(559, 468));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
             x++;
-            ScreenUserSize screenUserSize = new ScreenUserSize();
-            String[] size = screenUserSize.sizeOfScreen().split(";");
-            this.setSize(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
-            if(!adress.equals(null)){
-                outputPicture.setText("");
+            if(minimum==false){
+                ScreenUserSize screenUserSize = new ScreenUserSize();
+                String[] size = screenUserSize.sizeOfScreen().split(";");
+                this.setSize(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
+                if(!adress.equals(null)){
+                    outputPicture.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(adress);
+                outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
             }
-            ImageIcon imagen = new ImageIcon(adress);
-            outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
+            else if(minimum==true){
+                this.setSize(600, 480);
+                if(!adress.equals(null)){
+                    outputPicture.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(adress);
+                outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
+            }
         }
     }//GEN-LAST:event_formWindowActivated
 

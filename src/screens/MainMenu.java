@@ -1296,7 +1296,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonClientActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
+        System.exit(0);
     }//GEN-LAST:event_formWindowClosing
 
     /**
