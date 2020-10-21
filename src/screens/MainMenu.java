@@ -836,7 +836,6 @@ public class MainMenu extends javax.swing.JFrame {
             TakePicture takePicture = new TakePicture();
             ScreenUserSize screenUserSize = new ScreenUserSize();
             String[] vect = screenUserSize.sizeOfScreen().split(";");
-            System.out.println(this.getSize());
             int x = (Integer.parseInt(vect[0])/2)-450;
             int y = (Integer.parseInt(vect[1])/2)-250;
             takePicture.setLocation(x, y);

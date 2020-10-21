@@ -30,6 +30,7 @@ public class TakePicture extends javax.swing.JFrame {
     String dir;
     Thread webcam;
     CvCapture capture;
+    ImageScreen imageScreen;
     /**
      * Creates new form javacv_image
      */
@@ -46,15 +47,13 @@ public class TakePicture extends javax.swing.JFrame {
                 capture = opencv_highgui.cvCreateCameraCapture(0);
                 opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_HEIGHT, 600);
                 opencv_highgui.cvSetCaptureProperty(capture, opencv_highgui.CV_CAP_PROP_FRAME_WIDTH, 480);
-                IplImage grabbedImage = opencv_highgui.cvQueryFrame(capture);
                 CanvasFrame frame = new CanvasFrame("Webcam");
                 frame.setDefaultCloseOperation(2);
                 frame.setLocation(x, y);
                 canvas = frame;
-                while(frame.isVisible() && (grabbedImage = opencv_highgui.cvQueryFrame(capture))!=null){
-                    frame.showImage(grabbedImage);
+                while(frame.isVisible() && (opencv_highgui.cvQueryFrame(capture))!=null){
+                    frame.showImage(opencv_highgui.cvQueryFrame(capture));
                 }
-                opencv_highgui.cvQueryFrame(capture).setNull();
             }
         };
         webcam.start();
@@ -131,13 +130,14 @@ public class TakePicture extends javax.swing.JFrame {
             img = grabber.grab();
             String userDir = System.getProperty("user.home");
             dir = userDir + "\\Pictures\\temp.png";
-            cvSaveImage(dir, img);
-            ImageScreen imageScreen = new ImageScreen();
-            imageScreen.adress = dir;
-            imageScreen.minimum = true;
-            canvas.dispose();
-            imageScreen.setVisible(true);
-            webcam.stop();
+            if(img!=null){
+                cvSaveImage(dir, img);
+                imageScreen = new ImageScreen();
+                imageScreen.adress = dir;
+                imageScreen.minimum = true;
+                canvas.dispose();
+                imageScreen.setVisible(true);
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
@@ -162,6 +162,7 @@ public class TakePicture extends javax.swing.JFrame {
                 if(whereToSave!=null){
                     cvSaveImage(whereToSave.toString(), img);
                     JOptionPane.showMessageDialog(null, "FOTO SALVA");
+                    imageScreen.setVisible(false);
                     this.dispose();
                 }
             }
