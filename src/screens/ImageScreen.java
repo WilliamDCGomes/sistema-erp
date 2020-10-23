@@ -19,6 +19,8 @@ public class ImageScreen extends javax.swing.JFrame {
     int x = 0;
     public String adress = null;
     public NewClient newClient;
+    public ClientScreen clientScreen;
+    public boolean itsANewClient = false;
     /**
      * Creates new form ProductImage
      */
@@ -100,14 +102,19 @@ public class ImageScreen extends javax.swing.JFrame {
 
     private void buttonPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrinterActionPerformed
         if(buttonPrinter.getText().equals("EXCLUIR")){
-            newClient.imageAdress = null;
-            newClient.buttonPhoto.setIcon(null);
-            newClient.buttonPhoto.setText("FOTO");
-            String[] valide = adress.split(";");
-            if(valide[1].equals("CAPTURE")){
-                File file = new File(adress);
-                file.delete();
+            if(itsANewClient==true){
+                newClient.imageAdress = null;
+                newClient.buttonPhoto.setIcon(null);
+                newClient.buttonPhoto.setText("FOTO");
             }
+            else{
+                clientScreen.imageAdress = null;
+                clientScreen.buttonPhoto.setIcon(null);
+                clientScreen.buttonPhoto.setText("FOTO");
+            }
+            String[] valide = adress.split(";");
+            File file = new File(adress);
+            file.delete();
             JOptionPane.showMessageDialog(null, "FOTO APAGADA");
             this.dispose();
         }

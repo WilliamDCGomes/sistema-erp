@@ -17,6 +17,7 @@ import functioncontroller.UpperLetter;
 import functioncontroller.UpperLetterAux;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import static screens.NewClient.buttonPhoto;
 /**
  *
  * @author Lenovo
@@ -477,12 +478,18 @@ public class ClientScreen extends javax.swing.JFrame {
             imageScreen.setVisible(true);
         }
         else if(txtClient.getText().equals("EDITAR CLIENTE")){
-            imageAdress = getImageAdress.getAdress();
-            if(!imageAdress.equals(null)){
-                buttonPhoto.setText("");
+            if(buttonPhoto.getText().equals("FOTO")){
+                TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
+                takePictureOrChoose.clientScreen = this;
+                takePictureOrChoose.setVisible(true);
             }
-            ImageIcon imagen = new ImageIcon(imageAdress);
-            buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            else{
+                TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
+                takePictureOrChoose.clientScreen = this;
+                takePictureOrChoose.buttonShowPicture.setVisible(true);
+                takePictureOrChoose.adress=imageAdress;
+                takePictureOrChoose.setVisible(true);
+            }
         }
     }//GEN-LAST:event_buttonPhotoActionPerformed
 
@@ -544,7 +551,7 @@ public class ClientScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonPhoto;
+    public static javax.swing.JButton buttonPhoto;
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JFormattedTextField outputBirthDay;

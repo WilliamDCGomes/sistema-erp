@@ -15,10 +15,12 @@ import connectionbd.ConnectionModule;
  */
 public class TakePictureOrChoose extends javax.swing.JFrame {
     public NewClient newClient;
+    public ClientScreen clientScreen;
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     String adress;
+    public boolean itsANewClient = false;
     /**
      * Creates new form TakePictureOrChoose
      */
@@ -35,13 +37,24 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         timer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
                 if(!begin.equals(adress)){
-                    newClient.imageAdress = adress;
-                    if(!newClient.imageAdress.equals(null)){
-                        newClient.buttonPhoto.setText("");
+                    if(itsANewClient==true){
+                        newClient.imageAdress = adress;
+                        if(!newClient.imageAdress.equals(null)){
+                            newClient.buttonPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(newClient.imageAdress);
+                        newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
                     }
-                    ImageIcon imagen = new ImageIcon(newClient.imageAdress);
-                    newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
-                    timer.cancel();
+                    else{
+                        clientScreen.imageAdress = adress;
+                        if(!clientScreen.imageAdress.equals(null)){
+                            clientScreen.buttonPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(clientScreen.imageAdress);
+                        clientScreen.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(clientScreen.buttonPhoto.getWidth(), clientScreen.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
+                    }
                 }
                 adress=getAdress();
             }
@@ -79,6 +92,13 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Upload de Imagem");
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         buttonTakePicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -117,12 +137,22 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
     private void buttonChoosePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChoosePictureActionPerformed
         this.dispose();
-        newClient.imageAdress = newClient.getImageAdress.getAdress();
-        if(!newClient.imageAdress.equals(null)){
-            newClient.buttonPhoto.setText("");
+        if(itsANewClient==true){
+            newClient.imageAdress = newClient.getImageAdress.getAdress();
+            if(!newClient.imageAdress.equals(null)){
+                newClient.buttonPhoto.setText("");
+            }
+            ImageIcon imagen = new ImageIcon(newClient.imageAdress);
+            newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
         }
-        ImageIcon imagen = new ImageIcon(newClient.imageAdress);
-        newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+        else{
+            clientScreen.imageAdress = clientScreen.getImageAdress.getAdress();
+            if(!clientScreen.imageAdress.equals(null)){
+                clientScreen.buttonPhoto.setText("");
+            }
+            ImageIcon imagen = new ImageIcon(clientScreen.imageAdress);
+            clientScreen.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(clientScreen.buttonPhoto.getWidth(), clientScreen.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+        }
     }//GEN-LAST:event_buttonChoosePictureActionPerformed
 
     private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
@@ -141,10 +171,20 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         ImageScreen imageScreen = new ImageScreen();
         imageScreen.adress=adress;
         imageScreen.buttonPrinter.setText("EXCLUIR");
-        imageScreen.newClient = newClient;
+        if(itsANewClient==true){
+            imageScreen.newClient = newClient;
+            imageScreen.itsANewClient=true;
+        }
+        else{
+            imageScreen.clientScreen = clientScreen;
+        }
         imageScreen.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_buttonShowPictureActionPerformed
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+        this.dispose();
+    }//GEN-LAST:event_formWindowLostFocus
 
     /**
      * @param args the command line arguments

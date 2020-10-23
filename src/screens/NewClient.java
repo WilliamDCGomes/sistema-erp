@@ -426,6 +426,7 @@ public class NewClient extends javax.swing.JFrame {
         if(buttonPhoto.getText().equals("FOTO")){
             TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
             takePictureOrChoose.newClient = this;
+            takePictureOrChoose.itsANewClient=true;
             takePictureOrChoose.setVisible(true);
         }
         else{
@@ -433,6 +434,7 @@ public class NewClient extends javax.swing.JFrame {
             takePictureOrChoose.newClient = this;
             takePictureOrChoose.buttonShowPicture.setVisible(true);
             takePictureOrChoose.adress=imageAdress;
+            takePictureOrChoose.itsANewClient=true;
             takePictureOrChoose.setVisible(true);
         }
     }//GEN-LAST:event_buttonPhotoActionPerformed
