@@ -423,9 +423,18 @@ public class NewClient extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPhotoActionPerformed
-        TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
-        takePictureOrChoose.newClient = this;
-        takePictureOrChoose.setVisible(true);
+        if(buttonPhoto.getText().equals("FOTO")){
+            TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
+            takePictureOrChoose.newClient = this;
+            takePictureOrChoose.setVisible(true);
+        }
+        else{
+            TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
+            takePictureOrChoose.newClient = this;
+            takePictureOrChoose.buttonShowPicture.setVisible(true);
+            takePictureOrChoose.adress=imageAdress;
+            takePictureOrChoose.setVisible(true);
+        }
     }//GEN-LAST:event_buttonPhotoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated

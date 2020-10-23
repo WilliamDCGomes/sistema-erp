@@ -1,12 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
 import java.awt.Image;
+import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
 
 /**
  *
@@ -14,13 +15,55 @@ import javax.swing.ImageIcon;
  */
 public class TakePictureOrChoose extends javax.swing.JFrame {
     public NewClient newClient;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    String adress;
     /**
      * Creates new form TakePictureOrChoose
      */
     public TakePictureOrChoose() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        buttonShowPicture.setVisible(false);
     }
-
+    public void timeSet(String begin){
+        int delay = 100;   // tempo de espera antes da 1ª execução da tarefa.
+        int interval = 1000;  // intervalo no qual a tarefa será executada.
+        java.util.Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                if(!begin.equals(adress)){
+                    newClient.imageAdress = adress;
+                    if(!newClient.imageAdress.equals(null)){
+                        newClient.buttonPhoto.setText("");
+                    }
+                    ImageIcon imagen = new ImageIcon(newClient.imageAdress);
+                    newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                    timer.cancel();
+                }
+                adress=getAdress();
+            }
+        }, delay, interval);
+        this.dispose();
+    }
+    public String getAdress(){
+        String sql ="select adress from temporaryAdress where id = (select max(id) from temporaryAdress)";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs= pst.executeQuery();
+            if(rs.next()){
+                return rs.getString(1);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "CLIENTE NÃO LOCALIZADO NO SISTEMA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return null;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +75,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
         buttonTakePicture = new javax.swing.JButton();
         buttonChoosePicture = new javax.swing.JButton();
+        buttonShowPicture = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Upload de Imagem");
@@ -57,7 +101,17 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         getContentPane().add(buttonChoosePicture);
         buttonChoosePicture.setBounds(50, 80, 160, 27);
 
-        setSize(new java.awt.Dimension(285, 193));
+        buttonShowPicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        buttonShowPicture.setText("VER FOTO");
+        buttonShowPicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonShowPictureActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonShowPicture);
+        buttonShowPicture.setBounds(50, 120, 160, 27);
+
+        setSize(new java.awt.Dimension(285, 215));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -72,8 +126,25 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonChoosePictureActionPerformed
 
     private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
-        // TODO add your handling code here:
+        try{
+            Runtime.getRuntime().exec("D:\\Programing\\Sistema-de-Loja-de-Roupa\\IniciaCamera.bat");
+            adress=getAdress();
+            timeSet(getAdress());
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "ERRO: " + e);
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonTakePictureActionPerformed
+
+    private void buttonShowPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowPictureActionPerformed
+        ImageScreen imageScreen = new ImageScreen();
+        imageScreen.adress=adress;
+        imageScreen.buttonPrinter.setText("EXCLUIR");
+        imageScreen.newClient = newClient;
+        imageScreen.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_buttonShowPictureActionPerformed
 
     /**
      * @param args the command line arguments
@@ -112,6 +183,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonChoosePicture;
+    public static javax.swing.JButton buttonShowPicture;
     private javax.swing.JButton buttonTakePicture;
     // End of variables declaration//GEN-END:variables
 }

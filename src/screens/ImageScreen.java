@@ -7,7 +7,9 @@ package screens;
 
 import functioncontroller.ScreenUserSize;
 import java.awt.Image;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +18,7 @@ import javax.swing.ImageIcon;
 public class ImageScreen extends javax.swing.JFrame {
     int x = 0;
     public String adress = null;
-    public boolean minimum = false;
+    public NewClient newClient;
     /**
      * Creates new form ProductImage
      */
@@ -46,6 +48,11 @@ public class ImageScreen extends javax.swing.JFrame {
         });
 
         buttonPrinter.setText("IMPRIMIR");
+        buttonPrinter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrinterActionPerformed(evt);
+            }
+        });
 
         outputPicture.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         outputPicture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,33 +81,37 @@ public class ImageScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(559, 468));
-        setLocationRelativeTo(null);
+        setBounds(0, 0, 559, 468);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
             x++;
-            if(minimum==false){
-                ScreenUserSize screenUserSize = new ScreenUserSize();
-                String[] size = screenUserSize.sizeOfScreen().split(";");
-                this.setSize(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
-                if(!adress.equals(null)){
-                    outputPicture.setText("");
-                }
-                ImageIcon imagen = new ImageIcon(adress);
-                outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
+            ScreenUserSize screenUserSize = new ScreenUserSize();
+            String[] size = screenUserSize.sizeOfScreen().split(";");
+            this.setSize(Integer.parseInt(size[0]), Integer.parseInt(size[1]));
+            if(!adress.equals(null)){
+                outputPicture.setText("");
             }
-            else if(minimum==true){
-                this.setSize(600, 480);
-                if(!adress.equals(null)){
-                    outputPicture.setText("");
-                }
-                ImageIcon imagen = new ImageIcon(adress);
-                outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
-            }
+            ImageIcon imagen = new ImageIcon(adress);
+            outputPicture.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPicture.getWidth(), outputPicture.getHeight(), Image.SCALE_DEFAULT)));
         }
     }//GEN-LAST:event_formWindowActivated
+
+    private void buttonPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrinterActionPerformed
+        if(buttonPrinter.getText().equals("EXCLUIR")){
+            newClient.imageAdress = null;
+            newClient.buttonPhoto.setIcon(null);
+            newClient.buttonPhoto.setText("FOTO");
+            String[] valide = adress.split(";");
+            if(valide[1].equals("CAPTURE")){
+                File file = new File(adress);
+                file.delete();
+            }
+            JOptionPane.showMessageDialog(null, "FOTO APAGADA");
+            this.dispose();
+        }
+    }//GEN-LAST:event_buttonPrinterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +150,7 @@ public class ImageScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonPrinter;
+    public static javax.swing.JButton buttonPrinter;
     public javax.swing.JLabel outputPicture;
     // End of variables declaration//GEN-END:variables
 }
