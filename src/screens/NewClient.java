@@ -423,12 +423,9 @@ public class NewClient extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPhotoActionPerformed
-        imageAdress = getImageAdress.getAdress();
-        if(!imageAdress.equals(null)){
-            buttonPhoto.setText("");
-        }
-        ImageIcon imagen = new ImageIcon(imageAdress);
-        buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+        TakePictureOrChoose takePictureOrChoose = new TakePictureOrChoose();
+        takePictureOrChoose.newClient = this;
+        takePictureOrChoose.setVisible(true);
     }//GEN-LAST:event_buttonPhotoActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -486,7 +483,7 @@ public class NewClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton buttonPhoto;
+    public static javax.swing.JButton buttonPhoto;
     private javax.swing.JButton buttonSave;
     private javax.swing.JFormattedTextField inputBirthDay;
     private javax.swing.JFormattedTextField inputCEP;

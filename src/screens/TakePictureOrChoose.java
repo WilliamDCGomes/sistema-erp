@@ -5,12 +5,15 @@
  */
 package screens;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author willi_bg
  */
 public class TakePictureOrChoose extends javax.swing.JFrame {
-
+    public NewClient newClient;
     /**
      * Creates new form TakePictureOrChoose
      */
@@ -27,13 +30,50 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonTakePicture = new javax.swing.JButton();
+        buttonChoosePicture = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Upload de Imagem");
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(416, 339));
+        buttonTakePicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        buttonTakePicture.setText("TIRAR FOTO");
+        buttonTakePicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTakePictureActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonTakePicture);
+        buttonTakePicture.setBounds(50, 40, 160, 27);
+
+        buttonChoosePicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        buttonChoosePicture.setText("ESCOLHER FOTO");
+        buttonChoosePicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChoosePictureActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonChoosePicture);
+        buttonChoosePicture.setBounds(50, 80, 160, 27);
+
+        setSize(new java.awt.Dimension(285, 193));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonChoosePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChoosePictureActionPerformed
+        this.dispose();
+        newClient.imageAdress = newClient.getImageAdress.getAdress();
+        if(!newClient.imageAdress.equals(null)){
+            newClient.buttonPhoto.setText("");
+        }
+        ImageIcon imagen = new ImageIcon(newClient.imageAdress);
+        newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+    }//GEN-LAST:event_buttonChoosePictureActionPerformed
+
+    private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonTakePictureActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,5 +111,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonChoosePicture;
+    private javax.swing.JButton buttonTakePicture;
     // End of variables declaration//GEN-END:variables
 }

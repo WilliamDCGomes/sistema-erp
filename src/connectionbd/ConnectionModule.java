@@ -11,7 +11,7 @@ public class ConnectionModule {
     private String port = "3306";
     private String db = "clothingStore";
     private String user = "root";
-    private String password = "";
+    private String password = "Ng4hwvh26c733kw";
     private Connection connection = null;
     
     public ConnectionModule(){

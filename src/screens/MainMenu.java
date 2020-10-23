@@ -831,16 +831,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        if(x==0){
-            x++;
-            TakePicture takePicture = new TakePicture();
-            ScreenUserSize screenUserSize = new ScreenUserSize();
-            String[] vect = screenUserSize.sizeOfScreen().split(";");
-            int x = (Integer.parseInt(vect[0])/2)-450;
-            int y = (Integer.parseInt(vect[1])/2)-250;
-            takePicture.setLocation(x, y);
-            takePicture.setVisible(true);
-        }
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
