@@ -15,8 +15,6 @@ import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
 import functioncontroller.UpperLetter;
 import functioncontroller.UpperLetterAux;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 /**
  *
  * @author Alunos
