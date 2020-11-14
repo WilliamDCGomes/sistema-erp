@@ -1,23 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
-
-/**
- *
- * @author Alunos
- */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import javax.swing.JOptionPane;
 public class LocaleProvider extends javax.swing.JFrame {
-
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form LocaleProvider
      */
     public LocaleProvider() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        inputCPFOrCNPJ.setDocument(new MaskCPFAndCNPJ());
     }
-
+    private void setProvider(){
+        String sql ="select codeProvider from provider where cpf=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputCPFOrCNPJ.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                ProviderScreen providerScreen = new ProviderScreen();
+                providerScreen.setTitle("Fornecedor: " + rs.getString(1));
+                this.dispose();
+                providerScreen.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "FORNECEDOR NÃO LOCALIZADO NO SISTEMA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,64 +46,67 @@ public class LocaleProvider extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtLocaleProvider = new javax.swing.JLabel();
+        txtCPF = new javax.swing.JLabel();
+        inputCPFOrCNPJ = new javax.swing.JTextField();
+        buttonLocale = new javax.swing.JButton();
+        buttonAllProviders = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Localizar Fornecedor");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setText("LOCALIZAR FORNECEDORES");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 10, 350, 32);
+        txtLocaleProvider.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtLocaleProvider.setText("LOCALIZAR FORNECEDORES");
+        getContentPane().add(txtLocaleProvider);
+        txtLocaleProvider.setBounds(30, 10, 350, 32);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        jLabel2.setText("CPF / CNPJ");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 60, 120, 20);
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtCPF.setText("CPF / CNPJ");
+        getContentPane().add(txtCPF);
+        txtCPF.setBounds(30, 60, 120, 20);
 
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(30, 90, 220, 28);
+        inputCPFOrCNPJ.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        getContentPane().add(inputCPFOrCNPJ);
+        inputCPFOrCNPJ.setBounds(30, 90, 220, 24);
 
-        jButton1.setText("LOCALIZAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonLocale.setText("LOCALIZAR");
+        buttonLocale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonLocaleActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(30, 130, 100, 32);
+        getContentPane().add(buttonLocale);
+        buttonLocale.setBounds(30, 130, 100, 25);
 
-        jButton2.setText("TODOS OS FORNECEDORES");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllProviders.setText("TODOS OS FORNECEDORES");
+        buttonAllProviders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonAllProvidersActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(160, 130, 200, 32);
+        getContentPane().add(buttonAllProviders);
+        buttonAllProviders.setBounds(160, 130, 200, 25);
 
         setSize(new java.awt.Dimension(412, 216));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ProviderScreen providerScreen = new ProviderScreen();
-        this.dispose();
-        providerScreen.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
+        if(!inputCPFOrCNPJ.getText().equals("")){
+            setProvider();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR, DIGITE UM CPF OU CNPJ!");
+        }
+    }//GEN-LAST:event_buttonLocaleActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonAllProvidersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProvidersActionPerformed
         AllProviders allProviders = new AllProviders();
         this.dispose();
         allProviders.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonAllProvidersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,10 +144,10 @@ public class LocaleProvider extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buttonAllProviders;
+    private javax.swing.JButton buttonLocale;
+    private javax.swing.JTextField inputCPFOrCNPJ;
+    private javax.swing.JLabel txtCPF;
+    private javax.swing.JLabel txtLocaleProvider;
     // End of variables declaration//GEN-END:variables
 }

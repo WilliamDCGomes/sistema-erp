@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Alunos
- */
+
 public class LocaleClient extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
@@ -111,7 +103,7 @@ public class LocaleClient extends javax.swing.JFrame {
             setClient();
         }
         else{
-            JOptionPane.showMessageDialog(null, "POR FAVOR, DIGITE UM CPF!");
+            JOptionPane.showMessageDialog(null, "POR FAVOR, DIGITE UM CPF OU CNPJ!");
         }
     }//GEN-LAST:event_buttonLocaleActionPerformed
 

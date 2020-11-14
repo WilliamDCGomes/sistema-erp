@@ -4,16 +4,27 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import formattingmask.MaskCepAndHouseNumber;
+import formattingmask.MaskJustNumbers;
+import formattingmask.MaskPhone;
+import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
 import functioncontroller.UpperLetter;
 import functioncontroller.UpperLetterAux;
+import functioncontroller.ValidateCNPJ;
+import functioncontroller.ValidateCPF;
 
 
 public class NewProvider extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    boolean cpfValide = false;
+    boolean cnpjValide = false;
     int x = 0;
     public NewProvider() {
         initComponents();
@@ -27,6 +38,12 @@ public class NewProvider extends javax.swing.JFrame {
         inputCity.setDocument(new UpperLetter());
         inputComplement.setDocument(new UpperLetter());
         inputObservation.setDocument(new UpperLetter());
+        inputCPFAndCNPJ.setDocument(new MaskCPFAndCNPJ());
+        inputPhone.setDocument(new MaskPhone());
+        inputCellPhone.setDocument(new MaskPhone());
+        inputCep.setDocument(new MaskCepAndHouseNumber());
+        inputNumber.setDocument(new MaskCepAndHouseNumber());
+        inputCode.setDocument(new MaskJustNumbers());
     }
     private void add(){
         String sql = "insert into provider(codeProvider, cpf, fantasyName, companyName, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, complement, observation)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -53,6 +70,64 @@ public class NewProvider extends javax.swing.JFrame {
             this.dispose();
             providerScreen.setTitle("Fornecedor: " + inputCode.getText());
             providerScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void updateProvider(){
+        String sql = "update provider set cpf=?, fantasyName=?, companyName=?, phone=?, cellPhone=?, email=?, cep=?, street=?, houseNumber=?, neighborhood=?, city=?, state=?, complement=?,observation=? where codeProvider=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,inputCPFAndCNPJ.getText());
+            pst.setString(2,inputFantasyName.getText());
+            pst.setString(3,inputCompanyName.getText());
+            pst.setString(4,inputPhone.getText());
+            pst.setString(5,inputCellPhone.getText());
+            pst.setString(6,inputEmail.getText());
+            pst.setString(7,inputCep.getText());
+            pst.setString(8,inputAdress.getText());
+            pst.setString(9,inputNumber.getText());
+            pst.setString(10,inputNeighborhood.getText());
+            pst.setString(11,inputCity.getText());
+            pst.setString(12,inputState.getSelectedItem().toString());
+            pst.setString(13,inputComplement.getText());
+            pst.setString(14,inputObservation.getText());
+            pst.setInt(15,Integer.parseInt( inputCode.getText() ));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"FORNECEDOR ATUALIZADO COM SUCESSO");
+            ProviderScreen providerScreen = new ProviderScreen();
+            this.dispose();
+            providerScreen.setTitle("Fornecedor: " + inputCode.getText());
+            providerScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void setProvider(){
+        String[] vect = this.getTitle().split(" ");
+        int codeProvider = Integer.parseInt( vect[2] );
+        String sql ="select cpf, fantasyName, companyName, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, complement, observation from provider where codeProvider=?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codeProvider);
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                inputCPFAndCNPJ.setText(rs2.getString(1));
+                inputFantasyName.setText(rs2.getString(2));
+                inputCompanyName.setText(rs2.getString(3));
+                inputPhone.setText(rs2.getString(4));
+                inputCellPhone.setText(rs2.getString(5));
+                inputEmail.setText(rs2.getString(6));
+                inputCep.setText(rs2.getString(7));
+                inputAdress.setText(rs2.getString(8));
+                inputNumber.setText(rs2.getString(9));
+                inputNeighborhood.setText(rs2.getString(10));
+                inputCity.setText(rs2.getString(11));
+                inputState.setSelectedItem(rs2.getString(12));
+                inputComplement.setText(rs2.getString(13));
+                inputObservation.setText(rs2.getString(14));
+                inputCode.setText( vect[2] );
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -193,6 +268,16 @@ public class NewProvider extends javax.swing.JFrame {
         txtCPFAndCNPJ.setBounds(20, 150, 100, 20);
 
         inputCPFAndCNPJ.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPFAndCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputCPFAndCNPJFocusLost(evt);
+            }
+        });
+        inputCPFAndCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCPFAndCNPJKeyPressed(evt);
+            }
+        });
         getContentPane().add(inputCPFAndCNPJ);
         inputCPFAndCNPJ.setBounds(20, 180, 160, 30);
 
@@ -213,11 +298,11 @@ public class NewProvider extends javax.swing.JFrame {
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPhone.setText("Telefone");
         getContentPane().add(txtPhone);
-        txtPhone.setBounds(210, 150, 64, 20);
+        txtPhone.setBounds(200, 150, 64, 20);
 
         inputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPhone);
-        inputPhone.setBounds(210, 180, 150, 30);
+        inputPhone.setBounds(200, 180, 150, 30);
 
         txtCep.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCep.setText("CEP");
@@ -278,11 +363,11 @@ public class NewProvider extends javax.swing.JFrame {
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtEmail.setText("Email");
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(590, 150, 38, 20);
+        txtEmail.setBounds(560, 150, 38, 20);
 
         inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEmail);
-        inputEmail.setBounds(590, 180, 290, 30);
+        inputEmail.setBounds(560, 180, 320, 30);
 
         txtCompanyName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCompanyName.setText("Razão Social");
@@ -305,11 +390,11 @@ public class NewProvider extends javax.swing.JFrame {
         txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCellPhone.setText("Celular");
         getContentPane().add(txtCellPhone);
-        txtCellPhone.setBounds(390, 150, 80, 20);
+        txtCellPhone.setBounds(370, 150, 80, 20);
 
         inputCellPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCellPhone);
-        inputCellPhone.setBounds(390, 180, 170, 30);
+        inputCellPhone.setBounds(370, 180, 170, 30);
 
         txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtObservation.setText("Observação");
@@ -406,7 +491,7 @@ public class NewProvider extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField8);
         txtRequiredField8.setBounds(470, 320, 20, 30);
 
-        setSize(new java.awt.Dimension(916, 696));
+        setSize(new java.awt.Dimension(909, 696));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -416,14 +501,25 @@ public class NewProvider extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
             }
             else if(hasThisProvider()){
-                    JOptionPane.showMessageDialog(null, "FORNECEDOR JÁ CADASTRADO NO SISTEMA");
+                JOptionPane.showMessageDialog(null, "FORNECEDOR JÁ CADASTRADO NO SISTEMA");
+            }
+            else if(cpfValide==false&&cnpjValide==false){
+                JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
             }
             else{
                 add();
             }
         }
         else if(txtNewProvider.getText().equals("EDITAR FORNECEDOR")){
-            JOptionPane.showMessageDialog(null, "FORNECEDOR ATUALIZADO COM SUCESSO");
+            if(inputCode.getText().equals("")||inputFantasyName.getText().equals("")||inputCPFAndCNPJ.getText().equals("")||inputCep.getText().equals("")||inputAdress.getText().equals("")||inputNeighborhood.getText().equals("")||inputCity.getText().equals("")||inputState.getSelectedItem().equals("SELECIONAR")){
+                JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            }
+            else if(cpfValide==false&&cnpjValide==false){
+                JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else{
+                updateProvider();
+            }
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
@@ -434,8 +530,13 @@ public class NewProvider extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
             x++;
-            int id = getId() + 1;
-            inputCode.setText(Integer.toString(id));
+            if(txtNewProvider.getText().equals("NOVO FORNECEDOR")){
+                inputCode.setText(Integer.toString(getId() + 1));
+            }
+            else if(txtNewProvider.getText().equals("EDITAR FORNECEDOR")){
+                inputCode.disable();
+                setProvider();
+            }
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -450,6 +551,50 @@ public class NewProvider extends javax.swing.JFrame {
             setInformations();
         }
     }//GEN-LAST:event_inputCepFocusLost
+
+    private void inputCPFAndCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFAndCNPJFocusLost
+        if(!inputCPFAndCNPJ.getText().equals("")){
+            ValidateCPF validateCPF = new ValidateCPF();
+            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+            if(inputCPFAndCNPJ.getText().length()>10 && inputCPFAndCNPJ.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
+                cpfValide = false;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>10 && inputCPFAndCNPJ.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                cpfValide = true;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>13 && inputCPFAndCNPJ.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
+                cnpjValide = false;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>14 && inputCPFAndCNPJ.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                cnpjValide = true;
+            }
+        }
+    }//GEN-LAST:event_inputCPFAndCNPJFocusLost
+
+    private void inputCPFAndCNPJKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFAndCNPJKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            ValidateCPF validateCPF = new ValidateCPF();
+            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+            if(inputCPFAndCNPJ.getText().length()>10 && inputCPFAndCNPJ.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
+                cpfValide = false;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>10 && inputCPFAndCNPJ.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                cpfValide = true;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>13 && inputCPFAndCNPJ.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
+                cnpjValide = false;
+            }
+            else if(inputCPFAndCNPJ.getText().length()>14 && inputCPFAndCNPJ.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFAndCNPJ.getText() ) )){
+                cnpjValide = true;
+            }
+        }
+    }//GEN-LAST:event_inputCPFAndCNPJKeyPressed
 
     /**
      * @param args the command line arguments

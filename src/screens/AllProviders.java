@@ -1,24 +1,70 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import functioncontroller.UpperLetter;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
-/**
- *
- * @author Alunos
- */
 public class AllProviders extends javax.swing.JFrame {
     int x = 0;
     int x2 = 0;
+    int x3 = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form AllProviders
      */
     public AllProviders() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        inputCompanyName.setDocument(new UpperLetter());
+        inputCPFOrCNPJ.setDocument(new MaskCPFAndCNPJ());
     }
-
+    private void getAllProviders(){
+        String sql ="select codeProvider as 'Código', fantasyName as 'Nome Fantasia', cpf as 'CPF / CNPJ', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from provider";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs= pst.executeQuery();
+            tableProviders.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getProvidersCPF(){
+        String sql ="select codeProvider as 'Código', fantasyName as 'Nome Fantasia', cpf as 'CPF / CNPJ', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from provider where cpf like '" + inputCPFOrCNPJ.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableProviders.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getProvidersName(){
+        String sql ="select codeProvider as 'Código', fantasyName as 'Nome Fantasia', cpf as 'CPF / CNPJ', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from provider where fantasyName like '" + inputCompanyName.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableProviders.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getProvidersCPFAndName(){
+        String sql ="select codeProvider as 'Código', fantasyName as 'Nome Fantasia', cpf as 'CPF / CNPJ', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from provider where cpf like '" + inputCPFOrCNPJ.getText() + "%' and fantasyName like '" + inputCompanyName.getText() + "%'";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+            tableProviders.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,14 +77,19 @@ public class AllProviders extends javax.swing.JFrame {
         txtAllProviders = new javax.swing.JLabel();
         tableAllProviders = new javax.swing.JScrollPane();
         tableProviders = new javax.swing.JTable();
-        inputIdentification = new javax.swing.JTextField();
+        inputCPFOrCNPJ = new javax.swing.JTextField();
         buttonShow = new javax.swing.JButton();
-        inpuCPFClient = new javax.swing.JTextField();
+        inputCompanyName = new javax.swing.JTextField();
         buttonPrinter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todos os Fornecedores");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtAllProviders.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -75,20 +126,23 @@ public class AllProviders extends javax.swing.JFrame {
         getContentPane().add(tableAllProviders);
         tableAllProviders.setBounds(20, 130, 700, 300);
 
-        inputIdentification.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        inputIdentification.setText("CPF / CNPJ");
-        inputIdentification.addFocusListener(new java.awt.event.FocusAdapter() {
+        inputCPFOrCNPJ.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPFOrCNPJ.setText("CPF / CNPJ");
+        inputCPFOrCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                inputIdentificationFocusGained(evt);
+                inputCPFOrCNPJFocusGained(evt);
             }
         });
-        inputIdentification.addKeyListener(new java.awt.event.KeyAdapter() {
+        inputCPFOrCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                inputCPFOrCNPJKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                inputIdentificationKeyTyped(evt);
+                inputCPFOrCNPJKeyTyped(evt);
             }
         });
-        getContentPane().add(inputIdentification);
-        inputIdentification.setBounds(20, 80, 190, 30);
+        getContentPane().add(inputCPFOrCNPJ);
+        inputCPFOrCNPJ.setBounds(20, 80, 190, 30);
 
         buttonShow.setText("MOSTRAR");
         buttonShow.addActionListener(new java.awt.event.ActionListener() {
@@ -99,77 +153,104 @@ public class AllProviders extends javax.swing.JFrame {
         getContentPane().add(buttonShow);
         buttonShow.setBounds(520, 80, 90, 30);
 
-        inpuCPFClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        inpuCPFClient.setText("NOME FANTASIA");
-        inpuCPFClient.addFocusListener(new java.awt.event.FocusAdapter() {
+        inputCompanyName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCompanyName.setText("NOME FANTASIA");
+        inputCompanyName.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                inpuCPFClientFocusGained(evt);
+                inputCompanyNameFocusGained(evt);
             }
         });
-        inpuCPFClient.addKeyListener(new java.awt.event.KeyAdapter() {
+        inputCompanyName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyPressed(evt);
+                inputCompanyNameKeyPressed(evt);
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyReleased(evt);
+                inputCompanyNameKeyReleased(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                inpuCPFClientKeyTyped(evt);
+                inputCompanyNameKeyTyped(evt);
             }
         });
-        getContentPane().add(inpuCPFClient);
-        inpuCPFClient.setBounds(240, 80, 256, 30);
+        getContentPane().add(inputCompanyName);
+        inputCompanyName.setBounds(240, 80, 256, 30);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(630, 80, 90, 32);
+        buttonPrinter.setBounds(630, 80, 90, 30);
 
         setSize(new java.awt.Dimension(744, 472));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputIdentificationFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputIdentificationFocusGained
-        inputIdentification.selectAll();
-    }//GEN-LAST:event_inputIdentificationFocusGained
+    private void inputCPFOrCNPJFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFOrCNPJFocusGained
+        inputCPFOrCNPJ.selectAll();
+    }//GEN-LAST:event_inputCPFOrCNPJFocusGained
 
-    private void inputIdentificationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputIdentificationKeyTyped
-        if(inputIdentification.getText().equals("")){
-            inputIdentification.setText("CPF / CNPJ");
+    private void inputCPFOrCNPJKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFOrCNPJKeyTyped
+        if(inputCPFOrCNPJ.getText().equals("")){
+            inputCPFOrCNPJ.setText("CPF / CNPJ");
+            getAllProviders();
             x=0;
         }
         else if(x==0){
             x++;
-            inputIdentification.setText("");
+            inputCPFOrCNPJ.setText("");
         }
-    }//GEN-LAST:event_inputIdentificationKeyTyped
+    }//GEN-LAST:event_inputCPFOrCNPJKeyTyped
 
     private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
+        int set = tableProviders.getSelectedRow();
         ProviderScreen providerScreen = new ProviderScreen();
+        providerScreen.setTitle("Fornecedor: " + tableProviders.getModel().getValueAt(set,0).toString());
         providerScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowActionPerformed
 
-    private void inpuCPFClientFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inpuCPFClientFocusGained
-        inpuCPFClient.selectAll();
-    }//GEN-LAST:event_inpuCPFClientFocusGained
+    private void inputCompanyNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCompanyNameFocusGained
+        inputCompanyName.selectAll();
+    }//GEN-LAST:event_inputCompanyNameFocusGained
 
-    private void inpuCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyPressed
+    private void inputCompanyNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCompanyNameKeyPressed
 
-    }//GEN-LAST:event_inpuCPFClientKeyPressed
+    }//GEN-LAST:event_inputCompanyNameKeyPressed
 
-    private void inpuCPFClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyReleased
+    private void inputCompanyNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCompanyNameKeyReleased
+        if(inputCPFOrCNPJ.getText().equals("CPF / CNPJ")&&!inputCompanyName.getText().equals("NOME FANTASIA")){
+            getProvidersName();
+        }
+        else if(!inputCPFOrCNPJ.getText().equals("CPF / CNPJ")&&!inputCompanyName.getText().equals("NOME FANTASIA")){
+            getProvidersCPFAndName();
+        }
+    }//GEN-LAST:event_inputCompanyNameKeyReleased
 
-    }//GEN-LAST:event_inpuCPFClientKeyReleased
-
-    private void inpuCPFClientKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inpuCPFClientKeyTyped
-        if(inpuCPFClient.getText().equals("")){
-            inpuCPFClient.setText("NOME FANTASIA");
+    private void inputCompanyNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCompanyNameKeyTyped
+        if(inputCompanyName.getText().equals("")){
+            inputCompanyName.setText("NOME FANTASIA");
+            getAllProviders();
             x2=0;
         }
         else if(x2==0){
             x2++;
-            inpuCPFClient.setText("");
+            inputCompanyName.setText("");
         }
-    }//GEN-LAST:event_inpuCPFClientKeyTyped
+    }//GEN-LAST:event_inputCompanyNameKeyTyped
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x3==0){
+            x3++;
+            inputCPFOrCNPJ.setText("CPF / CNPJ");
+            inputCompanyName.setText("NOME FANTASIA");
+            getAllProviders();
+        }
+    }//GEN-LAST:event_formWindowActivated
+
+    private void inputCPFOrCNPJKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFOrCNPJKeyReleased
+        if(!inputCPFOrCNPJ.getText().equals("CPF / CNPJ")&&inputCompanyName.getText().equals("NOME FANTASIA")){
+            getProvidersCPF();
+        }
+        else if(!inputCPFOrCNPJ.getText().equals("CPF / CNPJ")&&!inputCompanyName.getText().equals("NOME FANTASIA")){
+            getProvidersCPFAndName();
+        }
+    }//GEN-LAST:event_inputCPFOrCNPJKeyReleased
 
     /**
      * @param args the command line arguments
@@ -209,8 +290,8 @@ public class AllProviders extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShow;
-    private javax.swing.JTextField inpuCPFClient;
-    private javax.swing.JTextField inputIdentification;
+    private javax.swing.JTextField inputCPFOrCNPJ;
+    private javax.swing.JTextField inputCompanyName;
     private javax.swing.JScrollPane tableAllProviders;
     private javax.swing.JTable tableProviders;
     private javax.swing.JLabel txtAllProviders;

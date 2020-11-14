@@ -1,23 +1,69 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
-
-/**
- *
- * @author Alunos
- */
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import formattingmask.MaskCepAndHouseNumber;
+import formattingmask.MaskJustNumbers;
+import formattingmask.MaskPhone;
+import functioncontroller.UpperLetter;
 public class ProviderScreen extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ProviderScreen
-     */
+    int x = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
     public ProviderScreen() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        outputFantasyName.setDocument(new UpperLetter());
+        outputCompanyName.setDocument(new UpperLetter());
+        outputEmail.setDocument(new UpperLetter());
+        outputAdress.setDocument(new UpperLetter());
+        outputNeighborhood.setDocument(new UpperLetter());
+        outputCity.setDocument(new UpperLetter());
+        outputComplement.setDocument(new UpperLetter());
+        outputObservation.setDocument(new UpperLetter());
+        outputCPFAndCNPJ.setDocument(new MaskCPFAndCNPJ());
+        outputPhone.setDocument(new MaskPhone());
+        outputCellPhone.setDocument(new MaskPhone());
+        outputCep.setDocument(new MaskCepAndHouseNumber());
+        outputNumber.setDocument(new MaskCepAndHouseNumber());
+        outputCode.setDocument(new MaskJustNumbers());
     }
-
+    private void setProvider(){
+        String[] vect = this.getTitle().split(" ");
+        int codeProvider = Integer.parseInt( vect[1] );
+        String sql ="select cpf, fantasyName, companyName, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, complement, observation from provider where codeProvider=?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codeProvider);
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                outputCPFAndCNPJ.setText(rs2.getString(1));
+                outputFantasyName.setText(rs2.getString(2));
+                outputCompanyName.setText(rs2.getString(3));
+                outputPhone.setText(rs2.getString(4));
+                outputCellPhone.setText(rs2.getString(5));
+                outputEmail.setText(rs2.getString(6));
+                outputCep.setText(rs2.getString(7));
+                outputAdress.setText(rs2.getString(8));
+                outputNumber.setText(rs2.getString(9));
+                outputNeighborhood.setText(rs2.getString(10));
+                outputCity.setText(rs2.getString(11));
+                outputState.setSelectedItem(rs2.getString(12));
+                outputComplement.setText(rs2.getString(13));
+                outputObservation.setText(rs2.getString(14));
+                outputCode.setText( Integer.toString( codeProvider) );
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,8 +94,6 @@ public class ProviderScreen extends javax.swing.JFrame {
         outputEmail = new javax.swing.JTextField();
         txtCompanyName = new javax.swing.JLabel();
         outputCompanyName = new javax.swing.JTextField();
-        txtFax = new javax.swing.JLabel();
-        outputFax = new javax.swing.JTextField();
         txtNumber = new javax.swing.JLabel();
         outputNumber = new javax.swing.JTextField();
         txtCellPhone = new javax.swing.JLabel();
@@ -67,6 +111,11 @@ public class ProviderScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Fornecedor");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtProvider.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -78,73 +127,67 @@ public class ProviderScreen extends javax.swing.JFrame {
         txtCPFAndCNPJ.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJ.setText("CPF / CNPJ");
         getContentPane().add(txtCPFAndCNPJ);
-        txtCPFAndCNPJ.setBounds(180, 70, 100, 20);
+        txtCPFAndCNPJ.setBounds(20, 150, 100, 20);
 
         outputCPFAndCNPJ.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputCPFAndCNPJ.setEnabled(false);
         getContentPane().add(outputCPFAndCNPJ);
-        outputCPFAndCNPJ.setBounds(180, 100, 160, 30);
+        outputCPFAndCNPJ.setBounds(20, 180, 160, 30);
 
         txtFantasyName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtFantasyName.setText("Nome Fantasia");
         getContentPane().add(txtFantasyName);
-        txtFantasyName.setBounds(370, 70, 120, 20);
+        txtFantasyName.setBounds(170, 70, 120, 20);
 
         outputFantasyName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputFantasyName.setEnabled(false);
         getContentPane().add(outputFantasyName);
-        outputFantasyName.setBounds(370, 100, 200, 30);
+        outputFantasyName.setBounds(170, 100, 340, 30);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPhone.setText("Telefone");
         getContentPane().add(txtPhone);
-        txtPhone.setBounds(20, 150, 64, 20);
+        txtPhone.setBounds(200, 150, 64, 20);
 
         outputPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputPhone.setEnabled(false);
         getContentPane().add(outputPhone);
-        outputPhone.setBounds(20, 180, 140, 30);
+        outputPhone.setBounds(200, 180, 140, 30);
 
         txtCep.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCep.setText("CEP");
         getContentPane().add(txtCep);
-        txtCep.setBounds(20, 240, 31, 20);
+        txtCep.setBounds(20, 230, 31, 20);
 
         outputCep.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputCep.setEnabled(false);
         getContentPane().add(outputCep);
-        outputCep.setBounds(20, 270, 130, 30);
+        outputCep.setBounds(20, 260, 130, 30);
 
         txtAdress.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtAdress.setText("Endereço");
         getContentPane().add(txtAdress);
-        txtAdress.setBounds(240, 240, 69, 20);
+        txtAdress.setBounds(190, 230, 69, 20);
 
         outputAdress.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputAdress.setEnabled(false);
         getContentPane().add(outputAdress);
-        outputAdress.setBounds(240, 270, 280, 30);
+        outputAdress.setBounds(190, 260, 460, 30);
 
         txtCity.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCity.setText("Cidade");
         getContentPane().add(txtCity);
-        txtCity.setBounds(310, 320, 50, 20);
+        txtCity.setBounds(430, 320, 50, 20);
 
         outputCity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputCity.setEnabled(false);
         getContentPane().add(outputCity);
-        outputCity.setBounds(310, 350, 180, 30);
+        outputCity.setBounds(430, 350, 250, 30);
 
         txtState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtState.setText("Estado");
         getContentPane().add(txtState);
-        txtState.setBounds(560, 320, 49, 20);
+        txtState.setBounds(720, 320, 49, 20);
 
         outputState.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         outputState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONAR", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         outputState.setEnabled(false);
         getContentPane().add(outputState);
-        outputState.setBounds(560, 350, 140, 30);
+        outputState.setBounds(720, 350, 140, 30);
 
         txtNeighBorhood.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNeighBorhood.setText("Bairro");
@@ -152,59 +195,44 @@ public class ProviderScreen extends javax.swing.JFrame {
         txtNeighBorhood.setBounds(20, 320, 44, 20);
 
         outputNeighborhood.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputNeighborhood.setEnabled(false);
         getContentPane().add(outputNeighborhood);
-        outputNeighborhood.setBounds(20, 350, 220, 30);
+        outputNeighborhood.setBounds(20, 350, 380, 30);
 
         txtEmail.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtEmail.setText("Email");
         getContentPane().add(txtEmail);
-        txtEmail.setBounds(590, 150, 38, 20);
+        txtEmail.setBounds(550, 150, 38, 20);
 
         outputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputEmail.setEnabled(false);
         getContentPane().add(outputEmail);
-        outputEmail.setBounds(590, 180, 210, 30);
+        outputEmail.setBounds(550, 180, 310, 30);
 
         txtCompanyName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCompanyName.setText("Razão Social");
         getContentPane().add(txtCompanyName);
-        txtCompanyName.setBounds(590, 70, 120, 20);
+        txtCompanyName.setBounds(530, 70, 120, 20);
 
         outputCompanyName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputCompanyName.setEnabled(false);
         getContentPane().add(outputCompanyName);
-        outputCompanyName.setBounds(590, 100, 210, 30);
-
-        txtFax.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtFax.setText("Fax");
-        getContentPane().add(txtFax);
-        txtFax.setBounds(180, 150, 25, 20);
-
-        outputFax.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputFax.setEnabled(false);
-        getContentPane().add(outputFax);
-        outputFax.setBounds(180, 180, 170, 30);
+        outputCompanyName.setBounds(530, 100, 330, 30);
 
         txtNumber.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNumber.setText("Número");
         getContentPane().add(txtNumber);
-        txtNumber.setBounds(590, 240, 60, 20);
+        txtNumber.setBounds(690, 230, 60, 20);
 
         outputNumber.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputNumber.setEnabled(false);
         getContentPane().add(outputNumber);
-        outputNumber.setBounds(590, 270, 130, 30);
+        outputNumber.setBounds(690, 260, 90, 30);
 
         txtCellPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCellPhone.setText("Celular");
         getContentPane().add(txtCellPhone);
-        txtCellPhone.setBounds(370, 150, 80, 20);
+        txtCellPhone.setBounds(360, 150, 80, 20);
 
         outputCellPhone.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputCellPhone.setEnabled(false);
         getContentPane().add(outputCellPhone);
-        outputCellPhone.setBounds(370, 180, 170, 30);
+        outputCellPhone.setBounds(360, 180, 170, 30);
 
         txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtObservation.setText("Observação");
@@ -216,7 +244,7 @@ public class ProviderScreen extends javax.swing.JFrame {
         jScrollPane1.setViewportView(outputObservation);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(20, 510, 600, 140);
+        jScrollPane1.setBounds(20, 510, 710, 140);
 
         buttonEdit.setText("EDITAR");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +253,7 @@ public class ProviderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(720, 580, 71, 32);
+        buttonEdit.setBounds(780, 580, 80, 25);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtComplement.setText("Complemento");
@@ -233,7 +261,6 @@ public class ProviderScreen extends javax.swing.JFrame {
         txtComplement.setBounds(20, 400, 110, 20);
 
         outputComplement.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        outputComplement.setEnabled(false);
         getContentPane().add(outputComplement);
         outputComplement.setBounds(20, 430, 270, 30);
 
@@ -249,19 +276,26 @@ public class ProviderScreen extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(700, 620, 90, 32);
+        buttonPrinter.setBounds(770, 620, 90, 25);
 
-        setSize(new java.awt.Dimension(819, 699));
+        setSize(new java.awt.Dimension(897, 699));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
         NewProvider newProvider = new NewProvider();
         newProvider.txtNewProvider.setText("EDITAR FORNECEDOR");
-        newProvider.setTitle("Editar Fornecedor");
+        newProvider.setTitle("Editar Fornecedor: " + outputCode.getText());
         this.dispose();
         newProvider.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x==0){
+            x++;
+            setProvider();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -312,7 +346,6 @@ public class ProviderScreen extends javax.swing.JFrame {
     private javax.swing.JTextField outputComplement;
     private javax.swing.JTextField outputEmail;
     private javax.swing.JTextField outputFantasyName;
-    private javax.swing.JTextField outputFax;
     private javax.swing.JTextField outputNeighborhood;
     private javax.swing.JTextField outputNumber;
     private javax.swing.JTextArea outputObservation;
@@ -328,7 +361,6 @@ public class ProviderScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtComplement;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtFantasyName;
-    private javax.swing.JLabel txtFax;
     private javax.swing.JLabel txtNeighBorhood;
     private javax.swing.JLabel txtNumber;
     private javax.swing.JLabel txtObservation;
