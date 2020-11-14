@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
 import javax.swing.JOptionPane;
@@ -178,6 +173,7 @@ public class NewClient extends javax.swing.JFrame {
         txtRequiredField6 = new javax.swing.JLabel();
         txtRequiredField7 = new javax.swing.JLabel();
         txtRequiredField8 = new javax.swing.JLabel();
+        txtRequiredField9 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -404,6 +400,13 @@ public class NewClient extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField8);
         txtRequiredField8.setBounds(470, 290, 30, 30);
 
+        txtRequiredField9.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField9.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField9.setText("*");
+        getContentPane().add(txtRequiredField9);
+        txtRequiredField9.setBounds(100, 80, 20, 30);
+
         setSize(new java.awt.Dimension(930, 560));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -529,6 +532,7 @@ public class NewClient extends javax.swing.JFrame {
     private javax.swing.JLabel txtRequiredField6;
     private javax.swing.JLabel txtRequiredField7;
     private javax.swing.JLabel txtRequiredField8;
+    private javax.swing.JLabel txtRequiredField9;
     private javax.swing.JLabel txtState;
     private javax.swing.JLabel txtStreet;
     // End of variables declaration//GEN-END:variables

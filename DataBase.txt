@@ -5,7 +5,7 @@ use clothingStore;
 create table clients(
 	id int not null auto_increment primary key,
 	clientName varchar(50) not null,
-    cpf varchar(16) not null unique,
+    cpf varchar(20) not null unique,
     birthDay varchar(12) not null,
     phone varchar(25) default null,
     cellPhone varchar(25) default null,
@@ -18,6 +18,23 @@ create table clients(
     state varchar(3) not null,
     observation varchar(1000) default null,
     photoAdress varchar(200) default null
+);
+create table provider(
+	codeProvider int not null primary key,
+    cpf varchar(20) not null unique,
+    fantasyName varchar(50) not null,
+    companyName varchar(50) default null,
+    phone varchar(25) default null,
+    cellPhone varchar(25) default null,
+    email varchar(60) default null,
+    cep varchar(12) not null,
+    street varchar(80) not null,
+    houseNumber varchar(10) default null,
+    neighborhood varchar(80) not null,
+    city varchar(30) not null,
+    state varchar(3) not null,
+    complement varchar(50) default null,
+    observation varchar(1000) default null
 );
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
