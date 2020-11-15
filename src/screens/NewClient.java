@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import formattingmask.MaskCepAndHouseNumber;
+import formattingmask.MaskPhone;
 import functioncontroller.GetImageAdress;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
@@ -35,6 +38,11 @@ public class NewClient extends javax.swing.JFrame {
         inputNeighborhood.setDocument(new UpperLetter());
         inputCity.setDocument(new UpperLetter());
         inputObservation.setDocument(new UpperLetter());
+        inputCPF.setDocument(new MaskCPFAndCNPJ());
+        inputCellphone.setDocument(new MaskPhone());
+        inputPhone.setDocument(new MaskPhone());
+        inputCEP.setDocument(new MaskCepAndHouseNumber());
+        inputNumberHouse.setDocument(new MaskCepAndHouseNumber());
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
     }

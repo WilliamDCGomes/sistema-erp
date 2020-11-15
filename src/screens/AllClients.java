@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import functioncontroller.UpperLetter;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -24,6 +26,8 @@ public class AllClients extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputNameClient.setDocument(new UpperLetter());
+        inputCPFClient.setDocument(new MaskCPFAndCNPJ());
     }
     private void getAllClients(){
         String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients";
@@ -239,6 +243,8 @@ public class AllClients extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x3==0){
             x3++;
+            inputNameClient.setText("NOME DO CLIENTE");
+            inputCPFClient.setText("CPF DO CLIENTE");
             getAllClients();
         }
     }//GEN-LAST:event_formWindowActivated

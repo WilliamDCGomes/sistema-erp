@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
 import javax.swing.JOptionPane;
 
 public class LocaleClient extends javax.swing.JFrame {
@@ -16,6 +17,7 @@ public class LocaleClient extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputCPF.setDocument(new MaskCPFAndCNPJ());
     }
     private void setClient(){
         String sql ="select id from clients where cpf=?";
@@ -63,7 +65,7 @@ public class LocaleClient extends javax.swing.JFrame {
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCPF);
-        inputCPF.setBounds(30, 80, 151, 30);
+        inputCPF.setBounds(30, 80, 180, 30);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +74,7 @@ public class LocaleClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(30, 120, 100, 32);
+        buttonLocale.setBounds(30, 120, 100, 25);
 
         buttonAllClients.setText("TODOS OS CLIENTES");
         buttonAllClients.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +83,7 @@ public class LocaleClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllClients);
-        buttonAllClients.setBounds(170, 120, 160, 32);
+        buttonAllClients.setBounds(170, 120, 160, 25);
 
         txtLocaleClients.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLocaleClients.setText("LOCALIZAR CLIENTES");

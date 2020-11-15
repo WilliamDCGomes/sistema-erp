@@ -36,6 +36,11 @@ create table provider(
     complement varchar(50) default null,
     observation varchar(1000) default null
 );
+
+create table temporaryAdress(
+	id int not null auto_increment primary key,
+	adress varchar(100) not null
+);
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
 
