@@ -1,25 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
 import javax.swing.JOptionPane;
-
-/**
- *
- * @author Lenovo
- */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
 public class NewProduct extends javax.swing.JFrame {
     int x = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     /**
      * Creates new form NewProduct
      */
     public NewProduct() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
-    
+    private void add(){
+        String sql = "insert into clients(photoAdress)values(?)";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1,inputName.getText());
+            pst.executeUpdate();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
