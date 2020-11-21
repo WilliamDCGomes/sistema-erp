@@ -26,21 +26,22 @@ public class NewProduct extends javax.swing.JFrame {
         connection = connect.getConnectionMySQL();
     }
     private void add(){
-        String sql = "insert into product(barCode, nameProduct, manyProduct, expensive, price, profit, profitPercent, location, brand, provider, descrition, photoAdress)values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into product(barCode, nameProduct, manyProduct, manyMinimumProduct, expensive, price, profit, profitPercent, location, brand, provider, descrition, photoAdress)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
             pst.setString(1,inputBarCode.getText());
             pst.setString(2,inputName.getText());
-            pst.setString(3,inputQuantity.getText());
-            pst.setString(4,inputExpense.getText());
-            pst.setString(5,inputPrice.getText());
-            pst.setString(6,inputProfit.getText());
-            pst.setString(7,inputProfitPercentage.getText());
-            pst.setString(8,inputLocalization.getText());
-            pst.setString(9,inputBrand.getText());
-            pst.setString(10,inputProvider.getText());
-            pst.setString(11,inputDescription.getText());
-            pst.setString(12,imageAdress);
+            pst.setInt(3,Integer.parseInt( inputQuantity.getText() ));
+            pst.setInt(4,Integer.parseInt( inputMinimumQuantity.getText() ));
+            pst.setString(5,inputExpense.getText());
+            pst.setString(6,inputPrice.getText());
+            pst.setString(7,inputProfit.getText());
+            pst.setString(8,inputProfitPercentage.getText());
+            pst.setString(9,inputLocalization.getText());
+            pst.setString(10,inputBrand.getText());
+            pst.setString(11,inputProvider.getText());
+            pst.setString(12,inputDescription.getText());
+            pst.setString(13,imageAdress);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"PRODUTO CADASTRADO COM SUCESSO");
             ProductScreen productScreen = new ProductScreen();
@@ -80,6 +81,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
             else{
                 JOptionPane.showMessageDialog(null, "FORNECEDOR NÃO ENCONTRADO NO BANCO DE DADOS!");
+                inputProvider.setText("");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -124,8 +126,10 @@ public class NewProduct extends javax.swing.JFrame {
         txtRequiredField2 = new javax.swing.JLabel();
         txtRequiredField3 = new javax.swing.JLabel();
         txtRequiredField4 = new javax.swing.JLabel();
-        buttonNew = new javax.swing.JButton();
+        buttonAll = new javax.swing.JButton();
         buttonLocale = new javax.swing.JButton();
+        txtMinimumQuantity = new javax.swing.JLabel();
+        inputMinimumQuantity = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Produto");
@@ -150,7 +154,7 @@ public class NewProduct extends javax.swing.JFrame {
         txtExpense.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtExpense.setText("Custo");
         getContentPane().add(txtExpense);
-        txtExpense.setBounds(180, 170, 80, 19);
+        txtExpense.setBounds(320, 170, 80, 19);
 
         txtProfit.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProfit.setText("Lucro");
@@ -165,7 +169,7 @@ public class NewProduct extends javax.swing.JFrame {
         txtProvider.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProvider.setText("Fornecedor");
         getContentPane().add(txtProvider);
-        txtProvider.setBounds(270, 310, 110, 19);
+        txtProvider.setBounds(320, 310, 110, 19);
 
         txtBarCode.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBarCode.setText("Código");
@@ -175,7 +179,7 @@ public class NewProduct extends javax.swing.JFrame {
         txtLocalization.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtLocalization.setText("Localização");
         getContentPane().add(txtLocalization);
-        txtLocalization.setBounds(390, 240, 110, 19);
+        txtLocalization.setBounds(400, 240, 110, 19);
 
         inputProvider.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputProvider.setText("CÓDIGO DO FORNECEDOR");
@@ -190,7 +194,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputProvider);
-        inputProvider.setBounds(270, 340, 220, 30);
+        inputProvider.setBounds(320, 340, 220, 30);
 
         inputQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputQuantity.setText("1");
@@ -199,15 +203,15 @@ public class NewProduct extends javax.swing.JFrame {
 
         inputBrand.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputBrand);
-        inputBrand.setBounds(20, 340, 220, 30);
+        inputBrand.setBounds(20, 340, 240, 30);
 
         inputProfitPercentage.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputProfitPercentage);
-        inputProfitPercentage.setBounds(180, 270, 70, 30);
+        inputProfitPercentage.setBounds(180, 270, 90, 30);
 
         inputExpense.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputExpense);
-        inputExpense.setBounds(180, 200, 90, 30);
+        inputExpense.setBounds(320, 200, 90, 30);
 
         txtProftPercentage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProftPercentage.setText("Porcentagem de Lucro");
@@ -216,16 +220,16 @@ public class NewProduct extends javax.swing.JFrame {
 
         inputLocalization.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputLocalization);
-        inputLocalization.setBounds(390, 270, 70, 30);
+        inputLocalization.setBounds(400, 270, 130, 30);
 
         txtPrice.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtPrice.setText("Preço de Venda");
         getContentPane().add(txtPrice);
-        txtPrice.setBounds(390, 170, 130, 19);
+        txtPrice.setBounds(440, 170, 130, 19);
 
         inputProfit.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputProfit);
-        inputProfit.setBounds(20, 270, 70, 30);
+        inputProfit.setBounds(20, 270, 90, 30);
 
         inputName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputName);
@@ -233,7 +237,7 @@ public class NewProduct extends javax.swing.JFrame {
 
         inputPrice.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputPrice);
-        inputPrice.setBounds(390, 200, 90, 30);
+        inputPrice.setBounds(440, 200, 90, 30);
 
         inputBarCode.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputBarCode);
@@ -247,7 +251,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputPhoto);
-        inputPhoto.setBounds(540, 110, 150, 190);
+        inputPhoto.setBounds(590, 110, 150, 190);
 
         buttonCancel.setText("CANCELAR");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -304,17 +308,17 @@ public class NewProduct extends javax.swing.JFrame {
         txtRequiredField4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField4.setText("*");
         getContentPane().add(txtRequiredField4);
-        txtRequiredField4.setBounds(510, 170, 20, 30);
+        txtRequiredField4.setBounds(560, 170, 20, 30);
 
-        buttonNew.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        buttonNew.setText("NOVO");
-        buttonNew.addActionListener(new java.awt.event.ActionListener() {
+        buttonAll.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        buttonAll.setText("TODOS");
+        buttonAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNewActionPerformed(evt);
+                buttonAllActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonNew);
-        buttonNew.setBounds(610, 340, 70, 30);
+        getContentPane().add(buttonAll);
+        buttonAll.setBounds(660, 340, 80, 30);
 
         buttonLocale.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         buttonLocale.setText("LOCALIZAR");
@@ -324,9 +328,19 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(500, 340, 100, 30);
+        buttonLocale.setBounds(550, 340, 100, 30);
 
-        setSize(new java.awt.Dimension(714, 601));
+        txtMinimumQuantity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtMinimumQuantity.setText("Quantidade Mínima");
+        getContentPane().add(txtMinimumQuantity);
+        txtMinimumQuantity.setBounds(140, 170, 150, 19);
+
+        inputMinimumQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputMinimumQuantity.setText("1");
+        getContentPane().add(inputMinimumQuantity);
+        inputMinimumQuantity.setBounds(140, 200, 80, 30);
+
+        setSize(new java.awt.Dimension(772, 601));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -378,10 +392,10 @@ public class NewProduct extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputPhotoActionPerformed
 
-    private void buttonNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewActionPerformed
-        NewProvider newProvider = new NewProvider();
-        newProvider.setVisible(true);
-    }//GEN-LAST:event_buttonNewActionPerformed
+    private void buttonAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllActionPerformed
+        AllProviders allProviders = new AllProviders();
+        allProviders.setVisible(true);
+    }//GEN-LAST:event_buttonAllActionPerformed
 
     private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
         if(inputProvider.getText().equals("CÓDIGO DO FORNECEDOR")||inputProvider.getText().equals("")){
@@ -443,15 +457,16 @@ public class NewProduct extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAll;
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonLocale;
-    private javax.swing.JButton buttonNew;
     private javax.swing.JButton buttonSave;
     private javax.swing.JTextField inputBarCode;
     private javax.swing.JTextField inputBrand;
     private javax.swing.JTextArea inputDescription;
     private javax.swing.JTextField inputExpense;
     private javax.swing.JTextField inputLocalization;
+    private javax.swing.JTextField inputMinimumQuantity;
     private javax.swing.JTextField inputName;
     public static javax.swing.JButton inputPhoto;
     private javax.swing.JTextField inputPrice;
@@ -465,6 +480,7 @@ public class NewProduct extends javax.swing.JFrame {
     private javax.swing.JLabel txtDescription;
     private javax.swing.JLabel txtExpense;
     private javax.swing.JLabel txtLocalization;
+    private javax.swing.JLabel txtMinimumQuantity;
     private javax.swing.JLabel txtName;
     public static javax.swing.JLabel txtNewProduct;
     private javax.swing.JLabel txtPrice;

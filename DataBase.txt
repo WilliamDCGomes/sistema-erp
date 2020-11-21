@@ -54,7 +54,8 @@ create table product(
     brand varchar(50) default null,
     provider varchar(50) default null,
     descrition varchar(2000) default null,
-    photoAdress varchar(100) default null
+    photoAdress varchar(100) default null,
+    sales int default 0
 );
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
