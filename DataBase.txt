@@ -41,6 +41,21 @@ create table temporaryAdress(
 	id int not null auto_increment primary key,
 	adress varchar(100) not null
 );
+create table product(
+	id int not null auto_increment primary key,
+    barCode varchar(25) default null,
+    nameProduct varchar(50) not null,
+    manyProduct int default 0,
+    expensive varchar(15) default null,
+    price varchar(15) not null,
+    profit varchar(15) default null,
+    profitPercent varchar(15) default null,
+    location varchar(25) default null,
+    brand varchar(50) default null,
+    provider varchar(50) default null,
+    descrition varchar(2000) default null,
+    photoAdress varchar(100) default null
+);
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
 

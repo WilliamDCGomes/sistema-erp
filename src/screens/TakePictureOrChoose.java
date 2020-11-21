@@ -16,11 +16,14 @@ import connectionbd.ConnectionModule;
 public class TakePictureOrChoose extends javax.swing.JFrame {
     public NewClient newClient;
     public ClientScreen clientScreen;
+    public NewProduct newProduct;
+    public ProductScreen productScreen;
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     String adress;
     public boolean itsANewClient = false;
+    public boolean itsANewProduct = false;
     /**
      * Creates new form TakePictureOrChoose
      */
@@ -30,7 +33,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         connection = connect.getConnectionMySQL();
         buttonShowPicture.setVisible(false);
     }
-    public void timeSet(String begin){
+    public void timeSetClient(String begin){
         int delay = 100;   // tempo de espera antes da 1ª execução da tarefa.
         int interval = 1000;  // intervalo no qual a tarefa será executada.
         java.util.Timer timer = new java.util.Timer();
@@ -39,7 +42,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
                 if(!begin.equals(adress)){
                     if(itsANewClient==true){
                         newClient.imageAdress = adress;
-                        if(!newClient.imageAdress.equals(null)){
+                        if(!newClient.imageAdress.equals("")){
                             newClient.buttonPhoto.setText("");
                         }
                         ImageIcon imagen = new ImageIcon(newClient.imageAdress);
@@ -61,6 +64,37 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         }, delay, interval);
         this.dispose();
     }
+    public void timeSetProduct(String begin){
+        int delay = 100;   // tempo de espera antes da 1ª execução da tarefa.
+        int interval = 1000;  // intervalo no qual a tarefa será executada.
+        java.util.Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                if(!begin.equals(adress)){
+                    if(itsANewProduct==true){
+                        newProduct.imageAdress = adress;
+                        if(!newProduct.imageAdress.equals("")){
+                            newProduct.inputPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(newProduct.imageAdress);
+                        newProduct.inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newProduct.inputPhoto.getWidth(), newProduct.inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
+                    }
+                    else{
+                        productScreen.imageAdress = adress;
+                        if(!productScreen.imageAdress.equals(null)){
+                            productScreen.outputPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(productScreen.imageAdress);
+                        productScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(productScreen.outputPhoto.getWidth(), productScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
+                    }
+                }
+                adress=getAdress();
+            }
+        }, delay, interval);
+        this.dispose();
+    }
     public String getAdress(){
         String sql ="select adress from temporaryAdress where id = (select max(id) from temporaryAdress)";
         try {
@@ -68,9 +102,6 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             rs= pst.executeQuery();
             if(rs.next()){
                 return rs.getString(1);
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "CLIENTE NÃO LOCALIZADO NO SISTEMA");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -137,21 +168,41 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
     private void buttonChoosePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChoosePictureActionPerformed
         this.dispose();
-        if(itsANewClient==true){
-            newClient.imageAdress = newClient.getImageAdress.getAdress();
-            if(!newClient.imageAdress.equals(null)){
-                newClient.buttonPhoto.setText("");
+        if(newClient!=null){
+            if(itsANewClient==true){
+                newClient.imageAdress = newClient.getImageAdress.getAdress();
+                if(!newClient.imageAdress.equals("")){
+                    newClient.buttonPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(newClient.imageAdress);
+                newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
             }
-            ImageIcon imagen = new ImageIcon(newClient.imageAdress);
-            newClient.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newClient.buttonPhoto.getWidth(), newClient.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            else{
+                clientScreen.imageAdress = clientScreen.getImageAdress.getAdress();
+                if(!clientScreen.imageAdress.equals("")){
+                    clientScreen.buttonPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(clientScreen.imageAdress);
+                clientScreen.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(clientScreen.buttonPhoto.getWidth(), clientScreen.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
         }
-        else{
-            clientScreen.imageAdress = clientScreen.getImageAdress.getAdress();
-            if(!clientScreen.imageAdress.equals(null)){
-                clientScreen.buttonPhoto.setText("");
+        else if(newProduct!=null){
+            if(itsANewProduct==true){
+                newProduct.imageAdress = newProduct.getImageAdress.getAdress();
+                if(!newProduct.imageAdress.equals("")){
+                    newProduct.inputPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(newProduct.imageAdress);
+                newProduct.inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newProduct.inputPhoto.getWidth(), newProduct.inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
             }
-            ImageIcon imagen = new ImageIcon(clientScreen.imageAdress);
-            clientScreen.buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(clientScreen.buttonPhoto.getWidth(), clientScreen.buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            else{
+                productScreen.imageAdress = productScreen.getImageAdress.getAdress();
+                if(!productScreen.imageAdress.equals("")){
+                    productScreen.outputPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(productScreen.imageAdress);
+                productScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(productScreen.outputPhoto.getWidth(), productScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
         }
     }//GEN-LAST:event_buttonChoosePictureActionPerformed
 
@@ -159,7 +210,12 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         try{
             Runtime.getRuntime().exec("D:\\Programing\\Sistema-de-Loja-de-Roupa\\IniciaCamera.bat");
             adress=getAdress();
-            timeSet(getAdress());
+            if(newClient!=null){
+                timeSetClient(getAdress());
+            }
+            else if(newProduct!=null){
+                timeSetProduct(getAdress());
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "ERRO: " + e);
@@ -171,12 +227,23 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
         ImageScreen imageScreen = new ImageScreen();
         imageScreen.adress=adress;
         imageScreen.buttonPrinter.setText("EXCLUIR");
-        if(itsANewClient==true){
-            imageScreen.newClient = newClient;
-            imageScreen.itsANewClient=true;
+        if(newClient!=null){
+            if(itsANewClient==true){
+                imageScreen.newClient = newClient;
+                imageScreen.itsANewClient=true;
+            }
+            else{
+                imageScreen.clientScreen = clientScreen;
+            }
         }
-        else{
-            imageScreen.clientScreen = clientScreen;
+        else if(newProduct!=null){
+            if(itsANewProduct==true){
+                imageScreen.newProduct = newProduct;
+                imageScreen.itsANewProduct=true;
+            }
+            else{
+                imageScreen.productScreen = productScreen;
+            }
         }
         imageScreen.setVisible(true);
         this.dispose();

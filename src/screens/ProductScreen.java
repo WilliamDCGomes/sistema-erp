@@ -5,11 +5,15 @@
  */
 package screens;
 
+import functioncontroller.GetImageAdress;
+
 /**
  *
  * @author Alunos
  */
 public class ProductScreen extends javax.swing.JFrame {
+    String imageAdress = null;
+    GetImageAdress getImageAdress = new GetImageAdress();
 
     /**
      * Creates new form ProductScreen
@@ -175,6 +179,7 @@ public class ProductScreen extends javax.swing.JFrame {
         outputBarCode.setBounds(210, 130, 130, 25);
 
         outputPhoto.setText("FOTO");
+        outputPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
         outputPhoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 outputPhotoActionPerformed(evt);
@@ -186,7 +191,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(outputPhoto);
-        outputPhoto.setBounds(640, 100, 140, 170);
+        outputPhoto.setBounds(620, 100, 160, 220);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -195,7 +200,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(680, 470, 100, 32);
+        buttonLocale.setBounds(680, 470, 100, 25);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -222,7 +227,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(590, 470, 80, 32);
+        buttonEdit.setBounds(590, 470, 80, 25);
 
         buttonRequest.setText("PEDIR");
         buttonRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -231,11 +236,11 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRequest);
-        buttonRequest.setBounds(590, 510, 77, 32);
+        buttonRequest.setBounds(590, 510, 77, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(680, 510, 90, 32);
+        buttonPrinter.setBounds(680, 510, 90, 25);
 
         setSize(new java.awt.Dimension(805, 596));
         setLocationRelativeTo(null);
@@ -316,7 +321,7 @@ public class ProductScreen extends javax.swing.JFrame {
     private javax.swing.JTextField outputExpense;
     private javax.swing.JTextField outputLocalization;
     private javax.swing.JTextField outputName;
-    private javax.swing.JButton outputPhoto;
+    public static javax.swing.JButton outputPhoto;
     private javax.swing.JTextField outputPrice;
     private javax.swing.JTextField outputProfit;
     private javax.swing.JTextField outputProfitPercentage;

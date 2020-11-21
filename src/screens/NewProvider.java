@@ -260,7 +260,7 @@ public class NewProvider extends javax.swing.JFrame {
         txtNewProvider.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewProvider.setText("NOVO FORNECEDOR");
         getContentPane().add(txtNewProvider);
-        txtNewProvider.setBounds(260, 20, 320, 32);
+        txtNewProvider.setBounds(290, 20, 320, 32);
 
         txtCPFAndCNPJ.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJ.setText("CPF / CNPJ");

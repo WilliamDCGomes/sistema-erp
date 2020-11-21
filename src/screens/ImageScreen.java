@@ -20,7 +20,10 @@ public class ImageScreen extends javax.swing.JFrame {
     public String adress = null;
     public NewClient newClient;
     public ClientScreen clientScreen;
+    public NewProduct newProduct;
+    public ProductScreen productScreen;
     public boolean itsANewClient = false;
+    public boolean itsANewProduct = false;
     /**
      * Creates new form ProductImage
      */
@@ -102,17 +105,30 @@ public class ImageScreen extends javax.swing.JFrame {
 
     private void buttonPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrinterActionPerformed
         if(buttonPrinter.getText().equals("EXCLUIR")){
-            if(itsANewClient==true){
-                newClient.imageAdress = null;
-                newClient.buttonPhoto.setIcon(null);
-                newClient.buttonPhoto.setText("FOTO");
+            if(newClient!=null){
+                if(itsANewClient==true){
+                    newClient.imageAdress = null;
+                    newClient.buttonPhoto.setIcon(null);
+                    newClient.buttonPhoto.setText("FOTO");
+                }
+                else{
+                    clientScreen.imageAdress = null;
+                    clientScreen.buttonPhoto.setIcon(null);
+                    clientScreen.buttonPhoto.setText("FOTO");
+                }
             }
-            else{
-                clientScreen.imageAdress = null;
-                clientScreen.buttonPhoto.setIcon(null);
-                clientScreen.buttonPhoto.setText("FOTO");
+            else if(newProduct!=null){
+                if(itsANewClient==true){
+                    newProduct.imageAdress = null;
+                    newProduct.inputPhoto.setIcon(null);
+                    newProduct.inputPhoto.setText("FOTO");
+                }
+                else{
+                    productScreen.imageAdress = null;
+                    productScreen.outputPhoto.setIcon(null);
+                    productScreen.outputPhoto.setText("FOTO");
+                }
             }
-            String[] valide = adress.split(";");
             File file = new File(adress);
             file.delete();
             JOptionPane.showMessageDialog(null, "FOTO APAGADA");
