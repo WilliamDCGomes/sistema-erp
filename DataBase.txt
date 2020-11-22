@@ -46,6 +46,7 @@ create table product(
     barCode varchar(25) default null,
     nameProduct varchar(50) not null,
     manyProduct int default 0,
+    manyMinimumProduct int default 0,
     expensive varchar(15) default null,
     price varchar(15) not null,
     profit varchar(15) default null,

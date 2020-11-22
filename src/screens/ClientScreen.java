@@ -112,12 +112,12 @@ public class ClientScreen extends javax.swing.JFrame {
                 outputCity.setText(rs.getString(11));
                 outputState.setSelectedItem(rs.getString(12));
                 outputObservation.setText(rs.getString(13));
-                if(!rs.getString(14).equals(null)){
+                if(!rs.getString(14).equals("")){
                     buttonPhoto.setText("");
+                    imageAdress = rs.getString(14);
+                    ImageIcon imagen = new ImageIcon(imageAdress);
+                    buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
-                imageAdress = rs.getString(14);
-                ImageIcon imagen = new ImageIcon(imageAdress);
-                buttonPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(buttonPhoto.getWidth(), buttonPhoto.getHeight(), Image.SCALE_DEFAULT)));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);

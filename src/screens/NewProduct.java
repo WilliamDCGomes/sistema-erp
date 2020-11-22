@@ -9,6 +9,8 @@ import formattingmask.MaskCash;
 import formattingmask.MaskJustNumbers;
 import functioncontroller.GetImageAdress;
 import functioncontroller.UpperLetter;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 public class NewProduct extends javax.swing.JFrame {
     int x = 0;
     int x1 = 0;
@@ -61,15 +63,74 @@ public class NewProduct extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"PRODUTO CADASTRADO COM SUCESSO");
             ProductScreen productScreen = new ProductScreen();
             this.dispose();
-            getId();
-            productScreen.setTitle("Produto: " + productID);
+            productScreen.setTitle("Produto: " + inputBarCode.getText());
             productScreen.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    private void updateProduct(){
+        String[] id = this.getTitle().split(" ");
+        String sql = "update product set barCode=?, nameProduct=?, manyProduct=?, manyMinimumProduct=?, expensive=?, price=?, profit=?, profitPercent=?, location=?, brand=?, provider=?, descrition=?, photoAdress=? where barCode=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,inputBarCode.getText());
+            pst.setString(2,inputName.getText());
+            pst.setInt(3,Integer.parseInt( inputQuantity.getText() ));
+            pst.setInt(4,Integer.parseInt( inputMinimumQuantity.getText() ));
+            pst.setString(5,inputExpense.getText());
+            pst.setString(6,inputPrice.getText());
+            pst.setString(7,inputProfit.getText());
+            pst.setString(8,inputProfitPercentage.getText());
+            pst.setString(9,inputLocalization.getText());
+            pst.setString(10,inputBrand.getText());
+            pst.setString(11,inputProvider.getText());
+            pst.setString(12,inputDescription.getText());
+            pst.setString(13,imageAdress);
+            pst.setString(14,id[2]);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"PRODUTO ATUALIZADO COM SUCESSO");
+            ProductScreen productScreen = new ProductScreen();
+            this.dispose();
+            productScreen.setTitle("Produto: " + inputBarCode.getText());
+            productScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void setProduct(){
+        String[] id = this.getTitle().split(" ");
+        inputBarCode.setText(id[2]);
+        String sql ="select nameProduct, manyProduct, manyMinimumProduct, expensive, price, profit, profitPercent, location, brand, provider, descrition, photoAdress from product where barCode=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, id[2]);
+            rs= pst.executeQuery();
+            if(rs.next()){
+                inputName.setText(rs.getString(1));
+                inputQuantity.setText(rs.getString(2));
+                inputMinimumQuantity.setText(rs.getString(3));
+                inputExpense.setText(rs.getString(4));
+                inputPrice.setText(rs.getString(5));
+                inputProfit.setText(rs.getString(6));
+                inputProfitPercentage.setText(rs.getString(7));
+                inputLocalization.setText(rs.getString(8));
+                inputBrand.setText(rs.getString(9));
+                inputProvider.setText(rs.getString(10));
+                inputDescription.setText(rs.getString(11));
+                if(!rs.getString(12).equals("")){
+                    inputPhoto.setText("");
+                    imageAdress = rs.getString(12);
+                    ImageIcon imagen = new ImageIcon(imageAdress);
+                    inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(inputPhoto.getWidth(), inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     private boolean getId(){
-        String sql ="select id,nameProduct from product where id=?";
+        String sql ="select id,nameProduct from product where barCode=?";
         try {
             pst2=connection.prepareStatement(sql);
             pst2.setString(1, inputBarCode.getText());
@@ -222,7 +283,7 @@ public class NewProduct extends javax.swing.JFrame {
 
         inputProfitPercentage.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputProfitPercentage);
-        inputProfitPercentage.setBounds(180, 270, 90, 30);
+        inputProfitPercentage.setBounds(170, 270, 90, 30);
 
         inputExpense.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputExpense);
@@ -231,7 +292,7 @@ public class NewProduct extends javax.swing.JFrame {
         txtProftPercentage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProftPercentage.setText("Porcentagem de Lucro");
         getContentPane().add(txtProftPercentage);
-        txtProftPercentage.setBounds(180, 240, 180, 19);
+        txtProftPercentage.setBounds(170, 240, 180, 19);
 
         inputLocalization.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputLocalization);
@@ -293,7 +354,7 @@ public class NewProduct extends javax.swing.JFrame {
         txtNewProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewProduct.setText("NOVO PRODUTO");
         getContentPane().add(txtNewProduct);
-        txtNewProduct.setBounds(240, 10, 220, 60);
+        txtNewProduct.setBounds(280, 10, 220, 60);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -366,6 +427,9 @@ public class NewProduct extends javax.swing.JFrame {
             inputProvider.setText("CÓDIGO DO FORNECEDOR");
             inputMinimumQuantity.setText("1");
             inputQuantity.setText("1");
+            if(txtNewProduct.getText().equals("EDITAR PRODUTO")){
+                setProduct();
+            }
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -386,10 +450,19 @@ public class NewProduct extends javax.swing.JFrame {
             }
         }
         else if(txtNewProduct.getText().equals("EDITAR PRODUTO")){
-            JOptionPane.showMessageDialog(null, "PRODUTO ATUALIZADO COM SUCESSO");
-            ProductScreen productScreen = new ProductScreen();
-            this.dispose();
-            productScreen.setVisible(true);
+            String[] id = this.getTitle().split(" ");
+            if(inputName.getText().equals("")||inputBarCode.getText().equals("")||inputPrice.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
+            }
+            else if(id[2].equals(inputBarCode.getText())){
+                updateProduct();
+            }
+            else if(!getId()){
+                updateProduct();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "O NOVO CÓDIGO QUE VOCÊ DIGITOU JÁ EXISTE NO BANCO DE DADOS!\nPOR FAVOR, INSIRA OUTRO");
+            }
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 

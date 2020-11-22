@@ -6,6 +6,16 @@
 package screens;
 
 import functioncontroller.GetImageAdress;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import formattingmask.MaskCash;
+import formattingmask.MaskJustNumbers;
+import functioncontroller.UpperLetter;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -14,14 +24,58 @@ import functioncontroller.GetImageAdress;
 public class ProductScreen extends javax.swing.JFrame {
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
-
-    /**
-     * Creates new form ProductScreen
-     */
+    int x = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     public ProductScreen() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        outputName.setDocument(new UpperLetter());
+        outputLocalization.setDocument(new UpperLetter());
+        outputBrand.setDocument(new UpperLetter());
+        outputDescription.setDocument(new UpperLetter());
+        outputCode.setDocument(new UpperLetter());
+        outputQuantity.setDocument(new MaskJustNumbers());
+        outputMinimumQuantity.setDocument(new MaskJustNumbers());
+        outputExpense.setDocument(new MaskCash());
+        outputPrice.setDocument(new MaskCash());
+        outputProfit.setDocument(new MaskCash());
+        outputProfitPercentage.setDocument(new MaskCash());
+        outputProvider.setDocument(new MaskJustNumbers());
     }
-
+    private void setProduct(){
+        String[] id = this.getTitle().split(" ");
+        outputCode.setText(id[1]);
+        String sql ="select nameProduct, manyProduct, manyMinimumProduct, expensive, price, profit, profitPercent, location, brand, provider, descrition, photoAdress from product where barCode=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, id[1]);
+            rs= pst.executeQuery();
+            if(rs.next()){
+                outputName.setText(rs.getString(1));
+                outputQuantity.setText(rs.getString(2));
+                outputMinimumQuantity.setText(rs.getString(3));
+                outputExpense.setText(rs.getString(4));
+                outputPrice.setText(rs.getString(5));
+                outputProfit.setText(rs.getString(6));
+                outputProfitPercentage.setText(rs.getString(7));
+                outputLocalization.setText(rs.getString(8));
+                outputBrand.setText(rs.getString(9));
+                outputProvider.setText(rs.getString(10));
+                outputDescription.setText(rs.getString(11));
+                if(!rs.getString(12).equals("")){
+                    outputPhoto.setText("");
+                    imageAdress = rs.getString(12);
+                    ImageIcon imagen = new ImageIcon(imageAdress);
+                    outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPhoto.getWidth(), outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +92,6 @@ public class ProductScreen extends javax.swing.JFrame {
         txtProfit = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JLabel();
         txtProvider = new javax.swing.JLabel();
-        txtBarCode = new javax.swing.JLabel();
         txtLocalization = new javax.swing.JLabel();
         outputProvider = new javax.swing.JTextField();
         outputQuantity = new javax.swing.JTextField();
@@ -52,7 +105,6 @@ public class ProductScreen extends javax.swing.JFrame {
         outputProfit = new javax.swing.JTextField();
         outputName = new javax.swing.JTextField();
         outputPrice = new javax.swing.JTextField();
-        outputBarCode = new javax.swing.JTextField();
         outputPhoto = new javax.swing.JButton();
         buttonLocale = new javax.swing.JButton();
         txtBrand = new javax.swing.JLabel();
@@ -62,10 +114,17 @@ public class ProductScreen extends javax.swing.JFrame {
         buttonEdit = new javax.swing.JButton();
         buttonRequest = new javax.swing.JButton();
         buttonPrinter = new javax.swing.JButton();
+        txtMinimumQuantity = new javax.swing.JLabel();
+        outputMinimumQuantity = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Produto");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtCode.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -76,7 +135,7 @@ public class ProductScreen extends javax.swing.JFrame {
         txtName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtName.setText("Nome");
         getContentPane().add(txtName);
-        txtName.setBounds(440, 100, 80, 19);
+        txtName.setBounds(240, 100, 80, 19);
 
         txtDescription.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtDescription.setText("Descrição");
@@ -86,7 +145,7 @@ public class ProductScreen extends javax.swing.JFrame {
         txtExpense.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtExpense.setText("Custo");
         getContentPane().add(txtExpense);
-        txtExpense.setBounds(210, 170, 80, 19);
+        txtExpense.setBounds(340, 170, 80, 19);
 
         txtProfit.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProfit.setText("Lucro");
@@ -101,47 +160,36 @@ public class ProductScreen extends javax.swing.JFrame {
         txtProvider.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProvider.setText("Fornecedor");
         getContentPane().add(txtProvider);
-        txtProvider.setBounds(210, 310, 110, 19);
-
-        txtBarCode.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        txtBarCode.setText("Código de Barras");
-        getContentPane().add(txtBarCode);
-        txtBarCode.setBounds(210, 100, 140, 19);
+        txtProvider.setBounds(350, 310, 110, 19);
 
         txtLocalization.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtLocalization.setText("Localização");
         getContentPane().add(txtLocalization);
-        txtLocalization.setBounds(440, 240, 110, 19);
+        txtLocalization.setBounds(460, 240, 110, 19);
 
         outputProvider.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputProvider.setEnabled(false);
         getContentPane().add(outputProvider);
-        outputProvider.setBounds(210, 340, 150, 25);
+        outputProvider.setBounds(350, 340, 220, 30);
 
         outputQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputQuantity.setEnabled(false);
         getContentPane().add(outputQuantity);
-        outputQuantity.setBounds(20, 200, 50, 25);
+        outputQuantity.setBounds(20, 200, 90, 30);
 
         outputBrand.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputBrand.setEnabled(false);
         getContentPane().add(outputBrand);
-        outputBrand.setBounds(20, 340, 130, 25);
+        outputBrand.setBounds(20, 340, 240, 30);
 
         outputCode.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputCode.setEnabled(false);
         getContentPane().add(outputCode);
-        outputCode.setBounds(20, 130, 100, 25);
+        outputCode.setBounds(20, 130, 170, 30);
 
         outputProfitPercentage.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputProfitPercentage.setEnabled(false);
         getContentPane().add(outputProfitPercentage);
-        outputProfitPercentage.setBounds(210, 270, 70, 25);
+        outputProfitPercentage.setBounds(210, 270, 110, 30);
 
         outputExpense.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputExpense.setEnabled(false);
         getContentPane().add(outputExpense);
-        outputExpense.setBounds(210, 200, 70, 25);
+        outputExpense.setBounds(340, 200, 110, 30);
 
         txtProftPercentage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProftPercentage.setText("Porcentagem de Lucro");
@@ -149,34 +197,25 @@ public class ProductScreen extends javax.swing.JFrame {
         txtProftPercentage.setBounds(210, 240, 180, 19);
 
         outputLocalization.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputLocalization.setEnabled(false);
         getContentPane().add(outputLocalization);
-        outputLocalization.setBounds(440, 270, 70, 25);
+        outputLocalization.setBounds(460, 270, 120, 30);
 
         txtPrice.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtPrice.setText("Preço de Venda");
         getContentPane().add(txtPrice);
-        txtPrice.setBounds(440, 170, 130, 19);
+        txtPrice.setBounds(500, 170, 130, 19);
 
         outputProfit.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputProfit.setEnabled(false);
         getContentPane().add(outputProfit);
-        outputProfit.setBounds(20, 270, 70, 25);
+        outputProfit.setBounds(20, 270, 100, 30);
 
         outputName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputName.setEnabled(false);
         getContentPane().add(outputName);
-        outputName.setBounds(440, 130, 150, 25);
+        outputName.setBounds(240, 130, 380, 30);
 
         outputPrice.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputPrice.setEnabled(false);
         getContentPane().add(outputPrice);
-        outputPrice.setBounds(440, 200, 70, 25);
-
-        outputBarCode.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        outputBarCode.setEnabled(false);
-        getContentPane().add(outputBarCode);
-        outputBarCode.setBounds(210, 130, 130, 25);
+        outputPrice.setBounds(500, 200, 90, 30);
 
         outputPhoto.setText("FOTO");
         outputPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
@@ -191,7 +230,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(outputPhoto);
-        outputPhoto.setBounds(620, 100, 160, 220);
+        outputPhoto.setBounds(650, 100, 180, 230);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +239,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(680, 470, 100, 25);
+        buttonLocale.setBounds(730, 470, 100, 25);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -212,13 +251,13 @@ public class ProductScreen extends javax.swing.JFrame {
         tableNewProduct.setViewportView(outputDescription);
 
         getContentPane().add(tableNewProduct);
-        tableNewProduct.setBounds(20, 410, 550, 140);
+        tableNewProduct.setBounds(20, 410, 600, 140);
 
         txtProduct.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtProduct.setText("PRODUTO");
         getContentPane().add(txtProduct);
-        txtProduct.setBounds(280, 10, 220, 60);
+        txtProduct.setBounds(300, 10, 220, 60);
 
         buttonEdit.setText("EDITAR");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -227,7 +266,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(590, 470, 80, 25);
+        buttonEdit.setBounds(640, 470, 80, 25);
 
         buttonRequest.setText("PEDIR");
         buttonRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -236,13 +275,22 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRequest);
-        buttonRequest.setBounds(590, 510, 77, 25);
+        buttonRequest.setBounds(640, 510, 77, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(680, 510, 90, 25);
+        buttonPrinter.setBounds(730, 510, 100, 25);
 
-        setSize(new java.awt.Dimension(805, 596));
+        txtMinimumQuantity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtMinimumQuantity.setText("Quantidade Mínima");
+        getContentPane().add(txtMinimumQuantity);
+        txtMinimumQuantity.setBounds(150, 170, 150, 19);
+
+        outputMinimumQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(outputMinimumQuantity);
+        outputMinimumQuantity.setBounds(150, 200, 110, 30);
+
+        setSize(new java.awt.Dimension(855, 596));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -256,7 +304,8 @@ public class ProductScreen extends javax.swing.JFrame {
         NewProduct newProduct = new NewProduct();
         this.dispose();
         newProduct.txtNewProduct.setText("EDITAR PRODUTO");
-        newProduct.setTitle("Editar Produto");
+        String[] id = this.getTitle().split(" ");
+        newProduct.setTitle("Editar Produto " + id[1]);
         newProduct.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed
 
@@ -266,6 +315,7 @@ public class ProductScreen extends javax.swing.JFrame {
 
     private void outputPhotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputPhotoActionPerformed
         ImageScreen productImage = new ImageScreen();
+        productImage.adress = imageAdress;
         productImage.setVisible(true);
     }//GEN-LAST:event_outputPhotoActionPerformed
 
@@ -273,6 +323,13 @@ public class ProductScreen extends javax.swing.JFrame {
         NewOrder newOrder = new NewOrder();
         newOrder.setVisible(true);
     }//GEN-LAST:event_buttonRequestActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x==0){
+            x++;
+            setProduct();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
@@ -314,12 +371,12 @@ public class ProductScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonLocale;
     private javax.swing.JButton buttonPrinter;
     public static javax.swing.JButton buttonRequest;
-    private javax.swing.JTextField outputBarCode;
     private javax.swing.JTextField outputBrand;
     private javax.swing.JTextField outputCode;
     private javax.swing.JTextArea outputDescription;
     private javax.swing.JTextField outputExpense;
     private javax.swing.JTextField outputLocalization;
+    private javax.swing.JTextField outputMinimumQuantity;
     private javax.swing.JTextField outputName;
     public static javax.swing.JButton outputPhoto;
     private javax.swing.JTextField outputPrice;
@@ -328,12 +385,12 @@ public class ProductScreen extends javax.swing.JFrame {
     private javax.swing.JTextField outputProvider;
     private javax.swing.JTextField outputQuantity;
     private javax.swing.JScrollPane tableNewProduct;
-    private javax.swing.JLabel txtBarCode;
     private javax.swing.JLabel txtBrand;
     private javax.swing.JLabel txtCode;
     private javax.swing.JLabel txtDescription;
     private javax.swing.JLabel txtExpense;
     private javax.swing.JLabel txtLocalization;
+    private javax.swing.JLabel txtMinimumQuantity;
     private javax.swing.JLabel txtName;
     private javax.swing.JLabel txtPrice;
     private javax.swing.JLabel txtProduct;
