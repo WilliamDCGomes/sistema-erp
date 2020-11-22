@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCash;
+import formattingmask.MaskJustNumbers;
 import functioncontroller.GetImageAdress;
+import functioncontroller.UpperLetter;
 public class NewProduct extends javax.swing.JFrame {
     int x = 0;
     int x1 = 0;
@@ -24,6 +27,18 @@ public class NewProduct extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputName.setDocument(new UpperLetter());
+        inputLocalization.setDocument(new UpperLetter());
+        inputBrand.setDocument(new UpperLetter());
+        inputDescription.setDocument(new UpperLetter());
+        inputBarCode.setDocument(new UpperLetter());
+        inputQuantity.setDocument(new MaskJustNumbers());
+        inputMinimumQuantity.setDocument(new MaskJustNumbers());
+        inputExpense.setDocument(new MaskCash());
+        inputPrice.setDocument(new MaskCash());
+        inputProfit.setDocument(new MaskCash());
+        inputProfitPercentage.setDocument(new MaskCash());
+        inputProvider.setDocument(new MaskJustNumbers());
     }
     private void add(){
         String sql = "insert into product(barCode, nameProduct, manyProduct, manyMinimumProduct, expensive, price, profit, profitPercent, location, brand, provider, descrition, photoAdress)values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -260,7 +275,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(600, 520, 100, 25);
+        buttonCancel.setBounds(640, 525, 100, 25);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -272,7 +287,7 @@ public class NewProduct extends javax.swing.JFrame {
         tableNewProduct.setViewportView(inputDescription);
 
         getContentPane().add(tableNewProduct);
-        tableNewProduct.setBounds(20, 410, 480, 140);
+        tableNewProduct.setBounds(20, 410, 520, 140);
 
         txtNewProduct.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtNewProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -287,7 +302,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(510, 520, 80, 25);
+        buttonSave.setBounds(550, 525, 80, 25);
 
         txtRequiredField2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField2.setForeground(new java.awt.Color(255, 0, 51));
@@ -340,7 +355,7 @@ public class NewProduct extends javax.swing.JFrame {
         getContentPane().add(inputMinimumQuantity);
         inputMinimumQuantity.setBounds(140, 200, 80, 30);
 
-        setSize(new java.awt.Dimension(772, 601));
+        setSize(new java.awt.Dimension(769, 601));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -348,6 +363,9 @@ public class NewProduct extends javax.swing.JFrame {
         if(x==0){
             x++;
             inputBarCode.requestFocus();
+            inputProvider.setText("CÓDIGO DO FORNECEDOR");
+            inputMinimumQuantity.setText("1");
+            inputQuantity.setText("1");
         }
     }//GEN-LAST:event_formWindowActivated
 
