@@ -239,7 +239,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(730, 470, 100, 25);
+        buttonLocale.setBounds(730, 470, 100, 23);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
@@ -257,7 +257,7 @@ public class ProductScreen extends javax.swing.JFrame {
         txtProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtProduct.setText("PRODUTO");
         getContentPane().add(txtProduct);
-        txtProduct.setBounds(300, 10, 220, 60);
+        txtProduct.setBounds(310, 10, 220, 60);
 
         buttonEdit.setText("EDITAR");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -266,7 +266,7 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(640, 470, 80, 25);
+        buttonEdit.setBounds(640, 470, 80, 23);
 
         buttonRequest.setText("PEDIR");
         buttonRequest.addActionListener(new java.awt.event.ActionListener() {
@@ -275,11 +275,11 @@ public class ProductScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRequest);
-        buttonRequest.setBounds(640, 510, 77, 25);
+        buttonRequest.setBounds(640, 510, 77, 23);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(730, 510, 100, 25);
+        buttonPrinter.setBounds(730, 510, 100, 23);
 
         txtMinimumQuantity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtMinimumQuantity.setText("Quantidade Mínima");

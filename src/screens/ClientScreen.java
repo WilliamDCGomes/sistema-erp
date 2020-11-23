@@ -76,6 +76,7 @@ public class ClientScreen extends javax.swing.JFrame {
             this.dispose();
             txtClient.setText("CLIENTE");
             buttonEdit.setText("EDITAR");
+            buttonPrinter.setText("IMPRIMIR");
             String[] idAux = this.getTitle().split(" ");
             int idAuxSiz = idAux.length;
             this.setTitle("Cliente " + idAux[idAuxSiz - 1]);
@@ -90,6 +91,26 @@ public class ClientScreen extends javax.swing.JFrame {
             this.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void delete(int id){
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA DELETAR ESSE CLIENTE?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            String sql = "delete from clients where id = ?";
+            try {
+                pst=connection.prepareStatement(sql);
+                pst.setInt(1, id);
+                int deleted = pst.executeUpdate();
+                if(deleted>0){
+                    JOptionPane.showMessageDialog(null,"CLIENTE DELETADO COM SUCESSO");
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"CLIENTE NÃO CADASTRADO NO BANCO DE DADOS");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
         }
     }
     private void setClient(int id){
@@ -373,6 +394,11 @@ public class ClientScreen extends javax.swing.JFrame {
         outputState.setBounds(570, 300, 140, 35);
 
         buttonPrinter.setText("IMPRIMIR");
+        buttonPrinter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrinterActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonPrinter);
         buttonPrinter.setBounds(740, 470, 90, 23);
 
@@ -453,6 +479,7 @@ public class ClientScreen extends javax.swing.JFrame {
             String[] idAux = this.getTitle().split(" ");
             int idAuxSize = idAux.length;
             this.setTitle("Editar Cliente " + idAux[idAuxSize - 1]);
+            buttonPrinter.setText("EXCLUIR");
             txtRequiredField1.setVisible(true);
             txtRequiredField2.setVisible(true);
             txtRequiredField3.setVisible(true);
@@ -512,6 +539,14 @@ public class ClientScreen extends javax.swing.JFrame {
             setInformations();
         }
     }//GEN-LAST:event_outputCEPFocusLost
+
+    private void buttonPrinterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrinterActionPerformed
+        if(buttonPrinter.getText().equals("EXCLUIR")){
+            String[] idAux = this.getTitle().split(" ");
+            int idAuxSize = idAux.length - 1;
+            delete(Integer.parseInt(idAux[idAuxSize]));
+        }
+    }//GEN-LAST:event_buttonPrinterActionPerformed
 
     /**
      * @param args the command line arguments

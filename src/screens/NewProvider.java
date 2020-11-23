@@ -159,6 +159,26 @@ public class NewProvider extends javax.swing.JFrame {
         }
         return false;
     }
+    private void delete(int id){
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA DELETAR ESSE FORNECEDOR?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            String sql = "delete from provider where codeProvider = ?";
+            try {
+                pst=connection.prepareStatement(sql);
+                pst.setInt(1, id);
+                int deleted = pst.executeUpdate();
+                if(deleted>0){
+                    JOptionPane.showMessageDialog(null,"FORNECEDOR DELETADO COM SUCESSO");
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"FORNECEDOR NÃO CADASTRADO NO BANCO DE DADOS");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
     private void setInformations(){
         UpperLetterAux upperLetterAux = new UpperLetterAux();
         SearchCEP searchCEP = new SearchCEP();
@@ -245,6 +265,7 @@ public class NewProvider extends javax.swing.JFrame {
         txtRequiredField6 = new javax.swing.JLabel();
         txtRequiredField7 = new javax.swing.JLabel();
         txtRequiredField8 = new javax.swing.JLabel();
+        buttonCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Fornecedor");
@@ -415,7 +436,7 @@ public class NewProvider extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(800, 620, 78, 25);
+        buttonSave.setBounds(801, 590, 80, 23);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtComplement.setText("Complemento");
@@ -491,6 +512,15 @@ public class NewProvider extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField8);
         txtRequiredField8.setBounds(470, 320, 20, 30);
 
+        buttonCancel.setText("CANCELAR");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonCancel);
+        buttonCancel.setBounds(790, 627, 90, 23);
+
         setSize(new java.awt.Dimension(909, 696));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -535,6 +565,7 @@ public class NewProvider extends javax.swing.JFrame {
             }
             else if(txtNewProvider.getText().equals("EDITAR FORNECEDOR")){
                 inputCode.disable();
+                buttonCancel.setText("EXCLUIR");
                 setProvider();
             }
         }
@@ -596,6 +627,17 @@ public class NewProvider extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputCPFAndCNPJKeyPressed
 
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        if(buttonCancel.getText().equals("CANCELAR")){
+            this.dispose();
+        }
+        else if(buttonCancel.getText().equals("EXCLUIR")){
+            String[] vect = this.getTitle().split(" ");
+            int codeProvider = Integer.parseInt( vect[2] );
+            delete(codeProvider);
+        }
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -632,6 +674,7 @@ public class NewProvider extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
     private javax.swing.JTextField inputAdress;
     private javax.swing.JTextField inputCPFAndCNPJ;

@@ -98,6 +98,26 @@ public class NewProduct extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    private void delete(String id){
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA DELETAR ESSE PRODUTO?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            String sql = "delete from product where barCode = ?";
+            try {
+                pst=connection.prepareStatement(sql);
+                pst.setString(1, id);
+                int deleted = pst.executeUpdate();
+                if(deleted>0){
+                    JOptionPane.showMessageDialog(null,"PRODUTO DELETADO COM SUCESSO");
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null,"PRODUTO NÃO CADASTRADO NO BANCO DE DADOS");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
     private void setProduct(){
         String[] id = this.getTitle().split(" ");
         inputBarCode.setText(id[2]);
@@ -428,13 +448,20 @@ public class NewProduct extends javax.swing.JFrame {
             inputMinimumQuantity.setText("1");
             inputQuantity.setText("1");
             if(txtNewProduct.getText().equals("EDITAR PRODUTO")){
+                buttonCancel.setText("EXCLUIR");
                 setProduct();
             }
         }
     }//GEN-LAST:event_formWindowActivated
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        this.dispose();
+        if(buttonCancel.getText().equals("EXCLUIR")){
+            String[] id = this.getTitle().split(" ");
+            delete(id[2]);
+        }
+        else if(buttonCancel.getText().equals("CANCELAR")){
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed

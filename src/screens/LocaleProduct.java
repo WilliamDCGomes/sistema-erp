@@ -1,23 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
+import functioncontroller.UpperLetter;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Alunos
- */
+
 public class LocaleProduct extends javax.swing.JFrame {
-
-    /**
-     * Creates new form LocaleProduct
-     */
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     public LocaleProduct() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
+        inputProductCode.setDocument(new UpperLetter());
     }
-
+    private void setProduct(){
+        String sql ="select barCode from product where barCode=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputProductCode.getText());
+            rs= pst.executeQuery();
+            if(rs.next()){
+                ProductScreen productScreen = new ProductScreen();
+                productScreen.setTitle("Produto: " + rs.getString(1));
+                this.dispose();
+                productScreen.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "PRODUTO NÃO LOCALIZADO NO SISTEMA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,8 +47,6 @@ public class LocaleProduct extends javax.swing.JFrame {
 
         txtLocaleProduct = new javax.swing.JLabel();
         txtCodeProduct = new javax.swing.JLabel();
-        txtBarCode = new javax.swing.JLabel();
-        inputBarCode = new javax.swing.JTextField();
         inputProductCode = new javax.swing.JTextField();
         buttonLocale = new javax.swing.JButton();
         buttonAllProducts = new javax.swing.JButton();
@@ -49,13 +65,6 @@ public class LocaleProduct extends javax.swing.JFrame {
         txtCodeProduct.setText("Código do Produto");
         getContentPane().add(txtCodeProduct);
         txtCodeProduct.setBounds(20, 70, 150, 20);
-
-        txtBarCode.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtBarCode.setText("Código de Barras");
-        getContentPane().add(txtBarCode);
-        txtBarCode.setBounds(20, 150, 170, 20);
-        getContentPane().add(inputBarCode);
-        inputBarCode.setBounds(20, 180, 240, 25);
         getContentPane().add(inputProductCode);
         inputProductCode.setBounds(20, 100, 240, 25);
 
@@ -66,7 +75,7 @@ public class LocaleProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(20, 230, 110, 32);
+        buttonLocale.setBounds(20, 150, 110, 23);
 
         buttonAllProducts.setText("TODOS OS PRODUTOS");
         buttonAllProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -75,16 +84,14 @@ public class LocaleProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllProducts);
-        buttonAllProducts.setBounds(160, 230, 170, 32);
+        buttonAllProducts.setBounds(160, 150, 170, 23);
 
-        setSize(new java.awt.Dimension(400, 316));
+        setSize(new java.awt.Dimension(400, 226));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
-        ProductScreen productScreen = new ProductScreen();
-        this.dispose();
-        productScreen.setVisible(true);
+        setProduct();
     }//GEN-LAST:event_buttonLocaleActionPerformed
 
     private void buttonAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProductsActionPerformed
@@ -131,9 +138,7 @@ public class LocaleProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAllProducts;
     private javax.swing.JButton buttonLocale;
-    private javax.swing.JTextField inputBarCode;
     private javax.swing.JTextField inputProductCode;
-    private javax.swing.JLabel txtBarCode;
     private javax.swing.JLabel txtCodeProduct;
     private javax.swing.JLabel txtLocaleProduct;
     // End of variables declaration//GEN-END:variables
