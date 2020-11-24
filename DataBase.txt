@@ -58,6 +58,42 @@ create table product(
     photoAdress varchar(100) default null,
     sales int default 0
 );
+create table employee(
+	id int not null auto_increment primary key,
+    nameEmployee varchar(50) not null,
+    birthday varchar(11) not null,
+    rg varchar(15) not null,
+    cpf varchar(15) not null,
+    sexo varchar(10) not null,
+    phone varchar(25) default null,
+    cellPhone varchar(25) default null,
+    email varchar(100) default null,
+    fatherName varchar(50) default null,
+    motherName varchar(50) default null,
+    cep varchar(12) not null,
+    street varchar(80) not null,
+    houseNumber varchar(10) default null,
+    neighborhood varchar(80) not null,
+    city varchar(30) not null,
+    state varchar(3) not null,
+    complement varchar(50) default null,
+    admissionDate varchar(11) default null,
+    functionEmployee varchar(30) not null,
+    salary varchar(15) default null,
+    commission varchar(5) default null,
+    foodVoucher varchar(15) default null,
+    mealTicket varchar(15) default null,
+    transportationVouchers varchar(15) default null,
+    pisAndPasep varchar(30) default null,
+    bank varchar(60) default null,
+    agency varchar(10) default null,
+    accountBank varchar(20) default null,
+    bankType varchar(15) default null,
+    photoAdress varchar(200) default null,
+    statusEmployee varchar(10) default "Ativo",
+    dismissalDate varchar(11) default null,
+    dismissalReason varchar(100) default null
+);
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
 

@@ -9,10 +9,13 @@ import formattingmask.MaskCPFAndCNPJ;
 import formattingmask.MaskCepAndHouseNumber;
 import formattingmask.MaskPhone;
 import functioncontroller.GetImageAdress;
+import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
 import functioncontroller.UpperLetter;
 import functioncontroller.UpperLetterAux;
+import functioncontroller.ValidateCNPJ;
+import functioncontroller.ValidateCPF;
 /**
  *
  * @author Alunos
@@ -27,6 +30,8 @@ public class NewClient extends javax.swing.JFrame {
     String imageAdress = null;
     int x = 0;
     String clientID;
+    boolean cpfValide = false;
+    boolean cnpjValide = false;
     /**
      * Creates new form NewClient
      */
@@ -255,6 +260,16 @@ public class NewClient extends javax.swing.JFrame {
         inputName.setBounds(40, 110, 360, 30);
 
         inputCPF.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputCPF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputCPFFocusLost(evt);
+            }
+        });
+        inputCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputCPFKeyPressed(evt);
+            }
+        });
         getContentPane().add(inputCPF);
         inputCPF.setBounds(410, 110, 130, 30);
 
@@ -426,6 +441,9 @@ public class NewClient extends javax.swing.JFrame {
         else if(getId()){
             JOptionPane.showMessageDialog(null, "USUÁRIO JÁ CADASTRADO NO SISTEMA");
         }
+        else if(cpfValide==false&&cnpjValide==false){
+            JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
+        }
         else{
             add();
         }
@@ -466,6 +484,50 @@ public class NewClient extends javax.swing.JFrame {
             setInformations();
         }
     }//GEN-LAST:event_inputCEPFocusLost
+
+    private void inputCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFFocusLost
+        if(!inputCPF.getText().equals("")){
+            ValidateCPF validateCPF = new ValidateCPF();
+            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+            if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
+                cpfValide = false;
+            }
+            else if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                cpfValide = true;
+            }
+            else if(inputCPF.getText().length()>13 && inputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
+                cnpjValide = false;
+            }
+            else if(inputCPF.getText().length()>14 && inputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                cnpjValide = true;
+            }
+        }
+    }//GEN-LAST:event_inputCPFFocusLost
+
+    private void inputCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            ValidateCPF validateCPF = new ValidateCPF();
+            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+            if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
+                cpfValide = false;
+            }
+            else if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                cpfValide = true;
+            }
+            else if(inputCPF.getText().length()>13 && inputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
+                cnpjValide = false;
+            }
+            else if(inputCPF.getText().length()>14 && inputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
+                cnpjValide = true;
+            }
+        }
+    }//GEN-LAST:event_inputCPFKeyPressed
 
     /**
      * @param args the command line arguments

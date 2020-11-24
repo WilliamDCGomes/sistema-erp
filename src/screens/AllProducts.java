@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import functioncontroller.UpperLetter;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 public class AllProducts extends javax.swing.JFrame {
@@ -15,6 +16,7 @@ public class AllProducts extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputProductName.setDocument(new UpperLetter());
     }
     private void getAllProducts(){
         String sql ="select barCode as 'Código', nameProduct as 'Nome', price as 'Preço', manyProduct as 'Quantidade' from product";

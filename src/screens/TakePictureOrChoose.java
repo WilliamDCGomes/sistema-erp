@@ -18,12 +18,15 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
     public ClientScreen clientScreen;
     public NewProduct newProduct;
     public ProductScreen productScreen;
+    public NewEmployee newEmployee;
+    public EmployeeScreen employeeScreen;
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
     String adress;
     public boolean itsANewClient = false;
     public boolean itsANewProduct = false;
+    public boolean itsANewEmployee = false;
     /**
      * Creates new form TakePictureOrChoose
      */
@@ -87,6 +90,37 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
                         }
                         ImageIcon imagen = new ImageIcon(productScreen.imageAdress);
                         productScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(productScreen.outputPhoto.getWidth(), productScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
+                    }
+                }
+                adress=getAdress();
+            }
+        }, delay, interval);
+        this.dispose();
+    }
+    public void timeSetEmployee(String begin){
+        int delay = 100;   // tempo de espera antes da 1ª execução da tarefa.
+        int interval = 1000;  // intervalo no qual a tarefa será executada.
+        java.util.Timer timer = new java.util.Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                if(!begin.equals(adress)){
+                    if(itsANewEmployee==true){
+                        newEmployee.imageAdress = adress;
+                        if(!newEmployee.imageAdress.equals("")){
+                            newEmployee.inputPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(newEmployee.imageAdress);
+                        newEmployee.inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newEmployee.inputPhoto.getWidth(), newEmployee.inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+                        timer.cancel();
+                    }
+                    else{
+                        employeeScreen.imageAdress = adress;
+                        if(!employeeScreen.imageAdress.equals(null)){
+                            employeeScreen.outputPhoto.setText("");
+                        }
+                        ImageIcon imagen = new ImageIcon(employeeScreen.imageAdress);
+                        employeeScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(employeeScreen.outputPhoto.getWidth(), employeeScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                         timer.cancel();
                     }
                 }
@@ -204,6 +238,24 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
                 productScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(productScreen.outputPhoto.getWidth(), productScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
             }
         }
+        else if(newEmployee!=null){
+            if(itsANewEmployee==true){
+                newEmployee.imageAdress = newEmployee.getImageAdress.getAdress();
+                if(!newEmployee.imageAdress.equals("")){
+                    newEmployee.inputPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(newEmployee.imageAdress);
+                newEmployee.inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(newEmployee.inputPhoto.getWidth(), newEmployee.inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
+            else{
+                employeeScreen.imageAdress = employeeScreen.getImageAdress.getAdress();
+                if(!employeeScreen.imageAdress.equals("")){
+                    employeeScreen.outputPhoto.setText("");
+                }
+                ImageIcon imagen = new ImageIcon(employeeScreen.imageAdress);
+                employeeScreen.outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(employeeScreen.outputPhoto.getWidth(), employeeScreen.outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
+            }
+        }
     }//GEN-LAST:event_buttonChoosePictureActionPerformed
 
     private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
@@ -215,6 +267,9 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             }
             else if(newProduct!=null){
                 timeSetProduct(getAdress());
+            }
+            else if(newEmployee!=null){
+                timeSetEmployee(getAdress());
             }
         }
         catch(Exception e){
@@ -243,6 +298,15 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             }
             else{
                 imageScreen.productScreen = productScreen;
+            }
+        }
+        else if(newEmployee!=null){
+            if(itsANewEmployee==true){
+                imageScreen.newEmployee = newEmployee;
+                imageScreen.itsANewEmployee=true;
+            }
+            else{
+                imageScreen.employeeScreen = employeeScreen;
             }
         }
         imageScreen.setVisible(true);

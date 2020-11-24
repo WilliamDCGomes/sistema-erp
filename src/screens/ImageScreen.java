@@ -22,8 +22,11 @@ public class ImageScreen extends javax.swing.JFrame {
     public ClientScreen clientScreen;
     public NewProduct newProduct;
     public ProductScreen productScreen;
+    public NewEmployee newEmployee;
+    public EmployeeScreen employeeScreen;
     public boolean itsANewClient = false;
     public boolean itsANewProduct = false;
+    public boolean itsANewEmployee = false;
     /**
      * Creates new form ProductImage
      */
