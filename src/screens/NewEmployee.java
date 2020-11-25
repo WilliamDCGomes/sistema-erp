@@ -172,9 +172,9 @@ public class NewEmployee extends javax.swing.JFrame {
             }
         }
     }
-    private void setProduct(){
+    private void setEmployee(){
         String[] id = this.getTitle().split(" ");
-        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress from employee where id=?";
+        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress, readmissionEmployee from employee where id=?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt( id[2] ));
@@ -197,24 +197,54 @@ public class NewEmployee extends javax.swing.JFrame {
                 inputCity.setText(rs.getString(15));
                 inputState.setSelectedItem(rs.getString(16));
                 inputComplement.setText(rs.getString(17));
-                inputAdmissionDate.setText(rs.getString(18));
-                inputOccupation.setText(rs.getString(19));
-                inputSalary.setText(rs.getString(20));
-                inputCommission.setText(rs.getString(21));
-                inputFoodVoucher.setText(rs.getString(22));
-                inputMealTicket.setText(rs.getString(23));
-                inputTranportationVoucher.setText(rs.getString(24));
-                inputPIS.setText(rs.getString(25));
-                inputBank.setSelectedItem(rs.getString(26));
-                inputAgency.setText(rs.getString(27));
-                inputAccount.setText(rs.getString(28));
-                inputAccountType.setSelectedItem(rs.getString(29));
+                if(rs.getString(31).equals("Não")){
+                    inputAdmissionDate.setText(rs.getString(18));
+                    inputOccupation.setText(rs.getString(19));
+                    inputSalary.setText(rs.getString(20));
+                    inputCommission.setText(rs.getString(21));
+                    inputFoodVoucher.setText(rs.getString(22));
+                    inputMealTicket.setText(rs.getString(23));
+                    inputTranportationVoucher.setText(rs.getString(24));
+                    inputPIS.setText(rs.getString(25));
+                    inputBank.setSelectedItem(rs.getString(26));
+                    inputAgency.setText(rs.getString(27));
+                    inputAccount.setText(rs.getString(28));
+                    inputAccountType.setSelectedItem(rs.getString(29));
+                }
+                else if(rs.getString(31).equals("Sim")){
+                    setReadmissal();
+                }
                 if(!rs.getString(30).equals("")){
                     inputPhoto.setText("");
                     imageAdress = rs.getString(30);
                     ImageIcon imagen = new ImageIcon(imageAdress);
                     inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(inputPhoto.getWidth(), inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void setReadmissal(){
+        txtAdmissionDate.setText("Data de Readmissão");
+        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where cpf=? and max(id)";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, inputCPF.getText());
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                inputAdmissionDate.setText(rs2.getString(1));
+                inputOccupation.setText(rs2.getString(2));
+                inputSalary.setText(rs2.getString(3));
+                inputCommission.setText(rs2.getString(4));
+                inputFoodVoucher.setText(rs2.getString(5));
+                inputMealTicket.setText(rs2.getString(6));
+                inputTranportationVoucher.setText(rs2.getString(7));
+                inputPIS.setText(rs2.getString(8));
+                inputBank.setSelectedItem(rs2.getString(9));
+                inputAgency.setText(rs2.getString(10));
+                inputAccount.setText(rs2.getString(11));
+                inputAccountType.setSelectedItem(rs2.getString(12));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -861,7 +891,7 @@ public class NewEmployee extends javax.swing.JFrame {
             x++;
             if(txtNewEmployee.getText().equals("ATUALIZAR FUNCIONÁRIO")){
                 buttonCancel.setText("EXCLUIR");
-                setProduct();
+                setEmployee();
             }
             inputFullName.requestFocus();
         }

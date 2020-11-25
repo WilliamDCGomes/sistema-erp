@@ -21,6 +21,8 @@ public class EmployeeScreen extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
     int x = 0;
@@ -58,7 +60,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }
     private void setProduct(){
         String[] id = this.getTitle().split(" ");
-        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress from employee where id=?";
+        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress, readmissionEmployee from employee where id=?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt( id[1] ));
@@ -81,18 +83,23 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 outputCity.setText(rs.getString(15));
                 outputState.setSelectedItem(rs.getString(16));
                 outputComplement.setText(rs.getString(17));
-                outputAdmissionDate.setText(rs.getString(18));
-                outputOccupation.setText(rs.getString(19));
-                outputSalary.setText(rs.getString(20));
-                outputCommission.setText(rs.getString(21));
-                outputFoodVoucher.setText(rs.getString(22));
-                outputMealTicket.setText(rs.getString(23));
-                outputTranportationVoucher.setText(rs.getString(24));
-                outputPIS.setText(rs.getString(25));
-                outputBank.setSelectedItem(rs.getString(26));
-                outputAgency.setText(rs.getString(27));
-                outputAccount.setText(rs.getString(28));
-                outputAccountType.setSelectedItem(rs.getString(29));
+                if(rs.getString(31).equals("Não")){
+                    outputAdmissionDate.setText(rs.getString(18));
+                    outputOccupation.setText(rs.getString(19));
+                    outputSalary.setText(rs.getString(20));
+                    outputCommission.setText(rs.getString(21));
+                    outputFoodVoucher.setText(rs.getString(22));
+                    outputMealTicket.setText(rs.getString(23));
+                    outputTranportationVoucher.setText(rs.getString(24));
+                    outputPIS.setText(rs.getString(25));
+                    outputBank.setSelectedItem(rs.getString(26));
+                    outputAgency.setText(rs.getString(27));
+                    outputAccount.setText(rs.getString(28));
+                    outputAccountType.setSelectedItem(rs.getString(29));
+                }
+                else if(rs.getString(31).equals("Sim")){
+                    setReadmissal();
+                }
                 if(!rs.getString(30).equals("")){
                     outputPhoto.setText("");
                     imageAdress = rs.getString(30);
@@ -104,7 +111,31 @@ public class EmployeeScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-    
+    private void setReadmissal(){
+        txtAdmissionDate.setText("Data de Readmissão");
+        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where cpf=? and max(id)";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, outputCPF.getText());
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                outputAdmissionDate.setText(rs2.getString(1));
+                outputOccupation.setText(rs2.getString(2));
+                outputSalary.setText(rs2.getString(3));
+                outputCommission.setText(rs2.getString(4));
+                outputFoodVoucher.setText(rs2.getString(5));
+                outputMealTicket.setText(rs2.getString(6));
+                outputTranportationVoucher.setText(rs2.getString(7));
+                outputPIS.setText(rs2.getString(8));
+                outputBank.setSelectedItem(rs2.getString(9));
+                outputAgency.setText(rs2.getString(10));
+                outputAccount.setText(rs2.getString(11));
+                outputAccountType.setSelectedItem(rs2.getString(12));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

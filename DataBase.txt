@@ -91,12 +91,40 @@ create table employee(
     bankType varchar(15) default null,
     photoAdress varchar(200) default null,
     statusEmployee varchar(10) default "Ativo",
-    dismissalDate varchar(11) default null,
-    dismissalReason varchar(100) default null
+    readmissionEmployee varchar(4) default "Não"
 );
 create table temporaryAdressChoosed(
 	id int not null auto_increment primary key,
 	adress varchar(200) not null
+);
+create table dismissalEmployee(
+	id int not null auto_increment primary key,
+    codEmployee int not null,
+    cpf varchar(15) not null,
+    dismissalDate varchar(11) not null,
+    dismissalReason varchar(200) default null,
+    dismissalByCause varchar(4) not null,
+    earlyWarning varchar(4) not null,
+    beginEarlyWarning varchar(11) not null,
+    endEarlyWarning varchar(11) not null,
+    observation varchar(2000) default null
+);
+create table readmissionEmployee(
+	id int not null auto_increment primary key,
+    codEmployee int not null,
+    cpf varchar(15) not null,
+    readmissionDate varchar(11) not null,
+    functionEmployee varchar(30) not null,
+    salary varchar(15) default null,
+    commission varchar(5) default null,
+    foodVoucher varchar(15) default null,
+    mealTicket varchar(15) default null,
+    transportationVouchers varchar(15) default null,
+    pisAndPasep varchar(30) default null,
+    bank varchar(60) default null,
+    agency varchar(10) default null,
+    accountBank varchar(20) default null,
+    bankType varchar(15) default null
 );
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
