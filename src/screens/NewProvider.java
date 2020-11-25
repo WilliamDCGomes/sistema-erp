@@ -11,8 +11,8 @@ import formattingmask.MaskPhone;
 import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
-import functioncontroller.UpperLetter;
-import functioncontroller.UpperLetterAux;
+import formattingmask.MaskUpperLetter;
+import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
 
@@ -30,14 +30,14 @@ public class NewProvider extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputFantasyName.setDocument(new UpperLetter());
-        inputCompanyName.setDocument(new UpperLetter());
-        inputEmail.setDocument(new UpperLetter());
-        inputAdress.setDocument(new UpperLetter());
-        inputNeighborhood.setDocument(new UpperLetter());
-        inputCity.setDocument(new UpperLetter());
-        inputComplement.setDocument(new UpperLetter());
-        inputObservation.setDocument(new UpperLetter());
+        inputFantasyName.setDocument(new MaskUpperLetter());
+        inputCompanyName.setDocument(new MaskUpperLetter());
+        inputEmail.setDocument(new MaskUpperLetter());
+        inputAdress.setDocument(new MaskUpperLetter());
+        inputNeighborhood.setDocument(new MaskUpperLetter());
+        inputCity.setDocument(new MaskUpperLetter());
+        inputComplement.setDocument(new MaskUpperLetter());
+        inputObservation.setDocument(new MaskUpperLetter());
         inputCPFAndCNPJ.setDocument(new MaskCPFAndCNPJ());
         inputPhone.setDocument(new MaskPhone());
         inputCellPhone.setDocument(new MaskPhone());
@@ -180,7 +180,7 @@ public class NewProvider extends javax.swing.JFrame {
         }
     }
     private void setInformations(){
-        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        MaskUpperLetterAux upperLetterAux = new MaskUpperLetterAux();
         SearchCEP searchCEP = new SearchCEP();
         try {
             searchCEP.buscar(inputCep.getText());

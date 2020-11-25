@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import javax.swing.JOptionPane;
 
 
@@ -15,7 +15,7 @@ public class LocaleProduct extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputProductCode.setDocument(new UpperLetter());
+        inputProductCode.setDocument(new MaskUpperLetter());
     }
     private void setProduct(){
         String sql ="select barCode from product where barCode=?";

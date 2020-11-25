@@ -3,12 +3,8 @@ package screens;
 import functioncontroller.ScreenUserSize;
 import functioncontroller.SetLocationSubMenus;
 import java.awt.Frame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.LookAndFeel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.TableColumn;
 import submenus.BillMenu;
 import submenus.ClientMenu;
@@ -291,7 +287,57 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        menuBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                menuBarFocusLost(evt);
+            }
+        });
+        menuBar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuBarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuBarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuBarMouseExited(evt);
+            }
+        });
+        menuBar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                menuBarPropertyChange(evt);
+            }
+        });
+
         menuFile.setText("Arquivo");
+        menuFile.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
+                menuFileMenuDragMouseExited(evt);
+            }
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+        });
+        menuFile.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+                menuFileMenuDeselected(evt);
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        menuFile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                menuFileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                menuFileMouseExited(evt);
+            }
+        });
         menuFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuFileActionPerformed(evt);
@@ -346,6 +392,26 @@ public class MainMenu extends javax.swing.JFrame {
         menuBar.add(menuFile);
 
         menuSale.setText("Venda");
+        menuSale.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
+                menuSaleMenuDragMouseExited(evt);
+            }
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+        });
+        menuSale.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+                menuSaleMenuDeselected(evt);
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+            }
+        });
 
         optNewSale.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         optNewSale.setText("Nova Venda");
@@ -849,17 +915,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        if(x==0){
-            x++;
-            screenFormate = UIManager.getLookAndFeel();
-        }
-        else if(!screenFormate.toString().equals(UIManager.getLookAndFeel().toString())){
-            try {
-                UIManager.setLookAndFeel(screenFormate);
-            } catch (UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
@@ -1322,8 +1378,52 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_formFocusLost
 
     private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
-        
+       
     }//GEN-LAST:event_formWindowLostFocus
+
+    private void menuBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_menuBarFocusLost
+         
+    }//GEN-LAST:event_menuBarFocusLost
+
+    private void menuBarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseEntered
+       
+    }//GEN-LAST:event_menuBarMouseEntered
+
+    private void menuFileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuFileMouseEntered
+       
+    }//GEN-LAST:event_menuFileMouseEntered
+
+    private void menuFileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuFileMouseExited
+        
+    }//GEN-LAST:event_menuFileMouseExited
+
+    private void menuFileMenuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_menuFileMenuDragMouseExited
+       
+    }//GEN-LAST:event_menuFileMenuDragMouseExited
+
+    private void menuFileMenuDeselected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menuFileMenuDeselected
+        
+    }//GEN-LAST:event_menuFileMenuDeselected
+
+    private void menuBarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_menuBarPropertyChange
+        
+    }//GEN-LAST:event_menuBarPropertyChange
+
+    private void menuBarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseExited
+        
+    }//GEN-LAST:event_menuBarMouseExited
+
+    private void menuBarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuBarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuBarMouseClicked
+
+    private void menuSaleMenuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_menuSaleMenuDragMouseExited
+        
+    }//GEN-LAST:event_menuSaleMenuDragMouseExited
+
+    private void menuSaleMenuDeselected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_menuSaleMenuDeselected
+        
+    }//GEN-LAST:event_menuSaleMenuDeselected
 
     /**
      * @param args the command line arguments

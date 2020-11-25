@@ -94,6 +94,10 @@ create table employee(
     dismissalDate varchar(11) default null,
     dismissalReason varchar(100) default null
 );
+create table temporaryAdressChoosed(
+	id int not null auto_increment primary key,
+	adress varchar(200) not null
+);
 select * from clients;
 select max(id) from clients where cpf="446.588.588-19";
 

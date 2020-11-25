@@ -1,11 +1,11 @@
-package functioncontroller;
+package formattingmask;
 
 
 /**
  *
  * @author willi
  */
-public class UpperLetterAux{
+public class MaskUpperLetterAux{
     public String makeUp(String letter){
         if(letter.equals("a")){
             return "A";

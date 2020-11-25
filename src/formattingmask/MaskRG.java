@@ -16,7 +16,10 @@ public class MaskRG extends PlainDocument{
             return;
         } 
         if(str.length()>1){
-            super.insertString(offset, str , attr);
+            for(int i = str.length() - 1; i >= 0; i--){
+                String auxStr = maskRGAux.getString( str.substring(i, i + 1) );
+                super.insertString(offset, auxStr , attr);
+            }
             return;
         }
         str=maskRGAux.getString(str);

@@ -16,7 +16,10 @@ public class MaskDate extends PlainDocument{
             return;
         } 
         if(str.length()>1){
-            super.insertString(offset, str , attr);
+            for(int i = str.length() - 1; i >= 0; i--){
+                String auxStr = maskDateAux.getString( str.substring(i, i + 1) );
+                super.insertString(offset, auxStr , attr);
+            }
             return;
         }
         str=maskDateAux.getString(str);

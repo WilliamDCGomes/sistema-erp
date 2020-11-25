@@ -13,7 +13,7 @@ import formattingmask.MaskDate;
 import formattingmask.MaskJustNumbers;
 import formattingmask.MaskPhone;
 import formattingmask.MaskRG;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -28,23 +28,23 @@ public class EmployeeScreen extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        outputFullName.setDocument(new UpperLetter());
+        outputFullName.setDocument(new MaskUpperLetter());
         outputBirthDay.setDocument(new MaskDate());
         outputRG.setDocument(new MaskRG());
         outputCPF.setDocument(new MaskCPFAndCNPJ());
         outputPhone.setDocument(new MaskPhone());
         outputCellPhone.setDocument(new MaskPhone());
-        outputEmail.setDocument(new UpperLetter());
-        outputFatherName.setDocument(new UpperLetter());
-        outputMotherName.setDocument(new UpperLetter());
+        outputEmail.setDocument(new MaskUpperLetter());
+        outputFatherName.setDocument(new MaskUpperLetter());
+        outputMotherName.setDocument(new MaskUpperLetter());
         outputCEP.setDocument(new MaskCepAndHouseNumber());
-        outputStreet.setDocument(new UpperLetter());
+        outputStreet.setDocument(new MaskUpperLetter());
         outputNumberHouse.setDocument(new MaskCepAndHouseNumber());
-        outputNeighBorhood.setDocument(new UpperLetter());
-        outputCity.setDocument(new UpperLetter());
-        outputComplement.setDocument(new UpperLetter());
+        outputNeighBorhood.setDocument(new MaskUpperLetter());
+        outputCity.setDocument(new MaskUpperLetter());
+        outputComplement.setDocument(new MaskUpperLetter());
         outputAdmissionDate.setDocument(new MaskDate());
-        outputOccupation.setDocument(new UpperLetter());
+        outputOccupation.setDocument(new MaskUpperLetter());
         outputSalary.setDocument(new MaskCash());
         outputCommission.setDocument(new MaskJustNumbers());
         outputFoodVoucher.setDocument(new MaskCash());
@@ -54,7 +54,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         outputAgency.setDocument(new MaskCPFAndCNPJ());
         outputAccount.setDocument(new MaskCPFAndCNPJ());
         outputDismissalDate.setDocument(new MaskDate());
-        outputReasonDismissal.setDocument(new UpperLetter());
+        outputReasonDismissal.setDocument(new MaskUpperLetter());
     }
     private void setProduct(){
         String[] id = this.getTitle().split(" ");

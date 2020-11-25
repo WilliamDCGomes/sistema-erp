@@ -12,8 +12,8 @@ import functioncontroller.GetImageAdress;
 import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
-import functioncontroller.UpperLetter;
-import functioncontroller.UpperLetterAux;
+import formattingmask.MaskUpperLetter;
+import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
 import java.awt.Image;
@@ -37,12 +37,12 @@ public class ClientScreen extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        outputName.setDocument(new UpperLetter());
-        outputEmail.setDocument(new UpperLetter());
-        outputStreet.setDocument(new UpperLetter());
-        outputNeighborhood.setDocument(new UpperLetter());
-        outputCity.setDocument(new UpperLetter());
-        outputObservation.setDocument(new UpperLetter());
+        outputName.setDocument(new MaskUpperLetter());
+        outputEmail.setDocument(new MaskUpperLetter());
+        outputStreet.setDocument(new MaskUpperLetter());
+        outputNeighborhood.setDocument(new MaskUpperLetter());
+        outputCity.setDocument(new MaskUpperLetter());
+        outputObservation.setDocument(new MaskUpperLetter());
         outputCPF.setDocument(new MaskCPFAndCNPJ());
         outputCellphone.setDocument(new MaskPhone());
         outputPhone.setDocument(new MaskPhone());
@@ -150,7 +150,7 @@ public class ClientScreen extends javax.swing.JFrame {
         }
     }
     private void setInformations(){
-        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        MaskUpperLetterAux upperLetterAux = new MaskUpperLetterAux();
         SearchCEP searchCEP = new SearchCEP();
         try {
             searchCEP.buscar(outputCEP.getText());

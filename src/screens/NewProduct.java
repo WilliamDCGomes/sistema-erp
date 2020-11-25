@@ -8,7 +8,7 @@ import connectionbd.ConnectionModule;
 import formattingmask.MaskCash;
 import formattingmask.MaskJustNumbers;
 import functioncontroller.GetImageAdress;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 public class NewProduct extends javax.swing.JFrame {
@@ -29,11 +29,11 @@ public class NewProduct extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputName.setDocument(new UpperLetter());
-        inputLocalization.setDocument(new UpperLetter());
-        inputBrand.setDocument(new UpperLetter());
-        inputDescription.setDocument(new UpperLetter());
-        inputBarCode.setDocument(new UpperLetter());
+        inputName.setDocument(new MaskUpperLetter());
+        inputLocalization.setDocument(new MaskUpperLetter());
+        inputBrand.setDocument(new MaskUpperLetter());
+        inputDescription.setDocument(new MaskUpperLetter());
+        inputBarCode.setDocument(new MaskUpperLetter());
         inputQuantity.setDocument(new MaskJustNumbers());
         inputMinimumQuantity.setDocument(new MaskJustNumbers());
         inputExpense.setDocument(new MaskCash());

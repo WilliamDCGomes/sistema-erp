@@ -14,7 +14,10 @@ public class MaskJustNumbers extends PlainDocument{
             return;
         } 
         if(str.length()>1){
-            super.insertString(offset, str , attr);
+            for(int i = str.length() - 1; i >= 0; i--){
+                String auxStr = maskJustNumbersAux.getString( str.substring(i, i + 1) );
+                super.insertString(offset, auxStr , attr);
+            }
             return;
         }
         str=maskJustNumbersAux.getString(str);

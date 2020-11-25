@@ -15,15 +15,12 @@ import functioncontroller.GetImageAdress;
 import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
-import functioncontroller.UpperLetter;
-import functioncontroller.UpperLetterAux;
+import formattingmask.MaskUpperLetter;
+import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
 import java.awt.Image;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.UnsupportedLookAndFeelException;
 
 public class NewEmployee extends javax.swing.JFrame {
     Connection connection = null;
@@ -40,23 +37,23 @@ public class NewEmployee extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputFullName.setDocument(new UpperLetter());
+        inputFullName.setDocument(new MaskUpperLetter());
         inputBirthDay.setDocument(new MaskDate());
         inputRG.setDocument(new MaskRG());
         inputCPF.setDocument(new MaskCPFAndCNPJ());
         inputPhone.setDocument(new MaskPhone());
         inputCellPhone.setDocument(new MaskPhone());
-        inputEmail.setDocument(new UpperLetter());
-        inputFatherName.setDocument(new UpperLetter());
-        inputMotherName.setDocument(new UpperLetter());
+        inputEmail.setDocument(new MaskUpperLetter());
+        inputFatherName.setDocument(new MaskUpperLetter());
+        inputMotherName.setDocument(new MaskUpperLetter());
         inputCEP.setDocument(new MaskCepAndHouseNumber());
-        inputStreet.setDocument(new UpperLetter());
+        inputStreet.setDocument(new MaskUpperLetter());
         inputNumberHouse.setDocument(new MaskCepAndHouseNumber());
-        inputNeighBorhood.setDocument(new UpperLetter());
-        inputCity.setDocument(new UpperLetter());
-        inputComplement.setDocument(new UpperLetter());
+        inputNeighBorhood.setDocument(new MaskUpperLetter());
+        inputCity.setDocument(new MaskUpperLetter());
+        inputComplement.setDocument(new MaskUpperLetter());
         inputAdmissionDate.setDocument(new MaskDate());
-        inputOccupation.setDocument(new UpperLetter());
+        inputOccupation.setDocument(new MaskUpperLetter());
         inputSalary.setDocument(new MaskCash());
         inputCommission.setDocument(new MaskJustNumbers());
         inputFoodVoucher.setDocument(new MaskCash());
@@ -296,7 +293,7 @@ public class NewEmployee extends javax.swing.JFrame {
         return false;
     }
     private void setInformations(){
-        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        MaskUpperLetterAux upperLetterAux = new MaskUpperLetterAux();
         SearchCEP searchCEP = new SearchCEP();
         try {
             searchCEP.buscar(inputCEP.getText());

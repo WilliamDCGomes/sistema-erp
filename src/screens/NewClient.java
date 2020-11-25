@@ -12,8 +12,8 @@ import functioncontroller.GetImageAdress;
 import functioncontroller.GetJustTheNumbers;
 import functioncontroller.SearchCEP;
 import functioncontroller.SearchCEPException;
-import functioncontroller.UpperLetter;
-import functioncontroller.UpperLetterAux;
+import formattingmask.MaskUpperLetter;
+import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
 /**
@@ -37,12 +37,12 @@ public class NewClient extends javax.swing.JFrame {
      */
     public NewClient() {
         initComponents();
-        inputName.setDocument(new UpperLetter());
-        inputEmail.setDocument(new UpperLetter());
-        inputStreet.setDocument(new UpperLetter());
-        inputNeighborhood.setDocument(new UpperLetter());
-        inputCity.setDocument(new UpperLetter());
-        inputObservation.setDocument(new UpperLetter());
+        inputName.setDocument(new MaskUpperLetter());
+        inputEmail.setDocument(new MaskUpperLetter());
+        inputStreet.setDocument(new MaskUpperLetter());
+        inputNeighborhood.setDocument(new MaskUpperLetter());
+        inputCity.setDocument(new MaskUpperLetter());
+        inputObservation.setDocument(new MaskUpperLetter());
         inputCPF.setDocument(new MaskCPFAndCNPJ());
         inputCellphone.setDocument(new MaskPhone());
         inputPhone.setDocument(new MaskPhone());
@@ -98,7 +98,7 @@ public class NewClient extends javax.swing.JFrame {
         return false;
     }
     private void setInformations(){
-        UpperLetterAux upperLetterAux = new UpperLetterAux();
+        MaskUpperLetterAux upperLetterAux = new MaskUpperLetterAux();
         SearchCEP searchCEP = new SearchCEP();
         try {
             searchCEP.buscar(inputCEP.getText());

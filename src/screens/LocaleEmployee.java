@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
 import formattingmask.MaskCPFAndCNPJ;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 public class LocaleEmployee extends javax.swing.JFrame {
@@ -21,7 +21,7 @@ public class LocaleEmployee extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputNameEmployee.setDocument(new UpperLetter());
+        inputNameEmployee.setDocument(new MaskUpperLetter());
         inputCPFEmployee.setDocument(new MaskCPFAndCNPJ());
     }
     private void getAllEmployees(){

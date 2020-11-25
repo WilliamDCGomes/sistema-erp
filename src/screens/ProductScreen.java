@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
 import formattingmask.MaskCash;
 import formattingmask.MaskJustNumbers;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -32,11 +32,11 @@ public class ProductScreen extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        outputName.setDocument(new UpperLetter());
-        outputLocalization.setDocument(new UpperLetter());
-        outputBrand.setDocument(new UpperLetter());
-        outputDescription.setDocument(new UpperLetter());
-        outputCode.setDocument(new UpperLetter());
+        outputName.setDocument(new MaskUpperLetter());
+        outputLocalization.setDocument(new MaskUpperLetter());
+        outputBrand.setDocument(new MaskUpperLetter());
+        outputDescription.setDocument(new MaskUpperLetter());
+        outputCode.setDocument(new MaskUpperLetter());
         outputQuantity.setDocument(new MaskJustNumbers());
         outputMinimumQuantity.setDocument(new MaskJustNumbers());
         outputExpense.setDocument(new MaskCash());

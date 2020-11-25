@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
 import formattingmask.MaskCPFAndCNPJ;
-import functioncontroller.UpperLetter;
+import formattingmask.MaskUpperLetter;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -22,7 +22,7 @@ public class AllProviders extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        inputCompanyName.setDocument(new UpperLetter());
+        inputCompanyName.setDocument(new MaskUpperLetter());
         inputCPFOrCNPJ.setDocument(new MaskCPFAndCNPJ());
     }
     private void getAllProviders(){

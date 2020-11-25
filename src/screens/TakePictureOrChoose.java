@@ -260,7 +260,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
     private void buttonTakePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTakePictureActionPerformed
         try{
-            Runtime.getRuntime().exec("D:\\Programing\\Sistema-de-Loja-de-Roupa\\IniciaCamera.bat");
+            Runtime.getRuntime().exec("D:\\Programing\\Sistema ERP\\IniciaCamera.bat");
             adress=getAdress();
             if(newClient!=null){
                 timeSetClient(getAdress());
