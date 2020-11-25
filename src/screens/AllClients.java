@@ -169,7 +169,7 @@ public class AllClients extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(680, 60, 90, 32);
+        buttonPrinter.setBounds(680, 60, 90, 30);
 
         setSize(new java.awt.Dimension(791, 438));
         setLocationRelativeTo(null);

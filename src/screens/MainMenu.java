@@ -3,7 +3,12 @@ package screens;
 import functioncontroller.ScreenUserSize;
 import functioncontroller.SetLocationSubMenus;
 import java.awt.Frame;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.TableColumn;
 import submenus.BillMenu;
 import submenus.ClientMenu;
@@ -16,7 +21,8 @@ import submenus.ProviderMenu;
 
 public class MainMenu extends javax.swing.JFrame {
     int x =0 ;
-    public MainMenu() {
+    LookAndFeel screenFormate;
+    public MainMenu(){
         initComponents();
         ScreenUserSize screenUserSize = new ScreenUserSize();
         String[] size = screenUserSize.sizeOfScreen().split(";");
@@ -120,6 +126,18 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MARKET SYSTEM");
         setResizable(false);
+        addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                formFocusLost(evt);
+            }
+        });
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+                formWindowLostFocus(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -831,7 +849,17 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        
+        if(x==0){
+            x++;
+            screenFormate = UIManager.getLookAndFeel();
+        }
+        else if(!screenFormate.toString().equals(UIManager.getLookAndFeel().toString())){
+            try {
+                UIManager.setLookAndFeel(screenFormate);
+            } catch (UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_formWindowActivated
 
     private void optLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optLocaleClientActionPerformed
@@ -1288,6 +1316,14 @@ public class MainMenu extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         System.exit(0);
     }//GEN-LAST:event_formWindowClosing
+
+    private void formFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_formFocusLost
+        
+    }//GEN-LAST:event_formFocusLost
+
+    private void formWindowLostFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowLostFocus
+        
+    }//GEN-LAST:event_formWindowLostFocus
 
     /**
      * @param args the command line arguments

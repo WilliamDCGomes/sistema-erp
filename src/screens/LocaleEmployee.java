@@ -3,6 +3,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import functioncontroller.UpperLetter;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 public class LocaleEmployee extends javax.swing.JFrame {
@@ -19,9 +21,11 @@ public class LocaleEmployee extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputNameEmployee.setDocument(new UpperLetter());
+        inputCPFEmployee.setDocument(new MaskCPFAndCNPJ());
     }
     private void getAllEmployees(){
-        String sql ="select nameEmployee as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from employee";
+        String sql ="select id as 'Código', nameEmployee as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from employee";
         try {
             pst=connection.prepareStatement(sql);
             rs= pst.executeQuery();
@@ -31,7 +35,7 @@ public class LocaleEmployee extends javax.swing.JFrame {
         }
     }
     private void getEmployeesCPF(){
-        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where cpf like '" + inputCPFClient.getText() + "%'";
+        String sql ="select id as 'Código', nameEmployee as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from employee where cpf like '" + inputCPFEmployee.getText() + "%'";
         try {
             pst=connection.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -41,7 +45,7 @@ public class LocaleEmployee extends javax.swing.JFrame {
         }
     }
     private void getEmployeesName(){
-        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where clientName like '" + inputNameClient.getText() + "%'";
+        String sql ="select id as 'Código', nameEmployee as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from employee where nameEmployee like '" + inputNameEmployee.getText() + "%'";
         try {
             pst=connection.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -51,7 +55,7 @@ public class LocaleEmployee extends javax.swing.JFrame {
         }
     }
     private void getEmployeesCPFAndName(){
-        String sql ="select id as 'Código', clientName as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from clients where cpf like '" + inputCPFClient.getText() + "%' and clientName like '" + inputNameClient.getText() + "%'";
+        String sql ="select id as 'Código', nameEmployee as 'Nome', cpf as 'CPF', email as 'Email', phone as 'Telefone', cellPhone as 'Celular' from employee where cpf like '" + inputCPFEmployee.getText() + "%' and nameEmployee like '" + inputNameEmployee.getText() + "%'";
         try {
             pst=connection.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -106,17 +110,17 @@ public class LocaleEmployee extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputNameEmployee);
-        inputNameEmployee.setBounds(290, 70, 256, 30);
+        inputNameEmployee.setBounds(10, 70, 256, 30);
 
         tableEmployees.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nome", "CPF", "Email", "Telefone", "Celular"
+                "Código", "Nome", "CPF", "Email", "Telefone", "Celular"
             }
         ));
         tableLocaleEmplyees.setViewportView(tableEmployees);
@@ -152,7 +156,7 @@ public class LocaleEmployee extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputCPFEmployee);
-        inputCPFEmployee.setBounds(10, 70, 256, 30);
+        inputCPFEmployee.setBounds(290, 70, 256, 30);
 
         setSize(new java.awt.Dimension(724, 454));
         setLocationRelativeTo(null);
@@ -167,12 +171,18 @@ public class LocaleEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNameEmployeeKeyPressed
 
     private void inputNameEmployeeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameEmployeeKeyReleased
-
+        if(!inputNameEmployee.getText().equals("NOME DO FUNCIONÁRIO")&&inputCPFEmployee.getText().equals("CPF DO FUNCIONÁRIO")){
+            getEmployeesName();
+        }
+        else if(!inputCPFEmployee.getText().equals("CPF DO FUNCIONÁRIO")&&!inputNameEmployee.getText().equals("NOME DO FUNCIONÁRIO")){
+            getEmployeesCPFAndName();
+        }
     }//GEN-LAST:event_inputNameEmployeeKeyReleased
 
     private void inputNameEmployeeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputNameEmployeeKeyTyped
         if(inputNameEmployee.getText().equals("")){
             inputNameEmployee.setText("NOME DO FUNCIONÁRIO");
+            getAllEmployees();
             x=0;
         }
         else if(x==0){
@@ -182,7 +192,9 @@ public class LocaleEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_inputNameEmployeeKeyTyped
 
     private void buttonShowClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowClientActionPerformed
+        int set = tableEmployees.getSelectedRow();
         EmployeeScreen employeeScreen = new EmployeeScreen();
+        employeeScreen.setTitle("Funcionário: " + tableEmployees.getModel().getValueAt(set,0).toString());
         employeeScreen.setVisible(true);
     }//GEN-LAST:event_buttonShowClientActionPerformed
 
@@ -195,12 +207,18 @@ public class LocaleEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_inputCPFEmployeeKeyPressed
 
     private void inputCPFEmployeeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFEmployeeKeyReleased
-        // TODO add your handling code here:
+        if(!inputCPFEmployee.getText().equals("CPF DO FUNCIONÁRIO")&&inputNameEmployee.getText().equals("NOME DO FUNCIONÁRIO")){
+            getEmployeesCPF();
+        }
+        else if(!inputCPFEmployee.getText().equals("CPF DO FUNCIONÁRIO")&&!inputNameEmployee.getText().equals("NOME DO FUNCIONÁRIO")){
+            getEmployeesCPFAndName();
+        }
     }//GEN-LAST:event_inputCPFEmployeeKeyReleased
 
     private void inputCPFEmployeeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFEmployeeKeyTyped
         if(inputCPFEmployee.getText().equals("")){
             inputCPFEmployee.setText("CPF DO FUNCIONÁRIO");
+            getAllEmployees();
             x2=0;
         }
         else if(x2==0){
@@ -212,7 +230,9 @@ public class LocaleEmployee extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x3==0){
             x3++;
-            
+            inputNameEmployee.setText("NOME DO FUNCIONÁRIO");
+            inputCPFEmployee.setText("CPF DO FUNCIONÁRIO");
+            getAllEmployees();
         }
     }//GEN-LAST:event_formWindowActivated
 
