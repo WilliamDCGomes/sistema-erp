@@ -9,6 +9,7 @@ import formattingmask.MaskCash;
 import formattingmask.MaskJustNumbers;
 import functioncontroller.GetImageAdress;
 import formattingmask.MaskUpperLetter;
+import functioncontroller.RoundNumber;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 public class NewProduct extends javax.swing.JFrame {
@@ -226,6 +227,7 @@ public class NewProduct extends javax.swing.JFrame {
         buttonLocale = new javax.swing.JButton();
         txtMinimumQuantity = new javax.swing.JLabel();
         inputMinimumQuantity = new javax.swing.JTextField();
+        txtPercent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Produto");
@@ -302,10 +304,20 @@ public class NewProduct extends javax.swing.JFrame {
         inputBrand.setBounds(20, 340, 240, 30);
 
         inputProfitPercentage.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputProfitPercentage.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputProfitPercentageFocusLost(evt);
+            }
+        });
         getContentPane().add(inputProfitPercentage);
         inputProfitPercentage.setBounds(170, 270, 90, 30);
 
         inputExpense.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputExpense.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputExpenseFocusLost(evt);
+            }
+        });
         getContentPane().add(inputExpense);
         inputExpense.setBounds(320, 200, 90, 30);
 
@@ -332,6 +344,11 @@ public class NewProduct extends javax.swing.JFrame {
         inputName.setBounds(180, 130, 330, 30);
 
         inputPrice.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputPrice.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputPriceFocusLost(evt);
+            }
+        });
         getContentPane().add(inputPrice);
         inputPrice.setBounds(440, 200, 90, 30);
 
@@ -436,6 +453,11 @@ public class NewProduct extends javax.swing.JFrame {
         getContentPane().add(inputMinimumQuantity);
         inputMinimumQuantity.setBounds(140, 200, 80, 30);
 
+        txtPercent.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtPercent.setText("%");
+        getContentPane().add(txtPercent);
+        txtPercent.setBounds(270, 270, 20, 30);
+
         setSize(new java.awt.Dimension(769, 601));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -539,6 +561,34 @@ public class NewProduct extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputProviderKeyTyped
 
+    private void inputPriceFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputPriceFocusLost
+        if(!inputExpense.getText().equals("")&&!inputPrice.getText().equals("")){
+            RoundNumber roundNumber = new RoundNumber();
+            String expensiveString = inputExpense.getText().replace(',', '.');
+            String priceString = inputPrice.getText().replace(',', '.');
+            double profit = Double.parseDouble(priceString) - Double.parseDouble(expensiveString);
+            double percentProfit = (profit / Double.parseDouble(priceString)) * 100;
+            inputProfit.setText(roundNumber.doRound(profit));
+            inputProfitPercentage.setText(roundNumber.doRound(percentProfit));
+        }
+    }//GEN-LAST:event_inputPriceFocusLost
+
+    private void inputExpenseFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputExpenseFocusLost
+        if(!inputExpense.getText().equals("")&&!inputPrice.getText().equals("")){
+            RoundNumber roundNumber = new RoundNumber();
+            String expensiveString = inputExpense.getText().replace(',', '.');
+            String priceString = inputPrice.getText().replace(',', '.');
+            double profit = Double.parseDouble(priceString) - Double.parseDouble(expensiveString);
+            double percentProfit = (100 * profit) / Double.parseDouble(expensiveString);
+            inputProfit.setText(roundNumber.doRound(profit));
+            inputProfitPercentage.setText(roundNumber.doRound(percentProfit));
+        }
+    }//GEN-LAST:event_inputExpenseFocusLost
+
+    private void inputProfitPercentageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputProfitPercentageFocusLost
+       
+    }//GEN-LAST:event_inputProfitPercentageFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -601,6 +651,7 @@ public class NewProduct extends javax.swing.JFrame {
     private javax.swing.JLabel txtMinimumQuantity;
     private javax.swing.JLabel txtName;
     public static javax.swing.JLabel txtNewProduct;
+    private javax.swing.JLabel txtPercent;
     private javax.swing.JLabel txtPrice;
     private javax.swing.JLabel txtProfit;
     private javax.swing.JLabel txtProftPercentage;

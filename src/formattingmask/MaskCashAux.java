@@ -42,6 +42,9 @@ public class MaskCashAux {
         else if(letter.equals(",")){
             return ",";
         }
+        else if(letter.equals("-")){
+            return "-";
+        }
         else{
             return "";
         }
