@@ -4,7 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import formattingmask.MaskDate;
+import formattingmask.MaskJustNumbers;
+import formattingmask.MaskUpperLetter;
 import functioncontroller.GetDate;
+import functioncontroller.GetJustTheNumbers;
+import functioncontroller.ValidateCNPJ;
+import functioncontroller.ValidateCPF;
 import javax.swing.JOptionPane;
 
 public class EmployeeDismissal extends javax.swing.JFrame {
@@ -17,14 +24,23 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
     GetDate getDate = new GetDate();
+    boolean cpfValide = false;
+    boolean cnpjValide = false;
+    boolean isEdit = false;
     public EmployeeDismissal() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputCodeEmployee.setDocument(new MaskJustNumbers());
+        inputCPFEmployee.setDocument(new MaskCPFAndCNPJ());
+        inputEmployeeName.setDocument(new MaskUpperLetter());
+        inputDismissalDate.setDocument(new MaskDate());
+        inputReasonDismissal.setDocument(new MaskUpperLetter());
+        inputBeginAdvance.setDocument(new MaskDate());
+        inputEndAdvance.setDocument(new MaskDate());
+        inputObservation.setDocument(new MaskUpperLetter());
     }
     private void setScreen(boolean trueOrFalse){
-        buttonLocale.setEnabled(trueOrFalse);
-        buttonLocaleAll.setEnabled(trueOrFalse);
         inputAffirmativeCause.setEnabled(trueOrFalse);
         inputNegativeCause.setEnabled(trueOrFalse);
         inputAffirmativeAdvance.setEnabled(trueOrFalse);
@@ -34,6 +50,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         txtRequiredField10.setVisible(trueOrFalse);
         txtRequiredField11.setVisible(trueOrFalse);
         txtRequiredField12.setVisible(trueOrFalse);
+        isEdit = trueOrFalse;
         if(trueOrFalse==false){
             buttonSave.setText("EDITAR");
         }
@@ -220,6 +237,19 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    private void getNameEmployee(){
+        String sql = "SELECT nameEmployee FROM employee WHERE cpf = ?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1,inputCPFEmployee.getText());
+            rs=pst.executeQuery();
+            if(rs.next()){
+                inputEmployeeName.setText(rs.getString(1));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -396,6 +426,9 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 inputCPFEmployeeFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputCPFEmployeeFocusLost(evt);
+            }
         });
         inputCPFEmployee.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -530,6 +563,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         else{
             setScreen(false);
             getPrevius();
+            getNameEmployee();
         }
     }//GEN-LAST:event_txtPreviousMouseClicked
 
@@ -540,6 +574,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         else{
             setScreen(false);
             getNext();
+            getNameEmployee();
         }
     }//GEN-LAST:event_txtNextMouseClicked
 
@@ -550,6 +585,12 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         else{
             if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputDismissalDate.getText().equals("")||(!inputAffirmativeCause.isSelected() && !inputNegativeCause.isSelected())||(!inputAffirmativeAdvance.isSelected() && !inputNegativeAdvance.isSelected())){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
+            }
+            else if(cpfValide==false&&cnpjValide==false){
+                JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else if(isEdit){
+                
             }
             else if(!isEmployee()){
                 JOptionPane.showMessageDialog(null, "O FUNCIONÁRIO EM QUESTÃO JÁ ESTÁ DESLIGADO DA EMPRESA");
@@ -640,7 +681,32 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         else if(!inputCPFEmployee.getText().equals("")){
             getEmployeeCPF();
         }
+        if(!isEmployee()){
+            setScreen(false);
+        }
     }//GEN-LAST:event_buttonLocaleActionPerformed
+
+    private void inputCPFEmployeeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFEmployeeFocusLost
+        if(!inputCPFEmployee.getText().equals("")){
+            ValidateCPF validateCPF = new ValidateCPF();
+            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+            if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
+                cpfValide = false;
+            }
+            else if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
+                cpfValide = true;
+            }
+            else if(inputCPFEmployee.getText().length()>13 && inputCPFEmployee.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
+                cnpjValide = false;
+            }
+            else if(inputCPFEmployee.getText().length()>14 && inputCPFEmployee.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
+                cnpjValide = true;
+            }
+        }
+    }//GEN-LAST:event_inputCPFEmployeeFocusLost
 
     /**
      * @param args the command line arguments
