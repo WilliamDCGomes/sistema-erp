@@ -681,7 +681,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         else if(!inputCPFEmployee.getText().equals("")){
             getEmployeeCPF();
         }
-        if(!isEmployee()){
+        if(!isEmployee()&&!inputCPFEmployee.getText().equals("")){
             setScreen(false);
         }
     }//GEN-LAST:event_buttonLocaleActionPerformed
