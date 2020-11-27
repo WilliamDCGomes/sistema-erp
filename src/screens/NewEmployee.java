@@ -152,6 +152,62 @@ public class NewEmployee extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    private void updateReadmited1(){
+        String sql = "update employee set nameEmployee=?, birthday=?, rg=?, cpf=?, sexo=?, phone=?, cellPhone=?, email=?, fatherName=?, motherName=?, cep=?, street=?, houseNumber=?, neighborhood=?, city=?, state=?, complement=?, photoAdress=? where cpf=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,inputFullName.getText());
+            pst.setString(2,inputBirthDay.getText());
+            pst.setString(3,inputRG.getText());
+            pst.setString(4,inputCPF.getText());
+            pst.setString(5,inputSex.getSelectedItem().toString());
+            pst.setString(6,inputPhone.getText());
+            pst.setString(7,inputCellPhone.getText());
+            pst.setString(8,inputEmail.getText());
+            pst.setString(9,inputFatherName.getText());
+            pst.setString(10,inputMotherName.getText());
+            pst.setString(11,inputCEP.getText());
+            pst.setString(12,inputStreet.getText());
+            pst.setString(13,inputNumberHouse.getText());
+            pst.setString(14,inputNeighBorhood.getText());
+            pst.setString(15,inputCity.getText());
+            pst.setString(16,inputState.getSelectedItem().toString());
+            pst.setString(17,inputComplement.getText());
+            pst.setString(18,imageAdress);
+            pst.setString(19,inputCPF.getText());
+            pst.executeUpdate();
+            updateReadmited2();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void updateReadmited2(){
+        String sql = "update readmissionEmployee set readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=(select max(id) from readmissionEmployee where cpf=?)";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1,inputAdmissionDate.getText());
+            pst2.setString(2,inputOccupation.getText());
+            pst2.setString(3,inputSalary.getText());
+            pst2.setString(4,inputCommission.getText());
+            pst2.setString(5,inputFoodVoucher.getText());
+            pst2.setString(6,inputMealTicket.getText());
+            pst2.setString(7,inputTranportationVoucher.getText());
+            pst2.setString(8,inputPIS.getText());
+            pst2.setString(9,inputBank.getSelectedItem().toString());
+            pst2.setString(10,inputAgency.getText());
+            pst2.setString(11,inputAccount.getText());
+            pst2.setString(12,inputAccountType.getSelectedItem().toString());
+            pst2.setString(13,inputCPF.getText());
+            pst2.executeUpdate();
+            JOptionPane.showMessageDialog(null,"FUNCIONÁRIO ATUALIZADO COM SUCESSO");
+            EmployeeScreen employeeScreen = new EmployeeScreen();
+            this.dispose();
+            employeeScreen.setTitle("Funcionário: " + getId());
+            employeeScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
     private void delete(){
         int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA DELETAR ESSE FUNCIONÁRIO?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
         if(confirma==JOptionPane.YES_OPTION){
@@ -869,16 +925,36 @@ public class NewEmployee extends javax.swing.JFrame {
         else if(txtNewEmployee.getText().equals("ATUALIZAR FUNCIONÁRIO")){
             String[] var = comp().split(";");
             if(inputRG.getText().equals(var[0]) && inputCPF.getText().equals(var[1])){
-                update();
+                if(txtAdmissionDate.getText().equals("Data de Readmissão")){
+                    updateReadmited1();
+                }
+                else{
+                    update();
+                }
             }
             else if(!inputRG.getText().equals(var[0]) && !checkRG() && !inputCPF.getText().equals(var[1]) && !checkCPF()){
-                update();
+                if(txtAdmissionDate.getText().equals("Data de Readmissão")){
+                    updateReadmited1();
+                }
+                else{
+                    update();
+                }
             }
             else if(!inputRG.getText().equals(var[0]) && !checkRG()){
-                update();
+                if(txtAdmissionDate.getText().equals("Data de Readmissão")){
+                    updateReadmited1();
+                }
+                else{
+                    update();
+                }
             }
             else if(!inputCPF.getText().equals(var[1]) && !checkCPF()){
-                update();
+                if(txtAdmissionDate.getText().equals("Data de Readmissão")){
+                    updateReadmited1();
+                }
+                else{
+                    update();
+                }
             }
             else{
                 JOptionPane.showMessageDialog(null, "O NOVO RG OU CPF QUE VOCÊ DIGITOU JÁ ESTÁ CADASTRADO PARA ALGUM FUNCIONÁRIO!\nVERIFIQUE OS DADOS E TENTE NOVAMENTE");
@@ -1019,7 +1095,7 @@ public class NewEmployee extends javax.swing.JFrame {
     private javax.swing.JButton buttonSave;
     private javax.swing.JTextField inputAccount;
     private javax.swing.JComboBox<String> inputAccountType;
-    private javax.swing.JTextField inputAdmissionDate;
+    public static javax.swing.JTextField inputAdmissionDate;
     private javax.swing.JTextField inputAgency;
     private javax.swing.JComboBox<String> inputBank;
     private javax.swing.JTextField inputBirthDay;

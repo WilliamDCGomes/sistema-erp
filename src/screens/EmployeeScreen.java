@@ -60,7 +60,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }
     private void setProduct(){
         String[] id = this.getTitle().split(" ");
-        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress, readmissionEmployee from employee where id=?";
+        String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress, readmissionEmployee, statusEmployee from employee where id=?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt( id[1] ));
@@ -106,6 +106,23 @@ public class EmployeeScreen extends javax.swing.JFrame {
                     ImageIcon imagen = new ImageIcon(imageAdress);
                     outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPhoto.getWidth(), outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
+                if(rs.getString(32).equals("Inativo") && rs.getString(31).equals("Não")){
+                    setDimissal();
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void setDimissal(){
+        String sql ="select dismissalDate, dismissalReason from dismissalEmployee where id=(select max(id) from dismissalEmployee where cpf=?)";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, outputCPF.getText());
+            rs2= pst2.executeQuery();
+            if(rs2.next()){
+                outputDismissalDate.setText(rs2.getString(1));
+                outputReasonDismissal.setText(rs2.getString(2));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -113,7 +130,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     }
     private void setReadmissal(){
         txtAdmissionDate.setText("Data de Readmissão");
-        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where cpf=? and max(id)";
+        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where id=(select max(id) from readmissionEmployee where cpf=?)";
         try {
             pst2=connection.prepareStatement(sql);
             pst2.setString(1, outputCPF.getText());
@@ -135,6 +152,20 @@ public class EmployeeScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    private int getId(){
+        String sql ="select max(id) from dismissalEmployee where cpf = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, outputCPF.getText());
+            rs2 = pst2.executeQuery();
+            if(rs2.next()){
+                return rs2.getInt(1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 0;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -300,7 +331,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         txtAdmissionDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtAdmissionDate.setText("Data de Admissão");
         getContentPane().add(txtAdmissionDate);
-        txtAdmissionDate.setBounds(20, 410, 140, 20);
+        txtAdmissionDate.setBounds(20, 410, 160, 20);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPhone.setText("Telefone");
@@ -584,6 +615,9 @@ public class EmployeeScreen extends javax.swing.JFrame {
         NewEmployee newEmployee = new NewEmployee();
         newEmployee.txtNewEmployee.setText("ATUALIZAR FUNCIONÁRIO");
         newEmployee.setTitle("Atualizar Funcionário " + id[1]);  
+        if(txtAdmissionDate.getText().equals("Data de Readmissão")){
+            newEmployee.inputAdmissionDate.setText("Data de Readmissão");
+        }
         this.dispose();
         newEmployee.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed
@@ -601,6 +635,10 @@ public class EmployeeScreen extends javax.swing.JFrame {
 
     private void buttonTerminatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTerminatorActionPerformed
         EmployeeDismissal employeeDismissal = new EmployeeDismissal();
+        if(!outputCPF.getText().equals("")){
+            employeeDismissal.dismissalId = getId();
+            employeeDismissal.getEmploye();
+        }
         employeeDismissal.setVisible(true);
     }//GEN-LAST:event_buttonTerminatorActionPerformed
 

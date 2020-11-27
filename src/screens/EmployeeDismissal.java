@@ -23,6 +23,8 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
+    PreparedStatement pst3 = null;
+    ResultSet rs3 = null;
     GetDate getDate = new GetDate();
     boolean cpfValide = false;
     boolean cnpjValide = false;
@@ -40,7 +42,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         inputEndAdvance.setDocument(new MaskDate());
         inputObservation.setDocument(new MaskUpperLetter());
     }
-    private void setScreen(boolean trueOrFalse){
+    public void setScreen(boolean trueOrFalse){
         inputAffirmativeCause.setEnabled(trueOrFalse);
         inputNegativeCause.setEnabled(trueOrFalse);
         inputAffirmativeAdvance.setEnabled(trueOrFalse);
@@ -94,6 +96,37 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             pst2.setString(2,inputCPFEmployee.getText());
             pst2.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO DESLIGADO COM SUCESSO");
+            setScreen(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void updateDismissal(){
+        String sql = "update dismissalEmployee set codEmployee=?, cpf=?, dismissalDate=?, dismissalReason=?, dismissalByCause=?, earlyWarning=?, beginEarlyWarning=?, endEarlyWarning=?, observation=? where id=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
+            pst.setString(2,inputCPFEmployee.getText());
+            pst.setString(3,inputDismissalDate.getText());
+            pst.setString(4,inputReasonDismissal.getText());
+            if(inputAffirmativeCause.isSelected()){
+                pst.setString(5,"Sim");
+            }
+            else if(inputNegativeCause.isSelected()){
+                pst.setString(5,"Não");
+            }
+            if(inputAffirmativeAdvance.isSelected()){
+                pst.setString(6,"Sim");
+            }
+            else if(inputNegativeAdvance.isSelected()){
+                pst.setString(6,"Não");
+            }
+            pst.setString(7,inputBeginAdvance.getText());
+            pst.setString(8,inputEndAdvance.getText());
+            pst.setString(9,inputObservation.getText());
+            pst.setInt(10,dismissalId);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"DESLIGAMENTO ATUALIZADO COM SUCESSO");
             setScreen(false);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -153,6 +186,34 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         return false;
+    }
+    private boolean hasDismissal(){
+        String sql ="select id from dismissalEmployee where cpf = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputCPFEmployee.getText());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false;
+    }
+    private int valideCPF(){
+        String sql ="select id from employee where cpf = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputCPFEmployee.getText());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 0;
     }
     private void getId(){
         String sql ="select max(id) from dismissalEmployee where cpf = ?";
@@ -237,14 +298,56 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    public void getEmploye(){
+        String sql = "SELECT id, codEmployee, cpf, dismissalDate, dismissalReason, dismissalByCause, earlyWarning, beginEarlyWarning, endEarlyWarning, observation FROM dismissalEmployee WHERE id = ?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1,dismissalId);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                dismissalId = rs.getInt(1);
+                inputCodeEmployee.setText(rs.getString(2));
+                inputCPFEmployee.setText(rs.getString(3));
+                inputDismissalDate.setText(rs.getString(4));
+                inputReasonDismissal.setText(rs.getString(5));
+                if(rs.getString(6).equals("Sim")){
+                    inputAffirmativeCause.setSelected(true);
+                }
+                else if(rs.getString(6).equals("Não")){
+                    inputNegativeCause.setSelected(true);
+                }
+                if(rs.getString(7).equals("Sim")){
+                    inputAffirmativeAdvance.setSelected(true);
+                }
+                else if(rs.getString(7).equals("Não")){
+                    inputNegativeAdvance.setSelected(true);
+                }
+                inputBeginAdvance.setText(rs.getString(8));
+                inputEndAdvance.setText(rs.getString(9));
+                inputObservation.setText(rs.getString(10));
+                getNameEmployee();
+                setGetEmployee();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "NÃO HÁ READMISSÃO PARA SER MOSTRADA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void setGetEmployee(){
+        setScreen(false);
+        cpfValide=true;
+        cnpjValide=true;
+    }
     private void getNameEmployee(){
         String sql = "SELECT nameEmployee FROM employee WHERE cpf = ?";
         try {
-            pst = connection.prepareStatement(sql);
-            pst.setString(1,inputCPFEmployee.getText());
-            rs=pst.executeQuery();
-            if(rs.next()){
-                inputEmployeeName.setText(rs.getString(1));
+            pst3 = connection.prepareStatement(sql);
+            pst3.setString(1,inputCPFEmployee.getText());
+            rs3=pst3.executeQuery();
+            if(rs3.next()){
+                inputEmployeeName.setText(rs3.getString(1));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -561,9 +664,11 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SELECIONE UM FUNCIONÁRIO PRIMEIRO, PARA QUE POSSA VER SUAS DEMISSÕES");
         }
         else{
-            setScreen(false);
             getPrevius();
             getNameEmployee();
+            if(!inputCPFEmployee.getText().equals("")){
+                setScreen(false);
+            }
         }
     }//GEN-LAST:event_txtPreviousMouseClicked
 
@@ -572,9 +677,11 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SELECIONE UM FUNCIONÁRIO PRIMEIRO, PARA QUE POSSA VER SUAS DEMISSÕES");
         }
         else{
-            setScreen(false);
             getNext();
             getNameEmployee();
+            if(!inputCPFEmployee.getText().equals("")){
+                setScreen(false);
+            }
         }
     }//GEN-LAST:event_txtNextMouseClicked
 
@@ -590,7 +697,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
             }
             else if(isEdit){
-                
+                updateDismissal();
             }
             else if(!isEmployee()){
                 JOptionPane.showMessageDialog(null, "O FUNCIONÁRIO EM QUESTÃO JÁ ESTÁ DESLIGADO DA EMPRESA");
@@ -604,6 +711,11 @@ public class EmployeeDismissal extends javax.swing.JFrame {
 
     private void buttonReadmittedEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReadmittedEmployeeActionPerformed
         ReadmittedScreen readmittedScreen = new ReadmittedScreen();
+        if(valideCPF()!=0){
+            readmittedScreen.inputCodeEmployee.setText(Integer.toString(valideCPF()));
+            readmittedScreen.getEmployeeId();
+            readmittedScreen.setGetEmployee();
+        }
         this.dispose();
         readmittedScreen.setVisible(true);
     }//GEN-LAST:event_buttonReadmittedEmployeeActionPerformed
@@ -675,14 +787,16 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         if(inputCodeEmployee.getText().equals("")&&inputCPFEmployee.getText().equals("")){
             JOptionPane.showMessageDialog(null, "POR FAVOR, INSIRA UM CÓDIGO OU UM CPF");
         }
-        else if(!inputCodeEmployee.getText().equals("")){
-            getEmployeeId();
-        }
-        else if(!inputCPFEmployee.getText().equals("")){
-            getEmployeeCPF();
-        }
-        if(!isEmployee()&&!inputCPFEmployee.getText().equals("")){
-            setScreen(false);
+        else{
+            if(!inputCodeEmployee.getText().equals("")){
+                getEmployeeId();
+            }
+            else if(!inputCPFEmployee.getText().equals("")){
+                getEmployeeCPF();
+            }
+            if(hasDismissal()){
+                getEmploye();
+            }
         }
     }//GEN-LAST:event_buttonLocaleActionPerformed
 

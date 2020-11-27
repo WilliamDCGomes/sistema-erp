@@ -48,18 +48,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         inputAccount.setDocument(new MaskCPFAndCNPJ());
     }
     private void setScreen(boolean trueOrFalse){
-        inputEmployeeName.setEnabled(trueOrFalse);
-        inputReadmittedDate.setEnabled(trueOrFalse);
-        inputOccupation.setEnabled(trueOrFalse);
-        inputSalary.setEnabled(trueOrFalse);
-        inputCommission.setEnabled(trueOrFalse);
-        inputFoodVoucher.setEnabled(trueOrFalse);
-        inputMealTicket.setEnabled(trueOrFalse);
-        inputTranportationVoucher.setEnabled(trueOrFalse);
-        inputPIS.setEnabled(trueOrFalse);
         inputBank.setEnabled(trueOrFalse);
-        inputAgency.setEnabled(trueOrFalse);
-        inputAccount.setEnabled(trueOrFalse);
         inputAccountType.setEnabled(trueOrFalse);
         txtRequiredField8.setVisible(trueOrFalse);
         txtRequiredField9.setVisible(trueOrFalse);
@@ -110,8 +99,34 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }
-    private void getEmployeeId(){
-        String sql ="select cpf, nameEmployee from employee where id = ?";
+    private void updateReadmitted(){
+        String sql = "update readmissionEmployee set codEmployee=?, cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
+            pst.setString(2,inputCPFEmployee.getText());
+            pst.setString(3,inputReadmittedDate.getText());
+            pst.setString(4,inputOccupation.getText());
+            pst.setString(5,inputSalary.getText());
+            pst.setString(6,inputCommission.getText());
+            pst.setString(7,inputFoodVoucher.getText());
+            pst.setString(8,inputMealTicket.getText());
+            pst.setString(9,inputTranportationVoucher.getText());
+            pst.setString(10,inputPIS.getText());
+            pst.setString(11,inputBank.getSelectedItem().toString());
+            pst.setString(12,inputAgency.getText());
+            pst.setString(13,inputAccount.getText());
+            pst.setString(14,inputAccountType.getSelectedItem().toString());
+            pst.setInt(15,adismissalId);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"READMIÇÃO ATUALIZADA COM SUCESSO");
+            setScreen(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    public void getEmployeeId(){
+        String sql ="select cpf, nameEmployee, pisAndPasep from employee where id = ?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1, Integer.parseInt( inputCodeEmployee.getText() ));
@@ -119,6 +134,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             if(rs.next()){
                 inputCPFEmployee.setText(rs.getString(1));
                 inputEmployeeName.setText(rs.getString(2));
+                inputPIS.setText(rs.getString(3));
                 getId();
             }
             else{
@@ -129,7 +145,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         }
     }
     private void getEmployeeCPF(){
-        String sql ="select id, cpf, nameEmployee from employee where cpf = ?";
+        String sql ="select id, cpf, nameEmployee, pisAndPasep from employee where cpf = ?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setString(1, inputCPFEmployee.getText());
@@ -137,6 +153,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             if(rs.next()){
                 inputCodeEmployee.setText(Integer.toString(rs.getInt(1)));
                 inputEmployeeName.setText(rs.getString(2));
+                inputPIS.setText(rs.getString(3));
                 getId();
             }
             else{
@@ -172,6 +189,20 @@ public class ReadmittedScreen extends javax.swing.JFrame {
                 if(rs.getString(1).equals("Ativo")){
                     return true;
                 }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false;
+    }
+    private boolean hasReadmissal(){
+        String sql ="select id from readmissionEmployee where cpf = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1, inputCPFEmployee.getText());
+            rs = pst.executeQuery();
+            if(rs.next()){
+                return true;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -237,6 +268,41 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
+    }
+    private void getEmploye(){
+        String sql = "SELECT id, codEmployee, cpf, readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType FROM readmissionEmployee WHERE id = ?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1,adismissalId);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                adismissalId = rs.getInt(1);
+                inputCodeEmployee.setText(Integer.toString(rs.getInt(2)));
+                inputCPFEmployee.setText(rs.getString(3));
+                inputReadmittedDate.setText(rs.getString(4));
+                inputOccupation.setText(rs.getString(5));
+                inputSalary.setText(rs.getString(6));
+                inputCommission.setText(rs.getString(7));
+                inputFoodVoucher.setText(rs.getString(8));
+                inputMealTicket.setText(rs.getString(9));
+                inputTranportationVoucher.setText(rs.getString(10));
+                inputPIS.setText(rs.getString(11));
+                inputBank.setSelectedItem(rs.getString(12));
+                inputAgency.setText(rs.getString(13));
+                inputAccount.setText(rs.getString(14));
+                inputAccountType.setSelectedItem(rs.getString(15));
+                setGetEmployee();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "NÃO HÁ READMISSÃO PARA SER MOSTRADA");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    public void setGetEmployee(){
+        cpfValide=true;
+        cnpjValide=true;
     }
     private void getNameEmployee(){
         String sql = "SELECT nameEmployee FROM employee WHERE cpf = ?";
@@ -594,14 +660,14 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             setScreen(true);
         }
         else{
-            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||!inputOccupation.getText().equals("")){
+            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||inputOccupation.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
             }
             else if(cpfValide==false&&cnpjValide==false){
                 JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
             }
             else if(isEdit){
-                
+                updateReadmitted();
             }
             else if(isEmployee()){
                 JOptionPane.showMessageDialog(null, "O FUNCIONÁRIO EM QUESTÃO JÁ ESTÁ CADASTRADO NO SISTEMA COMO FUNCIONÁRIO ATIVO");
@@ -657,14 +723,17 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         if(inputCodeEmployee.getText().equals("")&&inputCPFEmployee.getText().equals("")){
             JOptionPane.showMessageDialog(null, "POR FAVOR, INSIRA UM CÓDIGO OU UM CPF");
         }
-        else if(!inputCodeEmployee.getText().equals("")){
-            getEmployeeId();
-        }
-        else if(!inputCPFEmployee.getText().equals("")){
-            getEmployeeCPF();
-        }
-        if(!isEmployee()&&!inputCPFEmployee.getText().equals("")){
-            setScreen(false);
+        else {
+            if(!inputCodeEmployee.getText().equals("")){
+                getEmployeeId();
+            }
+            else if(!inputCPFEmployee.getText().equals("")){
+                getEmployeeCPF();
+            }
+            if(hasReadmissal()){
+                getEmploye();
+                setScreen(false);
+            }
         }
     }//GEN-LAST:event_buttonLocaleActionPerformed
 
@@ -694,9 +763,11 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SELECIONE UM FUNCIONÁRIO PRIMEIRO, PARA QUE POSSA VER SUAS DEMISSÕES");
         }
         else{
-            setScreen(false);
             getPrevius();
             getNameEmployee();
+            if(!inputCPFEmployee.getText().equals("")){
+                setScreen(false);
+            }
         }
     }//GEN-LAST:event_txtPreviousMouseClicked
 
@@ -705,9 +776,11 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SELECIONE UM FUNCIONÁRIO PRIMEIRO, PARA QUE POSSA VER SUAS DEMISSÕES");
         }
         else{
-            setScreen(false);
             getNext();
             getNameEmployee();
+            if(!inputCPFEmployee.getText().equals("")){
+                setScreen(false);
+            }
         }
     }//GEN-LAST:event_txtNextMouseClicked
 
@@ -778,7 +851,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     private javax.swing.JTextField inputAgency;
     private javax.swing.JComboBox<String> inputBank;
     private javax.swing.JTextField inputCPFEmployee;
-    private javax.swing.JTextField inputCodeEmployee;
+    public static javax.swing.JTextField inputCodeEmployee;
     private javax.swing.JTextField inputCommission;
     private javax.swing.JTextField inputEmployeeName;
     private javax.swing.JTextField inputFoodVoucher;
