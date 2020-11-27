@@ -94,7 +94,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             pst2.setString(3,inputCPFEmployee.getText());
             pst2.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO READMITIDO COM SUCESSO");
-            setScreen(false);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
@@ -120,7 +120,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             pst.setInt(15,adismissalId);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"READMIÇÃO ATUALIZADA COM SUCESSO");
-            setScreen(false);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }

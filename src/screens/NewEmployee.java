@@ -30,6 +30,8 @@ public class NewEmployee extends javax.swing.JFrame {
     ResultSet rs2 = null;
     PreparedStatement pst3 = null;
     ResultSet rs3 = null;
+    PreparedStatement pst4 = null;
+    ResultSet rs4 = null;
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
     int x = 0;
@@ -217,6 +219,30 @@ public class NewEmployee extends javax.swing.JFrame {
             pst2.setString(13,inputAccountType.getSelectedItem().toString());
             pst2.setInt(14,getMaxId());
             pst2.executeUpdate();
+            updateDismissal();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void updateDismissal(){
+        String sql = "update dismissalEmployee set cpf=? where cpf=?";
+        try {
+            pst3=connection.prepareStatement(sql);
+            pst3.setString(1,inputCPF.getText());
+            pst3.setString(2,safeCPF);
+            pst3.executeUpdate();
+            updateReadmissal();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }
+    private void updateReadmissal(){
+        String sql = "update readmissionEmployee set cpf=? where cpf=?";
+        try {
+            pst4=connection.prepareStatement(sql);
+            pst4.setString(1,inputCPF.getText());
+            pst4.setString(2,safeCPF);
+            pst4.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO ATUALIZADO COM SUCESSO");
             EmployeeScreen employeeScreen = new EmployeeScreen();
             this.dispose();
@@ -236,6 +262,7 @@ public class NewEmployee extends javax.swing.JFrame {
                 int deleted = pst.executeUpdate();
                 if(deleted>0){
                     JOptionPane.showMessageDialog(null,"FUNCIONÁRIO DELETADO COM SUCESSO");
+                    deleteDismissal();
                     this.dispose();
                 }
                 else{
@@ -245,6 +272,27 @@ public class NewEmployee extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
+    }
+    private void deleteDismissal(){
+        String sql = "delete from dismissalEmployee where cpf = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, safeCPF);
+            pst2.executeUpdate();
+            deleteReadmissal();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void deleteReadmissal(){
+        String sql = "delete from readmissionEmployee where cpf = ?";
+        try {
+            pst3=connection.prepareStatement(sql);
+            pst3.setString(1, safeCPF);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }
     private void setEmployee(){
         String[] id = this.getTitle().split(" ");
@@ -288,7 +336,7 @@ public class NewEmployee extends javax.swing.JFrame {
                 else if(rs.getString(31).equals("Sim")){
                     setReadmissal();
                 }
-                if(!rs.getString(30).equals("")){
+                if(rs.getString(30)!=null){
                     inputPhoto.setText("");
                     imageAdress = rs.getString(30);
                     ImageIcon imagen = new ImageIcon(imageAdress);
@@ -597,7 +645,7 @@ public class NewEmployee extends javax.swing.JFrame {
         txtAdmissionDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtAdmissionDate.setText("Data de Admissão");
         getContentPane().add(txtAdmissionDate);
-        txtAdmissionDate.setBounds(20, 410, 140, 20);
+        txtAdmissionDate.setBounds(20, 410, 170, 20);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPhone.setText("Telefone");

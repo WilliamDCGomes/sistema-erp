@@ -96,7 +96,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             pst2.setString(2,inputCPFEmployee.getText());
             pst2.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO DESLIGADO COM SUCESSO");
-            setScreen(false);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
@@ -127,12 +127,12 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             pst.setInt(10,dismissalId);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"DESLIGAMENTO ATUALIZADO COM SUCESSO");
-            setScreen(false);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
     }
-    private void getEmployeeId(){
+    public void getEmployeeId(){
         String sql ="select cpf, nameEmployee from employee where id = ?";
         try {
             pst=connection.prepareStatement(sql);
@@ -870,7 +870,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     private javax.swing.JRadioButton inputAffirmativeAdvance;
     private javax.swing.JRadioButton inputAffirmativeCause;
     private javax.swing.JTextField inputBeginAdvance;
-    private javax.swing.JTextField inputCPFEmployee;
+    public static javax.swing.JTextField inputCPFEmployee;
     public static javax.swing.JTextField inputCodeEmployee;
     private javax.swing.JTextField inputDismissalDate;
     private javax.swing.JScrollPane inputEmployeeDismissal;

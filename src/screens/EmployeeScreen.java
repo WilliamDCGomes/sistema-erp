@@ -100,13 +100,13 @@ public class EmployeeScreen extends javax.swing.JFrame {
                 else if(rs.getString(31).equals("Sim")){
                     setReadmissal();
                 }
-                if(!rs.getString(30).equals("")){
+                if(rs.getString(30)!=null){
                     outputPhoto.setText("");
                     imageAdress = rs.getString(30);
                     ImageIcon imagen = new ImageIcon(imageAdress);
                     outputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(outputPhoto.getWidth(), outputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
-                if(rs.getString(32).equals("Inativo") && rs.getString(31).equals("Não")){
+                if(rs.getString(32).equals("Inativo")){
                     setDimissal();
                 }
             }
@@ -331,7 +331,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         txtAdmissionDate.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtAdmissionDate.setText("Data de Admissão");
         getContentPane().add(txtAdmissionDate);
-        txtAdmissionDate.setBounds(20, 410, 160, 20);
+        txtAdmissionDate.setBounds(20, 410, 170, 20);
 
         txtPhone.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPhone.setText("Telefone");
@@ -554,7 +554,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(20, 630, 100, 23);
+        buttonEdit.setBounds(20, 630, 100, 25);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -563,7 +563,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(180, 630, 100, 23);
+        buttonLocale.setBounds(180, 630, 100, 25);
 
         buttonTerminator.setText("DESLIGAMENTO");
         buttonTerminator.addActionListener(new java.awt.event.ActionListener() {
@@ -572,7 +572,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonTerminator);
-        buttonTerminator.setBounds(340, 630, 130, 23);
+        buttonTerminator.setBounds(340, 630, 130, 25);
 
         txtReasonDismissal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtReasonDismissal.setText("Motivo da Demissão");
@@ -600,11 +600,11 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(540, 630, 110, 23);
+        jButton1.setBounds(540, 630, 110, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(730, 630, 90, 23);
+        buttonPrinter.setBounds(730, 630, 90, 25);
 
         setSize(new java.awt.Dimension(1030, 702));
         setLocationRelativeTo(null);
@@ -639,7 +639,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             employeeDismissal.dismissalId = getId();
             String[] id = this.getTitle().split(" ");
             employeeDismissal.inputCodeEmployee.setText(id[1]);
-            employeeDismissal.getEmploye();
+            employeeDismissal.getEmployeeId();
         }
         employeeDismissal.setVisible(true);
     }//GEN-LAST:event_buttonTerminatorActionPerformed
