@@ -554,7 +554,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(20, 630, 100, 25);
+        buttonEdit.setBounds(20, 630, 100, 23);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -563,7 +563,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(180, 630, 100, 25);
+        buttonLocale.setBounds(180, 630, 100, 23);
 
         buttonTerminator.setText("DESLIGAMENTO");
         buttonTerminator.addActionListener(new java.awt.event.ActionListener() {
@@ -572,7 +572,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonTerminator);
-        buttonTerminator.setBounds(340, 630, 130, 25);
+        buttonTerminator.setBounds(340, 630, 130, 23);
 
         txtReasonDismissal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtReasonDismissal.setText("Motivo da Demissão");
@@ -600,11 +600,11 @@ public class EmployeeScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(540, 630, 110, 25);
+        jButton1.setBounds(540, 630, 110, 23);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(720, 630, 90, 25);
+        buttonPrinter.setBounds(730, 630, 90, 23);
 
         setSize(new java.awt.Dimension(1030, 702));
         setLocationRelativeTo(null);
@@ -637,6 +637,8 @@ public class EmployeeScreen extends javax.swing.JFrame {
         EmployeeDismissal employeeDismissal = new EmployeeDismissal();
         if(!outputCPF.getText().equals("")){
             employeeDismissal.dismissalId = getId();
+            String[] id = this.getTitle().split(" ");
+            employeeDismissal.inputCodeEmployee.setText(id[1]);
             employeeDismissal.getEmploye();
         }
         employeeDismissal.setVisible(true);

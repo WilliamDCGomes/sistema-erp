@@ -200,9 +200,14 @@ public class AllProviders extends javax.swing.JFrame {
 
     private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
         int set = tableProviders.getSelectedRow();
-        ProviderScreen providerScreen = new ProviderScreen();
-        providerScreen.setTitle("Fornecedor: " + tableProviders.getModel().getValueAt(set,0).toString());
-        providerScreen.setVisible(true);
+        if(set>=0){
+            ProviderScreen providerScreen = new ProviderScreen();
+            providerScreen.setTitle("Fornecedor: " + tableProviders.getModel().getValueAt(set,0).toString());
+            providerScreen.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
+        }
     }//GEN-LAST:event_buttonShowActionPerformed
 
     private void inputCompanyNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCompanyNameFocusGained

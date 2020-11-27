@@ -118,9 +118,14 @@ public class AllProducts extends javax.swing.JFrame {
 
     private void buttonShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowActionPerformed
         int set = tableProducts.getSelectedRow();
-        ProductScreen productScreen = new ProductScreen();
-        productScreen.setTitle("Produto: " + tableProducts.getModel().getValueAt(set,0).toString());
-        productScreen.setVisible(true);
+        if(set>=0){
+            ProductScreen productScreen = new ProductScreen();
+            productScreen.setTitle("Produto: " + tableProducts.getModel().getValueAt(set,0).toString());
+            productScreen.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
+        }
     }//GEN-LAST:event_buttonShowActionPerformed
 
     private void inputProductNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputProductNameKeyTyped

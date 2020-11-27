@@ -141,6 +141,8 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             if(rs.next()){
                 inputCPFEmployee.setText(rs.getString(1));
                 inputEmployeeName.setText(rs.getString(2));
+                cpfValide=true;
+                cnpjValide=true;
                 getId();
             }
             else{
@@ -329,7 +331,8 @@ public class EmployeeDismissal extends javax.swing.JFrame {
                 setGetEmployee();
             }
             else{
-                JOptionPane.showMessageDialog(null, "NÃO HÁ READMISSÃO PARA SER MOSTRADA");
+                JOptionPane.showMessageDialog(null, "NÃO HÁ DEMISSÃO PARA SER MOSTRADA");
+                getEmployeeId();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
@@ -868,7 +871,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     private javax.swing.JRadioButton inputAffirmativeCause;
     private javax.swing.JTextField inputBeginAdvance;
     private javax.swing.JTextField inputCPFEmployee;
-    private javax.swing.JTextField inputCodeEmployee;
+    public static javax.swing.JTextField inputCodeEmployee;
     private javax.swing.JTextField inputDismissalDate;
     private javax.swing.JScrollPane inputEmployeeDismissal;
     private javax.swing.JTextField inputEmployeeName;

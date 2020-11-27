@@ -28,11 +28,14 @@ public class NewEmployee extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
+    PreparedStatement pst3 = null;
+    ResultSet rs3 = null;
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
     int x = 0;
     boolean cpfValide = false;
     boolean cnpjValide = false;
+    String safeCPF = null;
     public NewEmployee() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -141,7 +144,7 @@ public class NewEmployee extends javax.swing.JFrame {
             pst.setString(28,inputAccount.getText());
             pst.setString(29,inputAccountType.getSelectedItem().toString());
             pst.setString(30,imageAdress);
-            pst.setString(31,inputCPF.getText());
+            pst.setString(31,safeCPF);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO ATUALIZADO COM SUCESSO");
             EmployeeScreen employeeScreen = new EmployeeScreen();
@@ -174,30 +177,45 @@ public class NewEmployee extends javax.swing.JFrame {
             pst.setString(16,inputState.getSelectedItem().toString());
             pst.setString(17,inputComplement.getText());
             pst.setString(18,imageAdress);
-            pst.setString(19,inputCPF.getText());
+            pst.setString(19,safeCPF);
             pst.executeUpdate();
             updateReadmited2();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
     }
+    private int getMaxId(){
+        String sql ="select max(id) from readmissionEmployee where cpf=?";
+        try {
+            pst3=connection.prepareStatement(sql);
+            pst3.setString(1, safeCPF);
+            rs3= pst3.executeQuery();
+            if(rs3.next()){
+                return rs3.getInt(1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 0;
+    }
     private void updateReadmited2(){
-        String sql = "update readmissionEmployee set readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=(select max(id) from readmissionEmployee where cpf=?)";
+        String sql = "update readmissionEmployee set cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=?";
         try {
             pst2=connection.prepareStatement(sql);
-            pst2.setString(1,inputAdmissionDate.getText());
-            pst2.setString(2,inputOccupation.getText());
-            pst2.setString(3,inputSalary.getText());
-            pst2.setString(4,inputCommission.getText());
-            pst2.setString(5,inputFoodVoucher.getText());
-            pst2.setString(6,inputMealTicket.getText());
-            pst2.setString(7,inputTranportationVoucher.getText());
-            pst2.setString(8,inputPIS.getText());
-            pst2.setString(9,inputBank.getSelectedItem().toString());
-            pst2.setString(10,inputAgency.getText());
-            pst2.setString(11,inputAccount.getText());
-            pst2.setString(12,inputAccountType.getSelectedItem().toString());
-            pst2.setString(13,inputCPF.getText());
+            pst2.setString(1,inputCPF.getText());
+            pst2.setString(2,inputAdmissionDate.getText());
+            pst2.setString(3,inputOccupation.getText());
+            pst2.setString(4,inputSalary.getText());
+            pst2.setString(5,inputCommission.getText());
+            pst2.setString(6,inputFoodVoucher.getText());
+            pst2.setString(7,inputMealTicket.getText());
+            pst2.setString(8,inputTranportationVoucher.getText());
+            pst2.setString(9,inputPIS.getText());
+            pst2.setString(10,inputBank.getSelectedItem().toString());
+            pst2.setString(11,inputAgency.getText());
+            pst2.setString(12,inputAccount.getText());
+            pst2.setString(13,inputAccountType.getSelectedItem().toString());
+            pst2.setInt(14,getMaxId());
             pst2.executeUpdate();
             JOptionPane.showMessageDialog(null,"FUNCIONÁRIO ATUALIZADO COM SUCESSO");
             EmployeeScreen employeeScreen = new EmployeeScreen();
@@ -276,6 +294,9 @@ public class NewEmployee extends javax.swing.JFrame {
                     ImageIcon imagen = new ImageIcon(imageAdress);
                     inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(inputPhoto.getWidth(), inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
+                cnpjValide = true;
+                cpfValide = true;
+                safeCPF = inputCPF.getText();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -283,7 +304,7 @@ public class NewEmployee extends javax.swing.JFrame {
     }
     private void setReadmissal(){
         txtAdmissionDate.setText("Data de Readmissão");
-        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where cpf=? and max(id)";
+        String sql ="select readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType from readmissionEmployee where id=(select max(id) from readmissionEmployee where cpf = ?)";
         try {
             pst2=connection.prepareStatement(sql);
             pst2.setString(1, inputCPF.getText());

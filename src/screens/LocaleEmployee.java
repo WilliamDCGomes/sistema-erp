@@ -193,9 +193,14 @@ public class LocaleEmployee extends javax.swing.JFrame {
 
     private void buttonShowClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowClientActionPerformed
         int set = tableEmployees.getSelectedRow();
-        EmployeeScreen employeeScreen = new EmployeeScreen();
-        employeeScreen.setTitle("Funcionário: " + tableEmployees.getModel().getValueAt(set,0).toString());
-        employeeScreen.setVisible(true);
+        if(set>=0){
+            EmployeeScreen employeeScreen = new EmployeeScreen();
+            employeeScreen.setTitle("Funcionário: " + tableEmployees.getModel().getValueAt(set,0).toString());
+            employeeScreen.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
+        }
     }//GEN-LAST:event_buttonShowClientActionPerformed
 
     private void inputCPFEmployeeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFEmployeeFocusGained

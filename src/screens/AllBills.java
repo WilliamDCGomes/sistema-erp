@@ -100,7 +100,7 @@ public class AllBills extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(360, 60, 90, 32);
+        buttonPrinter.setBounds(360, 60, 90, 30);
 
         setSize(new java.awt.Dimension(664, 474));
         setLocationRelativeTo(null);

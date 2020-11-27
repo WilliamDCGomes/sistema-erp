@@ -177,9 +177,14 @@ public class AllClients extends javax.swing.JFrame {
 
     private void buttonShowClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowClientActionPerformed
         int set = tableClients.getSelectedRow();
-        ClientScreen clientScreen = new ClientScreen();
-        clientScreen.setTitle("Cliente: " + tableClients.getModel().getValueAt(set,0).toString());
-        clientScreen.setVisible(true);
+        if(set>=0){
+            ClientScreen clientScreen = new ClientScreen();
+            clientScreen.setTitle("Cliente: " + tableClients.getModel().getValueAt(set,0).toString());
+            clientScreen.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
+        }
     }//GEN-LAST:event_buttonShowClientActionPerformed
 
     private void inputCPFClientKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFClientKeyPressed
