@@ -52,6 +52,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         txtRequiredField10.setVisible(trueOrFalse);
         txtRequiredField11.setVisible(trueOrFalse);
         txtRequiredField12.setVisible(trueOrFalse);
+        txtRequiredField13.setVisible(trueOrFalse);
         isEdit = trueOrFalse;
         if(trueOrFalse==false){
             buttonSave.setText("EDITAR");
@@ -61,7 +62,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         }
     }
     private void add(){
-        String sql = "insert into dismissalEmployee(codEmployee, cpf, dismissalDate, dismissalReason, dismissalByCause, earlyWarning, beginEarlyWarning, endEarlyWarning, observation)values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into dismissalEmployee(codEmployee, cpf, dismissalDate, dismissalReason, dismissalByCause, earlyWarning, beginEarlyWarning, endEarlyWarning, observation, nameEmployee)values(?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
@@ -83,6 +84,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             pst.setString(7,inputBeginAdvance.getText());
             pst.setString(8,inputEndAdvance.getText());
             pst.setString(9,inputObservation.getText());
+            pst.setString(10,inputEmployeeName.getText());
             pst.executeUpdate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -102,7 +104,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         }
     }
     private void updateDismissal(){
-        String sql = "update dismissalEmployee set codEmployee=?, cpf=?, dismissalDate=?, dismissalReason=?, dismissalByCause=?, earlyWarning=?, beginEarlyWarning=?, endEarlyWarning=?, observation=? where id=?";
+        String sql = "update dismissalEmployee set codEmployee=?, cpf=?, dismissalDate=?, dismissalReason=?, dismissalByCause=?, earlyWarning=?, beginEarlyWarning=?, endEarlyWarning=?, observation=?, nameEmployee=? where id=?";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
@@ -124,7 +126,8 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             pst.setString(7,inputBeginAdvance.getText());
             pst.setString(8,inputEndAdvance.getText());
             pst.setString(9,inputObservation.getText());
-            pst.setInt(10,dismissalId);
+            pst.setString(10,inputEmployeeName.getText());
+            pst.setInt(11,dismissalId);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"DESLIGAMENTO ATUALIZADO COM SUCESSO");
             this.dispose();
@@ -397,6 +400,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         txtRequiredField10 = new javax.swing.JLabel();
         txtRequiredField11 = new javax.swing.JLabel();
         txtRequiredField12 = new javax.swing.JLabel();
+        txtRequiredField13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Desligamento de Funcionário");
@@ -658,6 +662,13 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField12);
         txtRequiredField12.setBounds(240, 190, 20, 30);
 
+        txtRequiredField13.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField13.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField13.setText("*");
+        getContentPane().add(txtRequiredField13);
+        txtRequiredField13.setBounds(650, 50, 20, 30);
+
         setSize(new java.awt.Dimension(839, 525));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -693,7 +704,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             setScreen(true);
         }
         else{
-            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputDismissalDate.getText().equals("")||(!inputAffirmativeCause.isSelected() && !inputNegativeCause.isSelected())||(!inputAffirmativeAdvance.isSelected() && !inputNegativeAdvance.isSelected())){
+            if(inputEmployeeName.getText().equals("")||inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputDismissalDate.getText().equals("")||(!inputAffirmativeCause.isSelected() && !inputNegativeCause.isSelected())||(!inputAffirmativeAdvance.isSelected() && !inputNegativeAdvance.isSelected())){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
             }
             else if(cpfValide==false&&cnpjValide==false){
@@ -895,6 +906,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     private javax.swing.JLabel txtRequiredField10;
     private javax.swing.JLabel txtRequiredField11;
     private javax.swing.JLabel txtRequiredField12;
+    private javax.swing.JLabel txtRequiredField13;
     private javax.swing.JLabel txtRequiredField8;
     private javax.swing.JLabel txtRequiredField9;
     // End of variables declaration//GEN-END:variables

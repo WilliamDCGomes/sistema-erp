@@ -100,6 +100,8 @@ public class MainMenu extends javax.swing.JFrame {
         optLocaleEmployee = new javax.swing.JMenuItem();
         optCommissionControl = new javax.swing.JMenuItem();
         optEmployeeTermination = new javax.swing.JMenuItem();
+        optAllNewContracts = new javax.swing.JMenuItem();
+        optAllDismissal = new javax.swing.JMenuItem();
         menuReport = new javax.swing.JMenu();
         optSalesOfMonth = new javax.swing.JMenuItem();
         optMostRequestItems = new javax.swing.JMenuItem();
@@ -698,6 +700,17 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
         menuEmployee.add(optEmployeeTermination);
+
+        optAllNewContracts.setText("Todas as Contratações");
+        optAllNewContracts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllNewContractsActionPerformed(evt);
+            }
+        });
+        menuEmployee.add(optAllNewContracts);
+
+        optAllDismissal.setText("Todos os Desligamentos");
+        menuEmployee.add(optAllDismissal);
 
         menuBar.add(menuEmployee);
 
@@ -1425,6 +1438,11 @@ public class MainMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menuSaleMenuDeselected
 
+    private void optAllNewContractsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllNewContractsActionPerformed
+        AllNewContracts allNewContracts = new AllNewContracts();
+        allNewContracts.setVisible(true);
+    }//GEN-LAST:event_optAllNewContractsActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1493,7 +1511,9 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem optAccountsOfMonth;
     private javax.swing.JMenuItem optAllBills;
     private javax.swing.JMenuItem optAllClients;
+    private javax.swing.JMenuItem optAllDismissal;
     private javax.swing.JMenuItem optAllEvents;
+    private javax.swing.JMenuItem optAllNewContracts;
     private javax.swing.JMenuItem optAllOrders;
     private javax.swing.JMenuItem optAllProducts;
     private javax.swing.JMenuItem optAllProviders;

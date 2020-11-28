@@ -54,9 +54,11 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         inputBank.setEnabled(trueOrFalse);
         inputAccountType.setEnabled(trueOrFalse);
         txtRequiredField8.setVisible(trueOrFalse);
+        txtRequiredField10.setVisible(trueOrFalse);
         txtRequiredField9.setVisible(trueOrFalse);
-        txtRequiredField12.setVisible(trueOrFalse);
+        txtRequiredField14.setVisible(trueOrFalse);
         txtRequiredField13.setVisible(trueOrFalse);
+        txtRequiredField12.setVisible(trueOrFalse);
         isEdit = trueOrFalse;
         if(trueOrFalse==false){
             buttonSave.setText("EDITAR");
@@ -66,7 +68,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         }
     }
     private void add(){
-        String sql = "insert into readmissionEmployee(codEmployee, cpf, readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into readmissionEmployee(codEmployee, cpf, readmissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, nameEmployee)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
@@ -83,6 +85,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             pst.setString(12,inputAgency.getText());
             pst.setString(13,inputAccount.getText());
             pst.setString(14,inputAccountType.getSelectedItem().toString());
+            pst.setString(15,inputEmployeeName.getText());
             pst.executeUpdate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -103,7 +106,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         }
     }
     private void updateReadmitted(){
-        String sql = "update readmissionEmployee set codEmployee=?, cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=?";
+        String sql = "update readmissionEmployee set codEmployee=?, cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=?, inputEmployeeName=? where id=?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1,Integer.parseInt (inputCodeEmployee.getText() ));
@@ -120,7 +123,8 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             pst.setString(12,inputAgency.getText());
             pst.setString(13,inputAccount.getText());
             pst.setString(14,inputAccountType.getSelectedItem().toString());
-            pst.setInt(15,adismissalId);
+            pst.setString(15,inputEmployeeName.getText());
+            pst.setInt(16,adismissalId);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"READMIÇÃO ATUALIZADA COM SUCESSO");
             this.dispose();
@@ -367,6 +371,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtNext = new javax.swing.JLabel();
         txtPercent = new javax.swing.JLabel();
         txtRequiredField14 = new javax.swing.JLabel();
+        txtRequiredField10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Readmissão de Funcionário");
@@ -615,7 +620,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtRequiredField9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField9.setText("*");
         getContentPane().add(txtRequiredField9);
-        txtRequiredField9.setBounds(350, 80, 20, 30);
+        txtRequiredField9.setBounds(660, 80, 20, 30);
 
         txtRequiredField12.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField12.setForeground(new java.awt.Color(255, 0, 51));
@@ -663,6 +668,13 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField14);
         txtRequiredField14.setBounds(170, 150, 20, 30);
 
+        txtRequiredField10.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField10.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField10.setText("*");
+        getContentPane().add(txtRequiredField10);
+        txtRequiredField10.setBounds(350, 80, 20, 30);
+
         setSize(new java.awt.Dimension(866, 561));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -672,7 +684,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             setScreen(true);
         }
         else{
-            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||inputOccupation.getText().equals("")||inputPIS.getText().equals("")){
+            if(inputEmployeeName.getText().equals("")||inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||inputOccupation.getText().equals("")||inputPIS.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
             }
             else if(!validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) ) && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() == 11){
@@ -881,6 +893,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtPrevious;
     private javax.swing.JLabel txtReadmittedDate;
     private javax.swing.JLabel txtReadmittedEmployee;
+    private javax.swing.JLabel txtRequiredField10;
     private javax.swing.JLabel txtRequiredField12;
     private javax.swing.JLabel txtRequiredField13;
     private javax.swing.JLabel txtRequiredField14;

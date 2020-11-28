@@ -204,7 +204,7 @@ public class NewEmployee extends javax.swing.JFrame {
         return 0;
     }
     private void updateReadmited2(){
-        String sql = "update readmissionEmployee set cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=? where id=?";
+        String sql = "update readmissionEmployee set cpf=?, readmissionDate=?, functionEmployee=?, salary=?, commission=?, foodVoucher=?, mealTicket=?, transportationVouchers=?, pisAndPasep=?, bank=?, agency=?, accountBank=?, bankType=?,nameEmployee=? where id=?";
         try {
             pst2=connection.prepareStatement(sql);
             pst2.setString(1,inputCPF.getText());
@@ -220,7 +220,8 @@ public class NewEmployee extends javax.swing.JFrame {
             pst2.setString(11,inputAgency.getText());
             pst2.setString(12,inputAccount.getText());
             pst2.setString(13,inputAccountType.getSelectedItem().toString());
-            pst2.setInt(14,getMaxId());
+            pst2.setString(14,inputFullName.getText());
+            pst2.setInt(15,getMaxId());
             pst2.executeUpdate();
             updateDismissal();
         } catch (Exception e) {
