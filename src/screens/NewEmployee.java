@@ -19,6 +19,7 @@ import formattingmask.MaskUpperLetter;
 import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
+import functioncontroller.ValidatePis;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -34,9 +35,11 @@ public class NewEmployee extends javax.swing.JFrame {
     ResultSet rs4 = null;
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
+    GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+    ValidateCPF validateCPF = new ValidateCPF();
+    ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+    ValidatePis validatePis = new ValidatePis();
     int x = 0;
-    boolean cpfValide = false;
-    boolean cnpjValide = false;
     String safeCPF = null;
     public NewEmployee() {
         initComponents();
@@ -343,8 +346,6 @@ public class NewEmployee extends javax.swing.JFrame {
                     ImageIcon imagen = new ImageIcon(imageAdress);
                     inputPhoto.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(inputPhoto.getWidth(), inputPhoto.getHeight(), Image.SCALE_DEFAULT)));
                 }
-                cnpjValide = true;
-                cpfValide = true;
                 safeCPF = inputCPF.getText();
             }
         } catch (Exception e) {
@@ -567,6 +568,7 @@ public class NewEmployee extends javax.swing.JFrame {
         txtRequiredField12 = new javax.swing.JLabel();
         buttonCancel = new javax.swing.JButton();
         txtPercent = new javax.swing.JLabel();
+        txtRequiredField13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Funcionário");
@@ -893,7 +895,7 @@ public class NewEmployee extends javax.swing.JFrame {
         txtRequiredField2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField2.setText("*");
         getContentPane().add(txtRequiredField2);
-        txtRequiredField2.setBounds(250, 410, 20, 30);
+        txtRequiredField2.setBounds(420, 480, 20, 30);
 
         txtRequiredField3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField3.setForeground(new java.awt.Color(255, 0, 51));
@@ -979,16 +981,32 @@ public class NewEmployee extends javax.swing.JFrame {
         getContentPane().add(txtPercent);
         txtPercent.setBounds(800, 440, 20, 30);
 
+        txtRequiredField13.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField13.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField13.setText("*");
+        getContentPane().add(txtRequiredField13);
+        txtRequiredField13.setBounds(250, 410, 20, 30);
+
         setSize(new java.awt.Dimension(1029, 700));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        if(inputFullName.getText().equals("")||inputBirthDay.getText().equals("")||inputRG.getText().equals("")||inputCPF.getText().equals("")||inputSex.getSelectedItem().equals("Selecione")||inputCEP.getText().equals("")||inputStreet.getText().equals("")||inputNeighBorhood.getText().equals("")||inputCity.getText().equals("")||inputState.getSelectedItem().equals("SELECIONAR")||inputOccupation.getText().equals("")){
+        if(inputFullName.getText().equals("")||inputBirthDay.getText().equals("")||inputRG.getText().equals("")||inputCPF.getText().equals("")||inputSex.getSelectedItem().equals("Selecione")||inputCEP.getText().equals("")||inputStreet.getText().equals("")||inputNeighBorhood.getText().equals("")||inputCity.getText().equals("")||inputState.getSelectedItem().equals("SELECIONAR")||inputOccupation.getText().equals("")||inputPIS.getText().equals("")){
             JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS");
         }
-        else if(cpfValide==false&&cnpjValide==false){
+        else if(!validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) ) && getJustTheNumbers.getNumbers(inputCPF.getText()).length() == 11){
+            JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO!");
+        }
+        else if(!validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) ) && getJustTheNumbers.getNumbers(inputCPF.getText()).length() == 14){
+            JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO!");
+        }
+        else if(getJustTheNumbers.getNumbers(inputCPF.getText()).length() != 11 && getJustTheNumbers.getNumbers(inputCPF.getText()).length() != 14){
             JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
+        }
+        else if(!validatePis.ValidaPis(inputPIS.getText())){
+            JOptionPane.showMessageDialog(null, "PIS/PASEP DIGITADO É INVÁLIDO!");
         }
         else if(txtNewEmployee.getText().equals("NOVO FUNCIONÁRIO")){
             if(checkIfExist()){
@@ -1088,47 +1106,11 @@ public class NewEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void inputCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFFocusLost
-        if(!inputCPF.getText().equals("")){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                cpfValide = true;
-            }
-            else if(inputCPF.getText().length()>13 && inputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(inputCPF.getText().length()>14 && inputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_inputCPFFocusLost
 
     private void inputCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputCPFKeyPressed
-        if(evt.getKeyCode() == evt.VK_ENTER){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(inputCPF.getText().length()>10 && inputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                cpfValide = true;
-            }
-            else if(inputCPF.getText().length()>13 && inputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(inputCPF.getText().length()>14 && inputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPF.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_inputCPFKeyPressed
 
     /**
@@ -1228,6 +1210,7 @@ public class NewEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel txtRequiredField10;
     private javax.swing.JLabel txtRequiredField11;
     private javax.swing.JLabel txtRequiredField12;
+    private javax.swing.JLabel txtRequiredField13;
     private javax.swing.JLabel txtRequiredField2;
     private javax.swing.JLabel txtRequiredField3;
     private javax.swing.JLabel txtRequiredField4;

@@ -14,6 +14,7 @@ import formattingmask.MaskUpperLetter;
 import functioncontroller.GetJustTheNumbers;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
+import functioncontroller.ValidatePis;
 
 public class ReadmittedScreen extends javax.swing.JFrame {
     int x = 0;
@@ -23,9 +24,11 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
     int adismissalId = 0;
-    boolean cpfValide = false;
-    boolean cnpjValide = false;
     boolean isEdit = false;
+    GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+    ValidateCPF validateCPF = new ValidateCPF();
+    ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+    ValidatePis validatePis = new ValidatePis();
     /**
      * Creates new form ReadmittedScreen
      */
@@ -291,7 +294,6 @@ public class ReadmittedScreen extends javax.swing.JFrame {
                 inputAgency.setText(rs.getString(13));
                 inputAccount.setText(rs.getString(14));
                 inputAccountType.setSelectedItem(rs.getString(15));
-                setGetEmployee();
             }
             else{
                 JOptionPane.showMessageDialog(null, "NÃO HÁ READMISSÃO PARA SER MOSTRADA");
@@ -299,10 +301,6 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
-    }
-    public void setGetEmployee(){
-        cpfValide=true;
-        cnpjValide=true;
     }
     private void getNameEmployee(){
         String sql = "SELECT nameEmployee FROM employee WHERE cpf = ?";
@@ -368,6 +366,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtPrevious = new javax.swing.JLabel();
         txtNext = new javax.swing.JLabel();
         txtPercent = new javax.swing.JLabel();
+        txtRequiredField14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Readmissão de Funcionário");
@@ -623,7 +622,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtRequiredField12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField12.setText("*");
         getContentPane().add(txtRequiredField12);
-        txtRequiredField12.setBounds(170, 150, 20, 30);
+        txtRequiredField12.setBounds(610, 230, 20, 30);
 
         txtRequiredField13.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField13.setForeground(new java.awt.Color(255, 0, 51));
@@ -657,6 +656,13 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         getContentPane().add(txtPercent);
         txtPercent.setBounds(800, 180, 20, 30);
 
+        txtRequiredField14.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField14.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField14.setText("*");
+        getContentPane().add(txtRequiredField14);
+        txtRequiredField14.setBounds(170, 150, 20, 30);
+
         setSize(new java.awt.Dimension(866, 561));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -666,11 +672,20 @@ public class ReadmittedScreen extends javax.swing.JFrame {
             setScreen(true);
         }
         else{
-            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||inputOccupation.getText().equals("")){
+            if(inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputReadmittedDate.getText().equals("")||inputOccupation.getText().equals("")||inputPIS.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
             }
-            else if(cpfValide==false&&cnpjValide==false){
+            else if(!validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) ) && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() == 11){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO!");
+            }
+            else if(!validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) ) && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() == 14){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else if(getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() != 11 && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() != 14){
                 JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else if(!validatePis.ValidaPis(inputPIS.getText())){
+                JOptionPane.showMessageDialog(null, "PIS/PASEP DIGITADO É INVÁLIDO!");
             }
             else if(isEdit){
                 updateReadmitted();
@@ -791,25 +806,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNextMouseClicked
 
     private void inputCPFEmployeeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFEmployeeFocusLost
-        if(!inputCPFEmployee.getText().equals("")){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                cpfValide = true;
-            }
-            else if(inputCPFEmployee.getText().length()>13 && inputCPFEmployee.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(inputCPFEmployee.getText().length()>14 && inputCPFEmployee.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_inputCPFEmployeeFocusLost
 
     /**
@@ -886,6 +883,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtReadmittedEmployee;
     private javax.swing.JLabel txtRequiredField12;
     private javax.swing.JLabel txtRequiredField13;
+    private javax.swing.JLabel txtRequiredField14;
     private javax.swing.JLabel txtRequiredField8;
     private javax.swing.JLabel txtRequiredField9;
     private javax.swing.JLabel txtSalary;

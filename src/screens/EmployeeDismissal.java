@@ -717,7 +717,6 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         if(valideCPF()!=0){
             readmittedScreen.inputCodeEmployee.setText(Integer.toString(valideCPF()));
             readmittedScreen.getEmployeeId();
-            readmittedScreen.setGetEmployee();
         }
         this.dispose();
         readmittedScreen.setVisible(true);

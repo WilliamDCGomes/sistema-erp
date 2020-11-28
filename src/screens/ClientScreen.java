@@ -28,8 +28,9 @@ public class ClientScreen extends javax.swing.JFrame {
     ResultSet rs2 = null;
     String imageAdress = null;
     GetImageAdress getImageAdress = new GetImageAdress();
-    boolean cpfValide = false;
-    boolean cnpjValide = false;
+    GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+    ValidateCPF validateCPF = new ValidateCPF();
+    ValidateCNPJ validateCNPJ = new ValidateCNPJ();
     /**
      * Creates new form ClientScreen
      */
@@ -508,7 +509,13 @@ public class ClientScreen extends javax.swing.JFrame {
         else if(buttonEdit.getText().equals("SALVAR")){
             String[] idAux = this.getTitle().split(" ");
             int idAuxSize = idAux.length - 1;
-            if(cpfValide==false&&cnpjValide==false){
+            if(!validateCPF.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) ) && getJustTheNumbers.getNumbers(outputCPF.getText()).length() == 11){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO!");
+            }
+            else if(!validateCNPJ.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) ) && getJustTheNumbers.getNumbers(outputCPF.getText()).length() == 14){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else if(getJustTheNumbers.getNumbers(outputCPF.getText()).length() != 11 && getJustTheNumbers.getNumbers(outputCPF.getText()).length() != 14){
                 JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
             }
             else{
@@ -569,47 +576,11 @@ public class ClientScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPrinterActionPerformed
 
     private void outputCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_outputCPFFocusLost
-        if(!outputCPF.getText().equals("")){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(outputCPF.getText().length()>10 && outputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(outputCPF.getText().length()>10 && outputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                cpfValide = true;
-            }
-            else if(outputCPF.getText().length()>13 && outputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(outputCPF.getText().length()>14 && outputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_outputCPFFocusLost
 
     private void outputCPFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputCPFKeyPressed
-        if(evt.getKeyCode() == evt.VK_ENTER){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(outputCPF.getText().length()>10 && outputCPF.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(outputCPF.getText().length()>10 && outputCPF.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                cpfValide = true;
-            }
-            else if(outputCPF.getText().length()>13 && outputCPF.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(outputCPF.getText().length()>14 && outputCPF.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( outputCPF.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_outputCPFKeyPressed
 
     /**
