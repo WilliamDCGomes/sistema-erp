@@ -40,6 +40,12 @@ public class MaskCPFAndCNPJAux {
         else if(letter.equals("/")){
             return "/";
         }
+        else if(letter.equals("x")){
+            return "X";
+        }
+        else if(letter.equals("X")){
+            return "X";
+        }
         else{
             return "";
         }

@@ -157,6 +157,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Upload de Imagem");
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
             }
@@ -174,7 +175,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonTakePicture);
-        buttonTakePicture.setBounds(50, 40, 160, 27);
+        buttonTakePicture.setBounds(50, 40, 160, 29);
 
         buttonChoosePicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         buttonChoosePicture.setText("ESCOLHER FOTO");
@@ -184,7 +185,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonChoosePicture);
-        buttonChoosePicture.setBounds(50, 80, 160, 27);
+        buttonChoosePicture.setBounds(50, 80, 160, 29);
 
         buttonShowPicture.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         buttonShowPicture.setText("VER FOTO");
@@ -194,7 +195,7 @@ public class TakePictureOrChoose extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowPicture);
-        buttonShowPicture.setBounds(50, 120, 160, 27);
+        buttonShowPicture.setBounds(50, 120, 160, 29);
 
         setSize(new java.awt.Dimension(285, 215));
         setLocationRelativeTo(null);

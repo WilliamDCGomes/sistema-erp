@@ -289,6 +289,7 @@ public class NewEmployee extends javax.swing.JFrame {
         try {
             pst3=connection.prepareStatement(sql);
             pst3.setString(1, safeCPF);
+            pst3.executeUpdate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -565,6 +566,7 @@ public class NewEmployee extends javax.swing.JFrame {
         txtRequiredField11 = new javax.swing.JLabel();
         txtRequiredField12 = new javax.swing.JLabel();
         buttonCancel = new javax.swing.JButton();
+        txtPercent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Funcionário");
@@ -730,12 +732,12 @@ public class NewEmployee extends javax.swing.JFrame {
         txtFatherName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtFatherName.setText("Nome do Pai");
         getContentPane().add(txtFatherName);
-        txtFatherName.setBounds(20, 200, 100, 20);
+        txtFatherName.setBounds(440, 200, 100, 20);
 
         txtMotherName.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtMotherName.setText("Nome da Mãe");
         getContentPane().add(txtMotherName);
-        txtMotherName.setBounds(400, 200, 110, 20);
+        txtMotherName.setBounds(20, 200, 110, 20);
 
         inputEmail.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEmail);
@@ -784,7 +786,7 @@ public class NewEmployee extends javax.swing.JFrame {
 
         inputMotherName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputMotherName);
-        inputMotherName.setBounds(400, 230, 340, 30);
+        inputMotherName.setBounds(20, 230, 340, 30);
 
         inputFullName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputFullName);
@@ -800,7 +802,7 @@ public class NewEmployee extends javax.swing.JFrame {
 
         inputFatherName.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputFatherName);
-        inputFatherName.setBounds(20, 230, 330, 30);
+        inputFatherName.setBounds(440, 230, 330, 30);
 
         inputBirthDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBirthDay);
@@ -971,6 +973,11 @@ public class NewEmployee extends javax.swing.JFrame {
         });
         getContentPane().add(buttonCancel);
         buttonCancel.setBounds(150, 630, 110, 25);
+
+        txtPercent.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtPercent.setText("%");
+        getContentPane().add(txtPercent);
+        txtPercent.setBounds(800, 440, 20, 30);
 
         setSize(new java.awt.Dimension(1029, 700));
         setLocationRelativeTo(null);
@@ -1215,6 +1222,7 @@ public class NewEmployee extends javax.swing.JFrame {
     private javax.swing.JLabel txtNumberHouse;
     private javax.swing.JLabel txtOccupation;
     private javax.swing.JLabel txtPIS;
+    private javax.swing.JLabel txtPercent;
     private javax.swing.JLabel txtPhone;
     private javax.swing.JLabel txtRG;
     private javax.swing.JLabel txtRequiredField10;

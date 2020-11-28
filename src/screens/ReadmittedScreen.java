@@ -367,6 +367,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         txtRequiredField13 = new javax.swing.JLabel();
         txtPrevious = new javax.swing.JLabel();
         txtNext = new javax.swing.JLabel();
+        txtPercent = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Readmissão de Funcionário");
@@ -651,6 +652,11 @@ public class ReadmittedScreen extends javax.swing.JFrame {
         getContentPane().add(txtNext);
         txtNext.setBounds(300, 480, 30, 30);
 
+        txtPercent.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtPercent.setText("%");
+        getContentPane().add(txtPercent);
+        txtPercent.setBounds(800, 180, 20, 30);
+
         setSize(new java.awt.Dimension(866, 561));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -874,6 +880,7 @@ public class ReadmittedScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtNext;
     private javax.swing.JLabel txtOccupation;
     private javax.swing.JLabel txtPIS;
+    private javax.swing.JLabel txtPercent;
     private javax.swing.JLabel txtPrevious;
     private javax.swing.JLabel txtReadmittedDate;
     private javax.swing.JLabel txtReadmittedEmployee;
