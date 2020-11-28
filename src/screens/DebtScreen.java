@@ -57,7 +57,7 @@ public class DebtScreen extends javax.swing.JFrame {
 
         inputBillCode.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBillCode);
-        inputBillCode.setBounds(30, 100, 210, 28);
+        inputBillCode.setBounds(30, 100, 210, 30);
 
         txtNumberBranchs.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNumberBranchs.setText("Número de Parcelas");
@@ -66,7 +66,7 @@ public class DebtScreen extends javax.swing.JFrame {
 
         inputBranchs.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputBranchs);
-        inputBranchs.setBounds(30, 170, 80, 28);
+        inputBranchs.setBounds(30, 170, 80, 30);
 
         txtPaymentDay.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentDay.setText("Data do Pagamento");
@@ -75,7 +75,7 @@ public class DebtScreen extends javax.swing.JFrame {
 
         inputPaymentDay.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPaymentDay);
-        inputPaymentDay.setBounds(30, 240, 130, 28);
+        inputPaymentDay.setBounds(30, 240, 130, 30);
 
         buttonDebt.setText("DEBITAR");
         buttonDebt.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class DebtScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDebt);
-        buttonDebt.setBounds(30, 280, 110, 32);
+        buttonDebt.setBounds(30, 280, 110, 25);
 
         buttonLocalePayer.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocalePayer.setText("LOCALIZAR");
@@ -94,9 +94,9 @@ public class DebtScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocalePayer);
-        buttonLocalePayer.setBounds(260, 100, 90, 30);
+        buttonLocalePayer.setBounds(260, 100, 100, 30);
 
-        setSize(new java.awt.Dimension(368, 376));
+        setSize(new java.awt.Dimension(397, 376));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

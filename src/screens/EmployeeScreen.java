@@ -58,7 +58,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
         outputDismissalDate.setDocument(new MaskDate());
         outputReasonDismissal.setDocument(new MaskUpperLetter());
     }
-    private void setProduct(){
+    private void setEmployee(){
         String[] id = this.getTitle().split(" ");
         String sql ="select nameEmployee, birthday, rg, cpf, sexo, phone, cellPhone, email, fatherName, motherName, cep, street, houseNumber, neighborhood, city, state, complement, admissionDate, functionEmployee, salary, commission, foodVoucher, mealTicket, transportationVouchers, pisAndPasep, bank, agency, accountBank, bankType, photoAdress, readmissionEmployee, statusEmployee from employee where id=?";
         try {
@@ -652,7 +652,7 @@ public class EmployeeScreen extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
             x++;
-            setProduct();
+            setEmployee();
         }
     }//GEN-LAST:event_formWindowActivated
 

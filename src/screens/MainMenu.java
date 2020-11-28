@@ -710,6 +710,11 @@ public class MainMenu extends javax.swing.JFrame {
         menuEmployee.add(optAllNewContracts);
 
         optAllDismissal.setText("Todos os Desligamentos");
+        optAllDismissal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optAllDismissalActionPerformed(evt);
+            }
+        });
         menuEmployee.add(optAllDismissal);
 
         menuBar.add(menuEmployee);
@@ -1442,6 +1447,11 @@ public class MainMenu extends javax.swing.JFrame {
         AllNewContracts allNewContracts = new AllNewContracts();
         allNewContracts.setVisible(true);
     }//GEN-LAST:event_optAllNewContractsActionPerformed
+
+    private void optAllDismissalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optAllDismissalActionPerformed
+        AllDismissal allDismissal = new AllDismissal();
+        allDismissal.setVisible(true);
+    }//GEN-LAST:event_optAllDismissalActionPerformed
 
     /**
      * @param args the command line arguments

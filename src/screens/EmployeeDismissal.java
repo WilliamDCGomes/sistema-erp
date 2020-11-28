@@ -26,9 +26,10 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     PreparedStatement pst3 = null;
     ResultSet rs3 = null;
     GetDate getDate = new GetDate();
-    boolean cpfValide = false;
-    boolean cnpjValide = false;
     boolean isEdit = false;
+    GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
+    ValidateCPF validateCPF = new ValidateCPF();
+    ValidateCNPJ validateCNPJ = new ValidateCNPJ();
     public EmployeeDismissal() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -144,8 +145,6 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             if(rs.next()){
                 inputCPFEmployee.setText(rs.getString(1));
                 inputEmployeeName.setText(rs.getString(2));
-                cpfValide=true;
-                cnpjValide=true;
                 getId();
             }
             else{
@@ -331,7 +330,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
                 inputEndAdvance.setText(rs.getString(9));
                 inputObservation.setText(rs.getString(10));
                 getNameEmployee();
-                setGetEmployee();
+                setScreen(false);;
             }
             else{
                 JOptionPane.showMessageDialog(null, "NÃO HÁ DEMISSÃO PARA SER MOSTRADA");
@@ -340,11 +339,6 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,e);
         }
-    }
-    private void setGetEmployee(){
-        setScreen(false);
-        cpfValide=true;
-        cnpjValide=true;
     }
     private void getNameEmployee(){
         String sql = "SELECT nameEmployee FROM employee WHERE cpf = ?";
@@ -669,7 +663,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
         getContentPane().add(txtRequiredField13);
         txtRequiredField13.setBounds(650, 50, 20, 30);
 
-        setSize(new java.awt.Dimension(839, 525));
+        setSize(new java.awt.Dimension(860, 525));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -707,7 +701,13 @@ public class EmployeeDismissal extends javax.swing.JFrame {
             if(inputEmployeeName.getText().equals("")||inputCodeEmployee.getText().equals("")||inputCPFEmployee.getText().equals("")||inputDismissalDate.getText().equals("")||(!inputAffirmativeCause.isSelected() && !inputNegativeCause.isSelected())||(!inputAffirmativeAdvance.isSelected() && !inputNegativeAdvance.isSelected())){
                 JOptionPane.showMessageDialog(null, "POR FAVOR, PREENCHA TODOS OS CAMPOS");
             }
-            else if(cpfValide==false&&cnpjValide==false){
+            else if(!validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) ) && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() == 11){
+                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO!");
+            }
+            else if(!validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) ) && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() == 14){
+                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO!");
+            }
+            else if(getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() != 11 && getJustTheNumbers.getNumbers(inputCPFEmployee.getText()).length() != 14){
                 JOptionPane.showMessageDialog(null, "O CPF OU O CNPJ DIGITADO É INVÁLIDO!");
             }
             else if(isEdit){
@@ -814,25 +814,7 @@ public class EmployeeDismissal extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLocaleActionPerformed
 
     private void inputCPFEmployeeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputCPFEmployeeFocusLost
-        if(!inputCPFEmployee.getText().equals("")){
-            ValidateCPF validateCPF = new ValidateCPF();
-            ValidateCNPJ validateCNPJ = new ValidateCNPJ();
-            GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
-            if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && !validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CPF DIGITADO É INVÁLIDO");
-                cpfValide = false;
-            }
-            else if(inputCPFEmployee.getText().length()>10 && inputCPFEmployee.getText().length()<15 && validateCPF.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                cpfValide = true;
-            }
-            else if(inputCPFEmployee.getText().length()>13 && inputCPFEmployee.getText().length()<19 && !validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                JOptionPane.showMessageDialog(null, "O CNPJ DIGITADO É INVÁLIDO");
-                cnpjValide = false;
-            }
-            else if(inputCPFEmployee.getText().length()>14 && inputCPFEmployee.getText().length()<19 && validateCNPJ.isValide( getJustTheNumbers.getNumbers( inputCPFEmployee.getText() ) )){
-                cnpjValide = true;
-            }
-        }
+        
     }//GEN-LAST:event_inputCPFEmployeeFocusLost
 
     /**

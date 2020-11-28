@@ -41,11 +41,11 @@ public class LocaleSale extends javax.swing.JFrame {
         txtCodOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCodOfSale.setText("Código da Venda");
         getContentPane().add(txtCodOfSale);
-        txtCodOfSale.setBounds(63, 73, 120, 20);
+        txtCodOfSale.setBounds(40, 60, 120, 20);
 
         inputCodOfSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputCodOfSale);
-        inputCodOfSale.setBounds(63, 104, 170, 25);
+        inputCodOfSale.setBounds(40, 90, 170, 30);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -54,7 +54,7 @@ public class LocaleSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(63, 164, 100, 23);
+        buttonLocale.setBounds(40, 140, 100, 25);
 
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
@@ -63,14 +63,14 @@ public class LocaleSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(192, 164, 140, 23);
+        buttonAllSales.setBounds(170, 140, 140, 25);
 
         txtLocaleSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLocaleSale.setText("Localizar Venda");
         getContentPane().add(txtLocaleSale);
-        txtLocaleSale.setBounds(125, 20, 183, 32);
+        txtLocaleSale.setBounds(100, 10, 183, 32);
 
-        setSize(new java.awt.Dimension(450, 248));
+        setSize(new java.awt.Dimension(358, 222));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

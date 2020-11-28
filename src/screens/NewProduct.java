@@ -242,42 +242,42 @@ public class NewProduct extends javax.swing.JFrame {
         txtName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtName.setText("Nome");
         getContentPane().add(txtName);
-        txtName.setBounds(180, 100, 60, 19);
+        txtName.setBounds(180, 80, 60, 19);
 
         txtDescription.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtDescription.setText("Descrição");
         getContentPane().add(txtDescription);
-        txtDescription.setBounds(20, 380, 80, 19);
+        txtDescription.setBounds(20, 360, 80, 19);
 
         txtExpense.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtExpense.setText("Custo");
         getContentPane().add(txtExpense);
-        txtExpense.setBounds(320, 170, 80, 19);
+        txtExpense.setBounds(320, 150, 80, 19);
 
         txtProfit.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProfit.setText("Lucro");
         getContentPane().add(txtProfit);
-        txtProfit.setBounds(20, 240, 50, 19);
+        txtProfit.setBounds(20, 220, 50, 19);
 
         txtQuantity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtQuantity.setText("Quantidade");
         getContentPane().add(txtQuantity);
-        txtQuantity.setBounds(20, 170, 110, 19);
+        txtQuantity.setBounds(20, 150, 110, 19);
 
         txtProvider.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProvider.setText("Fornecedor");
         getContentPane().add(txtProvider);
-        txtProvider.setBounds(320, 310, 110, 19);
+        txtProvider.setBounds(320, 290, 110, 19);
 
         txtBarCode.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBarCode.setText("Código");
         getContentPane().add(txtBarCode);
-        txtBarCode.setBounds(20, 100, 70, 19);
+        txtBarCode.setBounds(20, 80, 70, 19);
 
         txtLocalization.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtLocalization.setText("Localização");
         getContentPane().add(txtLocalization);
-        txtLocalization.setBounds(400, 240, 110, 19);
+        txtLocalization.setBounds(400, 220, 110, 19);
 
         inputProvider.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputProvider.setText("CÓDIGO DO FORNECEDOR");
@@ -292,16 +292,16 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputProvider);
-        inputProvider.setBounds(320, 340, 220, 30);
+        inputProvider.setBounds(320, 320, 220, 30);
 
         inputQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputQuantity.setText("1");
         getContentPane().add(inputQuantity);
-        inputQuantity.setBounds(20, 200, 80, 30);
+        inputQuantity.setBounds(20, 180, 80, 30);
 
         inputBrand.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputBrand);
-        inputBrand.setBounds(20, 340, 240, 30);
+        inputBrand.setBounds(20, 320, 240, 30);
 
         inputProfitPercentage.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputProfitPercentage.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -310,7 +310,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputProfitPercentage);
-        inputProfitPercentage.setBounds(170, 270, 90, 30);
+        inputProfitPercentage.setBounds(170, 250, 90, 30);
 
         inputExpense.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputExpense.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -319,29 +319,29 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputExpense);
-        inputExpense.setBounds(320, 200, 90, 30);
+        inputExpense.setBounds(320, 180, 90, 30);
 
         txtProftPercentage.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtProftPercentage.setText("Porcentagem de Lucro");
         getContentPane().add(txtProftPercentage);
-        txtProftPercentage.setBounds(170, 240, 180, 19);
+        txtProftPercentage.setBounds(170, 220, 180, 19);
 
         inputLocalization.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputLocalization);
-        inputLocalization.setBounds(400, 270, 130, 30);
+        inputLocalization.setBounds(400, 250, 130, 30);
 
         txtPrice.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtPrice.setText("Preço de Venda");
         getContentPane().add(txtPrice);
-        txtPrice.setBounds(440, 170, 130, 19);
+        txtPrice.setBounds(440, 150, 130, 19);
 
         inputProfit.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputProfit);
-        inputProfit.setBounds(20, 270, 90, 30);
+        inputProfit.setBounds(20, 250, 90, 30);
 
         inputName.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputName);
-        inputName.setBounds(180, 130, 330, 30);
+        inputName.setBounds(180, 110, 330, 30);
 
         inputPrice.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputPrice.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -350,11 +350,11 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputPrice);
-        inputPrice.setBounds(440, 200, 90, 30);
+        inputPrice.setBounds(440, 180, 90, 30);
 
         inputBarCode.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputBarCode);
-        inputBarCode.setBounds(20, 130, 130, 30);
+        inputBarCode.setBounds(20, 110, 130, 30);
 
         inputPhoto.setText("FOTO");
         inputPhoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 5));
@@ -364,7 +364,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputPhoto);
-        inputPhoto.setBounds(590, 110, 150, 190);
+        inputPhoto.setBounds(590, 90, 150, 190);
 
         buttonCancel.setText("CANCELAR");
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -373,19 +373,19 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(640, 525, 100, 25);
+        buttonCancel.setBounds(640, 505, 100, 25);
 
         txtBrand.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtBrand.setText("Marca");
         getContentPane().add(txtBrand);
-        txtBrand.setBounds(20, 310, 80, 19);
+        txtBrand.setBounds(20, 290, 80, 19);
 
         inputDescription.setColumns(20);
         inputDescription.setRows(5);
         tableNewProduct.setViewportView(inputDescription);
 
         getContentPane().add(tableNewProduct);
-        tableNewProduct.setBounds(20, 410, 520, 140);
+        tableNewProduct.setBounds(20, 390, 520, 140);
 
         txtNewProduct.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtNewProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -400,28 +400,28 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(550, 525, 80, 25);
+        buttonSave.setBounds(550, 505, 80, 25);
 
         txtRequiredField2.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField2.setForeground(new java.awt.Color(255, 0, 51));
         txtRequiredField2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField2.setText("*");
         getContentPane().add(txtRequiredField2);
-        txtRequiredField2.setBounds(80, 100, 20, 30);
+        txtRequiredField2.setBounds(80, 80, 20, 30);
 
         txtRequiredField3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField3.setForeground(new java.awt.Color(255, 0, 51));
         txtRequiredField3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField3.setText("*");
         getContentPane().add(txtRequiredField3);
-        txtRequiredField3.setBounds(230, 100, 20, 30);
+        txtRequiredField3.setBounds(230, 80, 20, 30);
 
         txtRequiredField4.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField4.setForeground(new java.awt.Color(255, 0, 51));
         txtRequiredField4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField4.setText("*");
         getContentPane().add(txtRequiredField4);
-        txtRequiredField4.setBounds(560, 170, 20, 30);
+        txtRequiredField4.setBounds(560, 150, 20, 30);
 
         buttonAll.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         buttonAll.setText("TODOS");
@@ -431,7 +431,7 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAll);
-        buttonAll.setBounds(660, 340, 80, 30);
+        buttonAll.setBounds(660, 320, 80, 30);
 
         buttonLocale.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         buttonLocale.setText("LOCALIZAR");
@@ -441,24 +441,24 @@ public class NewProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(550, 340, 100, 30);
+        buttonLocale.setBounds(550, 320, 100, 30);
 
         txtMinimumQuantity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtMinimumQuantity.setText("Quantidade Mínima");
         getContentPane().add(txtMinimumQuantity);
-        txtMinimumQuantity.setBounds(140, 170, 150, 19);
+        txtMinimumQuantity.setBounds(140, 150, 150, 19);
 
         inputMinimumQuantity.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputMinimumQuantity.setText("1");
         getContentPane().add(inputMinimumQuantity);
-        inputMinimumQuantity.setBounds(140, 200, 80, 30);
+        inputMinimumQuantity.setBounds(140, 180, 80, 30);
 
         txtPercent.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtPercent.setText("%");
         getContentPane().add(txtPercent);
-        txtPercent.setBounds(270, 270, 20, 30);
+        txtPercent.setBounds(270, 250, 20, 30);
 
-        setSize(new java.awt.Dimension(769, 601));
+        setSize(new java.awt.Dimension(769, 582));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -16,6 +16,10 @@ public class MaskCPFAndCNPJ extends PlainDocument{
             return;
         } 
         if(str.length()>1){
+            if(str.equals("CPF DO FUNCIONÁRIO") || str.equals("CPF DO CLIENTE") || str.equals("CPF / CNPJ") || str.equals("CPF DO USUÁRIO")){
+                super.insertString(offset, str , attr);
+                return;
+            }
             for(int i = str.length() - 1; i >= 0; i--){
                 String auxStr = maskCPFAux.getString( str.substring(i, i + 1) );
                 super.insertString(offset, auxStr , attr);

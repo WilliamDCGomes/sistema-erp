@@ -59,7 +59,7 @@ public class NewBill extends javax.swing.JFrame {
         txtNewBill.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewBill.setText("NOVA CONTA");
         getContentPane().add(txtNewBill);
-        txtNewBill.setBounds(230, 10, 230, 32);
+        txtNewBill.setBounds(250, 10, 230, 32);
 
         txtPayer.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtPayer.setText("Pagador");
@@ -71,7 +71,7 @@ public class NewBill extends javax.swing.JFrame {
         getContentPane().add(txtReceiver);
         txtReceiver.setBounds(30, 170, 100, 24);
         getContentPane().add(inputPayerDescription);
-        inputPayerDescription.setBounds(220, 130, 270, 24);
+        inputPayerDescription.setBounds(220, 130, 270, 30);
 
         txtCPFAndCNPJPayer.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJPayer.setText("CPF / CNPJ");
@@ -83,9 +83,9 @@ public class NewBill extends javax.swing.JFrame {
         getContentPane().add(txtPayerDescription);
         txtPayerDescription.setBounds(220, 100, 80, 20);
         getContentPane().add(inputCPFAndCNPJPayer);
-        inputCPFAndCNPJPayer.setBounds(30, 130, 150, 24);
+        inputCPFAndCNPJPayer.setBounds(30, 130, 150, 30);
         getContentPane().add(inputReceiverDescription);
-        inputReceiverDescription.setBounds(220, 230, 270, 24);
+        inputReceiverDescription.setBounds(220, 230, 270, 30);
 
         txtCPFAndCNPJReceiver.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCPFAndCNPJReceiver.setText("CPF / CNPJ");
@@ -97,7 +97,7 @@ public class NewBill extends javax.swing.JFrame {
         getContentPane().add(txtReceiverDescription);
         txtReceiverDescription.setBounds(220, 200, 80, 20);
         getContentPane().add(inputCPFAndCNPJReceiver);
-        inputCPFAndCNPJReceiver.setBounds(30, 230, 150, 24);
+        inputCPFAndCNPJReceiver.setBounds(30, 230, 150, 30);
 
         txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtObservation.setText("Observações");
@@ -118,7 +118,7 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFormPayment);
-        buttonFormPayment.setBounds(30, 450, 180, 32);
+        buttonFormPayment.setBounds(30, 450, 180, 25);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(250, 450, 77, 32);
+        buttonSave.setBounds(250, 450, 78, 25);
 
         buttonNewPayer.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonNewPayer.setText("NOVO");
@@ -137,7 +137,7 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonNewPayer);
-        buttonNewPayer.setBounds(590, 130, 60, 20);
+        buttonNewPayer.setBounds(620, 130, 70, 30);
 
         buttonLocalePayer.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocalePayer.setText("LOCALIZAR");
@@ -147,7 +147,7 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocalePayer);
-        buttonLocalePayer.setBounds(500, 130, 90, 20);
+        buttonLocalePayer.setBounds(500, 130, 110, 30);
 
         buttonNewReceiver.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonNewReceiver.setText("NOVO");
@@ -157,7 +157,7 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonNewReceiver);
-        buttonNewReceiver.setBounds(590, 230, 60, 20);
+        buttonNewReceiver.setBounds(620, 230, 70, 30);
 
         buttonLocaleReceiver.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleReceiver.setText("LOCALIZAR");
@@ -167,9 +167,9 @@ public class NewBill extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocaleReceiver);
-        buttonLocaleReceiver.setBounds(500, 230, 90, 20);
+        buttonLocaleReceiver.setBounds(500, 230, 110, 30);
 
-        setSize(new java.awt.Dimension(679, 522));
+        setSize(new java.awt.Dimension(716, 522));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
