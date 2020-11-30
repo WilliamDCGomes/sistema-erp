@@ -1,26 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
 import functioncontroller.GetDate;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
 import javax.swing.JOptionPane;
-
-/**
- *
- * @author Alunos
- */
 public class NewSale extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewSale
-     */
+    int x = 0;
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     public NewSale() {
         initComponents();
     }
-    int x=0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
