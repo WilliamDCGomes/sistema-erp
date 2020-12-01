@@ -328,6 +328,7 @@ public class AllNewContracts extends javax.swing.JFrame {
         txtA = new javax.swing.JLabel();
         inputbeginDate = new javax.swing.JTextField();
         buttonFilter = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Todas as Contratações");
@@ -340,6 +341,7 @@ public class AllNewContracts extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         txtLocaleEmployee.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtLocaleEmployee.setForeground(new java.awt.Color(255, 255, 255));
         txtLocaleEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtLocaleEmployee.setText("TODAS AS CONTRATAÇÕES");
         getContentPane().add(txtLocaleEmployee);
@@ -433,6 +435,7 @@ public class AllNewContracts extends javax.swing.JFrame {
         inputEndDate.setBounds(140, 430, 90, 30);
 
         txtA.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtA.setForeground(new java.awt.Color(255, 255, 255));
         txtA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtA.setText("A");
         getContentPane().add(txtA);
@@ -466,6 +469,10 @@ public class AllNewContracts extends javax.swing.JFrame {
         });
         getContentPane().add(buttonFilter);
         buttonFilter.setBounds(250, 430, 90, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plano e fundo.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 790, 490);
 
         setSize(new java.awt.Dimension(792, 510));
         setLocationRelativeTo(null);
@@ -626,6 +633,7 @@ public class AllNewContracts extends javax.swing.JFrame {
     private javax.swing.JTextField inputEndDate;
     private javax.swing.JTextField inputNameEmployee;
     private javax.swing.JTextField inputbeginDate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTable tableEmployees;
     private javax.swing.JScrollPane tableLocaleEmplyees;
     private javax.swing.JLabel txtA;

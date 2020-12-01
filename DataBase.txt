@@ -2,6 +2,7 @@ drop database clothingStore;
 create database clothingStore;
 use clothingStore;
 
+
 create table clients(
 	id int not null auto_increment primary key,
 	clientName varchar(50) not null,
@@ -91,7 +92,8 @@ create table employee(
     bankType varchar(15) default null,
     photoAdress varchar(200) default null,
     statusEmployee varchar(10) default "Ativo",
-    readmissionEmployee varchar(4) default "Não"
+    readmissionEmployee varchar(4) default "Não",
+    typeSuport varchar(10) default "ADMISSÃO"
 );
 create table temporaryAdressChoosed(
 	id int not null auto_increment primary key,
@@ -100,6 +102,7 @@ create table temporaryAdressChoosed(
 create table dismissalEmployee(
 	id int not null auto_increment primary key,
     codEmployee int not null,
+    nameEmployee varchar(50) not null,
     cpf varchar(15) not null,
     dismissalDate varchar(11) not null,
     dismissalReason varchar(200) default null,
@@ -107,11 +110,13 @@ create table dismissalEmployee(
     earlyWarning varchar(4) not null,
     beginEarlyWarning varchar(11) not null,
     endEarlyWarning varchar(11) not null,
-    observation varchar(2000) default null
+    observation varchar(2000) default null,
+    typeSuport varchar(10) default "DEMISSÃO"
 );
 create table readmissionEmployee(
 	id int not null auto_increment primary key,
     codEmployee int not null,
+    nameEmployee varchar(50) not null,
     cpf varchar(15) not null,
     readmissionDate varchar(11) not null,
     functionEmployee varchar(30) not null,
@@ -124,10 +129,8 @@ create table readmissionEmployee(
     bank varchar(60) default null,
     agency varchar(10) default null,
     accountBank varchar(20) default null,
-    bankType varchar(15) default null
+    bankType varchar(15) default null,
+    typeSuport varchar(10) default "READMISSÃO"
 );
-select * from clients;
-select max(id) from clients where cpf="446.588.588-19";
-
 
 

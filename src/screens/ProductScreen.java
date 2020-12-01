@@ -57,10 +57,10 @@ public class ProductScreen extends javax.swing.JFrame {
                 outputName.setText(rs.getString(1));
                 outputQuantity.setText(rs.getString(2));
                 outputMinimumQuantity.setText(rs.getString(3));
-                outputExpense.setText(rs.getString(4));
-                outputPrice.setText(rs.getString(5));
-                outputProfit.setText(rs.getString(6));
-                outputProfitPercentage.setText(rs.getString(7));
+                outputExpense.setText(rs.getString(4).replace('.', ','));
+                outputPrice.setText(rs.getString(5).replace('.', ','));
+                outputProfit.setText(rs.getString(6).replace('.', ','));
+                outputProfitPercentage.setText(rs.getString(7).replace('.', ','));
                 outputLocalization.setText(rs.getString(8));
                 outputBrand.setText(rs.getString(9));
                 outputProvider.setText(rs.getString(10));
