@@ -16,10 +16,8 @@ import formattingmask.MaskUpperLetter;
 import formattingmask.MaskUpperLetterAux;
 import functioncontroller.ValidateCNPJ;
 import functioncontroller.ValidateCPF;
-/**
- *
- * @author Alunos
- */
+
+
 public class NewClient extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
@@ -33,6 +31,7 @@ public class NewClient extends javax.swing.JFrame {
     GetJustTheNumbers getJustTheNumbers = new GetJustTheNumbers();
     ValidateCPF validateCPF = new ValidateCPF();
     ValidateCNPJ validateCNPJ = new ValidateCNPJ();
+    NewSale newSale = null;
     /**
      * Creates new form NewClient
      */
@@ -51,6 +50,9 @@ public class NewClient extends javax.swing.JFrame {
         inputNumberHouse.setDocument(new MaskCepAndHouseNumber());
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+    }
+    public void cameFromSale(NewSale sale){
+        newSale = sale;
     }
     private void add(){
         String sql = "insert into clients(clientName, cpf, birthDay, phone, cellPhone, email, cep, street, houseNumber, neighborhood, city, state, observation, photoAdress)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -72,11 +74,18 @@ public class NewClient extends javax.swing.JFrame {
             pst.setString(14,imageAdress);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"CLIENTE CADASTRADO COM SUCESSO");
-            ClientScreen clientScreen = new ClientScreen();
-            this.dispose();
-            getId();
-            clientScreen.setTitle("Cliente: " + clientID);
-            clientScreen.setVisible(true);
+            if(newSale==null){
+                ClientScreen clientScreen = new ClientScreen();
+                this.dispose();
+                getId();
+                clientScreen.setTitle("Cliente: " + clientID);
+                clientScreen.setVisible(true);
+            }
+            else{
+                newSale.inputClient.setText(inputCPF.getText());
+                newSale.inputNameClient.setText(inputName.getText());
+                this.dispose();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

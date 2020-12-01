@@ -132,5 +132,24 @@ create table readmissionEmployee(
     bankType varchar(15) default null,
     typeSuport varchar(10) default "READMISSÃO"
 );
+create table sale(
+	id int not null primary key auto_increment,
+    codSale int not null unique,
+    codSaller int not null,
+    paymentForm varchar(10) not null,
+    paymentMethod varchar(10) not null,
+    codClient varchar(15) not null,
+    dateSale varchar(11) not null,
+    statusSale varchar(15) default "Pendente",
+    discount varchar(5) default null,
+    totalValue varchar(15) default null
+);
+create table productsOfSale(
+	id int not null primary key auto_increment,
+    codSale int not null,
+    barCodeProd varchar(25) default null,
+    quantity int not null,
+    price varchar(15) default null
+);
 
 

@@ -5,6 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
+import formattingmask.MaskCash;
+import formattingmask.MaskDate;
+import formattingmask.MaskJustNumbers;
+import formattingmask.MaskUpperLetter;
+import functioncontroller.RoundNumber;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class NewSale extends javax.swing.JFrame {
@@ -15,10 +21,24 @@ public class NewSale extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    RoundNumber roundNumber = new RoundNumber();
     public NewSale() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputInCash.setSelected(true);
+        inputFinishSale.setSelected(true);
+        inputCod.setDocument(new MaskUpperLetter());
+        inputNameProduct.setDocument(new MaskUpperLetter());
+        inputAmount.setDocument(new MaskJustNumbers());
+        inputCodOfEmployee.setDocument(new MaskJustNumbers());
+        inputNameEmployee.setDocument(new MaskUpperLetter());
+        inputClient.setDocument(new MaskCPFAndCNPJ());
+        inputNameClient.setDocument(new MaskUpperLetter());
+        inputDateOfSale.setDocument(new MaskDate());
+        inputDiscount.setDocument(new MaskCash());
     }
     private void filter(){
         clearTable();
@@ -34,15 +54,93 @@ public class NewSale extends javax.swing.JFrame {
         double partialPrice = price * Integer.parseInt( inputAmount.getText() );
         value += partialPrice;
         valueNow += partialPrice;
-        outputSubTotal.setText(Double.toString(valueNow).replace('.', ','));
-        outputTotal.setText(Double.toString(value).replace('.', ','));
-        product += ";" + Double.toString(partialPrice).replace('.', ',') + ";" + inputAmount.getText();
+        outputSubTotal.setText(roundNumber.doRound(valueNow).replace('.', ','));
+        if(!inputDiscount.getText().equals("")){
+            double valueDescont = (Double.parseDouble(outputSubTotal.getText().replace(",", ".")) * Double.parseDouble(inputDiscount.getText().replace(",", ".")) ) / 100;
+            outputDescont.setText(roundNumber.doRound(valueDescont).replace(".", ","));
+            value -= valueDescont;
+            outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+        }
+        else{
+            outputDescont.setText("0,00");
+            value = valueNow;
+            outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+        }
+        product += ";" + roundNumber.doRound(partialPrice).replace('.', ',') + ";" + inputAmount.getText();
         String[] data = product.split(";");
         table.addRow(data);
         inputCod.setText("");
         inputNameProduct.setText("");
         inputAmount.setText("");
         inputCod.requestFocus();
+    }
+    private int getSale(){
+        String sql ="select max(codSale) from sale";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                return rs.getInt(1) + 1;
+            }
+            else{
+                return 1;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 0;
+    }
+    private void add(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[1]);
+        String sql = "insert into sale(codSale, codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, discount, totalValue)values(?,?,?,?,?,?,?,?,?)";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1,codSale);
+            pst.setInt(2,Integer.parseInt(inputCodOfEmployee.getText()));
+            if(inputInCash.isSelected()){
+                pst.setString(3,"A Vista");
+            }
+            else if(inputTerm.isSelected()){
+                pst.setString(3,"A Prazo");
+            }
+            pst.setString(4,inputFormPayment.getSelectedItem().toString());
+            pst.setString(5,inputClient.getText());
+            pst.setString(6,inputDateOfSale.getText());
+            if(inputFinishSale.isSelected()){
+                pst.setString(7,"Finalizada");
+            }
+            else if(inputPendingSale.isSelected()){
+                pst.setString(7,"Pendente");
+            }
+            pst.setString(8,inputDiscount.getText());
+            pst.setString(9,outputTotal.getText().replace(",", "."));
+            pst.executeUpdate();
+            addProducts(codSale);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void addProducts(int codSale){
+        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+        String sql = "insert into productsOfSale(codSale, barCodeProd, quantity, price)values(?,?,?,?)";
+        try {
+            for(int i=table.getRowCount()-1; i >= 0; i--){
+                pst2 = connection.prepareStatement(sql);
+                pst2.setInt(1,codSale);
+                pst2.setString(2, tableSoldItems.getModel().getValueAt(i,0).toString());
+                pst2.setInt(3, Integer.parseInt( tableSoldItems.getModel().getValueAt(i,4).toString() ));
+                pst2.setString(4, tableSoldItems.getModel().getValueAt(i,2).toString().replace(",", "."));
+                pst2.executeUpdate();
+            }
+            JOptionPane.showMessageDialog(null,"VENDA SALVA COM SUCESSO");
+            SaleScreen saleScreen = new SaleScreen();
+            saleScreen.setTitle("Venda: " + codSale);
+            this.dispose();
+            saleScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     private void getProduct(){
         String sql ="select barCode as 'Código do Produto', nameProduct as 'Nome do Produto', price as 'Preço de Venda' from product where barCode = ?";
@@ -139,7 +237,6 @@ public class NewSale extends javax.swing.JFrame {
         buttomRemoveItems = new javax.swing.JButton();
         txtItems = new javax.swing.JLabel();
         txtDateOfSale = new javax.swing.JLabel();
-        inputDateOfSale = new javax.swing.JFormattedTextField();
         txtFormPayment = new javax.swing.JLabel();
         inputInCash = new javax.swing.JRadioButton();
         inputTerm = new javax.swing.JRadioButton();
@@ -149,7 +246,7 @@ public class NewSale extends javax.swing.JFrame {
         inputPendingSale = new javax.swing.JRadioButton();
         buttonCancele = new javax.swing.JButton();
         buttonLocaleProduct = new javax.swing.JButton();
-        buttonNewProduct = new javax.swing.JButton();
+        buttonAllProduct = new javax.swing.JButton();
         txtNameProduct = new javax.swing.JLabel();
         inputNameProduct = new javax.swing.JTextField();
         buttonLocaleEmployee = new javax.swing.JButton();
@@ -157,9 +254,19 @@ public class NewSale extends javax.swing.JFrame {
         inputNameEmployee = new javax.swing.JTextField();
         txtNameClient = new javax.swing.JLabel();
         inputNameClient = new javax.swing.JTextField();
+        inputDateOfSale = new javax.swing.JTextField();
+        buttonAllEmployees = new javax.swing.JButton();
+        txtSubTotal1 = new javax.swing.JLabel();
+        outputDescont = new javax.swing.JLabel();
+        txtRequiredField3 = new javax.swing.JLabel();
+        txtRequiredField4 = new javax.swing.JLabel();
+        txtRequiredField5 = new javax.swing.JLabel();
+        txtRequiredField6 = new javax.swing.JLabel();
+        txtRequiredField7 = new javax.swing.JLabel();
+        txtRequiredField8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nova Venda");
+        setTitle("Venda:");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -171,52 +278,61 @@ public class NewSale extends javax.swing.JFrame {
         txtNewSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtNewSale.setText("Nova Venda");
         getContentPane().add(txtNewSale);
-        txtNewSale.setBounds(341, 11, 137, 32);
+        txtNewSale.setBounds(390, 10, 137, 32);
 
         txtCod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCod.setText("Código");
         getContentPane().add(txtCod);
         txtCod.setBounds(20, 50, 63, 27);
 
+        inputCod.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputCod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputCodKeyPressed(evt);
             }
         });
         getContentPane().add(inputCod);
-        inputCod.setBounds(20, 80, 104, 30);
+        inputCod.setBounds(20, 80, 90, 30);
 
         txtAmount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtAmount.setText("Quantidade");
         getContentPane().add(txtAmount);
-        txtAmount.setBounds(690, 50, 82, 27);
+        txtAmount.setBounds(710, 50, 82, 27);
 
+        inputAmount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputAmount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputAmountFocusLost(evt);
+            }
+        });
         inputAmount.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputAmountKeyPressed(evt);
             }
         });
         getContentPane().add(inputAmount);
-        inputAmount.setBounds(690, 80, 104, 30);
+        inputAmount.setBounds(710, 80, 104, 30);
 
         txtCodOfSaller.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCodOfSaller.setText("Cod Vendedor");
         getContentPane().add(txtCodOfSaller);
         txtCodOfSaller.setBounds(20, 120, 102, 27);
 
+        inputCodOfEmployee.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputCodOfEmployee.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputCodOfEmployeeKeyPressed(evt);
             }
         });
         getContentPane().add(inputCodOfEmployee);
-        inputCodOfEmployee.setBounds(20, 150, 100, 30);
+        inputCodOfEmployee.setBounds(20, 150, 90, 30);
 
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
         getContentPane().add(txtPaymentMethod);
         txtPaymentMethod.setBounds(540, 260, 140, 27);
 
+        inputFormPayment.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputFormPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
         inputFormPayment.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -229,13 +345,14 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputFormPayment);
-        inputFormPayment.setBounds(700, 260, 102, 30);
+        inputFormPayment.setBounds(720, 260, 110, 30);
 
         txtClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtClient.setText("CPF Cliente");
         getContentPane().add(txtClient);
         txtClient.setBounds(20, 190, 110, 27);
 
+        inputClient.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputClient.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputClientKeyPressed(evt);
@@ -245,43 +362,58 @@ public class NewSale extends javax.swing.JFrame {
         inputClient.setBounds(20, 220, 143, 30);
 
         buttonLocaleClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonLocaleClient.setText("Localizar");
+        buttonLocaleClient.setText("LOCALIZAR");
+        buttonLocaleClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLocaleClientActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonLocaleClient);
-        buttonLocaleClient.setBounds(170, 220, 77, 25);
+        buttonLocaleClient.setBounds(170, 220, 90, 30);
 
         buttonNewClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonNewClient.setText("Adicionar");
+        buttonNewClient.setText("NOVO");
+        buttonNewClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewClientActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonNewClient);
-        buttonNewClient.setBounds(260, 220, 79, 25);
+        buttonNewClient.setBounds(270, 220, 79, 30);
 
         txtDiscount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDiscount.setText("Desconto");
         getContentPane().add(txtDiscount);
         txtDiscount.setBounds(20, 300, 68, 27);
+
+        inputDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                inputDiscountFocusLost(evt);
+            }
+        });
         getContentPane().add(inputDiscount);
         inputDiscount.setBounds(20, 330, 78, 30);
 
         txtSubTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtSubTotal.setText("SubTotal");
         getContentPane().add(txtSubTotal);
-        txtSubTotal.setBounds(510, 620, 64, 20);
+        txtSubTotal.setBounds(564, 620, 70, 20);
 
         outputSubTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        outputSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         outputSubTotal.setText("0,00");
         getContentPane().add(outputSubTotal);
-        outputSubTotal.setBounds(570, 615, 100, 30);
+        outputSubTotal.setBounds(640, 615, 100, 30);
 
         txtTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtTotal.setText("Total");
         getContentPane().add(txtTotal);
-        txtTotal.setBounds(680, 620, 36, 20);
+        txtTotal.setBounds(736, 620, 40, 20);
 
         outputTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        outputTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         outputTotal.setText("0,00");
         getContentPane().add(outputTotal);
-        outputTotal.setBounds(720, 615, 90, 30);
+        outputTotal.setBounds(780, 615, 90, 30);
 
         tableSoldItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -294,7 +426,7 @@ public class NewSale extends javax.swing.JFrame {
         tableNewSale.setViewportView(tableSoldItems);
 
         getContentPane().add(tableNewSale);
-        tableNewSale.setBounds(20, 400, 790, 200);
+        tableNewSale.setBounds(20, 400, 850, 200);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -306,6 +438,11 @@ public class NewSale extends javax.swing.JFrame {
         buttonSave.setBounds(20, 620, 80, 23);
 
         buttomRemoveItems.setText("REMOVER");
+        buttomRemoveItems.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttomRemoveItemsActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttomRemoveItems);
         buttomRemoveItems.setBounds(130, 620, 90, 23);
 
@@ -319,34 +456,26 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtDateOfSale);
         txtDateOfSale.setBounds(20, 260, 101, 27);
 
-        try {
-            inputDateOfSale.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        inputDateOfSale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(inputDateOfSale);
-        inputDateOfSale.setBounds(130, 260, 101, 30);
-
         txtFormPayment.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtFormPayment.setText("Forma de Pagamento");
         getContentPane().add(txtFormPayment);
-        txtFormPayment.setBounds(640, 120, 149, 27);
+        txtFormPayment.setBounds(730, 120, 149, 27);
 
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(640, 150, 59, 30);
+        inputInCash.setBounds(730, 150, 59, 30);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(730, 150, 63, 30);
+        inputTerm.setBounds(820, 150, 63, 30);
 
-        txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        txtDiscount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDiscount1.setText("%");
         getContentPane().add(txtDiscount1);
-        txtDiscount1.setBounds(110, 330, 10, 27);
+        txtDiscount1.setBounds(100, 330, 20, 27);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
@@ -356,12 +485,12 @@ public class NewSale extends javax.swing.JFrame {
         groupStatus.add(inputFinishSale);
         inputFinishSale.setText("Finalizada");
         getContentPane().add(inputFinishSale);
-        inputFinishSale.setBounds(343, 260, 90, 30);
+        inputFinishSale.setBounds(360, 260, 80, 30);
 
         groupStatus.add(inputPendingSale);
         inputPendingSale.setText("Pendente");
         getContentPane().add(inputPendingSale);
-        inputPendingSale.setBounds(430, 260, 90, 30);
+        inputPendingSale.setBounds(440, 260, 90, 30);
 
         buttonCancele.setText("CANCELAR");
         buttonCancele.addActionListener(new java.awt.event.ActionListener() {
@@ -373,42 +502,129 @@ public class NewSale extends javax.swing.JFrame {
         buttonCancele.setBounds(250, 620, 100, 23);
 
         buttonLocaleProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonLocaleProduct.setText("Localizar");
+        buttonLocaleProduct.setText("LOCALIZAR");
+        buttonLocaleProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLocaleProductActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonLocaleProduct);
-        buttonLocaleProduct.setBounds(130, 80, 77, 30);
+        buttonLocaleProduct.setBounds(120, 80, 100, 30);
 
-        buttonNewProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonNewProduct.setText("Adicionar");
-        getContentPane().add(buttonNewProduct);
-        buttonNewProduct.setBounds(210, 80, 79, 30);
+        buttonAllProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        buttonAllProduct.setText("TODOS");
+        buttonAllProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllProductActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonAllProduct);
+        buttonAllProduct.setBounds(230, 80, 79, 30);
 
         txtNameProduct.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameProduct.setText("Nome do Produto");
         getContentPane().add(txtNameProduct);
-        txtNameProduct.setBounds(300, 50, 140, 30);
+        txtNameProduct.setBounds(320, 50, 140, 30);
+
+        inputNameProduct.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputNameProduct);
-        inputNameProduct.setBounds(300, 80, 380, 30);
+        inputNameProduct.setBounds(320, 80, 380, 30);
 
         buttonLocaleEmployee.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonLocaleEmployee.setText("Localizar");
+        buttonLocaleEmployee.setText("LOCALIZAR");
+        buttonLocaleEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLocaleEmployeeActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonLocaleEmployee);
-        buttonLocaleEmployee.setBounds(130, 150, 77, 30);
+        buttonLocaleEmployee.setBounds(120, 150, 100, 30);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Funcionário");
         getContentPane().add(txtNameEmployee);
-        txtNameEmployee.setBounds(230, 120, 160, 30);
+        txtNameEmployee.setBounds(320, 120, 160, 30);
+
+        inputNameEmployee.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputNameEmployee);
-        inputNameEmployee.setBounds(230, 150, 380, 30);
+        inputNameEmployee.setBounds(320, 150, 380, 30);
 
         txtNameClient.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameClient.setText("Nome do Cliente");
         getContentPane().add(txtNameClient);
         txtNameClient.setBounds(380, 190, 160, 30);
+
+        inputNameClient.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         getContentPane().add(inputNameClient);
         inputNameClient.setBounds(380, 220, 380, 30);
 
-        setSize(new java.awt.Dimension(830, 688));
+        inputDateOfSale.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(inputDateOfSale);
+        inputDateOfSale.setBounds(140, 260, 100, 30);
+
+        buttonAllEmployees.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        buttonAllEmployees.setText("TODOS");
+        buttonAllEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAllEmployeesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonAllEmployees);
+        buttonAllEmployees.setBounds(230, 150, 79, 30);
+
+        txtSubTotal1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtSubTotal1.setText("Desconto");
+        getContentPane().add(txtSubTotal1);
+        txtSubTotal1.setBounds(374, 620, 80, 20);
+
+        outputDescont.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        outputDescont.setText("0,00");
+        getContentPane().add(outputDescont);
+        outputDescont.setBounds(450, 615, 100, 30);
+
+        txtRequiredField3.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField3.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField3.setText("*");
+        getContentPane().add(txtRequiredField3);
+        txtRequiredField3.setBounds(130, 120, 20, 30);
+
+        txtRequiredField4.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField4.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField4.setText("*");
+        getContentPane().add(txtRequiredField4);
+        txtRequiredField4.setBounds(110, 190, 20, 30);
+
+        txtRequiredField5.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField5.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField5.setText("*");
+        getContentPane().add(txtRequiredField5);
+        txtRequiredField5.setBounds(120, 260, 20, 30);
+
+        txtRequiredField6.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField6.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField6.setText("*");
+        getContentPane().add(txtRequiredField6);
+        txtRequiredField6.setBounds(330, 260, 20, 30);
+
+        txtRequiredField7.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField7.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField7.setText("*");
+        getContentPane().add(txtRequiredField7);
+        txtRequiredField7.setBounds(680, 260, 20, 30);
+
+        txtRequiredField8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField8.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField8.setText("*");
+        getContentPane().add(txtRequiredField8);
+        txtRequiredField8.setBounds(880, 120, 20, 30);
+
+        setSize(new java.awt.Dimension(912, 688));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -428,6 +644,7 @@ public class NewSale extends javax.swing.JFrame {
             x++;
             GetDate getDateSystem = new GetDate();
             inputDateOfSale.setText(getDateSystem.dateOfSystem());
+            this.setTitle(this.getTitle() + " " + getSale());
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -436,10 +653,15 @@ public class NewSale extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCanceleActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        JOptionPane.showMessageDialog(null, "VENDA FINALIZADA COM SUCESSO");
-        SaleScreen saleScreen = new SaleScreen();
-        this.dispose();
-        saleScreen.setVisible(true);
+        if(outputTotal.getText().equals("0,00")&&outputSubTotal.getText().equals("0,00")&&outputDescont.getText().equals("0,00")){
+            JOptionPane.showMessageDialog(null, "VOCÊ NÃO ADICIONOU NENHUM ITEM NA VENDA");
+        }
+        else if(inputCodOfEmployee.getText().equals("")||inputClient.getText().equals("")||inputDateOfSale.getText().equals("")||(!inputFinishSale.isSelected()&&!inputPendingSale.isSelected())||(!inputInCash.isSelected()&&!inputTerm.isSelected())||inputFormPayment.getSelectedItem().equals("Selecionar")){
+            JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS ANTES DE FINALIZAR A VENDA");
+        }
+        else{
+            add();
+        }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void inputAmountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputAmountKeyPressed
@@ -478,6 +700,95 @@ public class NewSale extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputClientKeyPressed
 
+    private void buttonLocaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleProductActionPerformed
+        if(!inputCod.getText().equals("")){
+            getNameProduct();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR INSIRA O CÓDIGO DO PRODUTO");
+        }
+    }//GEN-LAST:event_buttonLocaleProductActionPerformed
+
+    private void buttonAllProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProductActionPerformed
+        AllProducts allProducts = new AllProducts();
+        allProducts.setVisible(true);
+    }//GEN-LAST:event_buttonAllProductActionPerformed
+
+    private void buttonLocaleEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleEmployeeActionPerformed
+        if(!inputCodOfEmployee.getText().equals("")){
+            getNameEmployee();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR INSIRA O CÓDIGO DO VENDEDOR");
+        }
+    }//GEN-LAST:event_buttonLocaleEmployeeActionPerformed
+
+    private void buttonLocaleClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleClientActionPerformed
+        if(!inputClient.getText().equals("")){
+            getClientName();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "POR FAVOR INSIRA O CPF DO CLIENTE");
+        }
+    }//GEN-LAST:event_buttonLocaleClientActionPerformed
+
+    private void buttonNewClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClientActionPerformed
+        NewClient newClient = new NewClient();
+        newClient.cameFromSale(this);
+        newClient.setVisible(true);
+    }//GEN-LAST:event_buttonNewClientActionPerformed
+
+    private void buttonAllEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllEmployeesActionPerformed
+        LocaleEmployee localeEmployee = new LocaleEmployee();
+        localeEmployee.setVisible(true);
+    }//GEN-LAST:event_buttonAllEmployeesActionPerformed
+
+    private void inputDiscountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputDiscountFocusLost
+        if(!inputDiscount.getText().equals("")){
+            double valueDescont = (Double.parseDouble(outputSubTotal.getText().replace(",", ".")) * Double.parseDouble(inputDiscount.getText().replace(",", ".")) ) / 100;
+            outputDescont.setText(roundNumber.doRound(valueDescont).replace(".", ","));
+            value = valueNow;
+            value -= valueDescont;
+            outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+        }
+        else{
+            outputDescont.setText("0,00");
+            value = valueNow;
+            outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+        }
+    }//GEN-LAST:event_inputDiscountFocusLost
+
+    private void buttomRemoveItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttomRemoveItemsActionPerformed
+        int set = tableSoldItems.getSelectedRow();
+        if(set>=0){
+            valueNow -= Double.parseDouble(tableSoldItems.getModel().getValueAt(set,3).toString().replace(",", "."));
+            value = valueNow;
+            outputSubTotal.setText(roundNumber.doRound(valueNow).replace(".", ","));
+            if(!inputDiscount.getText().equals("")){
+                double valueDescont = (Double.parseDouble(outputSubTotal.getText().replace(",", ".")) * Double.parseDouble(inputDiscount.getText().replace(",", ".")) ) / 100;
+                outputDescont.setText(roundNumber.doRound(valueDescont).replace(".", ","));
+                value -= valueDescont;
+                outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+            }
+            else{
+                value = valueNow;
+                outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+            }
+            DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+            table.removeRow(set);
+            JOptionPane.showMessageDialog(null, "ITEM REMOVIDO DA VENDA");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
+        }
+    }//GEN-LAST:event_buttomRemoveItemsActionPerformed
+
+    private void inputAmountFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputAmountFocusLost
+        if(!inputCod.getText().equals("") && !inputNameProduct.getText().equals("") && !inputAmount.getText().equals("")){
+            getProduct();
+        }
+    }//GEN-LAST:event_inputAmountFocusLost
+
     /**
      * @param args the command line arguments
      */
@@ -515,29 +826,31 @@ public class NewSale extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttomRemoveItems;
+    private javax.swing.JButton buttonAllEmployees;
+    private javax.swing.JButton buttonAllProduct;
     public static javax.swing.JButton buttonCancele;
     private javax.swing.JButton buttonLocaleClient;
     private javax.swing.JButton buttonLocaleEmployee;
     private javax.swing.JButton buttonLocaleProduct;
     private javax.swing.JButton buttonNewClient;
-    private javax.swing.JButton buttonNewProduct;
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup groupFormPayment;
     private javax.swing.ButtonGroup groupStatus;
     private javax.swing.JTextField inputAmount;
-    private javax.swing.JTextField inputClient;
+    public static javax.swing.JTextField inputClient;
     private javax.swing.JTextField inputCod;
     private javax.swing.JTextField inputCodOfEmployee;
-    private javax.swing.JFormattedTextField inputDateOfSale;
+    private javax.swing.JTextField inputDateOfSale;
     private javax.swing.JTextField inputDiscount;
     private javax.swing.JRadioButton inputFinishSale;
     private javax.swing.JComboBox<String> inputFormPayment;
     private javax.swing.JRadioButton inputInCash;
-    private javax.swing.JTextField inputNameClient;
+    public static javax.swing.JTextField inputNameClient;
     private javax.swing.JTextField inputNameEmployee;
     private javax.swing.JTextField inputNameProduct;
     private javax.swing.JRadioButton inputPendingSale;
     private javax.swing.JRadioButton inputTerm;
+    private javax.swing.JLabel outputDescont;
     private javax.swing.JLabel outputSubTotal;
     private javax.swing.JLabel outputTotal;
     private javax.swing.JScrollPane tableNewSale;
@@ -556,8 +869,15 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JLabel txtNameProduct;
     public static javax.swing.JLabel txtNewSale;
     private javax.swing.JLabel txtPaymentMethod;
+    private javax.swing.JLabel txtRequiredField3;
+    private javax.swing.JLabel txtRequiredField4;
+    private javax.swing.JLabel txtRequiredField5;
+    private javax.swing.JLabel txtRequiredField6;
+    private javax.swing.JLabel txtRequiredField7;
+    private javax.swing.JLabel txtRequiredField8;
     private javax.swing.JLabel txtStatus;
     private javax.swing.JLabel txtSubTotal;
+    private javax.swing.JLabel txtSubTotal1;
     private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }

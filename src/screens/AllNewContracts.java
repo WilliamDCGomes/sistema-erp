@@ -472,7 +472,7 @@ public class AllNewContracts extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/plano e fundo.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 790, 490);
+        jLabel1.setBounds(0, 0, 800, 490);
 
         setSize(new java.awt.Dimension(792, 510));
         setLocationRelativeTo(null);
