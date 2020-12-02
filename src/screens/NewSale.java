@@ -276,9 +276,10 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         txtNewSale.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtNewSale.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewSale.setText("Nova Venda");
         getContentPane().add(txtNewSale);
-        txtNewSale.setBounds(390, 10, 137, 32);
+        txtNewSale.setBounds(257, 10, 370, 32);
 
         txtCod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtCod.setText("Código");

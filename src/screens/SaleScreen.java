@@ -40,7 +40,6 @@ public class SaleScreen extends javax.swing.JFrame {
         txtClient = new javax.swing.JLabel();
         outputClient = new javax.swing.JTextField();
         txtDateOfSale = new javax.swing.JLabel();
-        outputDateOfSale = new javax.swing.JFormattedTextField();
         txtTotal = new javax.swing.JLabel();
         outputTotal = new javax.swing.JLabel();
         tableSale = new javax.swing.JScrollPane();
@@ -52,9 +51,12 @@ public class SaleScreen extends javax.swing.JFrame {
         buttonAllSales = new javax.swing.JButton();
         txtSale = new javax.swing.JLabel();
         txtStatus = new javax.swing.JLabel();
-        outputStatus = new javax.swing.JLabel();
         buttonShowPaymentMethod = new javax.swing.JButton();
         buttonPrinter = new javax.swing.JButton();
+        txtNameEmployee = new javax.swing.JLabel();
+        inputNameEmployee = new javax.swing.JTextField();
+        outputPaymentMethod1 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
@@ -66,26 +68,26 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(txtCodSale);
         txtCodSale.setBounds(11, 65, 123, 19);
         getContentPane().add(outputCodSale);
-        outputCodSale.setBounds(11, 90, 121, 25);
+        outputCodSale.setBounds(11, 90, 80, 30);
 
         txtCodSaller.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtCodSaller.setText("Código do Vendedor");
         getContentPane().add(txtCodSaller);
-        txtCodSaller.setBounds(246, 71, 148, 19);
+        txtCodSaller.setBounds(210, 60, 148, 30);
         getContentPane().add(outputCodSaller);
-        outputCodSaller.setBounds(246, 96, 121, 25);
+        outputCodSaller.setBounds(210, 90, 100, 30);
 
         txtFormPayment.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtFormPayment.setText("Forma de Pagamento");
         getContentPane().add(txtFormPayment);
-        txtFormPayment.setBounds(488, 71, 156, 19);
+        txtFormPayment.setBounds(520, 130, 156, 30);
         getContentPane().add(outputFormPayment);
-        outputFormPayment.setBounds(488, 96, 121, 25);
+        outputFormPayment.setBounds(520, 160, 121, 30);
 
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
         getContentPane().add(txtPaymentMethod);
-        txtPaymentMethod.setBounds(11, 162, 140, 27);
+        txtPaymentMethod.setBounds(10, 130, 140, 27);
 
         outputPaymentMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
         outputPaymentMethod.addItemListener(new java.awt.event.ItemListener() {
@@ -99,65 +101,49 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(outputPaymentMethod);
-        outputPaymentMethod.setBounds(11, 195, 102, 25);
+        outputPaymentMethod.setBounds(10, 160, 120, 30);
 
         txtClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtClient.setText("Cliente");
         getContentPane().add(txtClient);
-        txtClient.setBounds(246, 156, 51, 27);
+        txtClient.setBounds(180, 130, 51, 27);
         getContentPane().add(outputClient);
-        outputClient.setBounds(246, 189, 143, 25);
+        outputClient.setBounds(180, 160, 310, 30);
 
         txtDateOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDateOfSale.setText("Data da Venda");
         getContentPane().add(txtDateOfSale);
-        txtDateOfSale.setBounds(488, 161, 101, 27);
-
-        try {
-            outputDateOfSale.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        outputDateOfSale.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        getContentPane().add(outputDateOfSale);
-        outputDateOfSale.setBounds(488, 194, 101, 25);
+        txtDateOfSale.setBounds(10, 200, 101, 27);
 
         txtTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtTotal.setText("Total");
         getContentPane().add(txtTotal);
-        txtTotal.setBounds(690, 440, 40, 20);
+        txtTotal.setBounds(710, 490, 40, 20);
 
         outputTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         outputTotal.setText("0,00");
         getContentPane().add(outputTotal);
-        outputTotal.setBounds(630, 475, 100, 24);
+        outputTotal.setBounds(620, 510, 130, 24);
 
         tableSoldItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Descrição", "Quantidade", "Cliente", "Valor"
+                "Código do Produto", "Nome do Produto", "Preço de Venda", "Valor Parcial", "Quantidade"
             }
         ));
         tableSale.setViewportView(tableSoldItems);
 
         getContentPane().add(tableSale);
-        tableSale.setBounds(11, 253, 720, 176);
+        tableSale.setBounds(10, 300, 740, 176);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
         getContentPane().add(txtItems);
-        txtItems.setBounds(11, 220, 35, 27);
+        txtItems.setBounds(10, 270, 35, 27);
 
         buttonEdit.setText("EDITAR");
         buttonEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +152,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(147, 470, 71, 32);
+        buttonEdit.setBounds(140, 510, 80, 23);
 
         buttonDelete.setText("EXCLUIR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -175,12 +161,12 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(250, 470, 90, 32);
+        buttonDelete.setBounds(240, 510, 90, 23);
 
-        buttonLocale.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        buttonLocale.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buttonLocale.setText("PESQUISAR");
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(11, 118, 70, 26);
+        buttonLocale.setBounds(93, 90, 100, 30);
 
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +175,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(362, 470, 139, 32);
+        buttonAllSales.setBounds(350, 510, 140, 23);
 
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
@@ -199,12 +185,7 @@ public class SaleScreen extends javax.swing.JFrame {
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
         getContentPane().add(txtStatus);
-        txtStatus.setBounds(246, 220, 49, 27);
-
-        outputStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        outputStatus.setText("Pendente");
-        getContentPane().add(outputStatus);
-        outputStatus.setBounds(313, 220, 69, 27);
+        txtStatus.setBounds(170, 200, 49, 27);
 
         buttonShowPaymentMethod.setText("PAGAMENTO");
         buttonShowPaymentMethod.addActionListener(new java.awt.event.ActionListener() {
@@ -213,13 +194,38 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowPaymentMethod);
-        buttonShowPaymentMethod.setBounds(11, 470, 103, 32);
+        buttonShowPaymentMethod.setBounds(10, 510, 110, 23);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(530, 470, 90, 32);
+        buttonPrinter.setBounds(510, 510, 90, 23);
 
-        setSize(new java.awt.Dimension(766, 550));
+        txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameEmployee.setText("Nome do Vendedor");
+        getContentPane().add(txtNameEmployee);
+        txtNameEmployee.setBounds(370, 60, 160, 30);
+
+        inputNameEmployee.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(inputNameEmployee);
+        inputNameEmployee.setBounds(370, 90, 380, 30);
+
+        outputPaymentMethod1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Finalizado" }));
+        outputPaymentMethod1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                outputPaymentMethod1ItemStateChanged(evt);
+            }
+        });
+        outputPaymentMethod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outputPaymentMethod1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(outputPaymentMethod1);
+        outputPaymentMethod1.setBounds(170, 230, 110, 30);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(10, 230, 100, 30);
+
+        setSize(new java.awt.Dimension(773, 579));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -257,6 +263,14 @@ public class SaleScreen extends javax.swing.JFrame {
         this.dispose();
         newSale.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed
+
+    private void outputPaymentMethod1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_outputPaymentMethod1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputPaymentMethod1ItemStateChanged
+
+    private void outputPaymentMethod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputPaymentMethod1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputPaymentMethod1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,13 +314,14 @@ public class SaleScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonLocale;
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShowPaymentMethod;
+    private javax.swing.JTextField inputNameEmployee;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField outputClient;
     private javax.swing.JTextField outputCodSale;
     private javax.swing.JTextField outputCodSaller;
-    private javax.swing.JFormattedTextField outputDateOfSale;
     private javax.swing.JTextField outputFormPayment;
     private javax.swing.JComboBox<String> outputPaymentMethod;
-    private javax.swing.JLabel outputStatus;
+    private javax.swing.JComboBox<String> outputPaymentMethod1;
     private javax.swing.JLabel outputTotal;
     private javax.swing.JScrollPane tableSale;
     private javax.swing.JTable tableSoldItems;
@@ -316,6 +331,7 @@ public class SaleScreen extends javax.swing.JFrame {
     private javax.swing.JLabel txtDateOfSale;
     private javax.swing.JLabel txtFormPayment;
     private javax.swing.JLabel txtItems;
+    private javax.swing.JLabel txtNameEmployee;
     private javax.swing.JLabel txtPaymentMethod;
     private javax.swing.JLabel txtSale;
     private javax.swing.JLabel txtStatus;
