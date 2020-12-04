@@ -151,5 +151,15 @@ create table productsOfSale(
     quantity int not null,
     price varchar(15) default null
 );
+create table paymentForm(
+	id int not null primary key auto_increment,
+    codSale int not null,
+    firstPaymentDate varchar(11) not null,
+    saleValue varchar(15) not null,
+    inputValue varchar(15) not null,
+    plots int not null,
+    plotsTime int not null,
+    currentInstallment int default 0
+);
 
 

@@ -636,6 +636,8 @@ public class NewSale extends javax.swing.JFrame {
     private void inputFormPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFormPaymentActionPerformed
         if(inputTerm.isSelected()){
             FormPayment formPayment = new FormPayment();
+            String[] aux = this.getTitle().split(" ");
+            formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
             formPayment.setVisible(true);
         }
     }//GEN-LAST:event_inputFormPaymentActionPerformed

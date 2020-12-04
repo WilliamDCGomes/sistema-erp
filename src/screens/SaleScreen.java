@@ -231,7 +231,7 @@ public class SaleScreen extends javax.swing.JFrame {
 
     private void buttonShowPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowPaymentMethodActionPerformed
         FormPayment formPayment = new FormPayment();
-        formPayment.buttonFinish.setVisible(false);
+        formPayment.buttonFinish.setText("DEBITAR");
         formPayment.setVisible(true);
     }//GEN-LAST:event_buttonShowPaymentMethodActionPerformed
 
