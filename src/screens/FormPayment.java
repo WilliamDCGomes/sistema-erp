@@ -18,6 +18,7 @@ public class FormPayment extends javax.swing.JFrame {
     ResultSet rs2 = null;
     ArrayList<String> allPlots = new ArrayList<>();
     GetFutureDates getFutureDates = new GetFutureDates();
+    RoundNumber roundNumber = new RoundNumber();
     public FormPayment() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -54,6 +55,8 @@ public class FormPayment extends javax.swing.JFrame {
             }
             pst.setInt(7, 1);
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "FORMA DE PAGAMENTO ADICIONADA COM SUCESSO");
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -67,7 +70,6 @@ public class FormPayment extends javax.swing.JFrame {
     }
     private void getDataToTable(){
         clearTable();
-        RoundNumber roundNumber = new RoundNumber();
         int plots = Integer.parseInt(inputPlots.getText());
         double value = Double.parseDouble(inputSaleValue.getText().replace(",", ".")) - Double.parseDouble(inputEnterValue.getText().replace(",", "."));
         double valueToUse = (value) / plots;
@@ -111,6 +113,7 @@ public class FormPayment extends javax.swing.JFrame {
             allPlots.add(aux);
         }
         insertInTable();
+        getValuePayed();
     }
     private int getSituation(){
         String[] aux = this.getTitle().split(" ");
@@ -128,6 +131,26 @@ public class FormPayment extends javax.swing.JFrame {
         }
         return 0;
     }
+    private void getValuePayed(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[3]);
+        String sql ="select saleValue, inputValue from paymentForm where codSale = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            rs2= pst2.executeQuery();
+            if(rs2.next()) {
+                outputValuePayed.setText(rs2.getString(2).replace(".", ","));
+                outputValueToPay.setText(roundNumber.doRound(Double.parseDouble(rs2.getString(1)) - Double.parseDouble(rs2.getString(2))).replace(".", ","));
+            }
+            else{
+                outputValuePayed.setText(inputEnterValue.getText());
+                outputValueToPay.setText(roundNumber.doRound(Double.parseDouble(inputSaleValue.getText().replace(",", ".")) - Double.parseDouble(inputEnterValue.getText().replace(",", "."))).replace(".", ","));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     private void getPayments(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[3]);
@@ -138,8 +161,8 @@ public class FormPayment extends javax.swing.JFrame {
             rs= pst.executeQuery();
             if(rs.next()) {
                 inputExpirationDate.setText(rs.getString(1));
-                inputSaleValue.setText(rs.getString(2));
-                inputEnterValue.setText(rs.getString(3));
+                inputSaleValue.setText(rs.getString(2).replace(".", ","));
+                inputEnterValue.setText(rs.getString(3).replace(".", ","));
                 inputPlots.setText(Integer.toString( rs.getInt(4) ));
                 switch (rs.getInt(5)) {
                     case 10:
@@ -393,6 +416,9 @@ public class FormPayment extends javax.swing.JFrame {
     private void buttonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinishActionPerformed
         if(inputExpirationDate.getText().equals("") || inputSaleValue.getText().equals("") || inputEnterValue.getText().equals("") || inputPlots.getText().equals("") || inputPlotsPeriod.getSelectedItem().equals("Selecionar")){
             JOptionPane.showMessageDialog(null, "PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR");
+        }
+        else if(allPlots.isEmpty()){
+            JOptionPane.showMessageDialog(null, "FAÇA A COTAÇÃO ANTES DE ADICIONAR A FORMA DE PAGAMENTO");
         }
         else{
             add();
