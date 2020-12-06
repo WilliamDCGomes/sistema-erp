@@ -3,14 +3,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import functioncontroller.GetFutureDates;
 import javax.swing.JOptionPane;
-import functioncontroller.GetDate;
+import functioncontroller.RoundNumber;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class FormPayment extends javax.swing.JFrame {
     int x = 0;
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    ArrayList<String> allPlots = new ArrayList<>();
+    GetFutureDates getFutureDates = new GetFutureDates();
     public FormPayment() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -24,8 +31,8 @@ public class FormPayment extends javax.swing.JFrame {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, codSale);
             pst.setString(2,inputExpirationDate.getText());
-            pst.setString(3,inputSaleValue.getText());
-            pst.setString(4,inputEnterValue.getText());
+            pst.setString(3,inputSaleValue.getText().replace(",", "."));
+            pst.setString(4,inputEnterValue.getText().replace(",", "."));
             pst.setInt(5,Integer.parseInt(inputPlots.getText()));
             if(inputPlotsPeriod.getSelectedItem().equals("10 dias")){
                 pst.setInt(6, 10);
@@ -49,6 +56,131 @@ public class FormPayment extends javax.swing.JFrame {
             pst.executeUpdate();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void clearTable(){
+        allPlots.clear();
+        DefaultTableModel table = (DefaultTableModel) tableOfPayments.getModel();
+        for(int i=table.getRowCount()-1; i >= 0; i--){
+            table.removeRow(i);
+        }
+    }
+    private void getDataToTable(){
+        clearTable();
+        RoundNumber roundNumber = new RoundNumber();
+        int plots = Integer.parseInt(inputPlots.getText());
+        double value = Double.parseDouble(inputSaleValue.getText().replace(",", ".")) - Double.parseDouble(inputEnterValue.getText().replace(",", "."));
+        double valueToUse = (value) / plots;
+        int timeDifference = 0;
+        if(inputPlotsPeriod.getSelectedItem().equals("10 dias")){
+            timeDifference = 10;
+        }
+        else if(inputPlotsPeriod.getSelectedItem().equals("15 dias")){
+            timeDifference = 15;
+        }
+        else if(inputPlotsPeriod.getSelectedItem().equals("20 dias")){
+            timeDifference = 20;
+        }
+        else if(inputPlotsPeriod.getSelectedItem().equals("30 dias")){
+            timeDifference = 30;
+        }
+        else if(inputPlotsPeriod.getSelectedItem().equals("45 dias")){
+            timeDifference = 45;
+        }
+        else if(inputPlotsPeriod.getSelectedItem().equals("60 dias")){
+            timeDifference = 60;
+        }
+        String lastDate = inputExpirationDate.getText();
+        for(int i = 0; i < plots; i++){
+            String aux = Integer.toString(i+1) + ";";
+            aux += roundNumber.doRound(valueToUse) + ";";
+            if(i == 0){
+                aux += lastDate + ";";
+            }
+            else{
+                aux += getFutureDates.getDate(timeDifference, lastDate) + ";";
+                lastDate = getFutureDates.getDate(timeDifference, lastDate);
+            }
+            int situation = getSituation();
+            if(i+1 < situation){
+                aux += "Fechada;";
+            }
+            else{
+                aux += "Em aberto;";
+            }
+            allPlots.add(aux);
+        }
+        insertInTable();
+    }
+    private int getSituation(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[3]);
+        String sql ="select currentInstallment from paymentForm where codSale = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            rs2= pst2.executeQuery();
+            if(rs2.next()) {
+                return rs2.getInt(1);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 0;
+    }
+    private void getPayments(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[3]);
+        String sql ="select firstPaymentDate, saleValue, inputValue, plots, plotsTime from paymentForm where codSale = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, codSale);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                inputExpirationDate.setText(rs.getString(1));
+                inputSaleValue.setText(rs.getString(2));
+                inputEnterValue.setText(rs.getString(3));
+                inputPlots.setText(Integer.toString( rs.getInt(4) ));
+                switch (rs.getInt(5)) {
+                    case 10:
+                        inputPlotsPeriod.setSelectedItem("10 dias");
+                        break;
+                    case 15:
+                        inputPlotsPeriod.setSelectedItem("15 dias");
+                        break;
+                    case 20:
+                        inputPlotsPeriod.setSelectedItem("20 dias");
+                        break;
+                    case 30:
+                        inputPlotsPeriod.setSelectedItem("30 dias");
+                        break;
+                    case 45:
+                        inputPlotsPeriod.setSelectedItem("45 dias");
+                        break;
+                    case 60:
+                        inputPlotsPeriod.setSelectedItem("60 dias");
+                        break;
+                    default:
+                        break;
+                }
+                getDataToTable();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void insertInTable(){
+        DefaultTableModel table = (DefaultTableModel) tableOfPayments.getModel();
+        int aux = 0;
+        while(true){
+            if(aux<allPlots.size()){
+                String[] data = allPlots.get(aux).split(";");
+                table.addRow(data);
+                aux++;
+            }
+            else{
+                break;
+            }
         }
     }
     @SuppressWarnings("unchecked")
@@ -79,6 +211,7 @@ public class FormPayment extends javax.swing.JFrame {
         outputValuePayed = new javax.swing.JLabel();
         txtValueToPay = new javax.swing.JLabel();
         outputValueToPay = new javax.swing.JLabel();
+        buttonQuote = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Forma de Pagamento");
@@ -111,17 +244,7 @@ public class FormPayment extends javax.swing.JFrame {
 
         tableOfPayments.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Parcela", "Valor", "Vencimento", "Situação"
@@ -130,12 +253,12 @@ public class FormPayment extends javax.swing.JFrame {
         tableFormPayment.setViewportView(tableOfPayments);
 
         getContentPane().add(tableFormPayment);
-        tableFormPayment.setBounds(20, 170, 740, 250);
+        tableFormPayment.setBounds(20, 210, 740, 210);
 
         txtPayment.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPayment.setText("Pagamento");
         getContentPane().add(txtPayment);
-        txtPayment.setBounds(20, 140, 79, 20);
+        txtPayment.setBounds(20, 180, 79, 20);
 
         txtEnterValue.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtEnterValue.setText("Valor de Entrada");
@@ -149,6 +272,11 @@ public class FormPayment extends javax.swing.JFrame {
 
         inputPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         inputPlotsPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "10 dias", "15 dias", "20 dias", "30 dias", "45 dias", "60 dias" }));
+        inputPlotsPeriod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputPlotsPeriodKeyPressed(evt);
+            }
+        });
         getContentPane().add(inputPlotsPeriod);
         inputPlotsPeriod.setBounds(610, 100, 150, 30);
 
@@ -165,7 +293,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFinish);
-        buttonFinish.setBounds(20, 440, 120, 23);
+        buttonFinish.setBounds(20, 440, 120, 25);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputSaleValue);
@@ -234,6 +362,15 @@ public class FormPayment extends javax.swing.JFrame {
         getContentPane().add(outputValueToPay);
         outputValueToPay.setBounds(670, 435, 90, 30);
 
+        buttonQuote.setText("COTAR");
+        buttonQuote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonQuoteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonQuote);
+        buttonQuote.setBounds(20, 140, 80, 25);
+
         setSize(new java.awt.Dimension(793, 506));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -247,13 +384,33 @@ public class FormPayment extends javax.swing.JFrame {
                 txtRequiredField5.setVisible(false);
                 txtRequiredField6.setVisible(false);
                 txtRequiredField7.setVisible(false);
+                buttonQuote.setEnabled(false);
             }
+            getPayments();
         }
     }//GEN-LAST:event_formWindowActivated
 
     private void buttonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinishActionPerformed
-        this.dispose();
+        if(inputExpirationDate.getText().equals("") || inputSaleValue.getText().equals("") || inputEnterValue.getText().equals("") || inputPlots.getText().equals("") || inputPlotsPeriod.getSelectedItem().equals("Selecionar")){
+            JOptionPane.showMessageDialog(null, "PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR");
+        }
+        else{
+            add();
+        }
     }//GEN-LAST:event_buttonFinishActionPerformed
+
+    private void inputPlotsPeriodKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputPlotsPeriodKeyPressed
+     
+    }//GEN-LAST:event_inputPlotsPeriodKeyPressed
+
+    private void buttonQuoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonQuoteActionPerformed
+        if(inputExpirationDate.getText().equals("") || inputSaleValue.getText().equals("") || inputEnterValue.getText().equals("") || inputPlots.getText().equals("") || inputPlotsPeriod.getSelectedItem().equals("Selecionar")){
+            JOptionPane.showMessageDialog(null, "PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE FAZER A COTAÇÃO");
+        }
+        else{
+            getDataToTable();
+        }
+    }//GEN-LAST:event_buttonQuoteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,11 +449,12 @@ public class FormPayment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton buttonFinish;
+    public static javax.swing.JButton buttonQuote;
     private javax.swing.JTextField inputEnterValue;
     private javax.swing.JTextField inputExpirationDate;
     private javax.swing.JTextField inputPlots;
     private javax.swing.JComboBox<String> inputPlotsPeriod;
-    private javax.swing.JTextField inputSaleValue;
+    public static javax.swing.JTextField inputSaleValue;
     private javax.swing.JLabel outputValuePayed;
     private javax.swing.JLabel outputValueToPay;
     private javax.swing.JScrollPane tableFormPayment;

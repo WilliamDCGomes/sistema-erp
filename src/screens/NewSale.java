@@ -638,6 +638,7 @@ public class NewSale extends javax.swing.JFrame {
             FormPayment formPayment = new FormPayment();
             String[] aux = this.getTitle().split(" ");
             formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
+            formPayment.inputSaleValue.setText(outputTotal.getText());
             formPayment.setVisible(true);
         }
     }//GEN-LAST:event_inputFormPaymentActionPerformed
