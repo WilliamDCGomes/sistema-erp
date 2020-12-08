@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package screens;
 
 /**
@@ -27,14 +22,83 @@ public class PayPlots extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtPayPlots = new javax.swing.JLabel();
+        tableFormPayment = new javax.swing.JScrollPane();
+        tableOfPlots = new javax.swing.JTable();
+        txtPlots = new javax.swing.JLabel();
+        buttonPay = new javax.swing.JButton();
+        txtValueToPay = new javax.swing.JLabel();
+        outputValueToPay = new javax.swing.JLabel();
+        txtValuePayed = new javax.swing.JLabel();
+        outputValuePayed = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Pagar Parcela");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        setSize(new java.awt.Dimension(416, 339));
+        txtPayPlots.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        txtPayPlots.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtPayPlots.setText("Pagamento de Parcelas");
+        getContentPane().add(txtPayPlots);
+        txtPayPlots.setBounds(130, 20, 320, 32);
+
+        tableOfPlots.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Parcela", "Valor", "Vencimento", "Situação"
+            }
+        ));
+        tableFormPayment.setViewportView(tableOfPlots);
+
+        getContentPane().add(tableFormPayment);
+        tableFormPayment.setBounds(20, 90, 550, 210);
+
+        txtPlots.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtPlots.setText("Parcelas");
+        getContentPane().add(txtPlots);
+        txtPlots.setBounds(20, 60, 61, 20);
+
+        buttonPay.setText("PAGAR");
+        buttonPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPayActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonPay);
+        buttonPay.setBounds(20, 320, 90, 23);
+
+        txtValueToPay.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtValueToPay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtValueToPay.setText("Valor a Pagar");
+        getContentPane().add(txtValueToPay);
+        txtValueToPay.setBounds(350, 320, 110, 20);
+
+        outputValueToPay.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        outputValueToPay.setText("0,00");
+        getContentPane().add(outputValueToPay);
+        outputValueToPay.setBounds(480, 315, 90, 30);
+
+        txtValuePayed.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtValuePayed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtValuePayed.setText("Valor Pago");
+        getContentPane().add(txtValuePayed);
+        txtValuePayed.setBounds(150, 320, 90, 20);
+
+        outputValuePayed.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        outputValuePayed.setText("0,00");
+        getContentPane().add(outputValuePayed);
+        outputValuePayed.setBounds(250, 315, 100, 30);
+
+        setSize(new java.awt.Dimension(600, 390));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPayActionPerformed
+        
+    }//GEN-LAST:event_buttonPayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -72,5 +136,14 @@ public class PayPlots extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton buttonPay;
+    private javax.swing.JLabel outputValuePayed;
+    private javax.swing.JLabel outputValueToPay;
+    private javax.swing.JScrollPane tableFormPayment;
+    private javax.swing.JTable tableOfPlots;
+    private javax.swing.JLabel txtPayPlots;
+    private javax.swing.JLabel txtPlots;
+    private javax.swing.JLabel txtValuePayed;
+    private javax.swing.JLabel txtValueToPay;
     // End of variables declaration//GEN-END:variables
 }
