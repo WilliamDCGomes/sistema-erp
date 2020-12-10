@@ -1,16 +1,21 @@
 package screens;
-
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import connectionbd.ConnectionModule;
 /**
  *
  * @author willi
  */
 public class PayPlots extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PayPlots
-     */
+    Connection connection = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
     public PayPlots() {
         initComponents();
+        ConnectionModule connect = new ConnectionModule();
+        connection = connect.getConnectionMySQL();
     }
 
     /**
