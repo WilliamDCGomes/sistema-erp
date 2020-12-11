@@ -17,6 +17,7 @@ public class FormPayment extends javax.swing.JFrame {
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
     ArrayList<String> allPlots = new ArrayList<>();
+    ArrayList<String> plotsToPass = new ArrayList<>();
     GetFutureDates getFutureDates = new GetFutureDates();
     RoundNumber roundNumber = new RoundNumber();
     public FormPayment() {
@@ -28,33 +29,34 @@ public class FormPayment extends javax.swing.JFrame {
     private void add(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[3]);
-        String sql = "insert into paymentForm(codSale, firstPaymentDate, saleValue, inputValue, plots, plotsTime, currentInstallment)values(?,?,?,?,?,?,?)";
+        String sql = "insert into paymentForm(codSale, firstPaymentDate, saleValue, inputValue, valuePayed, plots, plotsTime, currentInstallment)values(?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
             pst.setInt(1, codSale);
             pst.setString(2,inputExpirationDate.getText());
             pst.setString(3,inputSaleValue.getText().replace(",", "."));
             pst.setString(4,inputEnterValue.getText().replace(",", "."));
-            pst.setInt(5,Integer.parseInt(inputPlots.getText()));
+            pst.setString(5,inputEnterValue.getText().replace(",", "."));
+            pst.setInt(6,Integer.parseInt(inputPlots.getText()));
             if(inputPlotsPeriod.getSelectedItem().equals("10 dias")){
-                pst.setInt(6, 10);
+                pst.setInt(7, 10);
             }
             else if(inputPlotsPeriod.getSelectedItem().equals("15 dias")){
-                pst.setInt(6, 15);
+                pst.setInt(7, 15);
             }
             else if(inputPlotsPeriod.getSelectedItem().equals("20 dias")){
-                pst.setInt(6, 20);
+                pst.setInt(7, 20);
             }
             else if(inputPlotsPeriod.getSelectedItem().equals("30 dias")){
-                pst.setInt(6, 30);
+                pst.setInt(7, 30);
             }
             else if(inputPlotsPeriod.getSelectedItem().equals("45 dias")){
-                pst.setInt(6, 45);
+                pst.setInt(7, 45);
             }
             else if(inputPlotsPeriod.getSelectedItem().equals("60 dias")){
-                pst.setInt(6, 60);
+                pst.setInt(7, 60);
             }
-            pst.setInt(7, 1);
+            pst.setInt(8, 1);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "FORMA DE PAGAMENTO ADICIONADA COM SUCESSO");
             this.dispose();
@@ -113,6 +115,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
             allPlots.add(aux);
         }
+        plotsToPass = allPlots;
         insertInTable();
         getValuePayed();
     }
@@ -135,7 +138,7 @@ public class FormPayment extends javax.swing.JFrame {
     private void getValuePayed(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[3]);
-        String sql ="select saleValue, inputValue from paymentForm where codSale = ?";
+        String sql ="select saleValue, valuePayed from paymentForm where codSale = ?";
         try {
             pst2=connection.prepareStatement(sql);
             pst2.setInt(1, codSale);
@@ -454,6 +457,9 @@ public class FormPayment extends javax.swing.JFrame {
         String[] aux = this.getTitle().split(" ");
         PayPlots payPlots = new PayPlots();
         payPlots.setTitle(payPlots.getTitle() + ": " + aux[3]);
+        payPlots.plotsToPass = plotsToPass;
+        payPlots.outputValuePayed.setText( outputValuePayed.getText() );
+        payPlots.outputValueToPay.setText( outputValueToPay.getText() );
         payPlots.setVisible(true);
     }//GEN-LAST:event_buttonPaymentActionPerformed
 
