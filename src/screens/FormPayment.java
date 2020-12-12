@@ -24,7 +24,6 @@ public class FormPayment extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
-        buttonPayment.setVisible(false);
     }
     private void add(){
         String[] aux = this.getTitle().split(" ");
@@ -239,7 +238,6 @@ public class FormPayment extends javax.swing.JFrame {
         txtValueToPay = new javax.swing.JLabel();
         outputValueToPay = new javax.swing.JLabel();
         buttonQuote = new javax.swing.JButton();
-        buttonPayment = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Forma de Pagamento");
@@ -321,7 +319,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFinish);
-        buttonFinish.setBounds(20, 440, 120, 23);
+        buttonFinish.setBounds(20, 440, 120, 25);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputSaleValue);
@@ -397,16 +395,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonQuote);
-        buttonQuote.setBounds(20, 140, 80, 23);
-
-        buttonPayment.setText("PAGAMENTO");
-        buttonPayment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPaymentActionPerformed(evt);
-            }
-        });
-        getContentPane().add(buttonPayment);
-        buttonPayment.setBounds(190, 440, 120, 23);
+        buttonQuote.setBounds(20, 140, 80, 25);
 
         setSize(new java.awt.Dimension(793, 506));
         setLocationRelativeTo(null);
@@ -422,14 +411,22 @@ public class FormPayment extends javax.swing.JFrame {
                 txtRequiredField6.setVisible(false);
                 txtRequiredField7.setVisible(false);
                 buttonQuote.setEnabled(false);
-                buttonPayment.setVisible(true);
             }
             getPayments();
         }
     }//GEN-LAST:event_formWindowActivated
 
     private void buttonFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonFinishActionPerformed
-        if(inputExpirationDate.getText().equals("") || inputSaleValue.getText().equals("") || inputEnterValue.getText().equals("") || inputPlots.getText().equals("") || inputPlotsPeriod.getSelectedItem().equals("Selecionar")){
+        if(buttonFinish.getText().equals("DEBITAR")){
+            String[] aux = this.getTitle().split(" ");
+            PayPlots payPlots = new PayPlots();
+            payPlots.setTitle(payPlots.getTitle() + ": " + aux[3]);
+            payPlots.plotsToPass = plotsToPass;
+            payPlots.outputValuePayed.setText( outputValuePayed.getText() );
+            payPlots.outputValueToPay.setText( outputValueToPay.getText() );
+            payPlots.setVisible(true);
+        }
+        else if(inputExpirationDate.getText().equals("") || inputSaleValue.getText().equals("") || inputEnterValue.getText().equals("") || inputPlots.getText().equals("") || inputPlotsPeriod.getSelectedItem().equals("Selecionar")){
             JOptionPane.showMessageDialog(null, "PREENCHA OS CAMPOS OBRIGATÓRIOS ANTES DE SALVAR");
         }
         else if(allPlots.isEmpty()){
@@ -452,16 +449,6 @@ public class FormPayment extends javax.swing.JFrame {
             getDataToTable();
         }
     }//GEN-LAST:event_buttonQuoteActionPerformed
-
-    private void buttonPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPaymentActionPerformed
-        String[] aux = this.getTitle().split(" ");
-        PayPlots payPlots = new PayPlots();
-        payPlots.setTitle(payPlots.getTitle() + ": " + aux[3]);
-        payPlots.plotsToPass = plotsToPass;
-        payPlots.outputValuePayed.setText( outputValuePayed.getText() );
-        payPlots.outputValueToPay.setText( outputValueToPay.getText() );
-        payPlots.setVisible(true);
-    }//GEN-LAST:event_buttonPaymentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -500,7 +487,6 @@ public class FormPayment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton buttonFinish;
-    private javax.swing.JButton buttonPayment;
     public static javax.swing.JButton buttonQuote;
     private javax.swing.JTextField inputEnterValue;
     private javax.swing.JTextField inputExpirationDate;

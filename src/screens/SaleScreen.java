@@ -11,12 +11,35 @@ public class SaleScreen extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    String cpfClient = null;
     public SaleScreen() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
     }
-
+    private void getData(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[1]);
+        String sql ="select codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, totalValue from sale where codSale = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, codSale);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                outputCodSaller.setText(Integer.toString(rs.getInt(1)));
+                outputFormPayment.setText(rs.getString(2));
+                outputPaymentMethod.setSelectedItem(rs.getString(3));
+                cpfClient = rs.getString(4);
+                outputDateSale.setText(rs.getString(5));
+                outputStatus.setSelectedItem(rs.getString(6));
+                outputTotal.setText(rs.getString(7).replace(".", ","));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -47,8 +70,8 @@ public class SaleScreen extends javax.swing.JFrame {
         buttonPrinter = new javax.swing.JButton();
         txtNameEmployee = new javax.swing.JLabel();
         inputNameEmployee = new javax.swing.JTextField();
-        outputPaymentMethod1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        outputStatus = new javax.swing.JComboBox<>();
+        outputDateSale = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
@@ -74,7 +97,7 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(txtFormPayment);
         txtFormPayment.setBounds(520, 130, 156, 30);
         getContentPane().add(outputFormPayment);
-        outputFormPayment.setBounds(520, 160, 121, 30);
+        outputFormPayment.setBounds(520, 160, 170, 30);
 
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
@@ -144,7 +167,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(140, 510, 80, 23);
+        buttonEdit.setBounds(140, 510, 80, 25);
 
         buttonDelete.setText("EXCLUIR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +176,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(240, 510, 90, 23);
+        buttonDelete.setBounds(240, 510, 90, 25);
 
         buttonLocale.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buttonLocale.setText("PESQUISAR");
@@ -167,7 +190,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(350, 510, 140, 23);
+        buttonAllSales.setBounds(350, 510, 140, 25);
 
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
@@ -186,11 +209,11 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowPaymentMethod);
-        buttonShowPaymentMethod.setBounds(10, 510, 110, 23);
+        buttonShowPaymentMethod.setBounds(10, 510, 110, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(510, 510, 90, 23);
+        buttonPrinter.setBounds(510, 510, 90, 25);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Vendedor");
@@ -201,21 +224,21 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(inputNameEmployee);
         inputNameEmployee.setBounds(370, 90, 380, 30);
 
-        outputPaymentMethod1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Finalizado" }));
-        outputPaymentMethod1.addItemListener(new java.awt.event.ItemListener() {
+        outputStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Finalizado" }));
+        outputStatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                outputPaymentMethod1ItemStateChanged(evt);
+                outputStatusItemStateChanged(evt);
             }
         });
-        outputPaymentMethod1.addActionListener(new java.awt.event.ActionListener() {
+        outputStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                outputPaymentMethod1ActionPerformed(evt);
+                outputStatusActionPerformed(evt);
             }
         });
-        getContentPane().add(outputPaymentMethod1);
-        outputPaymentMethod1.setBounds(170, 230, 110, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(10, 230, 100, 30);
+        getContentPane().add(outputStatus);
+        outputStatus.setBounds(170, 230, 110, 30);
+        getContentPane().add(outputDateSale);
+        outputDateSale.setBounds(10, 230, 100, 30);
 
         setSize(new java.awt.Dimension(773, 579));
         setLocationRelativeTo(null);
@@ -256,13 +279,13 @@ public class SaleScreen extends javax.swing.JFrame {
         newSale.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed
 
-    private void outputPaymentMethod1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_outputPaymentMethod1ItemStateChanged
+    private void outputStatusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_outputStatusItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_outputPaymentMethod1ItemStateChanged
+    }//GEN-LAST:event_outputStatusItemStateChanged
 
-    private void outputPaymentMethod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputPaymentMethod1ActionPerformed
+    private void outputStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_outputPaymentMethod1ActionPerformed
+    }//GEN-LAST:event_outputStatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,13 +330,13 @@ public class SaleScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShowPaymentMethod;
     private javax.swing.JTextField inputNameEmployee;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField outputClient;
     private javax.swing.JTextField outputCodSale;
     private javax.swing.JTextField outputCodSaller;
+    private javax.swing.JTextField outputDateSale;
     private javax.swing.JTextField outputFormPayment;
     private javax.swing.JComboBox<String> outputPaymentMethod;
-    private javax.swing.JComboBox<String> outputPaymentMethod1;
+    private javax.swing.JComboBox<String> outputStatus;
     private javax.swing.JLabel outputTotal;
     private javax.swing.JScrollPane tableSale;
     private javax.swing.JTable tableSoldItems;

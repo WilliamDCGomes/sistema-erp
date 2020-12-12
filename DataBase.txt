@@ -157,6 +157,7 @@ create table paymentForm(
     firstPaymentDate varchar(11) not null,
     saleValue varchar(15) not null,
     inputValue varchar(15) not null,
+    valuePayed varchar(15) not null,
     plots int not null,
     plotsTime int not null,
     currentInstallment int default 0

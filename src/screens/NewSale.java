@@ -40,9 +40,6 @@ public class NewSale extends javax.swing.JFrame {
         inputDateOfSale.setDocument(new MaskDate());
         inputDiscount.setDocument(new MaskCash());
     }
-    private void filter(){
-        clearTable();
-    }
     private void clearTable(){
         DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
         for(int i=table.getRowCount()-1; i >= 0; i--){
@@ -370,7 +367,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocaleClient);
-        buttonLocaleClient.setBounds(170, 220, 90, 30);
+        buttonLocaleClient.setBounds(170, 220, 100, 30);
 
         buttonNewClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonNewClient.setText("NOVO");
@@ -380,7 +377,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonNewClient);
-        buttonNewClient.setBounds(270, 220, 79, 30);
+        buttonNewClient.setBounds(280, 220, 79, 30);
 
         txtDiscount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDiscount.setText("Desconto");
@@ -436,7 +433,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(20, 620, 80, 23);
+        buttonSave.setBounds(20, 620, 80, 25);
 
         buttomRemoveItems.setText("REMOVER");
         buttomRemoveItems.addActionListener(new java.awt.event.ActionListener() {
@@ -445,7 +442,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttomRemoveItems);
-        buttomRemoveItems.setBounds(130, 620, 90, 23);
+        buttomRemoveItems.setBounds(130, 620, 90, 25);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
@@ -465,12 +462,12 @@ public class NewSale extends javax.swing.JFrame {
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(730, 150, 59, 30);
+        inputInCash.setBounds(730, 150, 61, 30);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(820, 150, 63, 30);
+        inputTerm.setBounds(820, 150, 64, 30);
 
         txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtDiscount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -500,7 +497,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancele);
-        buttonCancele.setBounds(250, 620, 100, 23);
+        buttonCancele.setBounds(250, 620, 100, 25);
 
         buttonLocaleProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleProduct.setText("LOCALIZAR");
