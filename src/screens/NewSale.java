@@ -139,6 +139,9 @@ public class NewSale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    private void update(){
+        
+    }
     private void getProduct(){
         String sql ="select barCode as 'Código do Produto', nameProduct as 'Nome do Produto', price as 'Preço de Venda' from product where barCode = ?";
         try {
