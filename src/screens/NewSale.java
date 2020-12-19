@@ -140,7 +140,40 @@ public class NewSale extends javax.swing.JFrame {
         }
     }
     private void update(){
-        
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[1]);
+        String sql = "update product set barCode=?, nameProduct=?, manyProduct=?, manyMinimumProduct=?, expensive=?, price=?, profit=?, profitPercent=?, location=?, brand=?, provider=?, descrition=?, photoAdress=? where barCode=?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setString(1,inputBarCode.getText());
+            pst.setInt(1,codSale);
+            pst.setInt(2,Integer.parseInt(inputCodOfEmployee.getText()));
+            if(inputInCash.isSelected()){
+                pst.setString(3,"A Vista");
+            }
+            else if(inputTerm.isSelected()){
+                pst.setString(3,"A Prazo");
+            }
+            pst.setString(4,inputFormPayment.getSelectedItem().toString());
+            pst.setString(5,inputClient.getText());
+            pst.setString(6,inputDateOfSale.getText());
+            if(inputFinishSale.isSelected()){
+                pst.setString(7,"Finalizada");
+            }
+            else if(inputPendingSale.isSelected()){
+                pst.setString(7,"Pendente");
+            }
+            pst.setString(8,inputDiscount.getText());
+            pst.setString(9,outputTotal.getText().replace(",", "."));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"VENDA SALVA COM SUCESSO");
+            SaleScreen saleScreen = new SaleScreen();
+            saleScreen.setTitle("Venda: " + codSale);
+            this.dispose();
+            saleScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
     }
     private void getProduct(){
         String sql ="select barCode as 'Código do Produto', nameProduct as 'Nome do Produto', price as 'Preço de Venda' from product where barCode = ?";
