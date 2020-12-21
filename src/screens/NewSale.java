@@ -145,7 +145,6 @@ public class NewSale extends javax.swing.JFrame {
         String sql = "update product set barCode=?, nameProduct=?, manyProduct=?, manyMinimumProduct=?, expensive=?, price=?, profit=?, profitPercent=?, location=?, brand=?, provider=?, descrition=?, photoAdress=? where barCode=?";
         try {
             pst=connection.prepareStatement(sql);
-            pst.setString(1,inputBarCode.getText());
             pst.setInt(1,codSale);
             pst.setInt(2,Integer.parseInt(inputCodOfEmployee.getText()));
             if(inputInCash.isSelected()){

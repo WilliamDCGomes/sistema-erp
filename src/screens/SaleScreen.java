@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import functioncontroller.RoundNumber;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class SaleScreen extends javax.swing.JFrame {
     int x = 0;
@@ -13,7 +16,12 @@ public class SaleScreen extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
+    PreparedStatement pst3 = null;
+    ResultSet rs3 = null;
     String cpfClient = null;
+    ArrayList<String> products = new ArrayList<>();
+    ArrayList<String> listProducts = new ArrayList<>();
+    RoundNumber roundNumber = new RoundNumber();
     public SaleScreen() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -35,6 +43,75 @@ public class SaleScreen extends javax.swing.JFrame {
                 outputDateSale.setText(rs.getString(5));
                 outputStatus.setSelectedItem(rs.getString(6));
                 outputTotal.setText(rs.getString(7).replace(".", ","));
+                outputCodSale.setText(aux[1]);
+            }
+            getItens(codSale);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getItens(int codSale){
+        String sql ="select barCodeProd, quantity, price from productsOfSale where codSale = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            rs2= pst2.executeQuery();
+            while(rs2.next()) {
+                products.add(rs2.getString(1) + ";" + Integer.toString( rs2.getInt(2) ) + ";" + rs2.getString(3));
+            }
+            getList();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getList(){
+        for(int i =0; i<products.size(); i++){
+            String[] id = products.get(i).split(";");
+            double value = Integer.parseInt(id[1]) * Double.parseDouble(id[2].replace(",", "."));
+            String sql ="select nameProduct from product where barCode = ?";
+            try {
+                pst3=connection.prepareStatement(sql);
+                pst3.setString(1, id[0]);
+                rs3= pst3.executeQuery();
+                if(rs3.next()) {
+                    listProducts.add(id[0] + ";" + rs3.getString(1) + ";" + id[2] + ";" + roundNumber.doRound(value).replace(".", ",") + ";" + id[1]);
+                }
+                insertInTable();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+    private void insertInTable(){
+        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+        for(int i =0; i<listProducts.size(); i++){
+            String[] data = listProducts.get(i).split(";");
+            table.addRow(data);
+        }
+        nameSaller();
+    }
+    private void nameSaller(){
+        String sql ="select nameEmployee from employee where id = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, Integer.parseInt( outputCodSaller.getText() ));
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                inputNameEmployee.setText(rs.getString(1));
+            }
+            getClient();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getClient(){
+        String sql ="select clientName from clients where cpf = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, cpfClient);
+            rs2= pst2.executeQuery();
+            if(rs2.next()) {
+                outputClient.setText(rs2.getString(1));
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -76,6 +153,11 @@ public class SaleScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         txtCodSale.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -167,7 +249,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(140, 510, 80, 25);
+        buttonEdit.setBounds(140, 510, 80, 23);
 
         buttonDelete.setText("EXCLUIR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -176,7 +258,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(240, 510, 90, 25);
+        buttonDelete.setBounds(240, 510, 90, 23);
 
         buttonLocale.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buttonLocale.setText("PESQUISAR");
@@ -190,7 +272,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(350, 510, 140, 25);
+        buttonAllSales.setBounds(350, 510, 140, 23);
 
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
@@ -209,11 +291,11 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowPaymentMethod);
-        buttonShowPaymentMethod.setBounds(10, 510, 110, 25);
+        buttonShowPaymentMethod.setBounds(10, 510, 110, 23);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(510, 510, 90, 25);
+        buttonPrinter.setBounds(510, 510, 90, 23);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Vendedor");
@@ -286,6 +368,13 @@ public class SaleScreen extends javax.swing.JFrame {
     private void outputStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_outputStatusActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        if(x == 0){
+            x++;
+            getData();
+        }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
