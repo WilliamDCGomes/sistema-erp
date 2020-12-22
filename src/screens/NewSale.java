@@ -11,6 +11,7 @@ import formattingmask.MaskDate;
 import formattingmask.MaskJustNumbers;
 import formattingmask.MaskUpperLetter;
 import functioncontroller.RoundNumber;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class NewSale extends javax.swing.JFrame {
@@ -23,7 +24,11 @@ public class NewSale extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pst2 = null;
     ResultSet rs2 = null;
+    PreparedStatement pst3 = null;
+    ResultSet rs3 = null;
     RoundNumber roundNumber = new RoundNumber();
+    ArrayList<String> products = new ArrayList<>();
+    ArrayList<String> listProducts = new ArrayList<>();
     public NewSale() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -40,11 +45,12 @@ public class NewSale extends javax.swing.JFrame {
         inputDateOfSale.setDocument(new MaskDate());
         inputDiscount.setDocument(new MaskCash());
     }
-    private void clearTable(){
-        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
-        for(int i=table.getRowCount()-1; i >= 0; i--){
-            table.removeRow(i);
-        }
+    private void getSubTotal(){
+        double total = Double.parseDouble(outputTotal.getText().replace(",", "."));
+        outputSubTotal.setText(roundNumber.doRound(valueNow));
+        double discountValue = valueNow - total;
+        outputDescont.setText(roundNumber.doRound(discountValue));
+        value = total;
     }
     private void insertInTable(double price){
         DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
@@ -238,6 +244,108 @@ public class NewSale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    private void getData(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[2]);
+        String sql ="select codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, totalValue, discount from sale where codSale = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, codSale);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                inputCodOfEmployee.setText(Integer.toString(rs.getInt(1)));
+                if(rs.getString(2).equals("A Vista")){
+                    inputInCash.setSelected(true);
+                }
+                else if(rs.getString(2).equals("A Prazo")){
+                    inputTerm.setSelected(true);
+                }
+                inputFormPayment.setSelectedItem(rs.getString(3));
+                inputClient.setText(rs.getString(4));
+                inputDateOfSale.setText(rs.getString(5));
+                if(rs.getString(6).equals("Finalizada")){
+                    inputFinishSale.setSelected(true);
+                }
+                else if(rs.getString(6).equals("Pendente")){
+                    inputPendingSale.setSelected(true);
+                }
+                outputTotal.setText(rs.getString(7).replace(".", ","));
+                inputDiscount.setText(rs.getString(8).replace(".", ","));
+            }
+            getItens(codSale);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getItens(int codSale){
+        String sql ="select barCodeProd, quantity, price from productsOfSale where codSale = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            rs2= pst2.executeQuery();
+            while(rs2.next()) {
+                products.add(rs2.getString(1) + ";" + Integer.toString( rs2.getInt(2) ) + ";" + rs2.getString(3));
+                valueNow += rs2.getInt(2) * Double.parseDouble(rs2.getString(3));
+            }
+            getList();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getList(){
+        for(int i =0; i<products.size(); i++){
+            String[] id = products.get(i).split(";");
+            double value = Integer.parseInt(id[1]) * Double.parseDouble(id[2].replace(",", "."));
+            String sql ="select nameProduct from product where barCode = ?";
+            try {
+                pst3=connection.prepareStatement(sql);
+                pst3.setString(1, id[0]);
+                rs3= pst3.executeQuery();
+                if(rs3.next()) {
+                    listProducts.add(id[0] + ";" + rs3.getString(1) + ";" + id[2] + ";" + roundNumber.doRound(value).replace(".", ",") + ";" + id[1]);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        insertInTable();
+    }
+    private void insertInTable(){
+        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+        for(int i =0; i<listProducts.size(); i++){
+            String[] data = listProducts.get(i).split(";");
+            table.addRow(data);
+        }
+        nameSaller();
+    }
+    private void nameSaller(){
+        String sql ="select nameEmployee from employee where id = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, Integer.parseInt( inputCodOfEmployee.getText() ));
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                inputNameEmployee.setText(rs.getString(1));
+            }
+            getClient();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void getClient(){
+        String sql ="select clientName from clients where cpf = ?";
+        try {
+            pst2=connection.prepareStatement(sql);
+            pst2.setString(1, inputClient.getText());
+            rs2= pst2.executeQuery();
+            if(rs2.next()) {
+                inputNameClient.setText(rs2.getString(1));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        getSubTotal();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -425,6 +533,11 @@ public class NewSale extends javax.swing.JFrame {
                 inputDiscountFocusLost(evt);
             }
         });
+        inputDiscount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputDiscountKeyPressed(evt);
+            }
+        });
         getContentPane().add(inputDiscount);
         inputDiscount.setBounds(20, 330, 78, 30);
 
@@ -467,8 +580,13 @@ public class NewSale extends javax.swing.JFrame {
                 buttonSaveActionPerformed(evt);
             }
         });
+        buttonSave.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buttonSaveKeyPressed(evt);
+            }
+        });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(20, 620, 80, 25);
+        buttonSave.setBounds(20, 620, 80, 23);
 
         buttomRemoveItems.setText("REMOVER");
         buttomRemoveItems.addActionListener(new java.awt.event.ActionListener() {
@@ -477,7 +595,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttomRemoveItems);
-        buttomRemoveItems.setBounds(130, 620, 90, 25);
+        buttomRemoveItems.setBounds(130, 620, 90, 23);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
@@ -497,12 +615,12 @@ public class NewSale extends javax.swing.JFrame {
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(730, 150, 61, 30);
+        inputInCash.setBounds(730, 150, 59, 30);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(820, 150, 64, 30);
+        inputTerm.setBounds(820, 150, 63, 30);
 
         txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtDiscount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -532,7 +650,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancele);
-        buttonCancele.setBounds(250, 620, 100, 25);
+        buttonCancele.setBounds(250, 620, 100, 23);
 
         buttonLocaleProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleProduct.setText("LOCALIZAR");
@@ -574,7 +692,7 @@ public class NewSale extends javax.swing.JFrame {
         buttonLocaleEmployee.setBounds(120, 150, 100, 30);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        txtNameEmployee.setText("Nome do Funcionário");
+        txtNameEmployee.setText("Nome do Vendedor");
         getContentPane().add(txtNameEmployee);
         txtNameEmployee.setBounds(320, 120, 160, 30);
 
@@ -678,9 +796,14 @@ public class NewSale extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if (x==0){
             x++;
-            GetDate getDateSystem = new GetDate();
-            inputDateOfSale.setText(getDateSystem.dateOfSystem());
-            this.setTitle(this.getTitle() + " " + getSale());
+            if(txtNewSale.getText().equals("Nova Venda")){
+                GetDate getDateSystem = new GetDate();
+                inputDateOfSale.setText(getDateSystem.dateOfSystem());
+                this.setTitle(this.getTitle() + " " + getSale());
+            }
+            else if(txtNewSale.getText().equals("Editar Venda")){
+                getData();
+            }
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -824,6 +947,38 @@ public class NewSale extends javax.swing.JFrame {
             getProduct();
         }
     }//GEN-LAST:event_inputAmountFocusLost
+
+    private void inputDiscountKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputDiscountKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            if(!inputDiscount.getText().equals("")){
+                double valueDescont = (Double.parseDouble(outputSubTotal.getText().replace(",", ".")) * Double.parseDouble(inputDiscount.getText().replace(",", ".")) ) / 100;
+                outputDescont.setText(roundNumber.doRound(valueDescont).replace(".", ","));
+                value = valueNow;
+                value -= valueDescont;
+                outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+            }
+            else{
+                outputDescont.setText("0,00");
+                value = valueNow;
+                outputTotal.setText(roundNumber.doRound(value).replace(".", ","));
+            }
+            buttonSave.requestFocus();
+        }
+    }//GEN-LAST:event_inputDiscountKeyPressed
+
+    private void buttonSaveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonSaveKeyPressed
+        if(evt.getKeyCode() == evt.VK_ENTER){
+            if(outputTotal.getText().equals("0,00")&&outputSubTotal.getText().equals("0,00")&&outputDescont.getText().equals("0,00")){
+                JOptionPane.showMessageDialog(null, "VOCÊ NÃO ADICIONOU NENHUM ITEM NA VENDA");
+            }
+            else if(inputCodOfEmployee.getText().equals("")||inputClient.getText().equals("")||inputDateOfSale.getText().equals("")||(!inputFinishSale.isSelected()&&!inputPendingSale.isSelected())||(!inputInCash.isSelected()&&!inputTerm.isSelected())||inputFormPayment.getSelectedItem().equals("Selecionar")){
+                JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS ANTES DE FINALIZAR A VENDA");
+            }
+            else{
+                add();
+            }
+        }
+    }//GEN-LAST:event_buttonSaveKeyPressed
 
     /**
      * @param args the command line arguments

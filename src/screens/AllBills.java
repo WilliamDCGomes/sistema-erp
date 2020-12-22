@@ -43,7 +43,7 @@ public class AllBills extends javax.swing.JFrame {
         txtAllBills.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAllBills.setText("TODOS AS CONTAS");
         getContentPane().add(txtAllBills);
-        txtAllBills.setBounds(190, 10, 300, 32);
+        txtAllBills.setBounds(180, 10, 300, 32);
 
         tableBills.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

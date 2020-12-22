@@ -27,6 +27,14 @@ public class SaleScreen extends javax.swing.JFrame {
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
     }
+    private void clearTable(){
+        products.clear();
+        listProducts.clear();
+        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+        for(int i=table.getRowCount()-1; i >= 0; i--){
+            table.removeRow(i);
+        }
+    }
     private void getData(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[1]);
@@ -76,11 +84,11 @@ public class SaleScreen extends javax.swing.JFrame {
                 if(rs3.next()) {
                     listProducts.add(id[0] + ";" + rs3.getString(1) + ";" + id[2] + ";" + roundNumber.doRound(value).replace(".", ",") + ";" + id[1]);
                 }
-                insertInTable();
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
+        insertInTable();
     }
     private void insertInTable(){
         DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
@@ -139,7 +147,6 @@ public class SaleScreen extends javax.swing.JFrame {
         txtItems = new javax.swing.JLabel();
         buttonEdit = new javax.swing.JButton();
         buttonDelete = new javax.swing.JButton();
-        buttonLocale = new javax.swing.JButton();
         buttonAllSales = new javax.swing.JButton();
         txtSale = new javax.swing.JLabel();
         txtStatus = new javax.swing.JLabel();
@@ -151,7 +158,7 @@ public class SaleScreen extends javax.swing.JFrame {
         outputDateSale = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Venda");
+        setTitle("Venda 1");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -187,6 +194,7 @@ public class SaleScreen extends javax.swing.JFrame {
         txtPaymentMethod.setBounds(10, 130, 140, 27);
 
         outputPaymentMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
+        outputPaymentMethod.setEnabled(false);
         outputPaymentMethod.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 outputPaymentMethodItemStateChanged(evt);
@@ -260,11 +268,6 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(buttonDelete);
         buttonDelete.setBounds(240, 510, 90, 23);
 
-        buttonLocale.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        buttonLocale.setText("PESQUISAR");
-        getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(93, 90, 100, 30);
-
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -307,6 +310,7 @@ public class SaleScreen extends javax.swing.JFrame {
         inputNameEmployee.setBounds(370, 90, 380, 30);
 
         outputStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Finalizado" }));
+        outputStatus.setEnabled(false);
         outputStatus.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 outputStatusItemStateChanged(evt);
@@ -336,7 +340,10 @@ public class SaleScreen extends javax.swing.JFrame {
 
     private void buttonShowPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowPaymentMethodActionPerformed
         FormPayment formPayment = new FormPayment();
+        String[] aux = this.getTitle().split(" ");
+        formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
         formPayment.buttonFinish.setText("DEBITAR");
+        formPayment.inputSaleValue.setText(outputTotal.getText());
         formPayment.setVisible(true);
     }//GEN-LAST:event_buttonShowPaymentMethodActionPerformed
 
@@ -353,9 +360,10 @@ public class SaleScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        String[] aux = this.getTitle().split(" ");
         NewSale newSale = new NewSale();
         newSale.txtNewSale.setText("Editar Venda");
-        newSale.setTitle("Editar Venda");
+        newSale.setTitle("Editar Venda: " + aux[1]);
         newSale.buttonCancele.setText("EXCLUIR");
         this.dispose();
         newSale.setVisible(true);
@@ -372,6 +380,7 @@ public class SaleScreen extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x == 0){
             x++;
+            clearTable();
             getData();
         }
     }//GEN-LAST:event_formWindowActivated
@@ -415,7 +424,6 @@ public class SaleScreen extends javax.swing.JFrame {
     private javax.swing.JButton buttonAllSales;
     private javax.swing.JButton buttonDelete;
     private javax.swing.JButton buttonEdit;
-    private javax.swing.JButton buttonLocale;
     private javax.swing.JButton buttonPrinter;
     private javax.swing.JButton buttonShowPaymentMethod;
     private javax.swing.JTextField inputNameEmployee;
