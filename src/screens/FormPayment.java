@@ -20,14 +20,16 @@ public class FormPayment extends javax.swing.JFrame {
     ArrayList<String> plotsToPass = new ArrayList<>();
     GetFutureDates getFutureDates = new GetFutureDates();
     RoundNumber roundNumber = new RoundNumber();
+    public boolean newPayment = true;
     public FormPayment() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        buttonRefresh.setVisible(false);
     }
     private void add(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[3]);
+        int codSale = Integer.parseInt(aux[1]);
         String sql = "insert into paymentForm(codSale, firstPaymentDate, saleValue, inputValue, valuePayed, plots, plotsTime, currentInstallment)values(?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
@@ -58,6 +60,44 @@ public class FormPayment extends javax.swing.JFrame {
             pst.setInt(8, 1);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "FORMA DE PAGAMENTO ADICIONADA COM SUCESSO");
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void update(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[1]);
+        String sql = "update paymentForm set firstPaymentDate=?, saleValue=?, inputValue=?, valuePayed=?, plots=?, plotsTime=?, currentInstallment=? where codSale=?";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.setString(1,inputExpirationDate.getText());
+            pst.setString(2,inputSaleValue.getText().replace(",", "."));
+            pst.setString(3,inputEnterValue.getText().replace(",", "."));
+            pst.setString(4,inputEnterValue.getText().replace(",", "."));
+            pst.setInt(5,Integer.parseInt(inputPlots.getText()));
+            if(inputPlotsPeriod.getSelectedItem().equals("10 dias")){
+                pst.setInt(6, 10);
+            }
+            else if(inputPlotsPeriod.getSelectedItem().equals("15 dias")){
+                pst.setInt(6, 15);
+            }
+            else if(inputPlotsPeriod.getSelectedItem().equals("20 dias")){
+                pst.setInt(6, 20);
+            }
+            else if(inputPlotsPeriod.getSelectedItem().equals("30 dias")){
+                pst.setInt(6, 30);
+            }
+            else if(inputPlotsPeriod.getSelectedItem().equals("45 dias")){
+                pst.setInt(6, 45);
+            }
+            else if(inputPlotsPeriod.getSelectedItem().equals("60 dias")){
+                pst.setInt(6, 60);
+            }
+            pst.setInt(7, 1);
+            pst.setInt(8, codSale);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "FORMA DE PAGAMENTO ATUALIZADA COM SUCESSO");
             this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -120,7 +160,7 @@ public class FormPayment extends javax.swing.JFrame {
     }
     private int getSituation(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[3]);
+        int codSale = Integer.parseInt(aux[1]);
         String sql ="select currentInstallment from paymentForm where codSale = ?";
         try {
             pst2=connection.prepareStatement(sql);
@@ -136,7 +176,7 @@ public class FormPayment extends javax.swing.JFrame {
     }
     private void getValuePayed(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[3]);
+        int codSale = Integer.parseInt(aux[1]);
         String sql ="select saleValue, valuePayed from paymentForm where codSale = ?";
         try {
             pst2=connection.prepareStatement(sql);
@@ -156,7 +196,7 @@ public class FormPayment extends javax.swing.JFrame {
     }
     private void getPayments(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[3]);
+        int codSale = Integer.parseInt(aux[1]);
         String sql ="select firstPaymentDate, saleValue, inputValue, plots, plotsTime from paymentForm where codSale = ?";
         try {
             pst=connection.prepareStatement(sql);
@@ -238,9 +278,10 @@ public class FormPayment extends javax.swing.JFrame {
         txtValueToPay = new javax.swing.JLabel();
         outputValueToPay = new javax.swing.JLabel();
         buttonQuote = new javax.swing.JButton();
+        buttonRefresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Forma de Pagamento");
+        setTitle("Parcela");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -308,9 +349,9 @@ public class FormPayment extends javax.swing.JFrame {
 
         txtFormPayment.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtFormPayment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFormPayment.setText("Forma de Pagamento");
+        txtFormPayment.setText("Parcelas");
         getContentPane().add(txtFormPayment);
-        txtFormPayment.setBounds(270, 20, 244, 32);
+        txtFormPayment.setBounds(350, 20, 97, 32);
 
         buttonFinish.setText("FINALIZAR");
         buttonFinish.addActionListener(new java.awt.event.ActionListener() {
@@ -319,7 +360,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFinish);
-        buttonFinish.setBounds(20, 440, 120, 25);
+        buttonFinish.setBounds(20, 440, 120, 23);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputSaleValue);
@@ -395,7 +436,11 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonQuote);
-        buttonQuote.setBounds(20, 140, 80, 25);
+        buttonQuote.setBounds(20, 140, 80, 23);
+
+        buttonRefresh.setText("ATUALIZAR");
+        getContentPane().add(buttonRefresh);
+        buttonRefresh.setBounds(180, 440, 110, 23);
 
         setSize(new java.awt.Dimension(793, 506));
         setLocationRelativeTo(null);
@@ -420,7 +465,7 @@ public class FormPayment extends javax.swing.JFrame {
         if(buttonFinish.getText().equals("DEBITAR")){
             String[] aux = this.getTitle().split(" ");
             PayPlots payPlots = new PayPlots();
-            payPlots.setTitle(payPlots.getTitle() + ": " + aux[3]);
+            payPlots.setTitle(payPlots.getTitle() + ": " + aux[1]);
             payPlots.plotsToPass = plotsToPass;
             payPlots.outputValuePayed.setText( outputValuePayed.getText() );
             payPlots.outputValueToPay.setText( outputValueToPay.getText() );
@@ -432,8 +477,14 @@ public class FormPayment extends javax.swing.JFrame {
         else if(allPlots.isEmpty()){
             JOptionPane.showMessageDialog(null, "FAÇA A COTAÇÃO ANTES DE ADICIONAR A FORMA DE PAGAMENTO");
         }
-        else{
+        else if(newPayment){
             add();
+        }
+        else{
+            int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA ATUALIZAR A FORMA DE PAGAMENTO?\nCASO FAÇA ISSO IRÁ PERDER OS PAGAMENTOS QUE JÁ FORAM SALVOS COMO PAGO!","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+            if(confirma==JOptionPane.YES_OPTION){
+                update();
+            }
         }
     }//GEN-LAST:event_buttonFinishActionPerformed
 
@@ -488,6 +539,7 @@ public class FormPayment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton buttonFinish;
     public static javax.swing.JButton buttonQuote;
+    private javax.swing.JButton buttonRefresh;
     private javax.swing.JTextField inputEnterValue;
     private javax.swing.JTextField inputExpirationDate;
     private javax.swing.JTextField inputPlots;

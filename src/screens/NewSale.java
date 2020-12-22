@@ -148,36 +148,53 @@ public class NewSale extends javax.swing.JFrame {
     private void update(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[1]);
-        String sql = "update product set barCode=?, nameProduct=?, manyProduct=?, manyMinimumProduct=?, expensive=?, price=?, profit=?, profitPercent=?, location=?, brand=?, provider=?, descrition=?, photoAdress=? where barCode=?";
+        String sql = "update sale set codSaller=?, paymentForm=?, paymentMethod=?, codClient=?, dateSale=?, statusSale=?, discount=?, totalValue=? where codSale=?";
         try {
-            pst=connection.prepareStatement(sql);
-            pst.setInt(1,codSale);
-            pst.setInt(2,Integer.parseInt(inputCodOfEmployee.getText()));
+            pst = connection.prepareStatement(sql);
+            pst.setInt(1,Integer.parseInt(inputCodOfEmployee.getText()));
             if(inputInCash.isSelected()){
-                pst.setString(3,"A Vista");
+                pst.setString(2,"A Vista");
             }
             else if(inputTerm.isSelected()){
-                pst.setString(3,"A Prazo");
+                pst.setString(2,"A Prazo");
             }
-            pst.setString(4,inputFormPayment.getSelectedItem().toString());
-            pst.setString(5,inputClient.getText());
-            pst.setString(6,inputDateOfSale.getText());
+            pst.setString(3,inputFormPayment.getSelectedItem().toString());
+            pst.setString(4,inputClient.getText());
+            pst.setString(5,inputDateOfSale.getText());
             if(inputFinishSale.isSelected()){
-                pst.setString(7,"Finalizada");
+                pst.setString(6,"Finalizada");
             }
             else if(inputPendingSale.isSelected()){
-                pst.setString(7,"Pendente");
+                pst.setString(6,"Pendente");
             }
-            pst.setString(8,inputDiscount.getText());
-            pst.setString(9,outputTotal.getText().replace(",", "."));
+            pst.setString(7,inputDiscount.getText());
+            pst.setString(8,outputTotal.getText().replace(",", "."));
+            pst.setInt(9,codSale);
             pst.executeUpdate();
+            updateProducts(codSale);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void updateProducts(int codSale){
+        DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
+        String sql = "update productsOfSale set barCodeProd=?, quantity=?, price=? where codSale=?";
+        try {
+            for(int i=table.getRowCount()-1; i >= 0; i--){
+                pst2 = connection.prepareStatement(sql);
+                pst2.setString(1, tableSoldItems.getModel().getValueAt(i,0).toString());
+                pst2.setInt(2, Integer.parseInt( tableSoldItems.getModel().getValueAt(i,4).toString() ));
+                pst2.setString(3, tableSoldItems.getModel().getValueAt(i,2).toString().replace(",", "."));
+                pst2.setInt(4,codSale);
+                pst2.executeUpdate();
+            }
             JOptionPane.showMessageDialog(null,"VENDA SALVA COM SUCESSO");
             SaleScreen saleScreen = new SaleScreen();
             saleScreen.setTitle("Venda: " + codSale);
             this.dispose();
             saleScreen.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     private void getProduct(){
@@ -345,6 +362,22 @@ public class NewSale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         getSubTotal();
+    }
+    private boolean hasPaymentForm(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[2]);
+        String sql ="select codSale from paymentForm where codSale = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, codSale);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -787,8 +820,16 @@ public class NewSale extends javax.swing.JFrame {
         if(inputTerm.isSelected()){
             FormPayment formPayment = new FormPayment();
             String[] aux = this.getTitle().split(" ");
-            formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
+            if(txtNewSale.getText().equals("Nova Venda")){
+                formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
+            }
+            else{
+                formPayment.setTitle(formPayment.getTitle() + ": " + aux[2]);
+            }
             formPayment.inputSaleValue.setText(outputTotal.getText());
+            if(txtNewSale.getText().equals("Editar Venda") && hasPaymentForm()){
+                formPayment.newPayment = false;
+            }
             formPayment.setVisible(true);
         }
     }//GEN-LAST:event_inputFormPaymentActionPerformed

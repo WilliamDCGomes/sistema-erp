@@ -125,6 +125,22 @@ public class SaleScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    private boolean hasPaymentForm(){
+        String[] aux = this.getTitle().split(" ");
+        int codSale = Integer.parseInt(aux[1]);
+        String sql ="select codSale from paymentForm where codSale = ?";
+        try {
+            pst=connection.prepareStatement(sql);
+            pst.setInt(1, codSale);
+            rs= pst.executeQuery();
+            if(rs.next()) {
+                return true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return false;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -230,7 +246,7 @@ public class SaleScreen extends javax.swing.JFrame {
         outputTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         outputTotal.setText("0,00");
         getContentPane().add(outputTotal);
-        outputTotal.setBounds(620, 510, 130, 24);
+        outputTotal.setBounds(610, 510, 140, 24);
 
         tableSoldItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,7 +273,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(140, 510, 80, 23);
+        buttonEdit.setBounds(130, 510, 80, 23);
 
         buttonDelete.setText("EXCLUIR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -266,7 +282,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(240, 510, 90, 23);
+        buttonDelete.setBounds(230, 510, 90, 23);
 
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +291,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(350, 510, 140, 23);
+        buttonAllSales.setBounds(340, 510, 140, 23);
 
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
@@ -287,18 +303,18 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(txtStatus);
         txtStatus.setBounds(170, 200, 49, 27);
 
-        buttonShowPaymentMethod.setText("PAGAMENTO");
+        buttonShowPaymentMethod.setText("PARCELAS");
         buttonShowPaymentMethod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonShowPaymentMethodActionPerformed(evt);
             }
         });
         getContentPane().add(buttonShowPaymentMethod);
-        buttonShowPaymentMethod.setBounds(10, 510, 110, 23);
+        buttonShowPaymentMethod.setBounds(10, 510, 100, 23);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(510, 510, 90, 23);
+        buttonPrinter.setBounds(500, 510, 90, 23);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Vendedor");
@@ -339,12 +355,17 @@ public class SaleScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_outputPaymentMethodActionPerformed
 
     private void buttonShowPaymentMethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonShowPaymentMethodActionPerformed
-        FormPayment formPayment = new FormPayment();
-        String[] aux = this.getTitle().split(" ");
-        formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
-        formPayment.buttonFinish.setText("DEBITAR");
-        formPayment.inputSaleValue.setText(outputTotal.getText());
-        formPayment.setVisible(true);
+        if(hasPaymentForm()){
+            FormPayment formPayment = new FormPayment();
+            String[] aux = this.getTitle().split(" ");
+            formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
+            formPayment.buttonFinish.setText("DEBITAR");
+            formPayment.inputSaleValue.setText(outputTotal.getText());
+            formPayment.setVisible(true);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "ESSA VENDA NÃO FOI PARCELADA");
+        }
     }//GEN-LAST:event_buttonShowPaymentMethodActionPerformed
 
     private void buttonAllSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllSalesActionPerformed
