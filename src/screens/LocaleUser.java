@@ -56,7 +56,7 @@ public class LocaleUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(30, 200, 100, 32);
+        buttonLocale.setBounds(30, 200, 100, 23);
 
         buttonAllUsers.setText("TODOS OS CLIENTES");
         buttonAllUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -65,12 +65,12 @@ public class LocaleUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllUsers);
-        buttonAllUsers.setBounds(170, 200, 160, 32);
+        buttonAllUsers.setBounds(170, 200, 160, 23);
 
         txtLocaleUser.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtLocaleUser.setText("LOCALIZAR USUÁRIO");
         getContentPane().add(txtLocaleUser);
-        txtLocaleUser.setBounds(49, 6, 253, 32);
+        txtLocaleUser.setBounds(60, 10, 253, 32);
 
         txtLogin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtLogin.setText("Login");
