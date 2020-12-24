@@ -188,7 +188,7 @@ public class NewSale extends javax.swing.JFrame {
                 pst2.setInt(4,codSale);
                 pst2.executeUpdate();
             }
-            JOptionPane.showMessageDialog(null,"VENDA SALVA COM SUCESSO");
+            JOptionPane.showMessageDialog(null,"VENDA ATUALIZADA COM SUCESSO");
             SaleScreen saleScreen = new SaleScreen();
             saleScreen.setTitle("Venda: " + codSale);
             this.dispose();
