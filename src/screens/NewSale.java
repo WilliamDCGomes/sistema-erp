@@ -147,7 +147,7 @@ public class NewSale extends javax.swing.JFrame {
     }
     private void update(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[1]);
+        int codSale = Integer.parseInt(aux[aux.length - 1]);
         String sql = "update sale set codSaller=?, paymentForm=?, paymentMethod=?, codClient=?, dateSale=?, statusSale=?, discount=?, totalValue=? where codSale=?";
         try {
             pst = connection.prepareStatement(sql);
@@ -859,8 +859,11 @@ public class NewSale extends javax.swing.JFrame {
         else if(inputCodOfEmployee.getText().equals("")||inputClient.getText().equals("")||inputDateOfSale.getText().equals("")||(!inputFinishSale.isSelected()&&!inputPendingSale.isSelected())||(!inputInCash.isSelected()&&!inputTerm.isSelected())||inputFormPayment.getSelectedItem().equals("Selecionar")){
             JOptionPane.showMessageDialog(null, "PREENCHA TODOS OS CAMPOS OBRIGATÓRIOS ANTES DE FINALIZAR A VENDA");
         }
-        else{
+        else if(txtNewSale.getText().equals("Nova Venda")){
             add();
+        }
+        else if(txtNewSale.getText().equals("Editar Venda")){
+            update();
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
