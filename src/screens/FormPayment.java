@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import functioncontroller.GetDate;
 import functioncontroller.GetFutureDates;
 import javax.swing.JOptionPane;
 import functioncontroller.RoundNumber;
@@ -18,6 +19,7 @@ public class FormPayment extends javax.swing.JFrame {
     ResultSet rs2 = null;
     ArrayList<String> allPlots = new ArrayList<>();
     ArrayList<String> plotsToPass = new ArrayList<>();
+    GetDate getDate = new GetDate();
     GetFutureDates getFutureDates = new GetFutureDates();
     RoundNumber roundNumber = new RoundNumber();
     public boolean newPayment = true;
@@ -300,7 +302,7 @@ public class FormPayment extends javax.swing.JFrame {
         getContentPane().add(txtPlots);
         txtPlots.setBounds(520, 70, 61, 20);
 
-        inputPlots.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputPlots.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputPlots);
         inputPlots.setBounds(520, 100, 61, 30);
 
@@ -337,7 +339,7 @@ public class FormPayment extends javax.swing.JFrame {
         getContentPane().add(txtPlotsPeriod);
         txtPlotsPeriod.setBounds(610, 70, 150, 20);
 
-        inputPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        inputPlotsPeriod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         inputPlotsPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "10 dias", "15 dias", "20 dias", "30 dias", "45 dias", "60 dias" }));
         inputPlotsPeriod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -362,13 +364,20 @@ public class FormPayment extends javax.swing.JFrame {
         getContentPane().add(buttonFinish);
         buttonFinish.setBounds(20, 440, 120, 25);
 
-        inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputSaleValue);
         inputSaleValue.setBounds(250, 100, 94, 30);
 
-        inputEnterValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        inputEnterValue.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputEnterValue);
         inputEnterValue.setBounds(380, 100, 94, 30);
+
+        inputExpirationDate.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        inputExpirationDate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                inputExpirationDateFocusGained(evt);
+            }
+        });
         getContentPane().add(inputExpirationDate);
         inputExpirationDate.setBounds(20, 100, 110, 30);
 
@@ -462,6 +471,9 @@ public class FormPayment extends javax.swing.JFrame {
                 txtRequiredField7.setVisible(false);
                 buttonQuote.setEnabled(false);
             }
+            else{
+                inputExpirationDate.setText( getFutureDates.getDate(30, getDate.dateOfSystem()) );
+            }
             getPayments();
         }
     }//GEN-LAST:event_formWindowActivated
@@ -517,6 +529,10 @@ public class FormPayment extends javax.swing.JFrame {
         }
         getPayments();
     }//GEN-LAST:event_buttonRefreshActionPerformed
+
+    private void inputExpirationDateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_inputExpirationDateFocusGained
+        inputExpirationDate.selectAll();
+    }//GEN-LAST:event_inputExpirationDateFocusGained
 
     /**
      * @param args the command line arguments

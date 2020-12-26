@@ -232,6 +232,8 @@ public class SaleScreen extends javax.swing.JFrame {
         txtCodSale.setText("Código da Venda");
         getContentPane().add(txtCodSale);
         txtCodSale.setBounds(11, 65, 123, 19);
+
+        outputCodSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputCodSale);
         outputCodSale.setBounds(11, 90, 80, 30);
 
@@ -239,6 +241,8 @@ public class SaleScreen extends javax.swing.JFrame {
         txtCodSaller.setText("Código do Vendedor");
         getContentPane().add(txtCodSaller);
         txtCodSaller.setBounds(210, 60, 148, 30);
+
+        outputCodSaller.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputCodSaller);
         outputCodSaller.setBounds(210, 90, 100, 30);
 
@@ -246,6 +250,8 @@ public class SaleScreen extends javax.swing.JFrame {
         txtFormPayment.setText("Forma de Pagamento");
         getContentPane().add(txtFormPayment);
         txtFormPayment.setBounds(520, 130, 156, 30);
+
+        outputFormPayment.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputFormPayment);
         outputFormPayment.setBounds(520, 160, 170, 30);
 
@@ -254,6 +260,7 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(txtPaymentMethod);
         txtPaymentMethod.setBounds(10, 130, 140, 27);
 
+        outputPaymentMethod.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         outputPaymentMethod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
         outputPaymentMethod.setEnabled(false);
         outputPaymentMethod.addItemListener(new java.awt.event.ItemListener() {
@@ -273,6 +280,8 @@ public class SaleScreen extends javax.swing.JFrame {
         txtClient.setText("Cliente");
         getContentPane().add(txtClient);
         txtClient.setBounds(180, 130, 51, 27);
+
+        outputClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputClient);
         outputClient.setBounds(180, 160, 310, 30);
 
@@ -370,6 +379,7 @@ public class SaleScreen extends javax.swing.JFrame {
         getContentPane().add(inputNameEmployee);
         inputNameEmployee.setBounds(370, 90, 380, 30);
 
+        outputStatus.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         outputStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendente", "Finalizado" }));
         outputStatus.setEnabled(false);
         outputStatus.addItemListener(new java.awt.event.ItemListener() {
@@ -384,6 +394,8 @@ public class SaleScreen extends javax.swing.JFrame {
         });
         getContentPane().add(outputStatus);
         outputStatus.setBounds(170, 230, 110, 30);
+
+        outputDateSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputDateSale);
         outputDateSale.setBounds(10, 230, 100, 30);
 

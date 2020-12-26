@@ -60,7 +60,7 @@
     <Component class="javax.swing.JTextField" name="inputPlots">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -180,7 +180,7 @@
     <Component class="javax.swing.JComboBox" name="inputPlotsPeriod">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="1"/>
+          <Font name="Dialog" size="15" style="1"/>
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="7">
@@ -239,7 +239,7 @@
     <Component class="javax.swing.JTextField" name="inputSaleValue">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -254,7 +254,7 @@
     <Component class="javax.swing.JTextField" name="inputEnterValue">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="14" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -264,6 +264,14 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="inputExpirationDate">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="15" style="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="inputExpirationDateFocusGained"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="20" y="100" width="110" height="30"/>
