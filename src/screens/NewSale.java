@@ -57,7 +57,7 @@ public class NewSale extends javax.swing.JFrame {
         double partialPrice = price * Integer.parseInt( inputAmount.getText() );
         value += partialPrice;
         valueNow += partialPrice;
-        outputSubTotal.setText(roundNumber.doRound(valueNow).replace('.', ','));
+        outputSubTotal.setText(roundNumber.doRound(valueNow).replace(",", "."));
         if(!inputDiscount.getText().equals("")){
             double valueDescont = (Double.parseDouble(outputSubTotal.getText().replace(",", ".")) * Double.parseDouble(inputDiscount.getText().replace(",", ".")) ) / 100;
             outputDescont.setText(roundNumber.doRound(valueDescont).replace(".", ","));
@@ -171,6 +171,17 @@ public class NewSale extends javax.swing.JFrame {
             pst.setString(8,outputTotal.getText().replace(",", "."));
             pst.setInt(9,codSale);
             pst.executeUpdate();
+            deleteProducts(codSale);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void deleteProducts(int codSale){
+        String sql = "delete from productsOfSale where codSale=?";
+        try {
+            pst2 = connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            pst2.executeUpdate();
             updateProducts(codSale);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -178,15 +189,15 @@ public class NewSale extends javax.swing.JFrame {
     }
     private void updateProducts(int codSale){
         DefaultTableModel table = (DefaultTableModel) tableSoldItems.getModel();
-        String sql = "update productsOfSale set barCodeProd=?, quantity=?, price=? where codSale=?";
+        String sql = "insert into productsOfSale(codSale, barCodeProd, quantity, price)values(?,?,?,?)";
         try {
             for(int i=table.getRowCount()-1; i >= 0; i--){
-                pst2 = connection.prepareStatement(sql);
-                pst2.setString(1, tableSoldItems.getModel().getValueAt(i,0).toString());
-                pst2.setInt(2, Integer.parseInt( tableSoldItems.getModel().getValueAt(i,4).toString() ));
-                pst2.setString(3, tableSoldItems.getModel().getValueAt(i,2).toString().replace(",", "."));
-                pst2.setInt(4,codSale);
-                pst2.executeUpdate();
+                pst3 = connection.prepareStatement(sql);
+                pst3.setInt(1,codSale);
+                pst3.setString(2, tableSoldItems.getModel().getValueAt(i,0).toString());
+                pst3.setInt(3, Integer.parseInt( tableSoldItems.getModel().getValueAt(i,4).toString() ));
+                pst3.setString(4, tableSoldItems.getModel().getValueAt(i,2).toString().replace(",", "."));
+                pst3.executeUpdate();
             }
             JOptionPane.showMessageDialog(null,"VENDA ATUALIZADA COM SUCESSO");
             SaleScreen saleScreen = new SaleScreen();
@@ -264,7 +275,7 @@ public class NewSale extends javax.swing.JFrame {
     private void getData(){
         String[] aux = this.getTitle().split(" ");
         int codSale = Integer.parseInt(aux[2]);
-        String sql ="select codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, totalValue, discount from sale where codSale = ?";
+        String sql ="select codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, discount, totalValue from sale where codSale = ?";
         try {
             pst=connection.prepareStatement(sql);
             pst.setInt(1, codSale);
@@ -286,8 +297,8 @@ public class NewSale extends javax.swing.JFrame {
                 else if(rs.getString(6).equals("Pendente")){
                     inputPendingSale.setSelected(true);
                 }
-                outputTotal.setText(rs.getString(7).replace(".", ","));
-                inputDiscount.setText(rs.getString(8).replace(".", ","));
+                inputDiscount.setText(rs.getString(7).replace(".", ","));
+                outputTotal.setText(rs.getString(8).replace(".", ","));
             }
             getItens(codSale);
         } catch (Exception e) {

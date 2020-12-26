@@ -360,7 +360,7 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonFinish);
-        buttonFinish.setBounds(20, 440, 120, 23);
+        buttonFinish.setBounds(20, 440, 120, 25);
 
         inputSaleValue.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         getContentPane().add(inputSaleValue);
@@ -436,11 +436,16 @@ public class FormPayment extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonQuote);
-        buttonQuote.setBounds(20, 140, 80, 23);
+        buttonQuote.setBounds(20, 140, 80, 25);
 
         buttonRefresh.setText("ATUALIZAR");
+        buttonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRefreshActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonRefresh);
-        buttonRefresh.setBounds(180, 440, 110, 23);
+        buttonRefresh.setBounds(180, 440, 110, 25);
 
         setSize(new java.awt.Dimension(793, 506));
         setLocationRelativeTo(null);
@@ -501,6 +506,18 @@ public class FormPayment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonQuoteActionPerformed
 
+    private void buttonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRefreshActionPerformed
+        if(buttonFinish.getText().equals("DEBITAR")){
+            txtRequiredField3.setVisible(false);
+            txtRequiredField4.setVisible(false);
+            txtRequiredField5.setVisible(false);
+            txtRequiredField6.setVisible(false);
+            txtRequiredField7.setVisible(false);
+            buttonQuote.setEnabled(false);
+        }
+        getPayments();
+    }//GEN-LAST:event_buttonRefreshActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -539,7 +556,7 @@ public class FormPayment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JButton buttonFinish;
     public static javax.swing.JButton buttonQuote;
-    private javax.swing.JButton buttonRefresh;
+    public static javax.swing.JButton buttonRefresh;
     private javax.swing.JTextField inputEnterValue;
     private javax.swing.JTextField inputExpirationDate;
     private javax.swing.JTextField inputPlots;

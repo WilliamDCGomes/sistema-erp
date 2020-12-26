@@ -18,6 +18,8 @@ public class SaleScreen extends javax.swing.JFrame {
     ResultSet rs2 = null;
     PreparedStatement pst3 = null;
     ResultSet rs3 = null;
+    PreparedStatement pst4 = null;
+    ResultSet rs4 = null;
     String cpfClient = null;
     ArrayList<String> products = new ArrayList<>();
     ArrayList<String> listProducts = new ArrayList<>();
@@ -130,16 +132,59 @@ public class SaleScreen extends javax.swing.JFrame {
         int codSale = Integer.parseInt(aux[1]);
         String sql ="select codSale from paymentForm where codSale = ?";
         try {
-            pst=connection.prepareStatement(sql);
-            pst.setInt(1, codSale);
-            rs= pst.executeQuery();
-            if(rs.next()) {
+            pst4=connection.prepareStatement(sql);
+            pst4.setInt(1, codSale);
+            rs4= pst4.executeQuery();
+            if(rs4.next()) {
                 return true;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         return false;
+    }
+    private void deleteSale(int codSale){
+        int confirma = JOptionPane.showConfirmDialog(null, "TEM CERTEZA QUE DESEJA DELETAR ESSE VENDA?","ATENÇÃO",JOptionPane.YES_NO_OPTION);
+        if(confirma==JOptionPane.YES_OPTION){
+            String sql = "delete from sale where codSale=?";
+            try {
+                pst = connection.prepareStatement(sql);
+                pst.setInt(1, codSale);
+                pst.executeUpdate();
+                deleteProducts(codSale);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }
+    private void deleteProducts(int codSale){
+        String sql = "delete from productsOfSale where codSale=?";
+        try {
+            pst2 = connection.prepareStatement(sql);
+            pst2.setInt(1, codSale);
+            pst2.executeUpdate();
+            if(hasPaymentForm()){
+                deletePaymentForm(codSale);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "VENDA DELETADA COM SUCESSO");
+                this.dispose();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void deletePaymentForm(int codSale){
+        String sql = "delete from paymentForm where codSale=?";
+        try {
+            pst3 = connection.prepareStatement(sql);
+            pst3.setInt(1, codSale);
+            pst3.executeUpdate();
+            JOptionPane.showMessageDialog(null, "VENDA DELETADA COM SUCESSO");
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -361,6 +406,7 @@ public class SaleScreen extends javax.swing.JFrame {
             formPayment.setTitle(formPayment.getTitle() + ": " + aux[1]);
             formPayment.buttonFinish.setText("DEBITAR");
             formPayment.inputSaleValue.setText(outputTotal.getText());
+            formPayment.buttonRefresh.setVisible(true);
             formPayment.setVisible(true);
         }
         else{
@@ -377,7 +423,9 @@ public class SaleScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAllSalesActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        JOptionPane.showMessageDialog(null, "VENDA EXCLUIDA COM SUCESSO");
+        String[] aux = this.getTitle().split(" ");
+        int id = Integer.parseInt(aux[aux.length - 1]);
+        deleteSale(id);
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
@@ -385,7 +433,6 @@ public class SaleScreen extends javax.swing.JFrame {
         NewSale newSale = new NewSale();
         newSale.txtNewSale.setText("Editar Venda");
         newSale.setTitle("Editar Venda: " + aux[1]);
-        newSale.buttonCancele.setText("EXCLUIR");
         this.dispose();
         newSale.setVisible(true);
     }//GEN-LAST:event_buttonEditActionPerformed

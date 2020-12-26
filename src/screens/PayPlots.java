@@ -163,30 +163,32 @@ public class PayPlots extends javax.swing.JFrame {
 
     private void buttonPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPayActionPerformed
         int[] set = tableOfPlots.getSelectedRows();
-        for(int i=0;i<set.length;i++){
-            String[] data = getData().split(";");
-            if(set[i]>=0 && data!=null){
-                if(tableOfPlots.getModel().getValueAt(set[i],3).toString().equals("Fechada")){
-                    if(set.length == 1){
-                        JOptionPane.showMessageDialog(null, "A PARCELA QUE VOCÊ SELECIONOU JÁ ESTÁ PAGA");
+        int check = tableOfPlots.getSelectedRow();
+        if(check>=0){
+            for(int i=0;i<set.length;i++){
+                String[] data = getData().split(";");
+                if(set[i]>=0 && data!=null){
+                    if(tableOfPlots.getModel().getValueAt(set[i],3).toString().equals("Fechada")){
+                        if(set.length == 1){
+                            JOptionPane.showMessageDialog(null, "A PARCELA QUE VOCÊ SELECIONOU JÁ ESTÁ PAGA");
+                        }
+                        else if(set.length > 1){
+                            JOptionPane.showMessageDialog(null, "AO MENOS UMA DAS PARCELAS QUE VOCÊ SELECIONOU JÁ ESTÁ PAGA");
+                        }
+                        break;
                     }
-                    else if(set.length > 1){
-                        JOptionPane.showMessageDialog(null, "AO MENOS UMA DAS PARCELAS QUE VOCÊ SELECIONOU JÁ ESTÁ PAGA");
+                    else{
+                        double valuePlot = Double.parseDouble(tableOfPlots.getModel().getValueAt(set[i],1).toString().replace(",", "."));
+                        double valuePayed = Double.parseDouble(data[0]);
+                        double value = valuePlot + valuePayed;
+                        int currentInstallment= Integer.parseInt(data[1]) + 1;
+                        updateProduct(roundNumber.doRound(value).replace(",", "."), currentInstallment, set.length - i);
                     }
-                    break;
-                }
-                else{
-                    double valuePlot = Double.parseDouble(tableOfPlots.getModel().getValueAt(set[i],1).toString().replace(",", "."));
-                    double valuePayed = Double.parseDouble(data[0]);
-                    double value = valuePlot + valuePayed;
-                    int currentInstallment= Integer.parseInt(data[1]) + 1;
-                    updateProduct(roundNumber.doRound(value).replace(",", "."), currentInstallment, set.length - i);
                 }
             }
-            else{
-                JOptionPane.showMessageDialog(null, "SELECIONE AO MENOS UM REGISTRO ANTES");
-                break;
-            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "SELECIONE UM REGISTRO ANTES");
         }
     }//GEN-LAST:event_buttonPayActionPerformed
 
