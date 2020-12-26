@@ -515,7 +515,7 @@ public class NewSale extends javax.swing.JFrame {
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
         getContentPane().add(txtPaymentMethod);
-        txtPaymentMethod.setBounds(540, 260, 140, 27);
+        txtPaymentMethod.setBounds(20, 300, 140, 27);
 
         inputFormPayment.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputFormPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
@@ -530,7 +530,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputFormPayment);
-        inputFormPayment.setBounds(720, 260, 110, 30);
+        inputFormPayment.setBounds(20, 330, 110, 30);
 
         txtClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtClient.setText("CPF Cliente");
@@ -569,7 +569,7 @@ public class NewSale extends javax.swing.JFrame {
         txtDiscount.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDiscount.setText("Desconto");
         getContentPane().add(txtDiscount);
-        txtDiscount.setBounds(20, 300, 68, 27);
+        txtDiscount.setBounds(550, 260, 68, 27);
 
         inputDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         inputDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -583,7 +583,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputDiscount);
-        inputDiscount.setBounds(20, 330, 78, 30);
+        inputDiscount.setBounds(630, 260, 78, 30);
 
         txtSubTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtSubTotal.setText("SubTotal");
@@ -630,7 +630,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(20, 620, 80, 23);
+        buttonSave.setBounds(20, 620, 80, 25);
 
         buttomRemoveItems.setText("REMOVER");
         buttomRemoveItems.addActionListener(new java.awt.event.ActionListener() {
@@ -639,7 +639,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttomRemoveItems);
-        buttomRemoveItems.setBounds(130, 620, 90, 23);
+        buttomRemoveItems.setBounds(130, 620, 90, 25);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
@@ -659,18 +659,18 @@ public class NewSale extends javax.swing.JFrame {
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(730, 150, 59, 30);
+        inputInCash.setBounds(730, 150, 61, 30);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(820, 150, 63, 30);
+        inputTerm.setBounds(820, 150, 64, 30);
 
         txtDiscount1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         txtDiscount1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDiscount1.setText("%");
         getContentPane().add(txtDiscount1);
-        txtDiscount1.setBounds(100, 330, 20, 27);
+        txtDiscount1.setBounds(710, 260, 20, 27);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
@@ -694,7 +694,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancele);
-        buttonCancele.setBounds(250, 620, 100, 23);
+        buttonCancele.setBounds(250, 620, 100, 25);
 
         buttonLocaleProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleProduct.setText("LOCALIZAR");
@@ -810,7 +810,7 @@ public class NewSale extends javax.swing.JFrame {
         txtRequiredField7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField7.setText("*");
         getContentPane().add(txtRequiredField7);
-        txtRequiredField7.setBounds(680, 260, 20, 30);
+        txtRequiredField7.setBounds(160, 300, 20, 30);
 
         txtRequiredField8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField8.setForeground(new java.awt.Color(255, 0, 51));
