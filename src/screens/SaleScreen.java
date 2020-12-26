@@ -219,7 +219,7 @@ public class SaleScreen extends javax.swing.JFrame {
         outputDateSale = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Venda 1");
+        setTitle("Venda");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -318,7 +318,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(130, 510, 80, 23);
+        buttonEdit.setBounds(130, 510, 80, 25);
 
         buttonDelete.setText("EXCLUIR");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +327,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonDelete);
-        buttonDelete.setBounds(230, 510, 90, 23);
+        buttonDelete.setBounds(230, 510, 90, 25);
 
         buttonAllSales.setText("TODAS AS VENDAS");
         buttonAllSales.addActionListener(new java.awt.event.ActionListener() {
@@ -336,7 +336,7 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllSales);
-        buttonAllSales.setBounds(340, 510, 140, 23);
+        buttonAllSales.setBounds(340, 510, 140, 25);
 
         txtSale.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtSale.setText("Venda");
@@ -355,11 +355,11 @@ public class SaleScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonShowPaymentMethod);
-        buttonShowPaymentMethod.setBounds(10, 510, 100, 23);
+        buttonShowPaymentMethod.setBounds(10, 510, 100, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(500, 510, 90, 23);
+        buttonPrinter.setBounds(500, 510, 90, 25);
 
         txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Vendedor");
