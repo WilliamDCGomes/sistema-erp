@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 public class NewSale extends javax.swing.JFrame {
     int x = 0;
+    boolean check = false;
     String product = "";
     double value = 0;
     double valueNow = 0;
@@ -274,7 +275,7 @@ public class NewSale extends javax.swing.JFrame {
     }
     private void getData(){
         String[] aux = this.getTitle().split(" ");
-        int codSale = Integer.parseInt(aux[2]);
+        int codSale = Integer.parseInt(aux[aux.length - 1]);
         String sql ="select codSaller, paymentForm, paymentMethod, codClient, dateSale, statusSale, discount, totalValue from sale where codSale = ?";
         try {
             pst=connection.prepareStatement(sql);
@@ -304,6 +305,7 @@ public class NewSale extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        check = true;
     }
     private void getItens(int codSale){
         String sql ="select barCodeProd, quantity, price from productsOfSale where codSale = ?";
@@ -828,7 +830,7 @@ public class NewSale extends javax.swing.JFrame {
     }//GEN-LAST:event_inputFormPaymentItemStateChanged
 
     private void inputFormPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFormPaymentActionPerformed
-        if(inputTerm.isSelected()){
+        if(inputTerm.isSelected() && check){
             FormPayment formPayment = new FormPayment();
             String[] aux = this.getTitle().split(" ");
             if(txtNewSale.getText().equals("Nova Venda")){
