@@ -3,6 +3,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCash;
+import formattingmask.MaskDate;
+import formattingmask.MaskJustNumbers;
 import functioncontroller.GetDate;
 import functioncontroller.GetFutureDates;
 import javax.swing.JOptionPane;
@@ -28,6 +31,10 @@ public class FormPayment extends javax.swing.JFrame {
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
         buttonRefresh.setVisible(false);
+        inputExpirationDate.setDocument(new MaskDate());
+        inputSaleValue.setDocument(new MaskCash());
+        inputEnterValue.setDocument(new MaskCash());
+        inputPlots.setDocument(new MaskJustNumbers());
     }
     private void add(){
         String[] aux = this.getTitle().split(" ");

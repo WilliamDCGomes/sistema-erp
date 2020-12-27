@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskJustNumbers;
 public class LocaleSale extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
@@ -12,6 +13,7 @@ public class LocaleSale extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputCodOfSale.setDocument(new MaskJustNumbers());
     }
     private boolean hasPaymentForm(){
         String sql ="select codSale from sale where codSale = ?";
@@ -87,7 +89,10 @@ public class LocaleSale extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAllSalesActionPerformed
 
     private void buttonLocaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLocaleActionPerformed
-        if(hasPaymentForm()){
+        if(inputCodOfSale.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "INSIRA O CÓDIGO DE UMA VENDA!");
+        }
+        else if(hasPaymentForm()){
             SaleScreen saleScreen = new SaleScreen();
             saleScreen.setTitle("Venda: " + inputCodOfSale.getText());
             this.dispose();

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskCPFAndCNPJ;
 import net.proteanit.sql.DbUtils;
 public class PendingSale extends javax.swing.JFrame {
     Connection connection = null;
@@ -16,6 +17,7 @@ public class PendingSale extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        inputCPF.setDocument(new MaskCPFAndCNPJ());
     }
     private void getAllSales(){
         String sql ="select codSale as 'Código da Venda', totalValue as 'Valor', dateSale as 'Data', paymentForm as 'Forma de Pagamento', paymentMethod as 'Meio de Pagamento' from sale";

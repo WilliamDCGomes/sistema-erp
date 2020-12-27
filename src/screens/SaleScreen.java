@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import formattingmask.MaskDate;
+import formattingmask.MaskJustNumbers;
+import formattingmask.MaskUpperLetter;
 import functioncontroller.RoundNumber;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -28,6 +31,12 @@ public class SaleScreen extends javax.swing.JFrame {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
+        outputCodSale.setDocument(new MaskJustNumbers());
+        outputCodSaller.setDocument(new MaskJustNumbers());
+        inputNameEmployee.setDocument(new MaskUpperLetter());
+        outputClient.setDocument(new MaskUpperLetter());
+        outputFormPayment.setDocument(new MaskUpperLetter());
+        outputDateSale.setDocument(new MaskDate());
     }
     private void clearTable(){
         products.clear();
@@ -240,11 +249,11 @@ public class SaleScreen extends javax.swing.JFrame {
         txtCodSaller.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtCodSaller.setText("Código do Vendedor");
         getContentPane().add(txtCodSaller);
-        txtCodSaller.setBounds(210, 60, 148, 30);
+        txtCodSaller.setBounds(180, 60, 148, 30);
 
         outputCodSaller.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(outputCodSaller);
-        outputCodSaller.setBounds(210, 90, 100, 30);
+        outputCodSaller.setBounds(180, 90, 100, 30);
 
         txtFormPayment.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtFormPayment.setText("Forma de Pagamento");
