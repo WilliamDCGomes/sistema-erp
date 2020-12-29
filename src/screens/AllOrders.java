@@ -40,7 +40,7 @@ public class AllOrders extends javax.swing.JFrame {
         txtAllOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtAllOrders.setText("TODOS OS PEDIDOS");
         getContentPane().add(txtAllOrders);
-        txtAllOrders.setBounds(140, 10, 380, 32);
+        txtAllOrders.setBounds(140, 10, 390, 32);
 
         tableOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,7 +96,7 @@ public class AllOrders extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(360, 80, 90, 32);
+        buttonPrinter.setBounds(360, 80, 90, 25);
 
         setSize(new java.awt.Dimension(671, 474));
         setLocationRelativeTo(null);

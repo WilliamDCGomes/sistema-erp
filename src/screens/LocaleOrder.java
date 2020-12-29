@@ -41,7 +41,7 @@ public class LocaleOrder extends javax.swing.JFrame {
 
         inputOrderCode.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputOrderCode);
-        inputOrderCode.setBounds(40, 100, 170, 25);
+        inputOrderCode.setBounds(40, 100, 180, 30);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +50,7 @@ public class LocaleOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(40, 150, 120, 32);
+        buttonLocale.setBounds(40, 150, 120, 25);
 
         buttonAllOrders.setText("TODOS OS PEDIDOS");
         buttonAllOrders.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class LocaleOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllOrders);
-        buttonAllOrders.setBounds(200, 150, 160, 32);
+        buttonAllOrders.setBounds(200, 150, 160, 25);
 
         setSize(new java.awt.Dimension(405, 231));
         setLocationRelativeTo(null);

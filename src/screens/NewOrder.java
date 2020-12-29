@@ -247,7 +247,7 @@ public class NewOrder extends javax.swing.JFrame {
         txtNewOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewOrder.setText("NOVO PEDIDO");
         getContentPane().add(txtNewOrder);
-        txtNewOrder.setBounds(310, 20, 260, 32);
+        txtNewOrder.setBounds(300, 20, 280, 32);
 
         buttonRemove.setText("REMOVER");
         buttonRemove.addActionListener(new java.awt.event.ActionListener() {

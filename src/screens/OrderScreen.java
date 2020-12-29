@@ -58,12 +58,12 @@ public class OrderScreen extends javax.swing.JFrame {
         outputInCash.setText("A Vista");
         outputInCash.setEnabled(false);
         getContentPane().add(outputInCash);
-        outputInCash.setBounds(16, 400, 72, 28);
+        outputInCash.setBounds(16, 400, 61, 23);
 
         outputTerm.setText("A Prazo");
         outputTerm.setEnabled(false);
         getContentPane().add(outputTerm);
-        outputTerm.setBounds(110, 400, 76, 28);
+        outputTerm.setBounds(110, 400, 64, 23);
 
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
@@ -130,7 +130,7 @@ public class OrderScreen extends javax.swing.JFrame {
         txtOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtOrder.setText("PEDIDO");
         getContentPane().add(txtOrder);
-        txtOrder.setBounds(350, 20, 170, 32);
+        txtOrder.setBounds(340, 20, 190, 32);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +139,7 @@ public class OrderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(120, 480, 110, 32);
+        buttonLocale.setBounds(120, 480, 110, 25);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
@@ -149,7 +149,7 @@ public class OrderScreen extends javax.swing.JFrame {
         outputFinishSale.setText("Finalizada");
         outputFinishSale.setEnabled(false);
         getContentPane().add(outputFinishSale);
-        outputFinishSale.setBounds(533, 400, 88, 20);
+        outputFinishSale.setBounds(533, 400, 73, 20);
 
         outputPendingSale.setText("Pendente");
         outputPendingSale.setEnabled(false);
@@ -175,7 +175,7 @@ public class OrderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(20, 480, 71, 32);
+        buttonEdit.setBounds(20, 480, 70, 25);
 
         tableItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -209,11 +209,11 @@ public class OrderScreen extends javax.swing.JFrame {
 
         buttonCancel.setText("CANCELAR PEDIDO");
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(380, 480, 140, 32);
+        buttonCancel.setBounds(380, 480, 140, 25);
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(260, 480, 90, 32);
+        buttonPrinter.setBounds(260, 480, 90, 25);
 
         setSize(new java.awt.Dimension(878, 556));
         setLocationRelativeTo(null);
