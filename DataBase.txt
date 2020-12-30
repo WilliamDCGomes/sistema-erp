@@ -157,5 +157,19 @@ create table paymentForm(
     plotsTime int not null,
     currentInstallment int default 0
 );
-
+create table orderProduct(
+	id int not null primary key auto_increment,
+    barCode varchar(25) default null,
+    quantity int not null,
+    codClient varchar(15) not null,
+    codeProvider int not null,
+    paymentForm varchar(10) not null,
+    paymentMethod varchar(10) not null,
+    dateOrder varchar(11) not null,
+    deliveryForecast varchar(11) default null,
+    statusOrder varchar(15) default "Pendente",
+    totalValue varchar(15) default null,
+    subTotalValue varchar(15) default null,
+    obs varchar(500) default null
+);
 
