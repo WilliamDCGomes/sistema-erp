@@ -15,7 +15,21 @@ public class NewOrder extends javax.swing.JFrame {
         ConnectionModule connect = new ConnectionModule();
         connection = connect.getConnectionMySQL();
     }
-    
+    private void add(){
+        String[] aux = this.getTitle().split(" ");
+        String sql = "insert into orderProduct(codOrder, codClient, codeProvider, paymentForm, paymentMethod, dateOrder, deliveryForecast, statusOrder, totalValue, subTotalValue, obs)values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            pst = connection.prepareStatement(sql);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null,"PEDIDO CADASTRADO COM SUCESSO");
+            OrderScreen orderScreen = new OrderScreen();
+            this.dispose();
+            orderScreen.setTitle("Pedido: " + aux[aux.length - 1]);
+            orderScreen.setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
