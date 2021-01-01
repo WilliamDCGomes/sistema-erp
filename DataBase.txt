@@ -159,8 +159,7 @@ create table paymentForm(
 );
 create table orderProduct(
 	id int not null primary key auto_increment,
-    barCode varchar(25) default null,
-    quantity int not null,
+    codOrder int not null,
     codClient varchar(15) not null,
     codeProvider int not null,
     paymentForm varchar(10) not null,
@@ -171,5 +170,12 @@ create table orderProduct(
     totalValue varchar(15) default null,
     subTotalValue varchar(15) default null,
     obs varchar(500) default null
+);
+create table productsOfSale(
+	id int not null primary key auto_increment,
+    codOrder int not null,
+    barCode varchar(25) default null,
+    quantity int not null,
+    price varchar(15) default null
 );
 
