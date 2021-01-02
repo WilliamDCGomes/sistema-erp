@@ -10,6 +10,10 @@ public class NewOrder extends javax.swing.JFrame {
     Connection connection = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
+    PreparedStatement pst2 = null;
+    ResultSet rs2 = null;
+    PreparedStatement pst3 = null;
+    ResultSet rs3 = null;
     public NewOrder() {
         initComponents();
         ConnectionModule connect = new ConnectionModule();
@@ -17,9 +21,31 @@ public class NewOrder extends javax.swing.JFrame {
     }
     private void add(){
         String[] aux = this.getTitle().split(" ");
-        String sql = "insert into orderProduct(codOrder, codClient, codeProvider, paymentForm, paymentMethod, dateOrder, deliveryForecast, statusOrder, totalValue, subTotalValue, obs)values(?,?,?,?,?,?,?,?,?,?,?,?)";
+        int id = Integer.parseInt( aux[aux.length - 1] );
+        String sql = "insert into orderProduct(codOrder, codClient, paymentForm, paymentMethod, dateOrder, deliveryForecast, statusOrder, totalValue, subTotalValue, obs, provider)values(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = connection.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.setString(2,inputClient.getText());
+            if(inputInCash.isSelected()){
+                pst.setString(3, "A Vista");
+            }
+            else if(inputTerm.isSelected()){
+                pst.setString(3, "A Prazo");
+            }
+            pst.setString(4, inputFormPayment.getSelectedItem().toString());
+            pst.setString(5,inputDateOfSale.getText());
+            pst.setString(6,inputDeliveryForecast.getText());
+            if(inputFinishSale.isSelected()){
+                pst.setString(7, "Finalizada");
+            }
+            else if(inputPendingSale.isSelected()){
+                pst.setString(7, "Pendente");
+            }
+            pst.setString(8,outputTotal.getText().replace(",", "."));
+            pst.setString(9,outputSubTotal.getText().replace(",", "."));
+            pst.setString(10,inputObservation.getText());
+            pst.setString(11,inputProvider.getText());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null,"PEDIDO CADASTRADO COM SUCESSO");
             OrderScreen orderScreen = new OrderScreen();
@@ -29,6 +55,19 @@ public class NewOrder extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+    }
+    private int newOrderId(){
+        String sql ="select max(id) from orderProduct";
+        try {
+            pst=connection.prepareStatement(sql);
+            rs= pst.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1) + 1;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return 1;
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -361,6 +400,7 @@ public class NewOrder extends javax.swing.JFrame {
             x++;
             GetDate getDate = new GetDate();
             inputDateOfSale.setText(getDate.dateOfSystem());
+            this.setTitle( this.getTitle() + ": " + Integer.toString( newOrderId() ) );
         }
     }//GEN-LAST:event_formWindowActivated
 

@@ -148,7 +148,8 @@ create table productsOfSale(
 );
 create table paymentForm(
 	id int not null primary key auto_increment,
-    codSale int not null,
+    codSale int default null,
+    codOrder int default null,
     firstPaymentDate varchar(11) not null,
     saleValue varchar(15) not null,
     inputValue varchar(15) not null,
@@ -161,7 +162,6 @@ create table orderProduct(
 	id int not null primary key auto_increment,
     codOrder int not null,
     codClient varchar(15) not null,
-    codeProvider int not null,
     paymentForm varchar(10) not null,
     paymentMethod varchar(10) not null,
     dateOrder varchar(11) not null,
@@ -169,13 +169,13 @@ create table orderProduct(
     statusOrder varchar(15) default "Pendente",
     totalValue varchar(15) default null,
     subTotalValue varchar(15) default null,
-    obs varchar(500) default null
+    obs varchar(500) default null,
+    provider varchar(15) not null
 );
-create table productsOfSale(
+create table productsOfOrder(
 	id int not null primary key auto_increment,
     codOrder int not null,
     barCode varchar(25) default null,
     quantity int not null,
     price varchar(15) default null
 );
-
