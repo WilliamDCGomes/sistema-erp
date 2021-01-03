@@ -437,7 +437,7 @@ public class NewProvider extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(801, 590, 80, 23);
+        buttonSave.setBounds(801, 590, 80, 25);
 
         txtComplement.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtComplement.setText("Complemento");
@@ -520,7 +520,7 @@ public class NewProvider extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonCancel);
-        buttonCancel.setBounds(790, 627, 90, 23);
+        buttonCancel.setBounds(780, 625, 100, 25);
 
         setSize(new java.awt.Dimension(909, 696));
         setLocationRelativeTo(null);

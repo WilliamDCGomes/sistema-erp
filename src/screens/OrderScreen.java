@@ -139,7 +139,7 @@ public class OrderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(120, 480, 110, 25);
+        buttonLocale.setBounds(120, 480, 120, 25);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
@@ -175,23 +175,11 @@ public class OrderScreen extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonEdit);
-        buttonEdit.setBounds(20, 480, 70, 25);
+        buttonEdit.setBounds(20, 480, 80, 25);
 
         tableItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Cód Produto", "Descrição", "Quantidade", "Valor", "Cliente", "Fornecedor"
@@ -213,7 +201,7 @@ public class OrderScreen extends javax.swing.JFrame {
 
         buttonPrinter.setText("IMPRIMIR");
         getContentPane().add(buttonPrinter);
-        buttonPrinter.setBounds(260, 480, 90, 25);
+        buttonPrinter.setBounds(260, 480, 100, 25);
 
         setSize(new java.awt.Dimension(878, 556));
         setLocationRelativeTo(null);

@@ -95,7 +95,7 @@ public class NewOrder extends javax.swing.JFrame {
         groupStatus = new javax.swing.ButtonGroup();
         txtObservation = new javax.swing.JLabel();
         inputProductCode = new javax.swing.JTextField();
-        buttonNewProduct = new javax.swing.JButton();
+        buttonAllProducts = new javax.swing.JButton();
         txtQuantity = new javax.swing.JLabel();
         inputQuantity = new javax.swing.JTextField();
         tableNewOrder = new javax.swing.JScrollPane();
@@ -133,6 +133,12 @@ public class NewOrder extends javax.swing.JFrame {
         buttonAdd = new javax.swing.JButton();
         inputDateOfSale = new javax.swing.JTextField();
         inputDeliveryForecast = new javax.swing.JTextField();
+        txtNameProduct = new javax.swing.JLabel();
+        inputNameProduct = new javax.swing.JTextField();
+        txtNameClient = new javax.swing.JLabel();
+        inputNameClient = new javax.swing.JTextField();
+        txtNameProvider = new javax.swing.JLabel();
+        inputNameProvider = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Novo Pedido");
@@ -147,30 +153,30 @@ public class NewOrder extends javax.swing.JFrame {
         txtObservation.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtObservation.setText("Observações");
         getContentPane().add(txtObservation);
-        txtObservation.setBounds(20, 260, 110, 20);
+        txtObservation.setBounds(20, 350, 110, 20);
 
         inputProductCode.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputProductCode);
-        inputProductCode.setBounds(20, 100, 160, 30);
+        inputProductCode.setBounds(20, 100, 90, 30);
 
-        buttonNewProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonNewProduct.setText("NOVO");
-        buttonNewProduct.addActionListener(new java.awt.event.ActionListener() {
+        buttonAllProducts.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        buttonAllProducts.setText("TODOS");
+        buttonAllProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNewProductActionPerformed(evt);
+                buttonAllProductsActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonNewProduct);
-        buttonNewProduct.setBounds(300, 100, 70, 30);
+        getContentPane().add(buttonAllProducts);
+        buttonAllProducts.setBounds(230, 100, 80, 30);
 
         txtQuantity.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtQuantity.setText("Quantidade");
         getContentPane().add(txtQuantity);
-        txtQuantity.setBounds(390, 70, 90, 20);
+        txtQuantity.setBounds(790, 70, 90, 20);
 
         inputQuantity.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputQuantity);
-        inputQuantity.setBounds(390, 100, 70, 30);
+        inputQuantity.setBounds(790, 100, 70, 30);
 
         tableItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,7 +189,7 @@ public class NewOrder extends javax.swing.JFrame {
         tableNewOrder.setViewportView(tableItems);
 
         getContentPane().add(tableNewOrder);
-        tableNewOrder.setBounds(310, 290, 540, 240);
+        tableNewOrder.setBounds(310, 380, 560, 240);
 
         txtProductCode.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtProductCode.setText("Código do Produto");
@@ -191,13 +197,13 @@ public class NewOrder extends javax.swing.JFrame {
         txtProductCode.setBounds(20, 70, 140, 20);
 
         txtClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtClient.setText("Cliente");
+        txtClient.setText("CPF / CNPJ Cliente");
         getContentPane().add(txtClient);
-        txtClient.setBounds(500, 70, 60, 20);
+        txtClient.setBounds(20, 140, 160, 20);
 
         inputClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputClient);
-        inputClient.setBounds(500, 100, 160, 30);
+        inputClient.setBounds(20, 170, 160, 30);
 
         buttonLocaleClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleClient.setText("LOCALIZAR");
@@ -207,21 +213,21 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocaleClient);
-        buttonLocaleClient.setBounds(670, 100, 100, 30);
+        buttonLocaleClient.setBounds(190, 170, 100, 30);
 
         buttonNewClient.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonNewClient.setText("NOVO");
         getContentPane().add(buttonNewClient);
-        buttonNewClient.setBounds(780, 100, 70, 30);
+        buttonNewClient.setBounds(300, 170, 70, 30);
 
         txtProvider.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtProvider.setText("Fornecedor");
         getContentPane().add(txtProvider);
-        txtProvider.setBounds(20, 140, 110, 20);
+        txtProvider.setBounds(20, 210, 110, 20);
 
         inputProvider.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputProvider);
-        inputProvider.setBounds(20, 170, 160, 30);
+        inputProvider.setBounds(20, 240, 90, 30);
 
         buttonLocaleProduct.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleProduct.setText("LOCALIZAR");
@@ -231,12 +237,12 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocaleProduct);
-        buttonLocaleProduct.setBounds(190, 100, 100, 30);
+        buttonLocaleProduct.setBounds(120, 100, 100, 30);
 
         buttonNewProvider.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        buttonNewProvider.setText("NOVO");
+        buttonNewProvider.setText("TODOS");
         getContentPane().add(buttonNewProvider);
-        buttonNewProvider.setBounds(300, 170, 70, 30);
+        buttonNewProvider.setBounds(230, 240, 90, 30);
 
         buttonLocaleProvider.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         buttonLocaleProvider.setText("LOCALIZAR");
@@ -246,27 +252,27 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocaleProvider);
-        buttonLocaleProvider.setBounds(190, 170, 100, 30);
+        buttonLocaleProvider.setBounds(120, 240, 100, 30);
 
         txtFormPayment.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtFormPayment.setText("Forma de Pagamento");
         getContentPane().add(txtFormPayment);
-        txtFormPayment.setBounds(430, 140, 149, 27);
+        txtFormPayment.setBounds(20, 280, 149, 27);
 
         groupFormPayment.add(inputInCash);
         inputInCash.setText("A Vista");
         getContentPane().add(inputInCash);
-        inputInCash.setBounds(430, 170, 61, 23);
+        inputInCash.setBounds(20, 310, 61, 23);
 
         groupFormPayment.add(inputTerm);
         inputTerm.setText("A Prazo");
         getContentPane().add(inputTerm);
-        inputTerm.setBounds(520, 170, 64, 23);
+        inputTerm.setBounds(110, 310, 64, 23);
 
         txtPaymentMethod.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtPaymentMethod.setText("Meio de Pagamento");
         getContentPane().add(txtPaymentMethod);
-        txtPaymentMethod.setBounds(640, 140, 140, 27);
+        txtPaymentMethod.setBounds(210, 280, 140, 27);
 
         inputFormPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Dinheiro", "Boleto", "Carnê", "Cartão", "Cheque" }));
         inputFormPayment.addItemListener(new java.awt.event.ItemListener() {
@@ -280,45 +286,45 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(inputFormPayment);
-        inputFormPayment.setBounds(640, 170, 102, 30);
+        inputFormPayment.setBounds(210, 310, 102, 30);
 
         txtDateOfSale.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDateOfSale.setText("Data do Pedido");
         getContentPane().add(txtDateOfSale);
-        txtDateOfSale.setBounds(20, 220, 108, 27);
+        txtDateOfSale.setBounds(580, 280, 108, 30);
 
         txtDeliveryForecast.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtDeliveryForecast.setText("Previsão de Entrega");
         getContentPane().add(txtDeliveryForecast);
-        txtDeliveryForecast.setBounds(270, 220, 145, 27);
+        txtDeliveryForecast.setBounds(720, 280, 145, 27);
 
-        txtSubTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtSubTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtSubTotal.setText("SubTotal");
         getContentPane().add(txtSubTotal);
-        txtSubTotal.setBounds(500, 540, 64, 20);
+        txtSubTotal.setBounds(490, 630, 80, 40);
 
         outputSubTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         outputSubTotal.setText("0,00");
         getContentPane().add(outputSubTotal);
-        outputSubTotal.setBounds(580, 540, 100, 24);
+        outputSubTotal.setBounds(570, 640, 120, 24);
 
-        txtTotal.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         txtTotal.setText("Total");
         getContentPane().add(txtTotal);
-        txtTotal.setBounds(700, 540, 36, 20);
+        txtTotal.setBounds(700, 630, 80, 40);
 
         outputTotal.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputTotal.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         outputTotal.setText("0,00");
         getContentPane().add(outputTotal);
-        outputTotal.setBounds(740, 540, 110, 24);
+        outputTotal.setBounds(750, 640, 120, 24);
 
         txtNewOrder.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         txtNewOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtNewOrder.setText("NOVO PEDIDO");
         getContentPane().add(txtNewOrder);
-        txtNewOrder.setBounds(300, 20, 280, 32);
+        txtNewOrder.setBounds(310, 20, 280, 32);
 
         buttonRemove.setText("REMOVER");
         buttonRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -327,34 +333,34 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonRemove);
-        buttonRemove.setBounds(140, 540, 100, 25);
+        buttonRemove.setBounds(140, 640, 100, 25);
 
         txtStatus.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtStatus.setText("Status:");
         getContentPane().add(txtStatus);
-        txtStatus.setBounds(570, 220, 57, 27);
+        txtStatus.setBounds(390, 280, 57, 27);
 
         groupStatus.add(inputFinishSale);
         inputFinishSale.setText("Finalizada");
         getContentPane().add(inputFinishSale);
-        inputFinishSale.setBounds(630, 220, 80, 30);
+        inputFinishSale.setBounds(390, 310, 80, 30);
 
         groupStatus.add(inputPendingSale);
         inputPendingSale.setText("Pendente");
         getContentPane().add(inputPendingSale);
-        inputPendingSale.setBounds(720, 220, 90, 30);
+        inputPendingSale.setBounds(480, 310, 90, 30);
 
         txtItems.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtItems.setText("Itens");
         getContentPane().add(txtItems);
-        txtItems.setBounds(310, 260, 40, 20);
+        txtItems.setBounds(310, 350, 40, 20);
 
         inputObservation.setColumns(20);
         inputObservation.setRows(5);
         observationNewOrder.setViewportView(inputObservation);
 
         getContentPane().add(observationNewOrder);
-        observationNewOrder.setBounds(20, 290, 280, 240);
+        observationNewOrder.setBounds(20, 380, 280, 240);
 
         buttonSave.setText("SALVAR");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -363,7 +369,7 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonSave);
-        buttonSave.setBounds(260, 540, 78, 25);
+        buttonSave.setBounds(260, 640, 78, 25);
 
         buttonAdd.setText("ADICIONAR");
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -372,17 +378,44 @@ public class NewOrder extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAdd);
-        buttonAdd.setBounds(20, 540, 100, 25);
+        buttonAdd.setBounds(20, 640, 100, 25);
 
         inputDateOfSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputDateOfSale);
-        inputDateOfSale.setBounds(140, 220, 90, 30);
+        inputDateOfSale.setBounds(580, 310, 90, 30);
 
         inputDeliveryForecast.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputDeliveryForecast);
-        inputDeliveryForecast.setBounds(430, 220, 90, 30);
+        inputDeliveryForecast.setBounds(720, 310, 90, 30);
 
-        setSize(new java.awt.Dimension(874, 609));
+        txtNameProduct.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameProduct.setText("Nome do Produto");
+        getContentPane().add(txtNameProduct);
+        txtNameProduct.setBounds(360, 70, 140, 30);
+
+        inputNameProduct.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(inputNameProduct);
+        inputNameProduct.setBounds(360, 100, 380, 30);
+
+        txtNameClient.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameClient.setText("Nome do Cliente");
+        getContentPane().add(txtNameClient);
+        txtNameClient.setBounds(430, 140, 160, 30);
+
+        inputNameClient.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(inputNameClient);
+        inputNameClient.setBounds(430, 170, 380, 30);
+
+        txtNameProvider.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameProvider.setText("Nome do Fornecedor");
+        getContentPane().add(txtNameProvider);
+        txtNameProvider.setBounds(380, 210, 170, 30);
+
+        inputNameProvider.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        getContentPane().add(inputNameProvider);
+        inputNameProvider.setBounds(380, 240, 380, 30);
+
+        setSize(new java.awt.Dimension(900, 707));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -409,9 +442,9 @@ public class NewOrder extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputFormPaymentActionPerformed
 
-    private void buttonNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewProductActionPerformed
+    private void buttonAllProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAllProductsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonNewProductActionPerformed
+    }//GEN-LAST:event_buttonAllProductsActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         if(x==0){
@@ -474,11 +507,11 @@ public class NewOrder extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonAllProducts;
     private javax.swing.JButton buttonLocaleClient;
     private javax.swing.JButton buttonLocaleProduct;
     private javax.swing.JButton buttonLocaleProvider;
     private javax.swing.JButton buttonNewClient;
-    private javax.swing.JButton buttonNewProduct;
     private javax.swing.JButton buttonNewProvider;
     private javax.swing.JButton buttonRemove;
     private javax.swing.JButton buttonSave;
@@ -490,6 +523,9 @@ public class NewOrder extends javax.swing.JFrame {
     private javax.swing.JRadioButton inputFinishSale;
     private javax.swing.JComboBox<String> inputFormPayment;
     private javax.swing.JRadioButton inputInCash;
+    public static javax.swing.JTextField inputNameClient;
+    private javax.swing.JTextField inputNameProduct;
+    private javax.swing.JTextField inputNameProvider;
     private javax.swing.JTextArea inputObservation;
     private javax.swing.JRadioButton inputPendingSale;
     private javax.swing.JTextField inputProductCode;
@@ -506,6 +542,9 @@ public class NewOrder extends javax.swing.JFrame {
     private javax.swing.JLabel txtDeliveryForecast;
     private javax.swing.JLabel txtFormPayment;
     private javax.swing.JLabel txtItems;
+    private javax.swing.JLabel txtNameClient;
+    private javax.swing.JLabel txtNameProduct;
+    private javax.swing.JLabel txtNameProvider;
     public static javax.swing.JLabel txtNewOrder;
     private javax.swing.JLabel txtObservation;
     private javax.swing.JLabel txtPaymentMethod;
