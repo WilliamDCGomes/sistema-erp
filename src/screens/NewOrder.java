@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import connectionbd.ConnectionModule;
+import javax.swing.table.DefaultTableModel;
 public class NewOrder extends javax.swing.JFrame {
     int x = 0;
     Connection connection = null;
@@ -47,10 +48,27 @@ public class NewOrder extends javax.swing.JFrame {
             pst.setString(10,inputObservation.getText());
             pst.setString(11,inputProvider.getText());
             pst.executeUpdate();
+            addProducts(id);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    private void addProducts(int id){
+        DefaultTableModel table = (DefaultTableModel) tableItems.getModel();
+        String sql = "insert into addProducts(codOrder, barCode, quantity, price)values(?,?,?,?)";
+        try {
+            for(int i=table.getRowCount()-1; i >= 0; i--){
+                pst = connection.prepareStatement(sql);
+                pst.setInt(1, id);
+                pst.setString(2, tableItems.getModel().getValueAt(i,0).toString());
+                pst.setInt(3, Integer.parseInt(tableItems.getModel().getValueAt(i,2).toString()));
+                pst.setString(4, tableItems.getModel().getValueAt(i,3).toString().replace(",", "."));
+                pst.executeUpdate();
+            }
             JOptionPane.showMessageDialog(null,"PEDIDO CADASTRADO COM SUCESSO");
             OrderScreen orderScreen = new OrderScreen();
             this.dispose();
-            orderScreen.setTitle("Pedido: " + aux[aux.length - 1]);
+            orderScreen.setTitle("Pedido: " + Integer.toString(id));
             orderScreen.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -319,7 +337,7 @@ public class NewOrder extends javax.swing.JFrame {
         groupStatus.add(inputFinishSale);
         inputFinishSale.setText("Finalizada");
         getContentPane().add(inputFinishSale);
-        inputFinishSale.setBounds(630, 220, 73, 30);
+        inputFinishSale.setBounds(630, 220, 80, 30);
 
         groupStatus.add(inputPendingSale);
         inputPendingSale.setText("Pendente");
