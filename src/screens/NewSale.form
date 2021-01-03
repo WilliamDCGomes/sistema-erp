@@ -70,7 +70,7 @@
     <Component class="javax.swing.JTextField" name="inputCod">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -98,7 +98,7 @@
     <Component class="javax.swing.JTextField" name="inputAmount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -127,7 +127,7 @@
     <Component class="javax.swing.JTextField" name="inputCodOfEmployee">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -197,7 +197,7 @@
     <Component class="javax.swing.JTextField" name="inputClient">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -260,7 +260,7 @@
     <Component class="javax.swing.JTextField" name="inputDiscount">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Events>
@@ -580,7 +580,7 @@
     <Component class="javax.swing.JLabel" name="txtNameProduct">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="1"/>
+          <Font name="Dialog" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nome do Produto"/>
       </Properties>
@@ -593,7 +593,7 @@
     <Component class="javax.swing.JTextField" name="inputNameProduct">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -621,7 +621,7 @@
     <Component class="javax.swing.JLabel" name="txtNameEmployee">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="1"/>
+          <Font name="Dialog" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nome do Vendedor"/>
       </Properties>
@@ -634,7 +634,7 @@
     <Component class="javax.swing.JTextField" name="inputNameEmployee">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -646,7 +646,7 @@
     <Component class="javax.swing.JLabel" name="txtNameClient">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="1"/>
+          <Font name="Dialog" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nome do Cliente"/>
       </Properties>
@@ -659,7 +659,7 @@
     <Component class="javax.swing.JTextField" name="inputNameClient">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -674,7 +674,7 @@
     <Component class="javax.swing.JTextField" name="inputDateOfSale">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="15" style="0"/>
+          <Font name="Dialog" size="15" style="0"/>
         </Property>
       </Properties>
       <Constraints>
@@ -699,7 +699,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtSubTotal1">
+    <Component class="javax.swing.JLabel" name="txtDescont">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="15" style="1"/>
@@ -806,7 +806,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="160" y="300" width="20" height="30"/>
+          <AbsoluteConstraints x="60" y="370" width="20" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -824,6 +824,23 @@
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="880" y="120" width="20" height="30"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtRequiredField9">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="20" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="*"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="160" y="300" width="20" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

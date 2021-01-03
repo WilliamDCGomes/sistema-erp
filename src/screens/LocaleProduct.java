@@ -66,7 +66,7 @@ public class LocaleProduct extends javax.swing.JFrame {
         getContentPane().add(txtCodeProduct);
         txtCodeProduct.setBounds(20, 70, 150, 20);
         getContentPane().add(inputProductCode);
-        inputProductCode.setBounds(20, 100, 240, 25);
+        inputProductCode.setBounds(20, 100, 240, 30);
 
         buttonLocale.setText("LOCALIZAR");
         buttonLocale.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class LocaleProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonLocale);
-        buttonLocale.setBounds(20, 150, 110, 23);
+        buttonLocale.setBounds(20, 150, 110, 25);
 
         buttonAllProducts.setText("TODOS OS PRODUTOS");
         buttonAllProducts.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class LocaleProduct extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buttonAllProducts);
-        buttonAllProducts.setBounds(160, 150, 170, 23);
+        buttonAllProducts.setBounds(160, 150, 170, 25);
 
         setSize(new java.awt.Dimension(400, 226));
         setLocationRelativeTo(null);

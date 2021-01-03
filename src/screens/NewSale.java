@@ -442,7 +442,7 @@ public class NewSale extends javax.swing.JFrame {
         inputNameClient = new javax.swing.JTextField();
         inputDateOfSale = new javax.swing.JTextField();
         buttonAllEmployees = new javax.swing.JButton();
-        txtSubTotal1 = new javax.swing.JLabel();
+        txtDescont = new javax.swing.JLabel();
         outputDescont = new javax.swing.JLabel();
         txtRequiredField3 = new javax.swing.JLabel();
         txtRequiredField4 = new javax.swing.JLabel();
@@ -450,6 +450,7 @@ public class NewSale extends javax.swing.JFrame {
         txtRequiredField6 = new javax.swing.JLabel();
         txtRequiredField7 = new javax.swing.JLabel();
         txtRequiredField8 = new javax.swing.JLabel();
+        txtRequiredField9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Venda:");
@@ -472,7 +473,7 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtCod);
         txtCod.setBounds(20, 50, 63, 27);
 
-        inputCod.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputCod.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputCod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputCodKeyPressed(evt);
@@ -486,7 +487,7 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtAmount);
         txtAmount.setBounds(710, 50, 82, 27);
 
-        inputAmount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputAmount.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputAmount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 inputAmountFocusLost(evt);
@@ -505,7 +506,7 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtCodOfSaller);
         txtCodOfSaller.setBounds(20, 120, 102, 27);
 
-        inputCodOfEmployee.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputCodOfEmployee.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputCodOfEmployee.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputCodOfEmployeeKeyPressed(evt);
@@ -539,7 +540,7 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtClient);
         txtClient.setBounds(20, 190, 110, 27);
 
-        inputClient.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputClient.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 inputClientKeyPressed(evt);
@@ -573,7 +574,7 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(txtDiscount);
         txtDiscount.setBounds(550, 260, 68, 27);
 
-        inputDiscount.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputDiscount.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         inputDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 inputDiscountFocusLost(evt);
@@ -718,12 +719,12 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(buttonAllProduct);
         buttonAllProduct.setBounds(230, 80, 79, 30);
 
-        txtNameProduct.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameProduct.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNameProduct.setText("Nome do Produto");
         getContentPane().add(txtNameProduct);
         txtNameProduct.setBounds(320, 50, 140, 30);
 
-        inputNameProduct.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputNameProduct.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNameProduct);
         inputNameProduct.setBounds(320, 80, 380, 30);
 
@@ -737,25 +738,25 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(buttonLocaleEmployee);
         buttonLocaleEmployee.setBounds(120, 150, 100, 30);
 
-        txtNameEmployee.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameEmployee.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNameEmployee.setText("Nome do Vendedor");
         getContentPane().add(txtNameEmployee);
         txtNameEmployee.setBounds(320, 120, 160, 30);
 
-        inputNameEmployee.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputNameEmployee.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNameEmployee);
         inputNameEmployee.setBounds(320, 150, 380, 30);
 
-        txtNameClient.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtNameClient.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
         txtNameClient.setText("Nome do Cliente");
         getContentPane().add(txtNameClient);
         txtNameClient.setBounds(380, 190, 160, 30);
 
-        inputNameClient.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputNameClient.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputNameClient);
         inputNameClient.setBounds(380, 220, 380, 30);
 
-        inputDateOfSale.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        inputDateOfSale.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         getContentPane().add(inputDateOfSale);
         inputDateOfSale.setBounds(140, 260, 100, 30);
 
@@ -769,10 +770,10 @@ public class NewSale extends javax.swing.JFrame {
         getContentPane().add(buttonAllEmployees);
         buttonAllEmployees.setBounds(230, 150, 79, 30);
 
-        txtSubTotal1.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
-        txtSubTotal1.setText("Desconto");
-        getContentPane().add(txtSubTotal1);
-        txtSubTotal1.setBounds(374, 620, 80, 20);
+        txtDescont.setFont(new java.awt.Font("Dialog", 1, 15)); // NOI18N
+        txtDescont.setText("Desconto");
+        getContentPane().add(txtDescont);
+        txtDescont.setBounds(374, 620, 80, 20);
 
         outputDescont.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         outputDescont.setText("0,00");
@@ -812,7 +813,7 @@ public class NewSale extends javax.swing.JFrame {
         txtRequiredField7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtRequiredField7.setText("*");
         getContentPane().add(txtRequiredField7);
-        txtRequiredField7.setBounds(160, 300, 20, 30);
+        txtRequiredField7.setBounds(60, 370, 20, 30);
 
         txtRequiredField8.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         txtRequiredField8.setForeground(new java.awt.Color(255, 0, 51));
@@ -820,6 +821,13 @@ public class NewSale extends javax.swing.JFrame {
         txtRequiredField8.setText("*");
         getContentPane().add(txtRequiredField8);
         txtRequiredField8.setBounds(880, 120, 20, 30);
+
+        txtRequiredField9.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        txtRequiredField9.setForeground(new java.awt.Color(255, 0, 51));
+        txtRequiredField9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtRequiredField9.setText("*");
+        getContentPane().add(txtRequiredField9);
+        txtRequiredField9.setBounds(160, 300, 20, 30);
 
         setSize(new java.awt.Dimension(912, 688));
         setLocationRelativeTo(null);
@@ -1108,6 +1116,7 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JLabel txtCod;
     private javax.swing.JLabel txtCodOfSaller;
     private javax.swing.JLabel txtDateOfSale;
+    private javax.swing.JLabel txtDescont;
     private javax.swing.JLabel txtDiscount;
     private javax.swing.JLabel txtDiscount1;
     private javax.swing.JLabel txtFormPayment;
@@ -1123,9 +1132,9 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JLabel txtRequiredField6;
     private javax.swing.JLabel txtRequiredField7;
     private javax.swing.JLabel txtRequiredField8;
+    private javax.swing.JLabel txtRequiredField9;
     private javax.swing.JLabel txtStatus;
     private javax.swing.JLabel txtSubTotal;
-    private javax.swing.JLabel txtSubTotal1;
     private javax.swing.JLabel txtTotal;
     // End of variables declaration//GEN-END:variables
 }

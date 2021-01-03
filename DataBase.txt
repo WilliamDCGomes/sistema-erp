@@ -162,8 +162,6 @@ create table orderProduct(
 	id int not null primary key auto_increment,
     codOrder int not null,
     codClient varchar(15) not null,
-    paymentForm varchar(10) not null,
-    paymentMethod varchar(10) not null,
     dateOrder varchar(11) not null,
     deliveryForecast varchar(11) default null,
     statusOrder varchar(15) default "Pendente",
